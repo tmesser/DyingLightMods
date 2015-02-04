@@ -1,0 +1,34 @@
+sub main() 
+{
+    //DW:EU:En,Fr,It,De,Es,Pl,Ru,Nl:
+    TitleId("CUSA00050_00")
+    {
+        AgeRatingRestriction(18);
+        ServiceLabel(0);
+        SavegameTitle("&GameName&");
+        ProfileTitle ("&GameName&");
+    }
+
+    //DW:NA:En,Fr,El:
+    TitleId("CUSA00078_00")
+    {
+        AgeRatingRestriction(17);
+        ServiceLabel(0);
+        SavegameTitle("&GameName&");
+        ProfileTitle ("&GameName&");
+    }
+
+    //DW:SA:En,El,Br:    
+    TitleId("CUSA01473_00")
+    {
+        AgeRatingRestriction(17);
+        ServiceLabel(1);
+        SavegameTitle("&GameName& BR");
+        ProfileTitle ("&GameName& BR");
+    }
+    
+    TitleId("default")
+    {
+        ServiceLabel(0);
+    }
+}

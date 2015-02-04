@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<QuestsDefinitions
+     level="mykorian_city"
+     pxsl_line="3">
+    <!-- quest AMurderAmongUs -parent=Q_InnerCity -quest_giver=zahid -difficulty=medium -reward_set=def_reward -->
+        <!-- -=    _     __  __             _             _                         _   _     -->
+        <!-- -=   /_\   |  \/  |_  _ _ _ __| |___ _ _    /_\  _ __  ___ _ _  __ _  | | | |___ -->
+        <!-- -=  / _ \  | |\/| | || | '_/ _` / -_) '_|  / _ \| '  \/ _ \ ' \/ _` | | |_| (_-< -->
+        <!-- -= /_/ \_\ |_|  |_|\_,_|_| \__,_\___|_|   /_/ \_\_|_|_\___/_||_\__, |  \___//__/ -->
+        <!-- -=                                                             |___/             -->
+        <!-- -= talking with the guard -->
+        <!-- ,talk <<A Murder Among Us - START>> zahid zahid_amurderamongus_01DLG -show=false -->
+            <!-- ,debugpos SpawnPoint amurderamongus_sp_01 -->
+            <!--  -->
+        <!-- ,BLOCK _ -obj=<<Follow the guard>> -->
+            <!-- ,move _ NPCLifePlace amurderamongus_lp_01  -->
+                <!-- ,start AIEscortNode AMurderAmongUs_node_01 -->
+                <!-- ,ai HumanAI zahid -->
+        <!-- -= ,teleport _ NPCLifePlace amurderamongus_lp_01 -->
+            <!-- -= ,ai HumanAI zahid -->
+            <!--  -->
+        <!-- ,BLOCK _ -obj=&amurderamongus_OBJ_meetwithguard& -= meeting at night -->
+            <!-- ,talk _ zahid zahid_amurderamongus_USE -->
+            <!-- ,enable _ DoorDI amurderamongus_door_01 -->
+        <!--  -->
+    <!-- quest AMurderAmongUs_zahid -parent=AMurderAmongUs -->
+        <!-- ,wait _ 10 -->
+        <!-- ,move _ NPCLifePlace amurderamongus_lp_02 -->
+            <!-- ,start AIEscortNode AMurderAmongUs_node_10 -->
+            <!-- ,ai HumanAI zahid            -->
+        <!--  -->
+    <!--  -->
+    <!-- quest AMurderAmongUs2 -parent=AMurderAmongUs -glued=true -->
+        <!-- ,BLOCK _ -obj=&amurderamongus_OBJ_searchforclues& -= searching for clues -->
+            <!-- ,wait _ 1 -->
+            <!-- ,AND _ -->
+                <!-- path -->
+                    <!-- ,use _ PhysicalSwitchDI amurderamongus_ps_02 -state=on -show=false -->
+                        <!-- ,area ZoneBox amurderamongus_area_01 -->
+                    <!-- ,radio-dialog _ voice2d Player_amurderamongus_04DLG -->
+                <!-- path -->
+                    <!-- ,use _ PhysicalSwitchDI amurderamongus_ps_01 -state=on -show=false -->
+                        <!-- ,area ZoneBox amurderamongus_area_01 -->
+                    <!-- ,radio-dialog _ voice2d Player_amurderamongus_02DLG -->
+                    <!--  -->
+                <!-- path -->
+                    <!-- ,take _ QuestInventoryItemDI amurderamongus_keys -show=false -->
+                        <!-- ,area ZoneBox amurderamongus_area_01 -->
+                    <!-- ,radio-dialog _ voice2d Player_amurderamongus_03DLG -->
+                    <!-- ,enable _ DoorDI amurderamongus_door_02 -->
+        <!-- ,BLOCK _ -obj=&amurderamongus_OBJ_talkwithlocals& -->
+            <!-- ,OR _ -->
+                <!-- path -->
+                    <!-- ,talk _ Hayri Hayri_amurderamongus_07DLG -->
+                    <!-- ,semaphore _ -->
+                <!-- path -->
+                    <!-- ,talk _ Naila Naila_amurderamongus_05DLG -->
+                    <!-- ,semaphore _ -->
+                <!-- path -->
+                    <!-- ,talk _ Tarik Tarik_amurderamongus_06DLG -->
+            <!--  -->
+        <!-- ,BLOCK _ -obj=&amurderamongus_OBJ_findobject& -= finding a knife -->
+            <!-- ,AND _ -->
+                <!-- path -->
+                    <!-- ,take _ QuestInventoryItemDI amurderamongus_knife -show=false -->
+                        <!-- ,area ZoneBox amurderamongus_area_02 -->
+        <!--  -->
+        <!-- ,BLOCK _ -obj=&amurderamongus_OBJ_talkwithtaylan& -= talking with taylan -->
+            <!-- ,talk _ taylan Player_amurderamongus_08DLG -->
+            <!--  -->
+        <!-- ,BLOCK _ -obj=&amurderamongus_OBJ_talkwithguard& -= talking with the guard -->
+            <!-- -= ,teleport _ NPCLifePlace amurderamongus_lp_02 -->
+                <!-- -= ,ai HumanAI Zahid -->
+            <!-- ,talk _ Zahid Zahid_amurderamongus_09DLG -->
+            <!-- ,reward _ -->
+</QuestsDefinitions>

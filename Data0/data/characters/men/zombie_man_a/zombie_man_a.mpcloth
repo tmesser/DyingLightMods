@@ -1,0 +1,9 @@
+MeshPartClothIfVisible("mpc_zombie_man_a_arm_rag.phx", 1, 1, "torso_a")
+MeshPartClothIfVisible("mpc_zombie_man_a_leg_rag.phx", 1, 1, "pants_a")
+MeshPartClothIfVisible("mpc_zombie_man_a_jacket_belt.phx", 1, 1, "sc_torso_b")
+MeshPartClothIfVisible("mpc_head_cut.phx", 1, 1, "head_main_cut_a")
+
+
+
+
+

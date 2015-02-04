@@ -1,0 +1,83 @@
+sub ppfx()
+{
+	SetRenderTargetsView("_RGBA8_A_SRGB_Z", "noresolve");
+	
+	Scene("std");
+	
+	Resolve(0, "");
+	
+	If("i_main_menu_on", "", "", "", "")
+	{
+		IfTechnique("trn0", "")
+		{
+			SetClearColor(0.0, 0.0, 0.0, 0.0); 
+			SetRenderTargetsView("_FONTS", "noresolve color");                          		
+		}
+	}             
+				Scene("trn0");
+      
+	If("i_main_menu_on", "", "", "", "")
+	{
+		IfTechnique("trn0", "")
+		{
+			resolve(0, "");
+		}
+	}             
+
+  
+	If("i_main_menu_on", "", "", "", "")
+	{
+		IfTechnique("trn2", "")
+		{         
+    
+    /*  
+			SetRenderTargetsView("_HUD", "noresolve");
+				SetTexture(16, "NRM");            
+					Mesh("tri_screen.msh", "copy_smooth.mat", "std"); 
+			resolve(0, "");
+      */		
+			
+	   SetRenderTargetsView("_HUD_SMALL", "noresolve");
+				SetBuffer(8, "NRM");
+					Mesh("quad_screen.msh", "copy_hud_glow.mat", "std");
+			resolve(0, "");
+
+			SetRenderTargetsView("_HUD_SMALL", "noresolve");
+				SetBuffer(8, "4_RGBA16F_A");
+					Mesh("quad_screen.msh", "blur_gauss_17_v.mat", "std");
+			resolve(0, "");
+
+			SetRenderTargetsView("_HUD_SMALL", "noresolve");
+				SetBuffer(8, "4_RGBA16F_A");
+					Mesh("quad_screen.msh", "blur_gauss_17_h.mat", "std");
+			resolve(0, "");                     
+		}
+	}
+
+    SetRenderTarget("backbuffer", "");
+
+	IfTechnique("trn2", "")
+	{
+		SetRenderTargetsView("_RGBA8_A_SRGB_Z", "noresolve");	    
+			SetBuffer(9, "NRM");				     			     
+			SetBuffer(10, "4_RGBA16F_A");	     
+	}
+		Scene("trn2");	
+	IfTechnique("trn2", "")
+	{
+		resolve(0, "");
+	}
+	
+	SetClearColor(0.0, 0.0, 0.0, 0.0);
+    SetRenderTarget("backbuffer", "color");
+		SetBuffer(8, "1_RGBA8_A");
+			If("f_pp_screen_scaling_on", "", "", "", "")
+			{
+				Mesh("quad_screen.msh", "screen_scaling.mat", "std");
+			}
+			If("f_pp_screen_scaling_on", "", "", "", "not")
+			{
+				Mesh("quad_screen.msh", "upsampling_fxaa.mat", "std");
+			}
+			
+} 

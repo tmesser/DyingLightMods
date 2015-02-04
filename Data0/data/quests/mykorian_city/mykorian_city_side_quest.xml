@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<QuestsDefinitions
+     level="mykorian_city"
+     pxsl_line="3">
+    <!-- quest sq_waytomykorian_plankfall -parent=Q_Start02 -->
+        <!-- ,OR _  -->
+            <!-- path -->
+                <!-- ,goto _ Marker sq_waytomykorian_plankfall01 -distance=2 -->
+            <!-- path -->
+                <!-- ,goto _ Marker sq_waytomykorian_plankfall02 -distance=1 -->
+        <!-- ,movie _ CIN_plank_fall -->
+</QuestsDefinitions>

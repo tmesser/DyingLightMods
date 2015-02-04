@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<QuestsDefinitions
+     level="mykorian_city"
+     pxsl_line="3">
+    <Quest
+         name="Fuel"
+         parent="Q_WayToMykorians03"
+         quest_giver="taylan"
+         difficulty="medium"
+         reward_set="Fuel_reward"
+         pxsl_line="5">
+        <Phase
+             type="AND"
+             name="_"
+             objective="&amp;Fuel_OBJ_TalkToTaylan&amp;"
+             pxsl_line="6">
+            <Path
+                 pxsl_line="6">
+                <Phase
+                     type="enable"
+                     name="_"
+                     pxsl_line="7">
+                    <Object
+                         pxsl_line="7">
+                        <QuestObject
+                             class="RestingPlace"
+                             name="RestingPlace::restingplace_for_player"
+                             pxsl_line="7" />
+                    </Object>
+                </Phase>
+                <Phase
+                     type="talk"
+                     name="Fuel - START"
+                     speaker="taylan"
+                     group="Taylan_Fuel_USE"
+                     following_group="Taylan_Fuel_INP"
+                     pxsl_line="8">
+                    <DebugPlayerPosition
+                         pxsl_line="9">
+                        <QuestObject
+                             class="SpawnPoint"
+                             name="Taylan_sp"
+                             pxsl_line="9" />
+                    </DebugPlayerPosition>
+                </Phase>
+            </Path>
+        </Phase>
+    </Quest>
+    <Quest
+         name="Fuel03"
+         parent="Fuel02"
+         glued="true"
+         leading_portal="portal_Wasteland_to_MykorianCity"
+         pxsl_line="11">
+        <Phase
+             type="AND"
+             name="_"
+             objective="&amp;Fuel_OBJ_TalkToTaylan&amp;"
+             pxsl_line="12">
+            <Path
+                 pxsl_line="12">
+                <Phase
+                     type="talk"
+                     name="_"
+                     speaker="taylan"
+                     group="Taylan_Fuel_END"
+                     pxsl_line="13" />
+                <Phase
+                     type="set reward"
+                     name="_"
+                     pxsl_line="14" />
+            </Path>
+        </Phase>
+    </Quest>
+</QuestsDefinitions>

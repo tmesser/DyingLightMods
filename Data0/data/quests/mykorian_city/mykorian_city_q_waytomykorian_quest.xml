@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<QuestsDefinitions
+     level="mykorian_city"
+     pxsl_line="3">
+    <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+    <!-- QUEST NAME : Q_WayToMykorians -->
+    <!-- FROM       : METRO -->
+    <!-- TO         :  -->
+    <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+    <!-- quest __Q_WayToMykorians03_hidelight -parent=Q_Start02 -->
+        <!-- ,hide-multi _ -->
+            <!-- ,o AppearGroup lamp1::flare         -->
+            <!-- ,o AppearGroup lamp4::flare     -->
+            <!-- ,o AppearGroup lamp6::flare     -->
+            <!-- ,o AppearGroup lamp9::flare     -->
+            <!-- ,o AppearGroup lamp10::flare     -->
+            <!-- ,o AppearGroup lamp12::flare     -->
+            <!--  -->
+        <!-- ,enable _ QuestEnableGroup mykorian_city_safezone::safehub -->
+    <!--  -->
+        <!-- ,disable-multi _  -->
+            <!-- -= ,o QuestEnableGroup lamp1::light -->
+            <!-- -= ,o QuestEnableGroup lamp2::light -->
+            <!-- -= ,o QuestEnableGroup lamp3::light -->
+            <!-- ,o QuestEnableGroup lamp4::light -->
+            <!-- ,o QuestEnableGroup lamp1::light -->
+            <!-- ,o QuestEnableGroup lamp6::light -->
+            <!-- ,o QuestEnableGroup lamp9::light -->
+            <!-- ,o QuestEnableGroup lamp10::light -->
+            <!-- ,o QuestEnableGroup lamp12::light -->
+            <!-- -= ,o QuestEnableGroup lamp5::light -->
+            <!-- ,o QuestEnableGroup lamp6::light -->
+            <!-- -= ,o QuestEnableGroup lamp7::light -->
+        <!-- ,enable-multi _ -->
+            <!-- -= ,o QuestEnableGroup lamp_1::light -->
+            <!-- ,o QuestEnableGroup lamp3::light -->
+    <Quest
+         name="__Q_WayToMykorians03_light"
+         parent="Q_WayToMykorians02"
+         pxsl_line="40">
+        <!-- ,use _ PhysicalSwitchDI circuit_switch_001 -state=on -show=false -->
+        <Phase
+             type="wait guard"
+             name="_"
+             time="1"
+             pxsl_line="42" />
+        <!-- ,enable _ QuestEnableGroup lamp1::light -->
+        <!-- ,set-skin-multi _  -skin_name=LightOn -->
+            <!-- ,model_object ModelObject lamp1::lamp1 -->
+            <!-- ,model_object ModelObject lamp1::lamp2 -->
+        <!-- ,show _ AppearGroup lamp1::flare -->
+            <!--  -->
+        <!--  -->
+        <!-- ,wait _ 0.2 -->
+        <!-- ,enable _ QuestEnableGroup lamp4::light -->
+        <!-- ,set-skin-multi _  -skin_name=LightOn -->
+            <!-- ,model_object ModelObject lamp4::lamp1 -->
+            <!-- ,model_object ModelObject lamp4::lamp2 -->
+        <!-- ,show _ AppearGroup lamp4::flare -->
+        <!--  -->
+        <!--  -->
+        <!-- ,wait _ 0.2 -->
+        <!-- ,enable _ AISpawnBoxWaves infecteds1 -->
+        <!-- ,enable _ AISpawnBoxWaves infecteds2 -->
+        <!-- ,enable _ SoundEmitterSimple infectedtaunt2 -->
+        <!-- ,wait _ 0.2 -->
+        <!-- ,enable _ QuestEnableGroup lamp6::light -->
+        <!-- ,set-skin-multi _  -skin_name=LightOn -->
+            <!-- ,model_object ModelObject lamp6::lamp1 -->
+            <!-- ,model_object ModelObject lamp6::lamp2 -->
+        <!-- ,show _ AppearGroup lamp6::flare -->
+        <!--  -->
+        <!-- ,wait _ 0.1 -->
+        <!-- ,enable _ SoundEmitterSimple infectedtaunt -->
+        <!-- ,wait _ 0.7 -->
+        <!-- ,enable _ QuestEnableGroup lamp9::light -->
+        <!-- ,set-skin-multi _  -skin_name=LightOn -->
+            <!-- ,model_object ModelObject lamp9::lamp1 -->
+            <!-- ,model_object ModelObject lamp9::lamp2 -->
+        <!-- ,show _ AppearGroup lamp9::flare -->
+        <!--  -->
+        <!-- -= ,enable _ QuestEnableGroup lamp3::light -->
+        <!-- -= ,set-skin-multi _  -skin_name=LightOn -->
+            <!-- -= ,model_object ModelObject lamp3::lamp1 -->
+            <!-- -= ,model_object ModelObject lamp3::lamp2 -->
+        <!-- -= ,show _ AppearGroup lamp3::flare -->
+        <!--  -->
+        <!-- ,wait _ 0.8 -->
+        <!-- ,enable _ SoundEmitterSimple infectedtaunt3 -->
+        <!--  -->
+        <!-- ,enable _ QuestEnableGroup lamp10::light -->
+        <!-- ,set-skin-multi _  -skin_name=LightOn -->
+            <!-- ,model_object ModelObject lamp10::lamp1 -->
+            <!-- ,model_object ModelObject lamp10::lamp2 -->
+        <!-- ,show _ AppearGroup lamp10::flare -->
+        <!--  -->
+        <!--  -->
+        <!-- ,wait _ 0.8 -->
+        <!-- ,enable _ QuestEnableGroup lamp12::light -->
+        <!-- ,set-skin-multi _  -skin_name=LightOn -->
+            <!-- ,model_object ModelObject lamp12::lamp1 -->
+            <!-- ,model_object ModelObject lamp12::lamp2 -->
+        <!-- ,show _ AppearGroup lamp12::flare -->
+    </Quest>
+    <Quest
+         name="__Q_WayToMykorians_talking_NPC"
+         parent="Q_WayToMykorians02"
+         pxsl_line="108">
+        <Phase
+             type="set dialog"
+             name="_"
+             speaker="mc_scout01"
+             group="mc_scout01_mc_start_NEA01"
+             pxsl_line="109" />
+        <Phase
+             type="set dialog"
+             name="_"
+             speaker="mc_shopkeeper01"
+             group="mc_shopkeeper01_mc_start_NEA01"
+             pxsl_line="110" />
+        <Phase
+             type="set dialog"
+             name="_"
+             speaker="mc_survivor01"
+             group="mc_survivor01_mc_start_NEA01"
+             pxsl_line="111" />
+        <Phase
+             type="set dialog"
+             name="_"
+             speaker="mc_survivor02"
+             group="mc_survivor02_mc_start_NEA01"
+             pxsl_line="112" />
+        <Phase
+             type="set dialog"
+             name="_"
+             speaker="mc_survivor03"
+             group="mc_survivor03_mc_start_NEA01"
+             pxsl_line="113" />
+        <Phase
+             type="set dialog"
+             name="_"
+             speaker="mc_survivor04"
+             group="mc_survivor04_mc_start_NEA01"
+             pxsl_line="114" />
+        <Phase
+             type="set dialog"
+             name="_"
+             speaker="mc_survivor05"
+             group="mc_survivor05_mc_start_NEA01"
+             pxsl_line="115" />
+        <Phase
+             type="set dialog"
+             name="_"
+             speaker="mc_survivor06"
+             group="mc_survivor06_mc_start_NEA01"
+             pxsl_line="116" />
+        <Phase
+             type="set dialog"
+             name="_"
+             speaker="mc_survivor07"
+             group="mc_survivor07_mc_start_NEA01"
+             pxsl_line="117" />
+        <Phase
+             type="set dialog"
+             name="_"
+             speaker="mc_survivor08"
+             group="mc_survivor08_mc_start_NEA01"
+             pxsl_line="118" />
+    </Quest>
+    <Quest
+         name="Q_WayToMykorians03"
+         parent="Q_WayToMykorians02"
+         glued="true"
+         pxsl_line="121">
+        <Phase
+             type="AND"
+             name="_"
+             objective="&amp;WayToMykorians_OBJ_FindTaylan&amp;"
+             pxsl_line="122">
+            <Path
+                 pxsl_line="122">
+                <Phase
+                     type="go to"
+                     name="Entrance to Mykoria"
+                     distance="15"
+                     pxsl_line="123">
+                    <Destination
+                         pxsl_line="123">
+                        <QuestObject
+                             class="SpawnPoint"
+                             name="MapStart"
+                             pxsl_line="123" />
+                    </Destination>
+                    <DebugPlayerPosition
+                         pxsl_line="124">
+                        <QuestObject
+                             class="SpawnPoint"
+                             name="MapStart"
+                             pxsl_line="124" />
+                    </DebugPlayerPosition>
+                    <!--  -->
+                </Phase>
+                <!-- ,set-lp _ NPCLifePlace mykoria_guard01_gate -state=off -->
+                <!-- ,teleport _ NPCLifePlace mykoria_guard01_lp -->
+                    <!-- ,ai HumanAI mykoria_guard01 -->
+                <!-- ,set-lp _ NPCLifePlace mykoria_guard01_lp -state=on -->
+                <Phase
+                     type="checkpoint"
+                     name="_"
+                     pxsl_line="131">
+                    <Destination
+                         pxsl_line="131">
+                        <QuestObject
+                             class="SpawnPoint"
+                             name="MapStart"
+                             pxsl_line="131" />
+                    </Destination>
+                </Phase>
+                <Phase
+                     type="go to"
+                     name="_"
+                     distance="5"
+                     pxsl_line="133">
+                    <Destination
+                         pxsl_line="133">
+                        <QuestObject
+                             class="SpawnPoint"
+                             name="Taylan_sp"
+                             pxsl_line="133" />
+                    </Destination>
+                </Phase>
+                <!-- ,talk _ Zahid Zahid_Q_WayToMykorians_04DLG01 -->
+                <!-- -= ,talk _ MykorianGuard02 MykorianGuard02_Q_WayToMykorians_04DLG01 -->
+                <!-- ,move _ AIEscortNode mykorianguard02_node -->
+                    <!-- ,ai HumanAI Zahid -->
+            </Path>
+        </Phase>
+    </Quest>
+    <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=END-=Q_WayToMykorians-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+</QuestsDefinitions>

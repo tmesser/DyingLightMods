@@ -1,0 +1,95 @@
+!String(s, s)
+!PlatformSpecific(s)
+
+// Here we can define an alias of any existing text.
+
+//header for dialog: String( "MShop_BuyFail_StatusLevel", "You need Survivor Rank %2s to buy %1s!", "", "")
+String( "MShop_BuyFail_StatusLevel_Title", "&MenuDlg_InfoTitle&")
+
+//String( "MPlayGame_RestartCampaignConfirmation", "You're trying to play this campaign again from the beginning, your game progress will be reset but your inventory and player development will be kept. Are you sure?", "", "")
+String( "MPlayGame_NewGamePlusPlusConfirmation", "&MPlayGame_RestartCampaignConfirmation&")
+
+//header for dialog: String( "MPlayGame_NewGamePlusConfirmation", "You're trying to play this campaign again from the beginning, your game progress will be reset but your inventory and player development will be kept. Please note enemies are going to be tougher. Are you sure?")
+String( "MPlayGame_NewGamePlusConfirmation_Title", "&MenuDlg_WarningExclamationTitle&")
+//header for dialog: String( "MPlayGame_NewGamePlusPlusConfirmation", "&MPlayGame_RestartCampaignConfirmation&") -> String( "MPlayGame_RestartCampaignConfirmation", "You're trying to play this campaign again from the beginning, your game progress will be reset but your inventory and player development will be kept. Are you sure?", "", "")
+String( "MPlayGame_NewGamePlusPlusConfirmation_Title", "&MenuDlg_WarningTitle&")
+
+String( "MPlayGame_ReturnToMainCampaignConfirmation_Title", "&MenuDlg_WarningTitle&")
+
+String( "MPlayGame_SlotLabel_NewGamePlus",      "&MPlayGameSub_BtnNewGamePlus&")
+String( "MPlayGame_PictInfo_NewGamePlus",       "&MPlayGameSub_BtnNewGamePlus&")
+
+String( "MPlayGame_SlotLabel_NewGameFromQuest", "&MPlayGameSub_BtnNewGameFromQuest&")
+String( "MPlayGame_SlotLabel_RestartFromQuest", "&MPlayGameSub_BtnRestartFromQuest&")
+
+//redefined empty text
+String( "MPlayGame_ContentNotInstalled_Title_$", "&MenuDlg_WarningExclamationTitle&")
+
+
+//String( "MPlayGame_ContentNotInstalled_$", "Required content not yet installed.", "", "")
+String( "MapPortal_ContentNotInstalled", "&MPlayGame_ContentNotInstalled_$&")
+//String( "MapPortal_DownloadingProgress", "&InstallingWithProgressPercent&"); -> String( "InstallingWithProgressPercent", "Installing... %s%", "", "")
+String( "MapPortal_DownloadingProgress", "&InstallingWithProgressPercent&")
+//String( "MapPortal_DownloadingTime",     "&InstallingWithProgressTime&");    -> String( "InstallingWithProgressTime",    "Installing... %s",  "", "")
+String( "MapPortal_DownloadingTime",     "&InstallingWithProgressTime&")
+
+//String( "MPlayGame_ContentNotInstalled_$", "Required content not yet installed.", "", "")
+String( "MenuMain_Continue_ContentNotInstalled", "&MPlayGame_ContentNotInstalled_$&")
+
+
+//String( "ContentNotAvailable", "Content not available", "", "")
+String( "InstallContentPresenter_NotAvailable", "&ContentNotAvailable&")
+
+String("MPlayGame_ContentNotAvailable_Title", "&MenuDlg_WarningExclamationTitle&")
+
+//String("Installing",                    "Installing...")
+String( "InstallContentPresenter_Installing", "&Installing&")
+
+// mapping moved from code.
+String( "[Button_Select]", "&[A]&")
+String( "[Button_Cancel]", "&[B]&")
+
+String("Menu_Docket_N",  "&Docket_Name&")
+String("Menu_Docket_D",  "&Docket_Description&")
+String("ZZ1Patch_Menu_Docket_SD", "&Docket_Description&")
+
+String("Menu_CampanionAppVoucher_N", "&CAItem_Name&")
+String("Menu_CampanionAppVoucher_D",  "&CAItem_Description&")
+String("ZZ1Patch_M_CampanionAppVoucher_SD", "&CAItem_Description&")
+
+String("MenuQuartermaster_CampanionAppVoucher_N", "&CAItem_Name&")
+String("MenuQuartermaster_CampanionAppVoucher_D",  "&CAItem_Description_Quartermaster&")
+String("ZZ1Patch_MQ_CampanionAppVoucher_SD", "&CAItem_Description_Quartermaster&")
+
+//String("MRewardGiver_InventoryFull_Header", "Inventory full")
+String("MQuartermaster_RedeemDocketFullInventory_DlgTitle", "&MRewardGiver_InventoryFull_Header&")
+
+
+//String( "MRewardGiverRepairman_Info", "Select either rewards or items to refurbish", "", "")
+String( "MRewardGiverRepairman_RewardGiverInfo", "&MRewardGiverRepairman_Info&")
+String( "MRewardGiverRepairman_RepairmanInfo",   "&MRewardGiverRepairman_Info&")
+
+//%1s item name
+//%2s item multiplier
+String( "MQuartermaster_CAItem_ResultsDetails_NameWithCount", "%1s (x%2s)")
+
+//String( "MShop_OfferedItemCategory_Vouchers", "Vouchers", "", "")
+//String( "MShop_OfferedItemCategory_Specials", "Specials", "", "")
+String( "MShop_OfferedItemCategory_Vouchers", "&MShop_OfferedItemCategory_Specials&")
+
+//String( "Dashboard_Message_TryAgain", "Try again", "", "")
+String( "TUTORIAL_NM_FAIL", "&Dashboard_Message_TryAgain&")
+
+PlatformSpecific("ps4")
+{
+    // pc
+    //String( "NetError_ConnToXboxLiveHasBeenLost_$", "The connection to Internet Lobby has been lost!", "", "")
+    // xbo
+    //String( "NetError_ConnToXboxLiveHasBeenLost_$", "The connection to Xbox Live has been lost!", "", "")
+    // missing on ps4!
+
+    //String( "NetError_ConnToPSNLiveHasBeenLost_$", "The connection to PSN? has been lost!", "", "")
+    String("NetError_ConnToXboxLiveHasBeenLost_$", "&NetError_ConnToPSNLiveHasBeenLost_$&")
+}
+
+String( "PleaseWait_ProcessingSaves", "&PleaseWait_CachingSaves_$&")

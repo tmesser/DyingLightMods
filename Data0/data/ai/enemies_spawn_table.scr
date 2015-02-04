@@ -1,0 +1,65 @@
+export int SHIFT = 0;
+export int ALT = 1;
+export int CTRL = 2;
+
+sub main()
+{
+    Preset(SHIFT, 1, "Biter_Man;DiffLevel;Biter_m_lv0;", "Biter_lvl00");	
+    Preset(SHIFT, 2, "Biter_Man;DiffLevel;Biter_m_lv1;", "Biter_lv101");
+    Preset(SHIFT, 3, "Biter_Man;DiffLevel;Biter_m_lv3;", "Biter_lv103");	
+	
+    Preset(SHIFT, 4, "Viral_Man;DiffLevel;Viral_m_lvl0", "Viral Lvl 0");
+    Preset(SHIFT, 5, "Viral_Man;DiffLevel;Viral_m_lvl1", "Viral Lvl 1");
+    Preset(SHIFT, 6, "Viral_Man;DiffLevel;Viral_m_lvl2", "Viral Lvl 2");
+    Preset(SHIFT, 7, "Viral_Man;DiffLevel;Viral_m_lvl3", "Viral lvl 3");
+
+    //Preset(SHIFT, 7, "Toad_Slums", "Toad Easy");
+    //Preset(SHIFT, 8, "Toad_Wasteland", "Toad Medium");
+    //Preset(SHIFT, 9, "Toad_OldTown", "Toad Hard");
+	Preset(SHIFT, 8, "Special_Thug_Armed_Easy", "Armed Thug Easy");
+	Preset(SHIFT, 9, "Special_Thug_Armed_Medium", "Armed Thug Medium");
+	Preset(SHIFT, 0, "Special_Thug_Armed_Hard", "Armed Thug Hard");    
+	
+	
+    Preset(ALT, 1, "NightWalker_Man", "Night walker");
+    //Preset(ALT, 2, "Viral_Man_CollisionsTest", "Viral_Man_CollisionsTest");
+    Preset(ALT, 2, "PrimeNight", "Prime");
+	//Preset(ALT, 2, "Slums_TheTower_M_19th_02", "NPC from tower");
+    Preset(ALT, 3, "RunningBomber", "Suicide bomber");
+    Preset(ALT, 4, "InfVolatileForm_A", "Volatile");
+    Preset(ALT, 5, "DW_ZombieW_A_Infected", "Woman Infected");    
+    Preset(ALT, 6, "Demolisher", "Demolisher hard");
+    //Preset(ALT, 7, "Demolisher_Wasteland", "Demolisher easy");
+    Preset(ALT, 7, "Screamer", "Screamer");
+    Preset(ALT, 8, "DW_Zombie_A_Infected_Humanity_TEST", "Humanity Infected");
+    //Preset(ALT, 9, "ViralHumanity_Woman", "Woman Humanity Infected");
+    //Preset(ALT, 0, "DW_Zombie_Hive_Brood", "Hive Brood");
+	Preset(ALT, 9, "Bomber", "Bomber");
+	Preset(ALT, 0, "Toad_Slums", "Toad Easy");
+    //Preset(ALT, 0, "BiterMushroom_Man", "BiterMushroom Man");
+    
+    //Preset(CTRL, 1, "Special_Thug_Armed_Easy", "Armed Thug Easy");
+    
+    //Preset(CTRL, 3, "Special_Thug_Armed_Hard", "Armed Thug Hard")
+	Preset(CTRL, 1, "DW_Zombie_GasTank", "GasTank");
+    //Preset(CTRL, 5, "enc_maskedbandit_01_weapon_FLASHLIGHT_TEST", "enc_maskedbandit_01_weapon_FLASHLIGHT_TEST");    
+	//Preset(CTRL, 1, "enc_slums_maskedbandit_lvl00", "enc_slums_maskedbandit_lvl00");
+	Preset(CTRL, 2, "enc_slums_maskedbandit_lvl01", "enc_slums_maskedbandit_lvl01");
+	Preset(CTRL, 3, "enc_slums_maskedbandit_lvl02", "enc_slums_maskedbandit_lvl02");
+	Preset(CTRL, 4, "Enemy_S_Bandit_FirearmDefender001", "Human firearm punk");
+    Preset(CTRL, 5, "enc_slums_maskedbandit_leader_lvl00", "enc_slums_maskedbandit_leader_lvl00");    
+    Preset(CTRL, 6, "enc_slums_maskedbandit_leader_lvl01", "enc_slums_maskedbandit_leader_lvl01");
+    Preset(CTRL, 7, "enc_slums_maskedbandit_leader_lvl02", "enc_slums_maskedbandit_leader_lvl02");
+    Preset(CTRL, 8, "enc_slums_maskedbandit_leader_lvl03", "enc_slums_maskedbandit_leader_lvl03");
+    Preset(CTRL, 9, "BiterWeapon_Man", "BiterWeapon_Man");
+    
+    //Preset(CTRL, 8, "Enemy_GR_Gang_Melee001", "HMF with blunt weapon");
+    
+	//Preset(CTRL, 9, "TESTMonkey_PrimeHunter", "TEST AI Prime Hunter");
+	//Preset(CTRL, 9, "DW_Zombie_Redneck", "Zombie Redneck");
+	//Preset(CTRL, 0, "enc_survivor_clench_01", "Fighting NPC");
+	Preset(CTRL, 0, "Biter_BlisterMulti", "Zombie with a blister");
+	//Preset(CTRL, 0, "BiterPoison_Man", "Poisoned zombie");
+}
+
+    

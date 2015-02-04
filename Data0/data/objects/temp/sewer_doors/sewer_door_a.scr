@@ -1,0 +1,4 @@
+SeqTrack("cin_contact_Door_00", "cin_contact_Door_00.anm2", 0, 473, 30, 1, 0.5) 
+SeqTrack("CIN_Hazan_Door_01_00", "CIN_Hazan_Door_01_00.anm2", 0, 1250, 30, 1, 0.5) 
+SeqTrack("CIN_Hazan_Door_02_00", "CIN_Hazan_Door_02_00.anm2", 0, 1250, 30, 1, 0.5) 
+SeqTrack("cin_rais_final_01_Door_00", "cin_rais_final_01_Door_00.anm2", 0, 520, 30, 1, 0.5) 

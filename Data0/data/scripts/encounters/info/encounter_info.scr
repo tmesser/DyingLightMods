@@ -1,0 +1,43 @@
+sub main()
+{
+	//CurveExperienceMultiplierPerLevel("enc_reward_status_points_multiplier_per_level");
+    CurveStatusPointsMultiplierPerLevel("enc_reward_status_points_multiplier_per_level");
+    CurveSupplyStatusPointsMultiplierPerLevel("enc_airdrop_status_points_multiplier_per_level");
+    SafePointSp(300);
+    SurvivorPackSp(1000);    
+    
+	Info(DEFAULT)
+	{
+		Difficulty(Easy)
+		{
+			Reward()
+			{
+                StatusPoints(1000);
+			}
+		}
+		Difficulty(Medium)
+		{
+			Reward()
+			{
+				StatusPoints(1000);
+			}
+		}
+		Difficulty(Hard)
+		{
+			Reward()
+			{
+				StatusPoints(1000);
+			}
+		}
+	}
+	Info(HelpSafeNPC_Ledge)
+	{
+		Difficulty(Easy)
+		{
+			Reward()
+			{
+				StatusPoints(100);
+			}
+		}
+	}
+}

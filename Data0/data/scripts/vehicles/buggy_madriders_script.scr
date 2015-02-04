@@ -1,0 +1,10 @@
+!include ("buggy_vehicle.def")
+
+Seat(0,"DDriver","DDriver", 1)
+
+DropZone(0,-0.3,0.7,-1.4) // drop zone ID and local pos for drop zone
+DropZone(1,0.3,0.7,-1.4) // drop zone ID and local pos for drop zone
+
+LoadParams("buggy_madriders_params.scr")
+LoadParams("buggy_madriders_surface_params.scr")
+LoadParams("buggy_madriders_fuel_params.scr")

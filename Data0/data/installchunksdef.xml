@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package>
+    <!-- TODO why this is template -->
+    <Template Name="">
+       <Chunk Name="Registration" Label="Durango meta files" Priority="-100">
+            <FileGroup Platform="Durango" Source="AppxManifest.xml" Mandatory="true" />
+            <FileGroup Platform="Durango" Source="appdata.bin" Mandatory="true"/>
+            <FileGroup Platform="Durango" Source="Logo.png" Mandatory="true"/>
+            <FileGroup Platform="Durango" Source="SmallLogo.png" Mandatory="true"/>
+            <FileGroup Platform="Durango" Source="WideLogo.png" Mandatory="true"/>
+            <FileGroup Platform="Durango" Source="SplashScreen.png" Mandatory="true"/>
+            <FileGroup Platform="Durango" Source="Resources.pri" Mandatory="true"/>
+        </Chunk>
+     
+        <Chunk Name="bin" Label="Binaries {CONFIGURATION} and related files" Priority="0">
+            <FileGroup Platform="Durango" Source="DyingLightGame_{CONFIGURATION}.exe" Mandatory="true" />
+            <FileGroup Platform="Durango" Source="*.dll" />
+            <FileGroup Platform="Orbis"   Source="DyingLightGame_{CONFIGURATION}.elf" Destination="eboot.bin" Mandatory="true" />
+            <FileGroup Platform="Orbis"   Source="sce_sys\*.png" />
+            <FileGroup Platform="Orbis"   Source="sce_sys\pronunciation_{REGION}.xml" Destination="sce_sys\pronunciation.xml" Mandatory="true" />
+            <FileGroup Platform="Orbis"   Source="sce_sys\pronunciation_{REGION}.sig" Destination="sce_sys\pronunciation.sig" Mandatory="true" />
+            <FileGroup Platform="Orbis"   Source="sce_sys\param_{REGION}{PATCH_SUFFIX}.sfo" Destination="sce_sys\param.sfo" Mandatory="true" />
+            <FileGroup Platform="Orbis"   Source="sce_sys\nptitle_{REGION}.dat" Destination="sce_sys\nptitle.dat" Mandatory="true" />
+            <FileGroup Platform="Orbis"   Source="sce_sys\trophy\*" />
+            <FileGroup Platform="Orbis"   Source="sce_sys\changeinfo\changeinfo_log.bin" Destination="sce_sys\changeinfo\changeinfo.xml" Flags="PatchOnly"/>
+            <FileGroup Platform="Orbis"   Source="sce_module\*" />
+            <FileGroup Platform="Orbis"   Source="DW\Data\session_image.jpg" />
+        </Chunk>
+        
+        <Chunk DLC="{DLC}" Name="{DLC}_sys" Label="System files" Priority="0">
+            <FileGroup Platform="Orbis"   Source="sce_sys_{DLC}\*" ExcludeFiles="*.sfo" Destination="sce_sys" />
+            <FileGroup Platform="Orbis"   Source="sce_sys_{DLC}\param_{REGION}.sfo" Destination="sce_sys\param.sfo" />
+            <FileGroup Platform="Durango" Source="AppxManifest.xml"/>
+            <FileGroup Platform="Durango" Source="{DLC}_Logo.png" />
+            <FileGroup Platform="Durango" Source="{DLC}_SmallLogo*.png" />
+            <FileGroup Platform="Durango" Source="{DLC}_WideLogo*.png" />
+            <FileGroup Platform="Durango" Source="appdata.bin" />
+            <FileGroup Platform="Durango" Source="Resources.pri" />
+        </Chunk>
+        
+        <Chunk Name="chunks_script" Label="Chunks script" Priority="0">
+            <FileGroup Platform="Durango" Source="#meta\pkg\{CONFIGURATION}_{REGION}\InstallChunks.scr" Destination=".\DW\Data" Mandatory="true" />
+            <FileGroup Platform="Orbis"   Source="..\#meta\pkg\{CONFIGURATION}_{REGION}\InstallChunks.scr" Destination=".\DW\Data" Mandatory="true" />
+        </Chunk>
+
+        <Chunk DLC="{DLC}" Name="{DLC}_chunks_script" Label="Chunks script" Priority="0">
+            <FileGroup Platform="Durango" Source="#meta\pkg\{DLC}_{REGION}\InstallChunks_{DLC}.scr" Destination="Data\" />
+            <FileGroup Platform="Orbis"   Source="..\#meta\pkg\{DLC}_{REGION}\InstallChunks_{DLC}.scr" Destination="Data\" />
+        </Chunk>
+        
+        <Chunk Name="menu" Label="Menu resources" Priority="-7">
+            <FileGroup Source="DW\Data\menu.csb*" />
+            <FileGroup Source="DW\Data\menu_p1.csb*" />
+            <FileGroup Source="DW\Data\menu_stream.csb*" />
+            <FileGroup Source="DW\Data\menu_stream_p1.csb*" />
+            <FileGroup Source="DW\Data\menu_common_{PLATFORM}.rpac*" />
+            <FileGroup Source="DW\Data\menu_ingame_gameplay_{PLATFORM}.rpac*" />
+            <FileGroup Source="DW\Data\menu_ingame_net_{PLATFORM}.rpac*" />
+            <FileGroup Source="DW\Data\menu_ingame_options_{PLATFORM}.rpac*" />
+            <FileGroup Source="DW\Data\menu_lvl_new_{PLATFORM}.rpac*" />
+            <FileGroup Source="DW\Data\menu_main_{PLATFORM}.rpac*" />
+            <FileGroup Source="DW\Data\Maps\menu_lvl_new\*.light"/>
+        </Chunk>
+        
+        <Chunk Name="menu_Jp" Label="Menu resources for Jp language" Languages="Jp" Priority="-7">
+            <FileGroup Source="DW\DataJp\Data\menu_common_{PLATFORM}.rpac*" />
+            <FileGroup Source="DW\DataJp\Data\menu_ingame_gameplay_{PLATFORM}.rpac*" />
+            <FileGroup Source="DW\DataJp\Data\menu_ingame_net_{PLATFORM}.rpac*" />
+            <FileGroup Source="DW\DataJp\Data\menu_main_{PLATFORM}.rpac*" />
+        </Chunk>
+
+        <Chunk DLC="dlc1" Name="dlc1_menu" Label="DLC1 menu resources" Priority="0">
+            <FileGroup Source="DW_DLC1\Data\menu_ingame_gameplay_btz_{PLATFORM}.rpac*" Destination="Data\"/>
+        </Chunk>
+
+        <Chunk Name="launch_sounds" Label="All sounds required for launch chunk" Priority="-8">
+            <FileGroup Source="DW\Data\music_1*.csb*"/>
+            <FileGroup Source="DW\Data\music_3*.csb*"/>
+            <FileGroup Platform="Orbis" Source="DW\Data\all_in_maps_persistant*.csb*"/>
+            <FileGroup Platform="Orbis" Source="DW\Data\all_in_maps_1*.csb*" />
+            <FileGroup Platform="Orbis" Source="DW\Data\all_in_maps_3*.csb*" />
+        </Chunk>
+        
+        <Chunk Name="sounds_new_game" Platform="Durango" Label="All sounds required for new game" Priority="1">
+            <FileGroup Source="DW\Data\all_in_maps_persistant*.csb*"/>
+            <FileGroup Source="DW\Data\all_in_maps_1*.csb*" />
+            <FileGroup Source="DW\Data\all_in_maps_3*.csb*" />
+        </Chunk>
+        
+        <Chunk Name="launch_common" Label="Launch common resources" Priority="-9">
+            <FileGroup Source="DW\Data\common_cod_1_{PLATFORM}.rpack" Mandatory="true" />
+            <FileGroup Source="DW\Data\common_cod_1_{PLATFORM}.rpacz"/>
+            <FileGroup Source="DW\Data\common_launch_0_{PLATFORM}.rpack" Mandatory="true" />
+            <FileGroup Source="DW\Data\common_launch_0_{PLATFORM}.rpacz"/>
+            <FileGroup Source="DW\Data\meshes_{PLATFORM}.rpack" Mandatory="true" />
+            <FileGroup Source="DW\Data\meshes_{PLATFORM}.rpacz"/>
+            <FileGroup Source="DW\Data\static_load_{PLATFORM}.rpac*" />
+            <FileGroup Source="DW\Data\Engine_{PLATFORM}.rpac*" />   
+            <FileGroup Source="DW\Data\common_anims_{PLATFORM}.rpack" Mandatory="true" />
+            <FileGroup Source="DW\Data\common_anims_{PLATFORM}.rpacz"/>
+        </Chunk> 
+        
+        <Chunk Name="launch_movies" Label="Launch movies" Priority="-10">
+            <FileGroup Source="DW\Data\Menu\Movies\Intro_720p.*"/>
+			<FileGroup Source="DW\Data\Menu\Movies\silence_video.*"/>
+            <FileGroup Source="DW\Data\Menu\Movies\RealFootage\Intro.*"/>
+            <FileGroup Source="DW\Data\Menu\Movies\RealFootage\Landing.*"/>
+        </Chunk>
+
+        <Chunk Name="player_meshes"  Label="Additional player's meshes" Priority="2">
+            <FileGroup Source="DW\Data\common_cod_2_{PLATFORM}.rpack" Mandatory="true" />
+            <FileGroup Source="DW\Data\common_cod_2_{PLATFORM}.rpacz"/>
+        </Chunk>
+
+        <Chunk Name="textures_for_slums_and_slums_interior" Platform="Orbis" Label="Textures required for slums and slums_interior maps" Priority="-9">
+            <FileGroup Source="DW\Data\common_launch_1_{PLATFORM}.rpack" Mandatory="true" />
+            <FileGroup Source="DW\Data\common_launch_1_{PLATFORM}.rpacz"/>
+        </Chunk>
+        
+        <Chunk Name="textures_for_slums_and_slums_interior" Platform="Durango" Label="Textures required for slums and slums_interior maps" Priority="1">
+            <FileGroup Source="DW\Data\common_launch_1_{PLATFORM}.rpack" Mandatory="true" />
+            <FileGroup Source="DW\Data\common_launch_1_{PLATFORM}.rpacz"/>
+        </Chunk>
+        
+        <!-- TODO should be properly named and divided into separate chunks -->
+        <Chunk Name="weapons" Label="Weapons resources and slums_interior_cod" Priority="2">
+            <FileGroup Source="DW\Data\weapons_{PLATFORM}.rpack" Mandatory="true" />
+            <FileGroup Source="DW\Data\weapons_{PLATFORM}.rpacz"/>
+            <FileGroup Source="DW\Data\slums_interior_cod_{PLATFORM}.rpac*"/>
+            <FileGroup Source="DW\Data\common_launch_2_{PLATFORM}.rpac*"/>
+        </Chunk>
+        
+        <ChunkGroup Name="common_weapons" Label="Common weapons" Chunks="weapons"/>
+        
+        <Chunk Name="common_textures" Label="Common textures" Priority="3">
+            <FileGroup Source="DW\Data\common_textures_*_{PLATFORM}.rpac*" />
+        </Chunk>
+        
+        <Chunk Name="sounds" Label="All sound banks except maps" Priority="2">
+            <FileGroup Source="DW\Data\all_in_maps_2*.csb*" />
+            <FileGroup Source="DW\Data\music_2*.csb*"/>
+        </Chunk>
+
+        <Chunk Name="launch_data" Label="All data packs required for launch chunk" Priority="0">
+            <FileGroup Source="DW\Data0.mpak" />
+            <FileGroup Source="DW\Data1.pak" />
+            <FileGroup Platform="Orbis" Source="DW\Data2.pak" />
+            <FileGroup Platform="Durango" Source="#meta\pkg\{CONFIGURATION}_{REGION}\Data3.pak" Destination="DW\"/>
+            <FileGroup Platform="Orbis" Source="..\#meta\pkg\{CONFIGURATION}_{REGION}\Data3.pak" Destination="DW\"/>
+        </Chunk>
+        
+        <Chunk Name="data" Label="All data packs" Priority="1">
+            <FileGroup Platform="Durango" Source="DW\Data2.pak" />
+        </Chunk>
+        
+        <Chunk DLC="{DLC}" Name="{DLC}_data" Label="All data packs" Priority="0">
+            <FileGroup Source="DW_{DLC}\Data*.pak" Destination=".\"/>
+        </Chunk>
+
+        <Chunk DLC="{DLC}" Name="{DLC}_movies" Label="All movies" Priority="0">
+            <FileGroup Source="DW_{DLC}\Data\Menu\Movies\*.mp4" Destination="Data\Menu\Movies\" />
+        </Chunk>
+        
+        <Chunk DLC="dlc1" Name="dlc1_additional_data" Label="Additional data" Priority="0">
+            <FileGroup Source="DW_DLC1\Data\hunter_FPP_anims_{PLATFORM}.rpac*" Destination="Data\" />
+        </Chunk>
+
+        <Chunk Name="mat_packs" Label="Material packs" Priority="0">
+            <FileGroup Source="DW\Data\optimized_{PLATFORM}.mp" Mandatory="true" />
+        </Chunk> 
+        
+        <Chunk DLC="{DLC}" Name="{DLC}_mat_packs" Label="Material packs" Priority="0">
+            <FileGroup Source="DW_{DLC}\Data\optimized_{DLC}_{PLATFORM}.mp" Destination="Data\" Mandatory="true" />
+        </Chunk> 
+        
+        <Chunk Name="skill_movies" Label="Skills movies" Priority="2">
+            <FileGroup Source="DW\Data\Menu\Movies\Skills\*"/>
+        </Chunk>
+        <ChunkGroup Name="skill_movies_group" Label="Skills Movies" Chunks="skill_movies"/>
+        
+        <Chunk DLC="dlc0" Name="debug" Label="Debug stuff" Priority="0">
+            <FileGroup Source="DW_DLC0\Data\Debug.fnt" Destination="Data\"/>
+            <FileGroup Source="DW_DLC0\Data\DebugConf.scr" Destination="Data\"/>
+        </Chunk>
+        
+        <Chunk Name="slums_interior_rpack" Platform="Orbis"   Label="slums_interior rpack" Priority="0"><FileGroup Source="DW\Data\slums_interior_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_interior\*.light"/></Chunk>
+        <Chunk Name="slums_interior_rpack" Platform="Durango" Label="slums_interior rpack" Priority="2"><FileGroup Source="DW\Data\slums_interior_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_interior\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_interior"           Label="map slums_interior"            Chunks="textures_for_slums_and_slums_interior,data,slums_interior_rpack,slums_interior_snd,slums_interior_speech,player_meshes,skill_movies,sounds_new_game,sounds,weapons"/>
+        <ChunkGroup Name="map_slums_interior_new_game"  Label="map slums_interior (new game)" Chunks="textures_for_slums_and_slums_interior,data,slums_interior_rpack,slums_interior_snd,slums_interior_speech,sounds_new_game"/>
+        
+        <Chunk Name="slums_rpack" Label="slums rpack" Priority="2"><FileGroup Source="DW\Data\slums_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums" Label="map slums" Chunks="player_meshes,weapons,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_rpack,slums_snd,slums_speech"/>
+        
+        <!-- TODO should by generated from template -->
+        <Chunk Name="slums_interior_a_rpack" Label="slums_interior_a rpack" Priority="3"><FileGroup Source="DW\Data\slums_interior_a_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_interior_a\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_interior_a" Label="map slums_interior_a" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_interior_a_rpack,slums_interior_a_snd,slums_interior_a_speech"/>
+        <Chunk Name="slums_demolition_rpack" Label="slums_demolition rpack" Priority="12"><FileGroup Source="DW\Data\slums_demolition_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_demolition\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_demolition" Label="map slums_demolition" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_demolition_rpack,slums_demolition_snd,slums_demolition_speech"/>
+        <Chunk Name="slums_int_warehouse_rpack" Label="slums_int_warehouse rpack" Priority="5"><FileGroup Source="DW\Data\slums_int_warehouse_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_int_warehouse\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_int_warehouse" Label="map slums_int_warehouse" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_int_warehouse_rpack,slums_int_warehouse_snd,slums_int_warehouse_speech"/>
+        <Chunk Name="slums_int_school_rpack" Label="slums_int_school rpack" Priority="11"><FileGroup Source="DW\Data\slums_int_school_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_int_school\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_int_school" Label="map slums_int_school" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_int_school_rpack,slums_int_school_snd,slums_int_school_speech"/>
+        <Chunk Name="slums_int_projmayhem_rpack" Label="slums_int_projmayhem rpack" Priority="20"><FileGroup Source="DW\Data\slums_int_projmayhem_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_int_projmayhem\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_int_projmayhem" Label="map slums_int_projmayhem" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_int_projmayhem_rpack,slums_int_projmayhem_snd,slums_int_projmayhem_speech"/>
+        <Chunk Name="slums_antenna_rpack" Label="slums_antenna rpack" Priority="35"><FileGroup Source="DW\Data\slums_antenna_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_antenna\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_antenna" Label="map slums_antenna" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_antenna_rpack,slums_antenna_snd,slums_antenna_speech"/>
+        <Chunk Name="slums_cs_rpack" Label="slums_cs rpack" Priority="13"><FileGroup Source="DW\Data\slums_cs_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_cs\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_cs" Label="map slums_cs" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_cs_rpack,slums_cs_snd,slums_cs_speech"/>
+        <Chunk Name="slums_cl_flats_rpack" Label="slums_cl_flats rpack" Priority="6"><FileGroup Source="DW\Data\slums_cl_flats_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_cl_flats\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_cl_flats" Label="map slums_cl_flats" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_cl_flats_rpack,slums_cl_flats_snd,slums_cl_flats_speech"/>
+        <Chunk Name="slums_cl_hangar_rpack" Label="slums_cl_hangar rpack" Priority="6"><FileGroup Source="DW\Data\slums_cl_hangar_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_cl_hangar\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_cl_hangar" Label="map slums_cl_hangar" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_cl_hangar_rpack,slums_cl_hangar_snd,slums_cl_hangar_speech"/>
+        <Chunk Name="slums_cl_market_rpack" Label="slums_cl_market rpack" Priority="6"><FileGroup Source="DW\Data\slums_cl_market_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_cl_market\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_cl_market" Label="map slums_cl_market" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_cl_market_rpack,slums_cl_market_snd,slums_cl_market_speech"/>
+        <Chunk Name="slums_cl_parking_rpack" Label="slums_cl_parking rpack" Priority="6"><FileGroup Source="DW\Data\slums_cl_parking_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_cl_parking\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_cl_parking" Label="map slums_cl_parking" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_cl_parking_rpack,slums_cl_parking_snd,slums_cl_parking_speech"/>
+        <Chunk Name="slums_cl_sidetrack_rpack" Label="slums_cl_sidetrack rpack" Priority="6"><FileGroup Source="DW\Data\slums_cl_sidetrack_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_cl_sidetrack\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_cl_sidetrack" Label="map slums_cl_sidetrack" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_cl_sidetrack_rpack,slums_cl_sidetrack_snd,slums_cl_sidetrack_speech"/>
+        <Chunk Name="slums_cl_tunnel_rpack" Label="slums_cl_tunnel rpack" Priority="6"><FileGroup Source="DW\Data\slums_cl_tunnel_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\slums_cl_tunnel\*.light"/></Chunk>
+        <ChunkGroup Name="map_slums_cl_tunnel" Label="map slums_cl_tunnel" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_cl_tunnel_rpack,slums_cl_tunnel_snd,slums_cl_tunnel_speech"/>
+        <Chunk Name="old_town_rpack" Label="old_town rpack" Priority="15"><FileGroup Source="DW\Data\old_town_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\old_town\*.light"/></Chunk>
+        <ChunkGroup Name="map_old_town" Label="map old_town" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,old_town_rpack,old_town_snd,old_town_speech"/>
+        <Chunk Name="old_town_townhall_rpack" Label="old_town_townhall rpack"><FileGroup Source="DW\Data\old_town_townhall_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\old_town_townhall\*.light"/></Chunk>
+        <ChunkGroup Name="map_old_town_townhall" Label="map old_town_townhall" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,old_town_townhall_rpack,old_town_townhall_snd,old_town_townhall_speech"/>    
+        <Chunk Name="old_town_interior_a_rpack" Label="old_town_interior_a rpack"><FileGroup Source="DW\Data\old_town_interior_a_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\old_town_interior_a\*.light"/></Chunk>
+        <ChunkGroup Name="map_old_town_interior_a" Label="map old_town_interior_a" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,old_town_interior_a_rpack,old_town_interior_a_snd,old_town_interior_a_speech"/>
+        <Chunk Name="old_town_outposts_rpack" Label="old_town_outposts rpack"><FileGroup Source="DW\Data\old_town_outposts_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\old_town_outposts\*.light"/></Chunk>
+        <ChunkGroup Name="map_old_town_outposts" Label="map old_town_outposts" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,old_town_outposts_rpack,old_town_outposts_snd,old_town_outposts_speech"/>
+        <Chunk Name="old_town_outposts_radio_rpack" Label="old_town_outposts_radio rpack"><FileGroup Source="DW\Data\old_town_outposts_radio_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\old_town_outposts_radio\*.light"/></Chunk>
+        <ChunkGroup Name="map_old_town_outposts_radio" Label="map old_town_outposts_radio" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,old_town_outposts_radio_rpack,old_town_outposts_radio_snd,old_town_outposts_radio_speech"/>
+        <Chunk Name="old_town_outposts_museum_rpack" Label="old_town_outposts_museum rpack" Priority="25"><FileGroup Source="DW\Data\old_town_outposts_museum_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\old_town_outposts_museum\*.light"/></Chunk>
+        <ChunkGroup Name="map_old_town_outposts_museum" Label="map old_town_outposts_museum" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,old_town_outposts_museum_rpack,old_town_outposts_museum_snd,old_town_outposts_museum_speech"/>
+        <Chunk Name="sewers_saviors_rpack" Label="sewers_saviors rpack" Priority="14"><FileGroup Source="DW\Data\sewers_saviors_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\sewers_saviors\*.light"/></Chunk>
+        <ChunkGroup Name="map_sewers_saviors" Label="map sewers_saviors" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,sewers_saviors_rpack,sewers_saviors_snd,sewers_saviors_speech"/>
+        <Chunk Name="forever_foundation_rpack" Label="forever_foundation rpack" Priority="30"><FileGroup Source="DW\Data\forever_foundation_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\forever_foundation\*.light"/></Chunk>
+        <ChunkGroup Name="map_forever_foundation" Label="map forever_foundation" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,forever_foundation_rpack,forever_foundation_snd,forever_foundation_speech"/>
+        <Chunk Name="old_town_int_hotel_rpack" Label="old_town_int_hotel rpack" Priority="16"><FileGroup Source="DW\Data\old_town_int_hotel_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\old_town_int_hotel\*.light"/></Chunk>
+        <ChunkGroup Name="map_old_town_int_hotel" Label="map old_town_int_hotel" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,old_town_int_hotel_rpack,old_town_int_hotel_snd,old_town_int_hotel_speech"/>
+        <Chunk Name="ot_cl_apartments_rpack" Label="ot_cl_apartments rpack" Priority="16"><FileGroup Source="DW\Data\ot_cl_apartments_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\ot_cl_apartments\*.light"/></Chunk>
+        <ChunkGroup Name="map_ot_cl_apartments" Label="map ot_cl_apartments" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,ot_cl_apartments_rpack,ot_cl_apartments_snd,ot_cl_apartments_speech"/>
+        <Chunk Name="ot_cl_hotel_rpack" Label="ot_cl_hotel rpack" Priority="16"><FileGroup Source="DW\Data\ot_cl_hotel_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\ot_cl_hotel\*.light"/></Chunk>
+        <ChunkGroup Name="map_ot_cl_hotel" Label="map ot_cl_hotel" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,ot_cl_hotel_rpack,ot_cl_hotel_snd,ot_cl_hotel_speech"/>
+        <Chunk Name="ot_cl_parking_rpack" Label="ot_cl_parking rpack" Priority="16"><FileGroup Source="DW\Data\ot_cl_parking_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\ot_cl_parking\*.light"/></Chunk>
+        <ChunkGroup Name="map_ot_cl_parking" Label="map ot_cl_parking" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,ot_cl_parking_rpack,ot_cl_parking_snd,ot_cl_parking_speech"/>
+        <Chunk Name="ot_cl_restaurant_rpack" Label="ot_cl_restaurant rpack" Priority="16"><FileGroup Source="DW\Data\ot_cl_restaurant_{PLATFORM}.rpac*"/><FileGroup Source="DW\Data\Maps\ot_cl_restaurant\*.light"/></Chunk>
+        <ChunkGroup Name="map_ot_cl_restaurant" Label="map ot_cl_restaurant" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,ot_cl_restaurant_rpack,ot_cl_restaurant_snd,ot_cl_restaurant_speech"/>    
+        
+        <!-- DLC1 maps -->
+        <Chunk DLC="dlc1" Name="slums_btz_tutorial_rpack" Label="slums_btz_tutorial rpack"><FileGroup Source="DW_DLC1\Data\slums_btz_tutorial_{PLATFORM}.rpac*" Destination="Data\"/><FileGroup Source="DW_DLC1\Data\Maps\slums_btz_tutorial\*.light" Destination="Data\Maps\slums_btz_tutorial\"/></Chunk>
+        <ChunkGroup Name="map_slums_btz_tutorial" Label="map slums_btz_tutorial" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,slums_btz_tutorial_rpack,slums_btz_tutorial_snd,slums_btz_tutorial_speech"/>    
+        
+        <!-- DLC17 maps -->
+        <Chunk DLC="dlc17" Name="wasteland_rpack" Label="wasteland rpack"><FileGroup Source="DW_DLC1\Data\wasteland_{PLATFORM}.rpac*" Destination="Data\"/><FileGroup Source="DW_DLC1\Data\Maps\wasteland\*.light" Destination="Data\Maps\wasteland\*.light"/></Chunk>
+        <ChunkGroup Name="map_wasteland" Label="map wasteland" Chunks="player_meshes,weapons,common_textures,data,skill_movies,textures_for_slums_and_slums_interior,sounds_new_game,sounds,wasteland_rpack,wasteland_snd,wasteland_speech"/>
+    </Template>
+    
+    <Template Name="LANG">
+        <Chunk Name="launch_texts_lang_{T}" Label='All localise game texts' Priority="0">
+            <FileGroup Source="DW\Speech{T}.pak" />
+        </Chunk>
+        
+        <Chunk Name="intro_subtitle_lang_{T}" Label='All localise game texts' Priority="0">
+            <FileGroup Source="DW\Data{T}.pak" />
+        </Chunk>
+
+        <Chunk Name="launch_speeches_lang_{T}" Platform="Orbis"   Label="Data for {T} language, required to lunch game" Languages="{T}" Priority="0">
+            <FileGroup Source="DW\Speech{T}\Data\common_local_1*.csb*" />
+            <FileGroup Source="DW\Speech{T}\Data\common_local_1.spb" />
+            <FileGroup Source="DW\Speech{T}\Data\slums_interior_quests_local*.csb*" />
+            <FileGroup Source="DW\Speech{T}\Data\slums_interior_quests_local.spb" />
+        </Chunk>
+
+        <Chunk Name="launch_speeches_lang_{T}" Platform="Durango" Label="Data for {T} language, required to lunch game" Languages="{T}" Priority="1">
+            <FileGroup Source="DW\Speech{T}\Data\common_local_1*.csb*" />
+            <FileGroup Source="DW\Speech{T}\Data\common_local_1.spb" />
+            <FileGroup Source="DW\Speech{T}\Data\slums_interior_quests_local*.csb*" />
+            <FileGroup Source="DW\Speech{T}\Data\slums_interior_quests_local.spb" />
+        </Chunk>
+
+        <Chunk Name="speeches_lang_{T}" Label="Data for {T} language" Languages="{T}" Priority="2">
+            <FileGroup Source="DW\Speech{T}\Data\common_local_2*.csb*" />
+            <FileGroup Source="DW\Speech{T}\Data\common_local_2.spb" />
+            <FileGroup Source="DW\Speech{T}\Data\all_quests_local*.csb*"/>
+            <FileGroup Source="DW\Speech{T}\Data\all_quests_local.spb"/>
+        </Chunk>
+        
+        <Chunk DLC="{DLC}" Name="{DLC}_lang_{T}" Label="Data for {T} language" Languages="{T}" Priority="0">
+            <FileGroup Source="DW_{DLC}\Data{T}\Data\*" Destination="Data{T}\Data\"/>
+            <FileGroup Source="DW_{DLC}\Data{T}\Data\Maps\*" Destination="Data{T}\Data\Maps\"/>
+            <FileGroup Source="DW_{DLC}\Speech{T}\Data\*" Destination="Speech{T}\Data\"/>
+            <FileGroup Source="DW_{DLC}\Speech{T}.pak" Destination="Speech{T}\"/>
+        </Chunk>     
+
+        <ChunkGroup Name="lang_{T}_new_game" Label="lang {T} (new game)" Chunks="launch_texts_lang_{T},launch_speeches_lang_{T}"/>
+        <ChunkGroup Name="lang_{T}"          Label="lang {T}"            Chunks="launch_texts_lang_{T},launch_speeches_lang_{T},speeches_lang_{T}"/>
+    </Template>
+    
+    <!-- initial chunks for durango and orbis -->
+
+        <ChunkGroup Name="LOGLaunch" Label="LOGLaunch" Platform="Orbis"   Chunks="bin,{DLC}_sys,chunks_script,{DLC}_chunks_script,menu,launch_sounds,launch_common,launch_movies,launch_data,{DLC}_data,dlc1_additional_data,mat_packs,{DLC}_mat_packs,launch_texts_lang_*,intro_subtitle_lang_*,launch_speeches_lang_En,textures_for_slums_and_slums_interior,data,slums_interior_rpack,slums_interior_snd,slums_interior_speech"/>  
+        <ChunkGroup Name="LOGLaunch" Label="LOGLaunch" Platform="Durango" Chunks="Registration,bin,{DLC}_sys,chunks_script,{DLC}_chunks_script,menu,launch_sounds,launch_common,launch_movies,launch_data,{DLC}_data,dlc1_additional_data,mat_packs,{DLC}_mat_packs,launch_texts_lang_*,intro_subtitle_lang_*"/>  
+        
+    <!-- here is place for chunks overriding those generated through templated -->
+    
+    <!-- fix for Ru, Nl and Jp on Orbis -->
+    <Chunk Platform="Orbis" Name="launch_speeches_lang_Ru" Label="Data for Ru language, required to lunch game" Languages="Ru" Priority="0">
+        <FileGroup Source="DW\SpeechEn\Data\common_local_1*.csb*" /> 
+        <FileGroup Source="DW\SpeechEn\Data\common_local_1.spb" /> 
+        <FileGroup Source="DW\SpeechEn\Data\slums_interior_quests_local*.csb*" /> 
+        <FileGroup Source="DW\SpeechEn\Data\slums_interior_quests_local.spb" /> 
+    </Chunk>
+    <Chunk Platform="Orbis" Name="speeches_lang_Ru" Label="Data for Ru language" Languages="Ru" Priority="2">
+        <FileGroup Source="DW\SpeechEn\Data\common_local_2*.csb*" /> 
+        <FileGroup Source="DW\SpeechEn\Data\common_local_2.spb" /> 
+        <FileGroup Source="DW\SpeechEn\Data\all_quests_local*.csb*" /> 
+        <FileGroup Source="DW\SpeechEn\Data\all_quests_local.spb" /> 
+    </Chunk>
+    <Chunk Platform="Orbis" Name="launch_speeches_lang_Nl" Label="Data for Nl language, required to lunch game" Languages="Nl" Priority="0">
+        <FileGroup Source="DW\SpeechEn\Data\common_local_1*.csb*" /> 
+        <FileGroup Source="DW\SpeechEn\Data\common_local_1.spb" /> 
+        <FileGroup Source="DW\SpeechEn\Data\slums_interior_quests_local*.csb*" /> 
+        <FileGroup Source="DW\SpeechEn\Data\slums_interior_quests_local.spb" /> 
+    </Chunk>
+    <Chunk Platform="Orbis" Name="speeches_lang_Nl" Label="Data for Nl language" Languages="Nl" Priority="2">
+        <FileGroup Source="DW\SpeechEn\Data\common_local_2*.csb*" /> 
+        <FileGroup Source="DW\SpeechEn\Data\common_local_2.spb" /> 
+        <FileGroup Source="DW\SpeechEn\Data\all_quests_local*.csb*" /> 
+        <FileGroup Source="DW\SpeechEn\Data\all_quests_local.spb" /> 
+    </Chunk>
+    <Chunk Platform="Orbis" Name="launch_speeches_lang_Jp" Label="Data for Jp language, required to lunch game" Languages="Jp" Priority="0">
+        <FileGroup Source="DW\SpeechEn\Data\common_local_1*.csb*" /> 
+        <FileGroup Source="DW\SpeechEn\Data\common_local_1.spb" /> 
+        <FileGroup Source="DW\SpeechEn\Data\slums_interior_quests_local*.csb*" /> 
+        <FileGroup Source="DW\SpeechEn\Data\slums_interior_quests_local.spb" /> 
+        <FileGroup Source="DW\Data\menu_common_{PLATFORM}.rpac*" />
+    </Chunk>
+    <Chunk Platform="Orbis" Name="speeches_lang_Jp" Label="Data for Jp language" Languages="Jp" Priority="2">
+        <FileGroup Source="DW\SpeechEn\Data\common_local_2*.csb*" /> 
+        <FileGroup Source="DW\SpeechEn\Data\common_local_2.spb" /> 
+        <FileGroup Source="DW\SpeechEn\Data\all_quests_local*.csb*" /> 
+        <FileGroup Source="DW\SpeechEn\Data\all_quests_local.spb" /> 
+    </Chunk>
+    <!-- end of fix -->
+    
+    <!-- fix for Ru and Nl on Durango -->
+    <ChunkGroup Platform="Durango" Name="lang_Ru_new_game" Label="lang Ru (new game)" Chunks="launch_texts_lang_Ru,launch_speeches_lang_Ru,launch_speeches_lang_En"/>
+    <ChunkGroup Platform="Durango" Name="lang_Ru"          Label="lang Ru"            Chunks="launch_texts_lang_Ru,launch_speeches_lang_Ru,speeches_lang_Ru,launch_speeches_lang_En,speeches_lang_En"/>
+    <ChunkGroup Platform="Durango" Name="lang_Nl_new_game" Label="lang Nl (new game)" Chunks="launch_texts_lang_Nl,launch_speeches_lang_Nl,launch_speeches_lang_En"/>
+    <ChunkGroup Platform="Durango" Name="lang_Nl"          Label="lang Nl"            Chunks="launch_texts_lang_Nl,launch_speeches_lang_Nl,speeches_lang_Nl,launch_speeches_lang_En,speeches_lang_En"/>
+    <ChunkGroup Platform="Durango" Name="lang_Jp_new_game" Label="lang Jp (new game)" Chunks="launch_texts_lang_Jp,launch_speeches_lang_Jp,launch_speeches_lang_En"/>
+    <ChunkGroup Platform="Durango" Name="lang_Jp"          Label="lang Jp"            Chunks="launch_texts_lang_Jp,launch_speeches_lang_Jp,speeches_lang_Jp,launch_speeches_lang_En,speeches_lang_En"/>
+    <!-- end of fix -->
+    
+    <Chunk DLC="dlc0" Name="dlc0_mat_packs" Label="Material packs" Priority="0">
+        <!-- optimized is not present nor mandatory -->
+    </Chunk> 
+    
+    <Orbis Region="EU">
+        <DefaultLanguage>en</DefaultLanguage>
+        <ContentId>EP1018-CUSA00050_00-DYINGLIGHTGAME00</ContentId>
+        <NPCommID>NPWR05659_00</NPCommID>
+        <PassCode>rtj_f7sIkyatKGfre8FtiQrBSdkDWMg5</PassCode>
+        <StorageType>bd25</StorageType>
+        <AppType>full</AppType>
+        <AppPath>\\builder01\builds\ELEVATED\Master\PS4\EP1018-CUSA00050_00-DYINGLIGHTGAME00.pkg</AppPath>
+        <LatestPatchPath>\\builder01\builds\ELEVATED\Master\PS4\PATCH0\EP1018-CUSA00050_00-DYINGLIGHTGAME00.pkg</LatestPatchPath>
+        <VolumeType>pkg_ps4_app</VolumeType>
+        <VolumeTypePatch>pkg_ps4_patch</VolumeTypePatch>
+        <StartChunkId>0</StartChunkId>
+        
+        <Scenario Type="sp" Label="Single Play Scenario"/>
+        <Scenario Type="mp" Label="Multi Play Scenario"/>
+    </Orbis>
+    
+    <Orbis Region="EU2">
+        <DefaultLanguage>en</DefaultLanguage>
+        <ContentId>EP1018-CUSA02010_00-DYINGLIGHTGAME00</ContentId>
+        <NPCommID>NPWR05659_00</NPCommID>
+        <PassCode>rtj_f7sIkyatKGfre8FtiQrBSdkDWMg5</PassCode>
+        <StorageType>bd25</StorageType>
+        <AppType>full</AppType>
+        <VolumeType>pkg_ps4_app</VolumeType>
+        <VolumeTypePatch>pkg_ps4_patch</VolumeTypePatch>
+        <StartChunkId>0</StartChunkId>
+        
+        <Scenario Type="sp" Label="Single Play Scenario"/>
+        <Scenario Type="mp" Label="Multi Play Scenario"/>
+    </Orbis>
+    
+    <Orbis Region="NA">
+        <DefaultLanguage>en</DefaultLanguage>
+        <ContentId>UP1018-CUSA00078_00-DYINGLIGHTGAME00</ContentId>
+        <NPCommID>NPWR05659_00</NPCommID>
+        <PassCode>rtj_f7sIkyatKGfre8FtiQrBSdkDWMg5</PassCode>
+        <StorageType>bd25</StorageType>
+        <AppType>full</AppType>
+        <AppPath>\\builder01\builds\ELEVATED\Master\PS4\UP1018-CUSA00078_00-DYINGLIGHTGAME00.pkg</AppPath>
+        <LatestPatchPath>\\builder01\builds\ELEVATED\Master\PS4\PATCH0\UP1018-CUSA00078_00-DYINGLIGHTGAME00.pkg</LatestPatchPath>
+        <VolumeType>pkg_ps4_app</VolumeType>
+        <VolumeTypePatch>pkg_ps4_patch</VolumeTypePatch>
+        <StartChunkId>0</StartChunkId>        
+        <Scenario Type="sp" Label="Single Play Scenario"/>
+        <Scenario Type="mp" Label="Multi Play Scenario"/>
+    </Orbis>
+    
+    <Orbis Region="SA">
+        <DefaultLanguage>br</DefaultLanguage>
+        <ContentId>UP1018-CUSA01473_00-DYINGLIGHTGAME00</ContentId>
+        <NPCommID>NPWR05659_00</NPCommID>
+        <PassCode>rtj_f7sIkyatKGfre8FtiQrBSdkDWMg5</PassCode>
+        <StorageType>bd25</StorageType>
+        <AppType>full</AppType>
+        <AppPath>\\builder01\builds\ELEVATED\Master\PS4\UP1018-CUSA01473_00-DYINGLIGHTGAME00.pkg</AppPath>
+        <LatestPatchPath>\\builder01\builds\ELEVATED\Master\PS4\PATCH0\UP1018-CUSA01473_00-DYINGLIGHTGAME00.pkg</LatestPatchPath>
+        <VolumeType>pkg_ps4_app</VolumeType>
+        <VolumeTypePatch>pkg_ps4_patch</VolumeTypePatch>
+        <StartChunkId>0</StartChunkId>        
+        <Scenario Type="sp" Label="Single Play Scenario"/>
+        <Scenario Type="mp" Label="Multi Play Scenario"/>
+    </Orbis>
+    
+    <Orbis Region="JP">
+        <DefaultLanguage>jp</DefaultLanguage>
+        <ContentId>JP0012-CUSA01090_00-DYINGLIGHTGAME00</ContentId>
+        <NPCommID>NPWR05659_00</NPCommID>
+        <PassCode>rtj_f7sIkyatKGfre8FtiQrBSdkDWMg5</PassCode>
+        <StorageType>bd25</StorageType>
+        <AppType>full</AppType>
+        <AppPath>\\builder01\builds\ELEVATED\Master\PS4\JP0012-CUSA01090_00-DYINGLIGHTGAME00.pkg</AppPath>
+        <LatestPatchPath>\\builder01\builds\ELEVATED\Master\PS4\PATCH0\JP0012-CUSA01090_00-DYINGLIGHTGAME00.pkg</LatestPatchPath>
+        <VolumeType>pkg_ps4_app</VolumeType>
+        <VolumeTypePatch>pkg_ps4_patch</VolumeTypePatch>
+        <StartChunkId>0</StartChunkId>        
+        <Scenario Type="sp" Label="Single Play Scenario"/>
+        <Scenario Type="mp" Label="Multi Play Scenario"/>
+    </Orbis>
+    
+    <Orbis DLC="dlc0" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-0000000000000000</ContentId>
+        <PassCode>51bWEHx5MbiS5UsLZGbP-iQJk5PELDxS</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc0" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-0000000000000000</ContentId>
+        <PassCode>51bWEHx5MbiS5UsLZGbP-iQJk5PELDxS</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc0" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-0000000000000000</ContentId>
+        <PassCode>51bWEHx5MbiS5UsLZGbP-iQJk5PELDxS</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc0" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-0000000000000000</ContentId>
+        <PassCode>51bWEHx5MbiS5UsLZGbP-iQJk5PELDxS</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc1" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-BETHEZOMBIE00000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc1" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-BETHEZOMBIE00000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc1" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-BETHEZOMBIE00000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc1" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-BETHEZOMBIE00000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc2" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-CUISINEANDCARGO0</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc2" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-CUISINEANDCARGO0</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc2" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-CUISINEANDCARGO0</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc2" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-CUISINEANDCARGO0</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc3" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-PUNKQUEENWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc3" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-PUNKQUEENWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc3" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-PUNKQUEENWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc3" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-PUNKQUEENWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc4" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-BUZZKILLERWEAPON</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc4" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-BUZZKILLERWEAPON</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc4" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-BUZZKILLERWEAPON</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc4" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-BUZZKILLERWEAPON</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc5" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-NIGHTCLUBWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc5" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-NIGHTCLUBWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc5" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-NIGHTCLUBWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc5" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-NIGHTCLUBWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc6" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-LACERATORWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc6" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-LACERATORWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc6" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-LACERATORWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc6" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-LACERATORWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc7" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-CONSTABLEWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc7" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-CONSTABLEWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc7" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-CONSTABLEWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc7" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-CONSTABLEWEAPONS</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc8" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-WRENCHKISSWEAPON</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc8" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-WRENCHKISSWEAPON</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc8" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-WRENCHKISSWEAPON</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc8" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-WRENCHKISSWEAPON</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc9" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-NINJAOUTFIT00000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc9" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-NINJAOUTFIT00000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc9" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-NINJAOUTFIT00000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc9" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-NINJAOUTFIT00000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc10" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-URBANEXPLORER000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc10" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-URBANEXPLORER000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc10" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-URBANEXPLORER000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc10" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-URBANEXPLORER000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc11" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-SPECIALAGENT0000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc11" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-SPECIALAGENT0000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc11" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-SPECIALAGENT0000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc11" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-SPECIALAGENT0000</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc16" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-THEZOMBIEGAMES00</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc16" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-THEZOMBIEGAMES00</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc16" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-THEZOMBIEGAMES00</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc16" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-THEZOMBIEGAMES00</ContentId>
+        <PassCode>Qdmud6goQGljP10AF6uVx5gk0cfvKU0O</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc17" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-0000000000000017</ContentId>
+        <PassCode>vJIbNNW1fGOCxQ94PF38Ycm1tNRy3P1I</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc17" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-0000000000000017</ContentId>
+        <PassCode>vJIbNNW1fGOCxQ94PF38Ycm1tNRy3P1I</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc17" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-0000000000000017</ContentId>
+        <PassCode>vJIbNNW1fGOCxQ94PF38Ycm1tNRy3P1I</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc17" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-0000000000000017</ContentId>
+        <PassCode>vJIbNNW1fGOCxQ94PF38Ycm1tNRy3P1I</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc18" Region="NA_SA">
+        <ContentId>UP1018-CUSA00078_00-0000000000000018</ContentId>
+        <PassCode>AzY7iYqN6LGiVk03U20IYaiHfjdMS9do</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc18" Region="EU_GDR">
+        <ContentId>EP1018-CUSA00050_00-0000000000000018</ContentId>
+        <PassCode>AzY7iYqN6LGiVk03U20IYaiHfjdMS9do</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc18" Region="JP">
+        <ContentId>JP0012-CUSA01090_00-0000000000000018</ContentId>
+        <PassCode>AzY7iYqN6LGiVk03U20IYaiHfjdMS9do</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Orbis DLC="dlc18" Region="EU2">
+        <ContentId>EP1018-CUSA02010_00-0000000000000018</ContentId>
+        <PassCode>AzY7iYqN6LGiVk03U20IYaiHfjdMS9do</PassCode>
+        <VolumeType>pkg_ps4_ac_data</VolumeType>
+        <StartChunkId>0</StartChunkId>
+    </Orbis>
+    
+    <Durango>
+        <StartChunkId>1000</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc0">
+        <StartChunkId>1100</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc1">
+        <StartChunkId>1200</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc2">
+        <StartChunkId>1300</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc3">
+        <StartChunkId>1400</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc4">
+        <StartChunkId>1500</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc5">
+        <StartChunkId>1600</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc6">
+        <StartChunkId>1700</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc7">
+        <StartChunkId>1800</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc8">
+        <StartChunkId>1900</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc9">
+        <StartChunkId>2000</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc10">
+        <StartChunkId>2100</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc11">
+        <StartChunkId>2200</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc12">
+        <StartChunkId>2300</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc13">
+        <StartChunkId>2400</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc14">
+        <StartChunkId>2500</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc15">
+        <StartChunkId>2600</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc16">
+        <StartChunkId>2700</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc17">
+        <StartChunkId>2800</StartChunkId>
+    </Durango>
+    
+    <Durango DLC="dlc18">
+        <StartChunkId>2900</StartChunkId>
+    </Durango>
+    
+    <Xbox DLC="dlc17">
+        <Name>DyingLightGameDLC17</Name>
+        <TitleId>5752083F</TitleId>
+        <TitleName>DyingLight</TitleName>
+        <ActivationDate>09/04/2014</ActivationDate>
+        <PubOfferingID>BAADF00</PubOfferingID>
+        <PubBitFlags>FFFFFFFF</PubBitFlags>
+        <HasCost>false</HasCost>
+        <IsMarketplace>true</IsMarketplace>
+        <DashIcon>\DLC17SmallLogo.png</DashIcon>
+        <TitleIcon>\DLC17SmallLogo.png</TitleIcon>
+        <ContentType>0x00000002</ContentType>
+    </Xbox>
+        
+    <PS3 Region="EU">    
+        <DiscType>BD25</DiscType>
+        <DiscName>BLES-01944</DiscName>
+        <NPCommID>NPWR05105_00</NPCommID>
+        <Copyright>Techland</Copyright>
+        <Producer>Techland</Producer>
+        <VolumeId>PS3VOLUME</VolumeId>
+        <FsType>UDF2.50+ISO Lv3+Joliet</FsType>
+        <DefaultDestDir>PS3_GAME/USRDIR/</DefaultDestDir>
+    </PS3>
+    
+    <PS3 Region="NA">
+        <DiscType>BD25</DiscType>
+        <DiscName>BLUS-41043</DiscName>
+        <NPCommID>NPWR05105_00</NPCommID>
+        <Copyright>Techland</Copyright>
+        <Producer>Techland</Producer>
+        <VolumeId>PS3VOLUME</VolumeId>
+        <FsType>UDF2.50+ISO Lv3+Joliet</FsType>
+        <DefaultDestDir>PS3_GAME/USRDIR/</DefaultDestDir>
+    </PS3>
+    
+</Package>

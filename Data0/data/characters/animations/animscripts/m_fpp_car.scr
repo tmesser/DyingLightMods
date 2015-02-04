@@ -1,0 +1,63 @@
+!include("ai_timing.def")
+
+//===================================== M_FPP_Unarmed_Vehicle ============================================
+
+//========= OutSide
+
+//========= Entering Car 
+
+/*SeqTrack( "FPP_Unarmed_Vehicle_EnteringLeft", 					"M_FPP_Car_ALL.anm2",						475, 564, 30, 1, 0.5)
+SeqTrack( "FPP_Unarmed_Vehicle_EnteringRight", 					"M_FPP_Car_ALL.anm2",						 1, 90, 30, 1, 0.5)
+//SeqTrack( "FPP_Unarmed_Vehicle_EnteringLeft",		       	"M_FPP_Car_ALL.anm2",						 844, 774, 30, 1, 0.5 )
+//SeqTrack( "FPP_Unarmed_Vehicle_EnteringRight",	       	"M_FPP_Car_ALL.anm2",	        			 928, 851, 30, 1, 0.5 )
+
+SeqTrackAlias( "M_FPP_Unarmed_DriverEnteringVehicle",      	"FPP_Unarmed_Vehicle_EnteringLeft")
+SeqTrackAlias( "M_FPP_Unarmed_PassengerEnteringVehicle",   	"FPP_Unarmed_Vehicle_EnteringRight")
+
+//========= Sitting in Car
+
+SeqTrack( "FPP_Unarmed_Vehicle_DrivingVehicle",             "M_FPP_Buggy_SitPose.anm2",	       				 	0, 10, 30, 1, 0.5 )
+SeqTrack( "FPP_Unarmed_Vehicle_DrivingBuggy",             "M_FPP_Unarmed_Buggy_SitPose.anm2",	       				 	0, 10, 30, 1, 0.5 )
+SeqTrack( "FPP_Unarmed_Vehicle_PassengerBuggy",             "M_FPP_Unarmed_Buggy_PassengerSitPose.anm2",	       				 	0, 2, 30, 1, 0.5 )
+
+SeqTrackAlias( "M_FPP_Unarmed_DrivingVehicle",  	    	"FPP_Unarmed_Vehicle_DrivingVehicle")
+
+SeqTrack( "FPP_Unarmed_Vehicle_PassengerVehicle",	       	"M_FPP_Car_ALL.anm2",	         				95, 265, 30, 1, 0.5 )
+{
+    Event(0, EVENT_TURN_OFF_PHYSICS, -1)
+}
+
+SeqTrack( "FPP_Unarmed_Vehicle_NoAnimSwitch",	       	"M_FPP_Car_ALL.anm2",	         				95, 96, 30, 1, 0.5 )
+//========= Windshield Action
+SeqTrack( "M_FPP_Unarmed_Vehicle_Driver_Windshield_Punch1",	"M_FPP_Unarmed_Vehicle_Driver_Windshield.anm2",   0, 22, 30, 1, 0.5 )
+{
+	Event(20, EVENT_WINDSHIELD_PUSH1, -1)
+}
+SeqTrack( "M_FPP_Unarmed_Vehicle_Driver_Windshield_Punch2",	"M_FPP_Unarmed_Vehicle_Driver_Windshield.anm2",   22, 95, 30, 1, 0.5 )
+{
+    Event(27, EVENT_WINDSHIELD_PUSH2, -1)
+}
+SeqTrack( "M_FPP_Unarmed_Vehicle_Driver_Windshield_Push01",	"M_FPP_Unarmed_Vehicle_Driver_Windshield.anm2",	 0, 25, 30, 1, 0.5 )
+SeqTrack( "M_FPP_Unarmed_Vehicle_Driver_Windshield_Push02",	"M_FPP_Unarmed_Vehicle_Driver_Windshield.anm2",   25, 60, 30, 1, 0.5 )
+SeqTrack( "M_FPP_Unarmed_Vehicle_Driver_Windshield_Finish",	"M_FPP_Unarmed_Vehicle_Driver_Windshield.anm2",	 60, 74, 30, 1, 0.5 )
+
+//======== Engine Start action 
+SeqTrack( "M_FPP_Unarmed_EngineStart_Start",	          	"M_FPP_Unarmed_EngineStart_NEW.anm2",	         0, 31, 30, 1, 0.5 )
+SeqTrack( "M_FPP_Unarmed_EngineStart_Loop",	                "M_FPP_Unarmed_EngineStart_NEW.anm2",	         32, 92, 30, 1, 0.5 )
+SeqTrack( "M_FPP_Unarmed_EngineStart_Finish",            	"M_FPP_Unarmed_EngineStart_NEW.anm2",	         93, 112, 30, 1, 0.5 )
+SeqTrack( "M_FPP_Unarmed_EngineStart_Wheel_Hit_01",        	"M_FPP_Unarmed_EngineStart_NEW.anm2",	         185, 236, 30, 1, 0.5 )
+SeqTrack( "M_FPP_Unarmed_EngineStart_Look_Right",          	"M_FPP_Unarmed_EngineStart_NEW.anm2",	         237, 283, 30, 1, 0.5 )
+SeqTrack( "M_FPP_Unarmed_EngineStart_Look_Left",           	"M_FPP_Unarmed_EngineStart_NEW.anm2",	         115, 184, 30, 1, 0.5 )
+SeqTrack( "M_FPP_Unarmed_EngineStart_Wheel_Struggle",      	"M_FPP_Unarmed_EngineStart_NEW.anm2",	         284, 316, 30, 1, 0.5 )
+SeqTrack( "M_FPP_Unarmed_EngineStart_Wheel_Hit_02",	       	"M_FPP_Unarmed_EngineStart_NEW.anm2",	         317, 376, 30, 1, 0.5 )
+
+//======== In car movement
+
+SeqTrack( "FPP_Unarmed_Vehicle_SwitchRightToLeft",	       		"M_FPP_Car_ALL_Seats.anm2",				         0, 45, 30, 1, 0.5 )
+SeqTrack( "FPP_Unarmed_Vehicle_SwitchLeftToRight",	       		"M_FPP_Car_ALL_Seats.anm2",	       			     45, 0, 30, 1, 0.5 )
+
+// ======= Get Out 
+
+SeqTrack( "FPP_Unarmed_Vehicle_GetOutLeft",		       	"M_FPP_Car_ALL.anm2",						 774, 844, 30, 1, 0.5 )
+SeqTrack( "FPP_Unarmed_Vehicle_GetOutRight",	       	"M_FPP_Car_ALL.anm2",	        			 851, 928, 30, 1, 0.5 )
+*/

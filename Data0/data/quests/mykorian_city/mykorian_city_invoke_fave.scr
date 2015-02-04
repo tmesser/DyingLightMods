@@ -1,0 +1,5 @@
+!QuestStage( s, s, s )
+!OnEnter( s )
+!OnLeave( s )
+
+QuestStage( "", "Q_InnerCity02", "Look at the archeologist board" )

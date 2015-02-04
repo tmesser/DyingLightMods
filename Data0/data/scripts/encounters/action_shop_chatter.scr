@@ -1,0 +1,85 @@
+sub main()
+{
+	VolumeSettings()
+	{
+		ChatterSpeechType("ENCOUNTER_CHATTER");
+	}
+	
+	Preset("Default")
+	{
+		Variation()
+		{
+			Group("PlayerAttracted")
+			{
+				Volume(0.7);
+				Ranges(3, 15, 1.5);
+				Occlusion(0.5, 1);
+				RandomLoop()
+				{
+					Delays(15.0, 25.0);
+					Chatter("", "Shopkeeper_Night_Smoking_01.ogg", "Shopkeeper_Night_Smoking_01", "survivor");
+					Chatter("", "Shopkeeper_Night_Smoking_02.ogg", "Shopkeeper_Night_Smoking_02", "survivor");
+					Chatter("", "Shopkeeper_Night_Smoking_04.ogg", "Shopkeeper_Night_Smoking_04", "survivor");
+				}
+			}
+		}
+		Variation()
+		{
+			Group("PlayerAttracted")
+			{
+				Volume(0.7);
+				Ranges(3, 15, 1.5);
+				Occlusion(0.5, 1);
+				RandomLoop()
+				{
+					Delays(15.0, 25.0);
+					Chatter("", "Shopkeeper_Night_Wall_02.ogg", "Shopkeeper_Night_Wall_02", "survivor");
+					Chatter("", "Shopkeeper_Night_Wall_03.ogg", "Shopkeeper_Night_Wall_03", "survivor");
+				}
+			}
+		}
+	}
+
+	Preset("Container")
+	{
+		Variation()
+		{
+			Group("PlayerAttracted")
+			{
+				Volume(0.7);
+				Ranges(3, 15, 1.5);
+				Occlusion(0.5, 1);
+				RandomLoop()
+				{
+					Delays(15.0, 25.0);
+					Chatter("", "ChatterShop_Shopkeeper_01_CHT01.ogg", "ChatterShop_Shopkeeper_01_CHT01", "survivor");
+					Chatter("", "ChatterShop_Shopkeeper_01_CHT02.ogg", "ChatterShop_Shopkeeper_01_CHT02", "survivor");
+					Chatter("", "ChatterShop_Shopkeeper_01_CHT03.ogg", "ChatterShop_Shopkeeper_01_CHT03", "survivor");
+					Chatter("", "ChatterShop_Shopkeeper_01_CHT04.ogg", "ChatterShop_Shopkeeper_01_CHT04", "survivor");
+					Chatter("", "ChatterShop_Shopkeeper_01_CHT05.ogg", "ChatterShop_Shopkeeper_01_CHT05", "survivor");
+					Chatter("", "ChatterShop_Shopkeeper_01_CHT06.ogg", "ChatterShop_Shopkeeper_01_CHT06", "survivor");
+				}
+			}
+		}
+		Variation()
+		{
+			Group("PlayerAttracted")
+			{
+				Volume(0.7);
+				Ranges(3, 15, 1.5);
+				Occlusion(0.5, 1);
+				RandomLoop()
+				{
+					Delays(15.0, 25.0);
+					Chatter("", "ChatterShop_Shopkeeper_03_CHT01.ogg", "ChatterShop_Shopkeeper_03_CHT01", "survivor");
+					Chatter("", "ChatterShop_Shopkeeper_03_CHT02.ogg", "ChatterShop_Shopkeeper_03_CHT02", "survivor");
+					Chatter("", "ChatterShop_Shopkeeper_03_CHT03.ogg", "ChatterShop_Shopkeeper_03_CHT03", "survivor");
+					Chatter("", "ChatterShop_Shopkeeper_03_CHT04.ogg", "ChatterShop_Shopkeeper_03_CHT04", "survivor");
+					Chatter("", "ChatterShop_Shopkeeper_03_CHT05.ogg", "ChatterShop_Shopkeeper_03_CHT05", "survivor");
+					Chatter("", "ChatterShop_Shopkeeper_03_CHT06.ogg", "ChatterShop_Shopkeeper_03_CHT06");
+				}
+			}
+		}
+	}
+
+}

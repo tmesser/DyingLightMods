@@ -1,0 +1,52 @@
+
+
+sub main()
+{
+    res("clouds_horizon_a") { skipmiplevels(0); }
+    res("clouds_top_a") { skipmiplevels(0); }
+    res("sun_star") { skipmiplevels(0); }
+    
+    
+    
+    res("zombie_vision_ring") { skip_gct("3"); } 
+    res("particles_1024") { skip_gct("3"); } 
+    res("particles_2048") { skip_gct("3"); } 
+    res("particles_4096") { skip_gct("3"); } 
+    res("bbox") { skip_gct("3"); } 
+    res("blood_pp") { skip_gct("3"); } 
+    res("bsphere") { skip_gct("3"); } 
+    res("bsphere_hq") { skip_gct("3"); } 
+    res("clouds_cone") { skip_gct("3"); } 
+    res("fury_pp_border") { skip_gct("3"); } 
+    res("heat_pp") { skip_gct("3"); } 
+    res("lens_drops") { skip_gct("3"); } 
+    res("light_box") { skip_gct("3"); } 
+    res("light_pyramid") { skip_gct("3"); } 
+    res("light_sphere") { skip_gct("3"); } 
+    res("nomesh") { skip_gct("3"); } 
+    res("odebox") { skip_gct("3"); } 
+    res("odecone") { skip_gct("3"); } 
+    res("odecylinder") { skip_gct("3"); } 
+    res("odecylinderempty") { skip_gct("3"); } 
+    res("odehalfsphere") { skip_gct("3"); } 
+    res("odesphere") { skip_gct("3"); } 
+    res("particles_2048") { skip_gct("3"); } 
+    res("quad_screen") { skip_gct("3"); } 
+    res("rain_drops") { skip_gct("3"); } 
+    res("reporting_tool_helper") { skip_gct("3"); } 
+    res("sensorbox") { skip_gct("3"); } 
+    res("sensorboxa") { skip_gct("3"); } 
+    res("sensorcylinder") { skip_gct("3"); } 
+    res("sensorcylindera") { skip_gct("3"); } 
+    res("sensorsphere") { skip_gct("3"); } 
+    res("sky") { skip_gct("3"); } 
+    res("sky_tex") { skip_gct("3"); } 
+    res("stars") { skip_gct("3"); } 
+    res("sun") { skip_gct("3"); } 
+    res("sun_flares") { skip_gct("3"); } 
+    res("sun_rays") { skip_gct("3"); } 
+    res("sun_star") { skip_gct("3"); } 
+    res("water_surface_tension") { skip_gct("3"); } 
+    res("wayball") { skip_gct("3"); } 
+}
+

@@ -1,0 +1,54 @@
+!include("events.def")
+!include("anim_actions.def")
+////////////////////////////////////////////////////////////
+//Bow set
+////////////////////////////////////////////////////////////
+											   
+/*SeqTrack( "FPP_BowIdle",		        "M_FPP_Bow_Stand_Reload_01.anm2",         0, 10,  30, 1, 0.5)
+SeqTrack( "FPP_BowReloadStand",		    "M_FPP_Bow_Stand_Reload_01.anm2",        13, 53,  30, 1, 0.5)
+
+SeqTrack( "FPP_BowBegin",		        "M_FPP_Bow_AimPose_01.anm2",        0, 40,  30, 1, 0.0)
+SeqTrack( "FPP_BowReady",		        "M_FPP_Bow_AimPose_01.anm2",        172, 302,   30, 1, 0.0)
+
+SeqTrack( "FPP_BowShoot",		        "M_FPP_Bow_AimShoot_Reload_01.anm2",         0, 12,  30, 1, 0.0)
+{
+	Event(3, EVENT_THROWABLE_THROW, -1)
+}
+SeqTrack("FPP_BowShoot2Idle",		    "M_FPP_Bow_AimPose_To_ShootReady_01.anm2",        0, 44,  30, 1, 0.0)
+
+SeqTrack( "FPP_BowReload",		        "M_FPP_Bow_AimShoot_Reload_01.anm2",         32, 74,  30, 1, 0.0)
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+SeqTrack( "FPP_BowIdle1",		        "M_FPP_Bow_Stand_Reload_01.anm2",         0, 10,  30, 1, 0.5)
+SeqTrack( "FPP_BowReloadStand1",		    "M_FPP_Bow_Stand_Reload_01.anm2",        13, 53,  30, 1, 0.5)
+
+SeqTrack( "FPP_BowBegin1",		        "M_FPP_Bow_AimPose_02_Var2.anm2",        0, 40,  30, 1, 0.0)
+SeqTrack( "FPP_BowReady1",		        "M_FPP_Bow_AimPose_02_Var2.anm2",        172, 302,   30, 1, 0.0)
+
+SeqTrack( "FPP_BowShoot1",		        "M_FPP_Bow_AimReload_01_Var2.anm2",         0, 12,  30, 1, 0.0)
+{
+	Event(3, EVENT_THROWABLE_THROW, -1)
+}
+SeqTrack("FPP_BowShoot2Idle1",		    "M_FPP_Bow_AimPose_To_ShootReady_01_Var2.anm2",        0, 44,  30, 1, 0.0)
+
+SeqTrack( "FPP_BowReload1",		        "M_FPP_Bow_AimReload_01_Var2.anm2",         32, 74,  30, 1, 0.0)*/
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+/*SeqTrack( "FPP_BowIdle2",		        "M_FPP_Bow_Stand_Reload_01.anm2",         0, 10,  30, 1, 0.5)
+SeqTrack( "FPP_BowReloadStand2",		    "M_FPP_Bow_Stand_Reload_01.anm2",        13, 53,  30, 1, 0.5)
+
+SeqTrack( "FPP_BowBegin2",		        "M_FPP_Bow_AimPose_02_Var2.anm2",        0, 40,  30, 1, 0.3)
+SeqTrack( "FPP_BowReady2",		        "M_FPP_Bow_AimPose_02_Var2.anm2",        172, 302,   30, 1, 0.3)
+
+SeqTrack( "FPP_BowShoot2",		        "M_FPP_Bow_AimReload_01_Var3_FAST.anm2",         0, 12,  30, 1, 0.0)
+{
+	Event(3, EVENT_THROWABLE_THROW, -1)
+}
+SeqTrack("FPP_BowShoot2Idle2",		    "M_FPP_Bow_AimPose_To_ShootReady_01_Var3.anm2",        0, 44,  30, 1, 0.0)
+
+SeqTrack( "FPP_BowReload2",		        "M_FPP_Bow_AimReload_01_Var3_FAST.anm2",         27, 120,  30, 1, 0.0)
+
+SeqTrack( "FPP_BowNotReady",		        "M_FPP_Bow_Walk_01.anm2",         0, 30,  30, 1, 0.5)
+
+SeqTrack( "FPP_BowArrowHit2",		        "M_FPP_Bow_Arrow_Attack.anm2"	, 0, 32, 30, 1, 0.0)
+*/

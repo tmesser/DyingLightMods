@@ -1,0 +1,86 @@
+ParamGroup("SurfaceParams", "Unknown")
+{
+	ParamString("long_curve_name_front", "ground_buggy_wst_wheel_long_slip_ratio")
+	ParamString("long_curve_name_rear", "ground_buggy_wst_wheel_long_slip_ratio")
+	ParamString("lat_curve_name_front", "ground_buggy_wst_wheel_lat_slip_ratio_front")
+	ParamString("lat_curve_name_rear", "ground_buggy_wst_wheel_lat_slip_ratio_rear")
+	ParamString("lat_reduction_curve_name_front", "ground_buggy_wst_wheel_lat_slip_reduction_front")
+	ParamString("lat_reduction_curve_name_rear", "ground_buggy_wst_wheel_lat_slip_reduction_rear")
+	ParamString("vel_traction_reduction_curve_name", "ground_buggy_wst_vel_traction_reduction")
+	
+	ParamFloat("surface_friction_mul", 1.0)
+	
+	ParamFloat("wheel_bump_gen_curve_pow", 2)
+
+    ParamFloat("wheel_bump_strength_mul", 1.0)
+}
+
+ParamGroup("SurfaceParams", "Ground")
+{
+	ParamString("long_curve_name_front", "ground_buggy_wst_wheel_long_slip_ratio")
+	ParamString("long_curve_name_rear", "ground_buggy_wst_wheel_long_slip_ratio")
+	ParamString("lat_curve_name_front", "ground_buggy_wst_wheel_lat_slip_ratio_front")
+	ParamString("lat_curve_name_rear", "ground_buggy_wst_wheel_lat_slip_ratio_rear")
+	ParamString("lat_reduction_curve_name_front", "ground_buggy_wst_wheel_lat_slip_reduction_front")
+	ParamString("lat_reduction_curve_name_rear", "ground_buggy_wst_wheel_lat_slip_reduction_rear")
+	ParamString("vel_traction_reduction_curve_name", "ground_buggy_wst_vel_traction_reduction")
+	
+	ParamFloat("surface_friction_mul", 1.0)
+	
+	ParamFloat("wheel_bump_gen_curve_pow", 2)
+
+    ParamFloat("wheel_bump_strength_mul", 1.0)
+}
+
+ParamGroup("SurfaceParams", "Grass")
+{
+	ParamString("long_curve_name_front", "grass_buggy_wst_wheel_long_slip_ratio")
+	ParamString("long_curve_name_rear", "grass_buggy_wst_wheel_long_slip_ratio")
+	ParamString("lat_curve_name_front", "grass_buggy_wst_wheel_lat_slip_ratio_front")
+	ParamString("lat_curve_name_rear", "grass_buggy_wst_wheel_lat_slip_ratio_rear")
+	ParamString("lat_reduction_curve_name_front", "grass_buggy_wst_wheel_lat_slip_reduction_front")
+	ParamString("lat_reduction_curve_name_rear", "grass_buggy_wst_wheel_lat_slip_reduction_rear")
+	ParamString("vel_traction_reduction_curve_name", "grass_buggy_wst_vel_traction_reduction")
+	ParamString("vel_drag_curve_name", "grass_buggy_wst_vel_drag")
+	
+	ParamFloat("surface_friction_mul", 1.0)
+	
+	ParamFloat("wheel_bump_gen_curve_pow", 1.0)
+
+    ParamFloat("wheel_bump_strength_mul", 1.7)
+}
+
+ParamGroup("SurfaceParams", "Tarmac")
+{
+	ParamString("long_curve_name_front", "tarmac_buggy_wst_wheel_long_slip_ratio")
+	ParamString("long_curve_name_rear", "tarmac_buggy_wst_wheel_long_slip_ratio")
+	ParamString("lat_curve_name_front", "tarmac_buggy_wst_wheel_lat_slip_ratio_front")
+	ParamString("lat_curve_name_rear", "tarmac_buggy_wst_wheel_lat_slip_ratio_rear")
+	ParamString("lat_reduction_curve_name_front", "tarmac_buggy_wst_wheel_lat_slip_reduction_front")
+	ParamString("lat_reduction_curve_name_rear", "const_one")
+	ParamString("vel_traction_reduction_curve_name", "tarmac_buggy_wst_vel_traction_reduction")
+	
+	ParamFloat("surface_friction_mul", 1.2)
+	
+	
+	ParamFloat("wheel_bump_gen_curve_pow", 3)
+
+    ParamFloat("wheel_bump_strength_mul", 0.5)
+}
+
+ParamGroup("SurfaceParams", "Water")
+{
+	ParamString("long_curve_name_front", "water_buggy_wst_wheel_long_slip_ratio")
+	ParamString("long_curve_name_rear", "water_buggy_wst_wheel_long_slip_ratio")
+	ParamString("lat_curve_name_front", "water_buggy_wst_wheel_lat_slip_ratio_front")
+	ParamString("lat_curve_name_rear", "water_buggy_wst_wheel_lat_slip_ratio_rear")
+	ParamString("lat_reduction_curve_name_front", "water_buggy_wst_wheel_lat_slip_reduction_front")
+	ParamString("lat_reduction_curve_name_rear", "water_buggy_wst_wheel_lat_slip_reduction_rear")
+	ParamString("vel_traction_reduction_curve_name", "water_buggy_wst_vel_traction_reduction")
+	ParamString("vel_drag_curve_name", "water_buggy_wst_vel_drag")
+	ParamFloat("surface_friction_mul", 0.7)
+	
+	ParamFloat("wheel_bump_gen_curve_pow", 1)
+
+    ParamFloat("wheel_bump_strength_mul", 1.0)
+}

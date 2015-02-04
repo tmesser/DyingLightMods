@@ -1,0 +1,11 @@
+import "main.ppfx"
+
+sub ppfx()
+{
+	int e_path = SM31;
+	
+	use full_ppfx(
+		e_path = e_path,
+		b_top_on = TRUE
+	);
+}

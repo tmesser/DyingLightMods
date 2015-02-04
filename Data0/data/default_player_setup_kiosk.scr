@@ -1,0 +1,165 @@
+
+sub Items_Low(){
+	Item("Melee_PipeAGen", 1);
+	Item("Melee_WrenchAGen", 1);
+}
+
+sub Items_Medium(){
+	Item("Melee_ReedKnifeAGen", 1);
+	Item("Melee_HammerAGen", 1);
+	Item("LockpickItem", 30);
+}
+
+sub Items_High(){
+	Item("Melee_MacheteAGen", 1);
+	Item("Melee_HammerBigAGen", 1);
+	Item("Throwable_ThrowingKnifeAGen", 10);
+	Item("Firearm_M9Gen", 1);
+	Item("Ammo_PistolBig", 10);
+}
+
+
+sub Items_Balance(){
+	Item("Melee_BalanceHammer", 1);
+	Item("Melee_BalanceAxe", 1);
+	Item("Firearm_M9Gen", 1);
+	Item("Ammo_PistolBig", 30);
+}
+
+sub Items_Common(){
+    Item("Melee_ShortAxeBGen", 1);
+    Item("Melee_HammerBigCGen", 1);
+    Item("Melee_HammerEGen", 1);
+    Item("Melee_ShortKnifeDGen", 1);
+    Item("Throwable_E3ThrowingKnife", 30);
+    Item("Throwable_Decoy", 10);
+    Item("Ammo_PistolSmall", 15);
+}
+
+sub Items_Demo(){
+	Item("Melee_WrenchAGen", 1);
+	Item("Melee_AxeBigAGen", 1);
+	Item("Melee_ShortAxeBGen", 1);
+	Item("Melee_BaseballbatAGen", 1);
+	Item("Throwable_Decoy", 10);	
+}
+
+sub main() 
+{
+    Chapter(0)		//--- Prologue ---
+    {
+    	LevelFighter(1);
+		LevelRunner(1);
+		use Items_Common();
+    }
+
+	Chapter(1) 		//--- The Tower ---
+	{
+        LevelFighter(1);
+		LevelRunner(1);
+		use Items_Common();
+		use Items_Low();
+    }
+
+	Chapter(2) 		//--- Vendetta ---
+	{
+        LevelFighter(3);
+		LevelRunner(3);
+		use Items_Common();
+		use Items_Low();
+    }
+
+	Chapter(3) 		//--- Predator ---
+	{
+        LevelFighter(6);
+		LevelRunner(6);
+		use Items_Common();
+		use Items_Low();
+    }
+
+	Chapter(4) 		//--- Prisoner ---
+	{
+        LevelFighter(9);
+		LevelRunner(9);
+		use Items_Common();
+		use Items_Low();
+    }
+
+	Chapter(5) 		//--- Vaccine ---
+	{
+        LevelFighter(13);
+		LevelRunner(13);
+		use Items_Common();
+		use Items_Medium();
+    }
+	
+	Chapter(6) 		//--- Zumans ---
+	{
+        LevelFighter(16);
+		LevelRunner(16);
+		use Items_Common();
+		use Items_Medium();
+    }
+
+	Chapter(7) 		//--- Scavengers ---
+	{
+        LevelFighter(19);
+		LevelRunner(19);
+		use Items_Common();
+		use Items_Medium();
+    }
+
+	Chapter(8) 		//--- Burrow ---
+	{
+        LevelFighter(22);
+		LevelRunner(22);
+		use Items_Common();
+		use Items_Medium();
+    }
+
+
+	Chapter(9) 		//--- The Siege ---
+	{
+        LevelFighter(24);
+		LevelRunner(24);
+		use Items_Common();
+		use Items_Medium();
+    }
+
+	Chapter(10) 	//--- Forever Young ---
+	{
+        LevelFighter(26);
+		LevelRunner(26);
+		use Items_Common();
+		use Items_High();
+    }
+
+	Chapter(11) 	//--- Evil is Back ---
+	{
+        LevelFighter(28);
+		LevelRunner(28);
+		use Items_Common();
+		use Items_High();
+    }
+
+	Chapter(12) 	//--- Research ---
+	{
+        LevelFighter(30);
+		LevelRunner(30);
+		use Items_Common();
+		use Items_High();
+    }
+
+	Chapter(13) 	//--- Over the Rainbow ---
+	{
+        LevelFighter(31);
+		LevelRunner(31);
+		use Items_Common();
+		use Items_High();
+    }
+
+	Chapter(14) 	//--- NIGHT DEMO ---
+	{
+        use Items_Demo();
+    }
+}

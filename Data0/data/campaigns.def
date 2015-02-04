@@ -1,0 +1,9 @@
+!include("game_search.def")
+
+!Campaign(s, s)
+!Prologue()
+//params: internet_search, lan_search
+!NoAutoSaves()
+
+!DlcCampaigns(i)
+

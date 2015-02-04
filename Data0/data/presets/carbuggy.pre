@@ -1,0 +1,40 @@
+sub main()
+{
+    PresetDef("Preset")
+    {
+        Description("");
+    
+		AddField("MeshName", "ve_buggy_a.msh");
+		AddField("SkinName", "Default");
+		AddField("m_ScriptName", "buggy_default_script.scr");
+		
+		Preset("MadRiders")
+		{
+			SetField("MeshName", "ve_buggy_a.msh");
+			SetField("SkinName", "Default");
+			SetField("m_ScriptName", "buggy_madriders_script.scr");
+		}
+		
+		Preset("Wasteland")
+		{
+			SetField("MeshName", "ve_buggy.msh");
+			SetField("SkinName", "Default");
+			SetField("m_ScriptName", "buggy_wasteland_script.scr");
+		}
+		
+		Preset("Defender")
+		{
+			SetField("MeshName", "ve_defender_a.msh");
+			SetField("SkinName", "Default");
+			SetField("m_ScriptName", "buggy_defender_script.scr");
+		}
+		
+		Preset("DefenderTurbo")
+		{
+			SetField("MeshName", "ve_defender_a.msh");
+			SetField("SkinName", "Armored");
+			SetField("m_ScriptName", "buggy_defender_turbo_script.scr");
+		}
+	}
+}
+

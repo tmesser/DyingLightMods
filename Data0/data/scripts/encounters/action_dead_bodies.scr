@@ -1,0 +1,16 @@
+sub main()
+{
+	Preset("Default")
+	{
+		Variation()
+		{
+			Group("Test")
+			{
+				Random()
+				{
+				}
+			}
+		}
+	}
+
+}

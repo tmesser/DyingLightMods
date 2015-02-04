@@ -1,0 +1,6 @@
+sub main()
+{	
+    Script("common_skills.xml");
+    Script("zombie_skills.xml");
+    Script("perks.xml");
+}

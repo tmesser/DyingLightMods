@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<QuestsDefinitions
+     level="mykorian_city"
+     pxsl_line="3">
+    <!-- quest CollectingHerbs -parent=Fuel03  -quest_giver=abram -difficulty=medium -reward_set=CollectingHerbs_reward -->
+        <!-- ,BLOCK _ -obj=<<Talk To Abram>> -->
+            <!-- ,talk <<Collecting Herbs - START>> abram abram_q_collectingherbs_USA -follow=abram_q_collectingherbs_INP -->
+                <!-- ,debugpos SpawnPoint Abram_sp -->
+            <!-- ,checkpoint _ SpawnPoint Abram_sp    -->
+        <!-- ,AND _ -obj=<<Find herbs>>     -->
+            <!-- path -->
+                <!-- ,take-multi <<Collect The Herbs>> -count=12 -show_list=true -show=false -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB01::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB02::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB03::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB04::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB05::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB06::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB07::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB08::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB09::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB10::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB11::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB12::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB13::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB14::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB15::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB16::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB17::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB18::plant -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB19::plant -->
+                    <!-- ,debugpos SpawnPoint CollectingHerbs_sp_01 -->
+                    <!-- ,area ZoneBox HerbsB -->
+                    <!-- -= ,item QuestInventoryItemDI misc_HerbsB20::plant -->
+                    <!-- -= ,item QuestInventoryItemDI misc_HerbsB21::plant -->
+                    <!-- -= ,item QuestInventoryItemDI misc_HerbsB22::plant -->
+                    <!-- -= ,item QuestInventoryItemDI misc_HerbsB23::plant -->
+                    <!-- -= ,item QuestInventoryItemDI misc_HerbsB24::plant -->
+                    <!-- -= ,item QuestInventoryItemDI misc_HerbsB25::plant -->
+                    <!-- -= ,item QuestInventoryItemDI misc_HerbsB26::plant -->
+                    <!-- -= ,item QuestInventoryItemDI misc_HerbsB27::plant -->
+                    <!-- -= ,item QuestInventoryItemDI misc_HerbsB28::plant -->
+                    <!-- -= ,item QuestInventoryItemDI misc_HerbsB29::plant -->
+                    <!-- -= ,item QuestInventoryItemDI misc_HerbsB30::plant -->
+                    <!--  -->
+                    <!-- -= ,area ZoneBox CollectingHerbs_ZoneB -->
+            <!-- path -->
+                <!-- ,take-multi _ -count=12 -show_list=true -show=false -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB01 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB02 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB03 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB04 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB05 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB06 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB07 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB08 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB09 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB10 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB11 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB12 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB13 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB14 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB15 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB16 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB17 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB18 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB19 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB20 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB21 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB22 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB23 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB24 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB25 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB26 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB27 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB28 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB29 -->
+                    <!-- ,item QuestInventoryItemDI misc_HerbsB30 -->
+                    <!-- ,area ZoneBox HerbsA -->
+        <!-- ,BLOCK _ -obj=<<Bring Herbs To Abram>> -->
+            <!-- ,talk <<Collecting Herbs - END>> abram abram_q_collectingherbs_END -->
+                <!-- ,debugpos SpawnPoint Abram_sp -->
+            <!-- ,reward _ -->
+            <!-- ,checkpoint _ SpawnPoint Abram_sp -->
+</QuestsDefinitions>

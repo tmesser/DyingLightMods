@@ -1,0 +1,15 @@
+sub std_last(int e_path = -1)
+{
+    If("f_game_zombie_vision", "", "", "", "")
+    {
+        Mesh("zombie_vision_ring.msh", "zombie_vision_ring.mat", "std");
+    }
+	If("f_pp_game_player_blood_hit", "", "", "", "")
+	{
+        Mesh("tri_screen.msh", "blood_hit.mat", "std");
+	}
+	If("f_pp_game_player_blood", "", "", "", "")
+	{
+		Mesh("blood_pp.msh", "blood_pp.mat", "std");
+	}
+}

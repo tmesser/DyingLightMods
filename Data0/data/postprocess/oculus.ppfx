@@ -1,0 +1,49 @@
+sub ppfx()
+{
+	If("i_pp_OculusEnable", "", "", "", "")
+	{
+		SetRenderTargetsView("_OCULUS_FINAL", "");
+		
+		SetConst(110, -0.5, 0, 0, 0);
+		SetBuffer(8, "RIFT_L");
+		If("i_pp_OculusOnTV", "", "", "", "not")
+		{
+			Mesh("quad_screen.msh", "oculus.mat", "std");
+		}
+		If("i_pp_OculusOnTV", "", "", "", "")
+		{
+			Mesh("quad_screen.msh", "TV3d.mat", "std");
+		}
+		
+		SetConst(110, 0.5, 0, 0, 0);
+		SetBuffer(8, "RIFT_R");
+		If("i_pp_OculusOnTV", "", "", "", "not")
+		{
+			Mesh("quad_screen.msh", "oculus.mat", "std");
+		}
+		If("i_pp_OculusOnTV", "", "", "", "")
+		{
+			Mesh("quad_screen.msh", "TV3d.mat", "std");
+		}
+		
+		// render distortion mesh
+		SetRenderTarget("backbuffer", "");
+		SetBuffer(8, "OCULUS_FINAL");
+		If("i_pp_OculusOnTV", "", "", "", "not")
+		{
+			OculusDistortionMesh("oculus_distortion.mat", "std");
+		}
+		If("i_pp_OculusOnTV", "", "", "", "")
+		{
+			Mesh("quad_screen.msh", "TV3d.mat", "std");
+		}
+		
+		// clear textures
+		SetClearColor(0.0, 0.0, 0.0, 1.0);
+		SetRenderTargetsView("_RIFT_L", "color");
+		SetRenderTargetsView("_RIFT_R", "color");
+		SetClearColor(0.0, 0.0, 0.0, 0.0);
+		SetRenderTargetsView("_OCULUS_FINAL", "color");
+		SetRenderTarget("backbuffer", "");
+	}
+} 

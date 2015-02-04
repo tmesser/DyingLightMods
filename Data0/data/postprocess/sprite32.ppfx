@@ -1,0 +1,72 @@
+sub ppfx()
+{
+	// Render standard UI
+	SetRenderTargetsView("_RGBA8_A_SRGB_Z", "");
+	
+	Scene("std"); 
+
+	 
+
+	If("i_main_menu_on", "", "", "", "")
+	{
+		IfTechnique("trn0", "")
+		{
+			SetClearColor(0.0, 0.0, 0.0, 0.0);           
+			SetRenderTarget("CLR", "color");                           		
+		}
+	}             
+				Scene("trn0");
+
+	If("i_main_menu_on", "", "", "", "")
+	{
+		IfTechnique("trn2", "")
+		{		         
+
+			SetRenderTarget("4_RGBA16F_A", "");
+				SetBuffer(8, "CLR");
+					Mesh("quad_screen.msh", "copy_hud_glow.mat", "std");
+
+
+			SetRenderTarget("4_RGBA16F_B", "");
+				SetBuffer(8, "4_RGBA16F_A");
+					Mesh("quad_screen.msh", "blur_gauss_17_v.mat", "std");
+
+			SetRenderTarget("4_RGBA16F_A", "");
+				SetBuffer(8, "4_RGBA16F_B");
+					Mesh("quad_screen.msh", "blur_gauss_17_h.mat", "std");
+		}
+	}
+
+    If("f_pp_screen_scaling_on", "", "", "", "")
+    {
+		
+	}
+
+    If("f_pp_screen_scaling_on", "", "", "", "not")
+    {
+        SetRenderTarget("backbuffer", "");
+	}
+
+	IfTechnique("trn2", "")
+	{
+		SetRenderTargetsView("_RGBA8_A_SRGB_Z", "");
+			SetBuffer(9, "CLR");					     			     
+			SetBuffer(10, "4_RGBA16F_A");	     
+	}
+
+		Scene("trn2");
+
+	SetClearColor(0.0, 0.0, 0.0, 0.0);
+    SetRenderTarget("backbuffer", "color");		
+		SetBuffer(8, "1_RGBA8_A");
+			If("f_pp_screen_scaling_on", "", "", "", "")
+			{
+				Mesh("quad_screen.msh", "screen_scaling.mat", "std");
+			}
+			If("f_pp_screen_scaling_on", "", "", "", "not")
+			{
+				Mesh("quad_screen.msh", "upsampling_fxaa.mat", "std");
+			}
+			
+			
+}

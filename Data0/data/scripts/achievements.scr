@@ -1,0 +1,949 @@
+sub main()
+{
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Flight of the Crane");
+        XlastId(1);
+        Image("");
+        Points(5);
+        Grade("BRONZE");
+        Hidden();
+
+        Event("Evn_Phase")
+        {
+            PhaseName("Achievement_FlightOfTheCrane ");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Shake hands on it");
+        XlastId(2);
+        Image("");
+        Points(5);
+        Grade("BRONZE");
+        Hidden();
+
+        Event("Evn_Phase")
+        {
+            PhaseName("Achievement_ShakeHandsOnIt ");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Tonight I'll give you…");
+        XlastId(3);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        Hidden();
+
+        Event("Evn_Phase")
+        {
+            PhaseName("Achievement_TonightIWillGiveYou ");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Sightseeing");
+        XlastId(4);
+        Image("");
+        Points(15);
+        Grade("BRONZE");
+        Hidden();
+
+        Event("Evn_Phase")
+        {
+            PhaseName("Achievement_Sightseeing ");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Making faces");
+        XlastId(5);
+        Image("");
+        Points(15);
+        Grade("BRONZE");
+        Hidden();
+
+        Event("Evn_Phase")
+        {
+            PhaseName("Achievement_MakingFaces ");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("I knew you were too soft");
+        XlastId(6);
+        Image("");
+        Points(20);
+        Grade("BRONZE");
+        Hidden();
+
+        Event("Evn_Phase")
+        {
+            PhaseName("Achievement_IKnewYouWereTooSoft ");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Now you can come in");
+        XlastId(7);
+        Image("");
+        Points(20);
+        Grade("BRONZE");
+        Hidden();
+
+        Event("Evn_Phase")
+        {
+            PhaseName("Achievement_NowYouCanComeIn ");
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Vertigo");
+        XlastId(8);
+        Image("");
+        Points(25);
+        Grade("BRONZE");
+        Hidden();
+
+        Event("Evn_Phase")
+        {
+            PhaseName("Achievement_Vertigo ");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Bittersweet");
+        XlastId(9);
+        Image("");
+        Points(50);
+        Grade("BRONZE");
+        Hidden();
+
+        Event("Evn_Quest")
+        {
+            Final();
+            CampainName("main");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("The Whole Story");
+        XlastId(10);
+        Image("");
+        Points(100);
+        Grade("BRONZE");
+		Count(44);
+		CountDebug(2);
+
+        Event("Evn_Quest")
+        {
+			QuestName("Bunker;FanZone;LeglessSpider;OldTown_Outpost_Start;ChildrenOfTheMatrix01;sq_ghost01;sq_FindRupert01;TheProphet;TheProphecy;HealthPotion01;sq_BricksForTheBoy01;sq_Dungeons01;UglyMonster01;BringGalib;BringJeff;BringMusa;CrayonsForTheKids;Dynamites;LandMine;SpareGlasses;BabyIsBorn;DeathNote;ElectricMachete;OneDestinedToBurn;GuideToZombieland;GasLighter;BandagesAndMeds;Cofee;MedicalHerbs;ElectronicParts;PoisonousHerbs;Algae;Binoculars;MidnightBride;TalesFromTheCrypt;Voltage;Searchlights;WheresMyMother;WitchQueen;BringAntibiotics;Twins02;GoodNightBahir;MothersDay;BringDawud1");
+			UseNamesOfMostGluedParentQuest();				// Completeing defined in QuestName quests will be progressing achievement only when all his glued children will be completed (You can define in QuestName param names of first quest from glued-quests-group).
+			OnlyWhenMostGluedParentQuestCompleted();
+			AllDifferent();									// You can't progress achievement by doing the same quest many times.
+			SaveToProfile();								// Extention of "AllDifferent" param. Info about completing quets will be saved to profile, so starting another game wouldn't help to unlock achievement.
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Disaster Recovery");
+        XlastId(11);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+      
+        ProgressType("number");
+        Count(15);
+        CountDebug(2);
+        Event("Evn_ItemTakenDropped")
+        {
+            action("take");
+			item("misc_DRP");
+			Loot();
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("We're all in this together");
+        XlastId(12);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+      
+        ProgressType("number");
+        Count(15);
+        CountDebug(2);
+        Event("Evn_PlayerAction")
+        {
+            IgnoreAllExcept("Encounter");
+            IgnoreAllExceptParam1("HelpSafeNPC_Ledge");
+            IgnoreAllExceptParam2("HelpGrabbedNPC_Grabbed");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Homo homini lupus est");
+        XlastId(13);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(15);
+        CountDebug(2);
+        Event("Evn_PlayerAction")
+        {
+            IgnoreAllExcept("Encounter");
+            IgnoreAllExceptParam1("Prisoners_Kidnapped");
+            IgnoreAllExceptParam2("Prisoners_Kicking");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Prime Hunting");
+        XlastId(14);
+        Image("");
+        Points(20);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(5);
+        CountDebug(2);
+        Event("Evn_PlayerAction")
+        {
+            IgnoreAllExcept("Encounter");
+            IgnoreAllExceptParam1("PrimeNight_PrimeNight");
+            IgnoreAllExceptParam2("PrimeNight_PrimeNight");
+        }
+    }
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("I'm a runner and a fighter");
+        XlastId(15);
+        Image("");
+        Points(25);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(15);
+        CountDebug(2);
+		
+        Event("Evn_PlayerAction")
+        {
+            IgnoreAllExcept("ChallengeRunner");
+        }
+		Event("Evn_PlayerAction")
+        {
+            IgnoreAllExcept("ChallengeFighter");
+        }
+    }
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Lucky 7");
+        XlastId(16);
+        Image("");
+        Points(25);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(7);
+        CountDebug(2);
+		
+        Event("Evn_PlayerAction")
+        {
+            IgnoreAllExcept("CoopCompetitionWon");
+        }
+    }
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Harran Athletics");
+        XlastId(17);
+        Image("");
+        Points(25);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(10);
+        CountDebug(4);
+		
+        Event("Evn_PlayerAction")
+        {
+            IgnoreAllExcept("CoopCompetitionParticipation");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Trade Company");
+        XlastId(18);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(10000);
+        CountDebug(200);
+		CountToNotify(2000);
+        Event("Evn_Cash")
+        {
+            Reason("Traded");
+			CountCashSpent();
+			ReasonToRevert("BuyBackCost");
+        }
+    }
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Tresspassing");
+        XlastId(19);
+        Image("");
+        Points(25);
+        Grade("BRONZE");
+        
+		// Count should be equal to the number of dead zones!
+        ProgressType("number");
+        Count(8);
+        CountDebug(1);
+        
+        Event("Evn_Quest")
+        {
+			QuestName("Slums_Cleansing_Flat;Slums_Cleansing_Market;Slums_Cleansing_Parking;Slums_Cleansing_Tunnel;Slums_Cleansing_Hangar;Old_Town_Cleansing_Police_Parking;Old_Town_Cleansing_Apartment;Old_Town_Cleansing_Hotel");
+			AllDifferent();
+			SaveToProfile();
+        }
+    }
+    
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Now it's safe");
+        XlastId(20);
+        Image("");
+        Points(21);
+        Grade("BRONZE");
+        
+		// Count should be equal to the number of safe zones to unlock!
+        ProgressType("number");
+        Count(17);
+        CountDebug(2);
+		
+        Event("Evn_Quest")
+        {
+			QuestName("Antenna_01_Site_Safezone;Bar_Site_Safezone;Construction_Site_Safezone;Gas_Station_Safezone;Gas_Station_SafeZone_02;Interior_01_Site_Safezone;Interior_02_Site_Safezone;Interior_03_Safezone;Playefield_Safezone;Playefield_Safezone2;Roof_Site_Safezone;Tunnel_01_Site_Safezone;__house_interior01;__house_interior02;__restaurant_safezone;__blue_tower;__house_interior04");
+			AllDifferent();
+			SaveToProfile();
+        }
+    }
+	
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+    Stat("Achievement")
+    {
+        Name("Pheidippides");
+        XlastId(21);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        ProgressType("number");
+        Count(42195);
+        CountDebug(1000);
+        CountToNotify(5000);
+        Event("Evn_Distance")
+        {
+            Unit(1);
+            OnFoot();
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Mount Everest");
+        XlastId(22);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        ProgressType("number");
+        Count(8848);
+        CountDebug(100);
+        CountToNotify(1000);
+        Event("Evn_Distance")
+        {
+            Climbing();
+            Unit(1);
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Is it really necessary?");
+        XlastId(23);
+        Image("");
+        Points(5);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+        Event("Evn_Kill")
+        {
+            Victim("Zombie");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Everybody dance now");
+        XlastId(24);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        ProgressType("number");
+        Count(1);
+        
+        Event("Evn_Kill")
+        {
+			DamageType("electric");
+			DmgToVictimsInTime(5, 1000);
+			MaxTimeToExecute(2000);
+			OnlyDamageNotDeath();
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Can't touch this");
+        XlastId(25);
+        Image("");
+        Points(25);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(20);
+        CountDebug(3);
+		CountToNotify(5);
+        Event("Evn_Kill")
+        {
+            TakeNoDamage(true);
+            PerformedInARow(true);
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("This is Harraaaaan!");
+        XlastId(26);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        ProgressType("number");
+        Count(100);
+        CountDebug(5);
+        CountToNotify(10);
+        Event("Evn_Kill")
+        {
+            WeaponId("Melee_Leg");
+            HasFallen();
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Mouths wide open");
+        XlastId(27);
+        Image("");
+        Points(25);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+        Event("Evn_Kill")
+        {
+            Victim("Volatile");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Hush, hush now");
+        XlastId(28);
+        Image("");
+        Points(5);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+        Event("Evn_Kill")
+        {
+            Victim("Screamer");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("BBQ");
+        XlastId(29);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        ProgressType("number");
+        Count(1);
+        Event("Evn_Kill")
+        {
+            IsBurning();
+            WeaponId("Spikes_Pikes");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("A game of catch");
+        XlastId(30);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(50);
+        CountDebug(5);
+        Event("Evn_Kill")
+        {
+            WeaponType("Weapon_Grenade;Weapon_MolotovCocktail;Weapon_PoisonBomb;Weapon_Flare;Weapon_ThrowingStar");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Harran Shooting Club");
+        XlastId(31);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(50);
+        CountDebug(5);
+        Event("Evn_Kill")
+        {
+            WeaponGroup("firearms");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Electrified!");
+        XlastId(32);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(25);
+        CountDebug(3);
+		
+        Event("Evn_Kill")
+        {
+			DamageType("electric");
+			FromElectricFenceTrap();
+			MaxTimeToExecute(600000);		// Store all targets for 10 min just to be sure that the same zombie is not counted twice.
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Blinded by the lights");
+        XlastId(33);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(25);
+        CountDebug(3);
+        Event("Evn_Blind")
+        {
+            Victim("Volatile");
+            EachEnemyOnlyOnce();
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("High flyer");
+        XlastId(34);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(25);
+        CountDebug(3);
+        Event("Evn_PlayerAction")
+        {
+            IgnoreAllExcept("JumpAttackKill");
+        }
+        Event("Evn_Kill")
+        {
+			DamageFlags("ground_pound");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Judo Master");
+        XlastId(35);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(50);
+        CountDebug(3);
+        CountToNotify(25);
+        Event("Evn_PlayerAction")
+        {
+            IgnoreAllExcept("NageWazaPerformed");
+        }
+    }
+	
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Prom Night");
+        XlastId(36);
+        Image("");
+        Points(5);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+
+        Event("Evn_PlayerAction")
+        {
+            IgnoreAllExcept("PursuitBrokenWithoutDying");
+			IgnoreAllExceptParam1("2");
+            IgnoreAllExceptParam2("100"); // dummy upper threshold
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Enlightened!");
+        XlastId(37);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(25);
+        CountToNotify(5);
+        Event("Evn_Blind")
+        {
+            FromPursuitBreaker();
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Little Craftsman");
+        XlastId(38);
+        Image("");
+        Points(5);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+        Event("Evn_CreateWeapon")
+        {
+            
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Master Crafter");
+        XlastId(39);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(100);
+		CountDebug(5);
+        CountToNotify(25);
+
+        Event("Evn_CreateWeapon")
+        {
+        }
+    }
+    
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Open Sesame");
+        XlastId(40);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(10);
+        CountDebug(2);
+        Event("Evn_PlayerAction")
+        {
+            IgnoreAllExcept("LockPicked");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Everybody knows Kyle");
+        XlastId(41);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+
+        Event("Evn_ExpGained")
+        {
+            ExpType("Status");
+			Level(12);
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("The Legend of Harran");
+        XlastId(42);
+        Image("");
+        Points(20);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+
+        Event("Evn_ExpGained")
+        {
+            ExpType("Status");
+			Level(18);
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Agile");
+        XlastId(43);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+
+        Event("Evn_ExpGained")
+        {
+            ExpType("Runner");
+			Level(10);
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Strong");
+        XlastId(44);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+
+        Event("Evn_ExpGained")
+        {
+            ExpType("Fighter");
+			Level(10);
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("It's all in the writing");
+        XlastId(45);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(67);
+        CountToNotify(10);
+        CountDebug(1);
+
+		Event("Evn_ItemTakenDropped")
+        {
+			item_types("Item_Note;Item_Guide;Item_Tape");
+            AllDifferent(67);
+			SaveToProfile();
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("I've got your back");
+        XlastId(46);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+
+        Event("Evn_Quest")
+        {
+            Coop();										// Quest need to be done with coop player.
+			Revealed();									// Quest (or his any parent) is visble in menu QuestLog (has objective).
+			OnlyWhenMostGluedParentQuestCompleted();	// Whole quest is finished (all glued quests).
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Polyamory");
+        XlastId(47);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+
+        Event("Evn_Quest")
+        {
+			Coop();
+			Revealed();
+            MultipleQuestsInARowSameCoops(5, 3);		// Need to complete param1 quests, with param2 coops in row (without being disconected).
+			OnlyWhenMostGluedParentQuestCompleted();
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Italian Plumber");
+        XlastId(48);
+        Image("");
+        Points(10);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+        CountToNotify(1);
+
+        Event("Evn_PlayerAction")
+        {
+			WeaponIds("Melee_WrenchAGen;Melee_WrenchBGen;Melee_WrenchCGen;Mel_WrenchA_R;Mel_WrenchC_R;Melee_WrenchARusty;Melee_WrenchBRusty;Melee_WrenchCRusty;Melee_Wrench_Kiss");
+
+            IgnoreAllExcept("JumpAttackKill");
+
+			LastUsedOfJumpOverEnemySkillTime(4.8);
+			LastTimeSinceFalling(0.5);
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("Gabriel's Sword");
+        XlastId(49);
+        Image("");
+        Points(5);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+        Event("Evn_CreateWeapon")
+        {
+			ModType("fire");
+            WeaponIds("Melee_ShortSwordAGen;Melee_ShortSwordBGen;Melee_ShortSwordCGen;Melee_ShortSwordA2;Melee_ShortSwordB2;Melee_ShortSwordC2;Melee_LongSwordAGen;Melee_LongSwordBGen;Melee_LongSwordA2;Melee_LongSwordB2;Melee_KhopeshAGen;Melee_KhopeshBGen;Melee_KhopeshA2;Melee_KhopeshB2");
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Stat("Achievement")
+    {
+        Name("A long way down");
+        XlastId(50);
+        Image("");
+        Points(5);
+        Grade("BRONZE");
+        
+        ProgressType("number");
+        Count(1);
+        Event("Evn_FallDown")
+        {
+            OnlyAtNight();
+            ZoneBoxName("Slums_Zone_TheInfamyBridge");
+            FallHightMin(10.0);
+            FallSurfaces("Water");
+        }
+    }
+}

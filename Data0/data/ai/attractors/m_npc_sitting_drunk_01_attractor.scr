@@ -1,0 +1,23 @@
+!include("ai_data.def")
+!include("ai_timing.def")
+!include("ai_goals.def")
+
+StrongAttractor()
+InteractionDist(2.5)
+SnapDist(2)
+ReleaseDist(3)
+User("Man")
+
+Slot("", 1, 1, 1, 0, 0, 0, 0, 0, 1, 1.5)
+{
+    DynamicMesh("bottle_b_open.msh", "itemholder11", "bottle_b_open", "default", 1)
+    {
+        Scale(1, 0.64, 1)
+    }
+    AiTypeDataSet("human")
+    {
+        Data("idle:standing:none:stand:none:none:none", -2, "m_npc_sitting_drunk_01_nointeract_1", -1, 1)
+        Data("idle:standing:none:idle:none:none:none", -2, "m_npc_sitting_drunk_01_nointeract_2", -1, 1)
+    }
+}
+

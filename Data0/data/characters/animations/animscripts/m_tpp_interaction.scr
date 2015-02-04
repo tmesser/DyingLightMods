@@ -1,0 +1,462 @@
+///////////////////////////////////////////////////////////////////////////////
+// Kitchen oven
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_Kitchen_Oven_Unscrewing",		"TPP_Kitchen_Oven_Unscrewing.anm2",	0, 84, 30, 1, 0.5)
+{
+	Event(10, INTERACTION_TRIGGER_USE, -1)
+	Event(70, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+SeqTrack( "TPP_Kitchen_Oven_Unscrewing_MoveTo",		"TPP_Kitchen_Oven_Unscrewing.anm2",	0, 0, 30, 1, 0.2)
+
+///////////////////////////////////////////////////////////////////////////////
+// Fence gate
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_Unarmed_TriggerFenceDoorOpen_Player",		"M_TPP_Unarmed_TriggerFenceDoorOpen_Player.anm2",	0, 92, 30, 1, 0.5)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(1, 0, 0)
+    //{
+    //	PlaySound2D(GameVolumeSource_SpecialSound, "door_fence_metal_opening.wav", 1, 0)
+    //}
+	//Event(15, 0, 0)
+    //{
+    //	PlaySound2D(GameVolumeSource_SpeechPlayer, "PlayerLiftingTheGate.ogg", 1, 0)
+    //}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Wagon door
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_Unarmed_TriggerWagonDoorOpen_Player",		"M_TPP_Unarmed_TriggerFenceDoorOpen_Player.anm2",	0, 92, 30, 1, 0.5)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Wagon door II
+///////////////////////////////////////////////////////////////////////////////
+
+
+//SeqTrack( "TPP_WagonDoor_MiniGame_v2_Loop1",		"M_TPP_Unarmed_WagonDoor_MiniGame_02.anm2",			0, 45, 30, 1, 0.25)
+SeqTrack( "TPP_WagonDoor_MiniGame_Idle",		"M_TPP_Unarmed_WagonDoor_MiniGame_02.anm2",		0, 45, 30, 1, 0.4)
+
+SeqTrack( "TPP_WagonDoor_MiniGame_Begin",		"M_TPP_Unarmed_WagonDoor_MiniGame_02_begin.anm2",	1, 18, 30, 1, 0.5)
+
+
+SeqTrack( "TPP_WagonDoor_MiniGame_v2_Loop1",		"M_TPP_Unarmed_WagonDoor_MiniGame_02.anm2",			0, 45, 25, 1, 0.4)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+}
+
+SeqTrack( "TPP_WagonDoor_MiniGame_v2_Loop2",		"M_TPP_Unarmed_WagonDoor_MiniGame_02.anm2",		247, 293, 30, 1, 0.5)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+}
+
+SeqTrack( "TPP_WagonDoor_MiniGame_v2_Loop3",		"M_TPP_Unarmed_WagonDoor_MiniGame_02.anm2",			67, 112, 30, 0, 0.5	)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+}
+
+SeqTrack( "TPP_WagonDoor_MiniGame_v2_Success",	"M_TPP_Unarmed_WagonDoor_MiniGame_02.anm2",			115, 244, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+}
+
+SeqTrack( "TPP_WagonDoor_MiniGame_v2_Door_Fail",	"M_TPP_Unarmed_WagonDoor_MiniGame_02.anm2",			0, 20, 30, 1, 0.3)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+}
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+// Releasing a prisoner
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_Prisoner_Release_01",		"TPP_Prisoner_Release_01.anm2",	0, 75, 30, 1, 0.2)
+{
+	//Event(10, 0, 0)
+    //{
+    //	PlaySound2D(GameVolumeSource_SpecialSound, "enc_prisoner_player_release.wav", 1, 0)
+    //}
+	Event(25, INTERACTION_TRIGGER_USE, -1)
+	Event(40, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+SeqTrack( "TPP_Prisoner_Release_01_MoveTo",		"TPP_Prisoner_Release_01.anm2",	0, 0, 30, 1, 0.2)
+
+///////////////////////////////////////////////////////////////////////////////
+// Helping a kicked NPC (encounters)
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_encounter_kicking_help",		"TPP_encounter_kicking_help.anm2",	0, 95, 30, 1, 0.4)
+{
+	//Event(0, 0, 0)
+    //{
+    //	PlaySound2D(GameVolumeSource_LoudSound, "enc_kicking_player_help.wav", 1, 0)
+    //}
+	Event(42, INTERACTION_TRIGGER_USE, -1)
+	Event(75, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+SeqTrack( "TPP_encounter_kicking_MoveTo",		"TPP_encounter_kicking_help.anm2",	0, 0, 30, 1, 0.2)
+
+///////////////////////////////////////////////////////////////////////////////
+// Fuse box
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_Unarmed_TriggerFusebox_Start_MoveTo",	"M_TPP_Unarmed_TriggerFusebox_Player.anm2",	0, 0, 30, 1, 0.2)
+
+SeqTrack( "TPP_Unarmed_TriggerFusebox_Start",		"M_TPP_Unarmed_TriggerFusebox_Player.anm2",	0, 42, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(1, 0, 0)
+    //{
+    //	PlaySound2D(GameVolumeSource_LoudSound, "box_fuse_grab.wav", 1, 0)
+    //}
+}
+
+SeqTrack( "TPP_Unarmed_TriggerFusebox_Idle",		"M_TPP_Unarmed_TriggerFusebox_Player.anm2",	42, 90, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+}
+
+SeqTrack( "TPP_Unarmed_TriggerFusebox_Struggle",	"M_TPP_Unarmed_TriggerFusebox_Player.anm2",	90, 165, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(0, 0, 0)
+   // {
+   // 	PlaySound2D(GameVolumeSource_LoudSound, "box_fuse_try.wav", 1, 1)
+   // }
+	
+}
+
+SeqTrack( "TPP_Unarmed_TriggerFusebox_Success",	"M_TPP_Unarmed_TriggerFusebox_Player.anm2",	165, 218, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(8, 0, 0)
+    //{
+    //	PlaySound2D(GameVolumeSource_LoudSound, "box_fuse_opening.wav", 1, 0)
+    //}
+	//Event(235, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Fuse box (big)
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_Unarmed_TriggerFuseboxBig_Start_MoveTo",	"M_TPP_Unarmed_TriggerFusebox_Player.anm2",	0, 0, 30, 1, 0.2)
+
+SeqTrack( "TPP_Unarmed_TriggerFuseboxBig_Start",		"M_TPP_Unarmed_TriggerFusebox_Player.anm2",	0, 42, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(1, 0, 1)
+   // {
+   // 	PlaySound2D(GameVolumeSource_SoundPlayer, "box_fuse_start.wav", 1, 0)
+  //  }
+}
+
+SeqTrack( "TPP_Unarmed_TriggerFuseboxBig_Idle",		"M_TPP_Unarmed_TriggerFusebox_Player.anm2",	42, 90, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+}
+
+SeqTrack( "TPP_Unarmed_TriggerFuseboxBig_Struggle",	"M_TPP_Unarmed_TriggerFusebox_Player.anm2",	90, 165, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(3, 0, 1)
+   // {
+    //	PlaySound2D(GameVolumeSource_SoundPlayer, "box_fuse_try.wav", 1, 1)
+  //  }
+//	Event(1, 0, 1)
+   // {
+   //     PlayPlayerSound6(GameVolumeSource_SpeechPlayer, "speech_box_fuse_try.wav", 1, 0, 0, 1)
+   // }
+	
+}
+
+SeqTrack( "TPP_Unarmed_TriggerFuseboxBig_Success",	"M_TPP_Unarmed_TriggerFusebox_Player.anm2",	165, 218, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(0, 0, 1)
+   // {
+    //    PlayPlayerSound6(GameVolumeSource_SpeechPlayer, "speech_box_fuse_success.wav", 1, 0, 0, 1)
+   // }
+	//Event(8, 0, 1)
+    //{
+    //	PlaySound2D(GameVolumeSource_SoundPlayer, "box_fuse_success.wav", 1, 0)
+   // }
+	//Event(235, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Valve
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_Unarmed_ValveMinigame_Start_MoveTo",	"M_TPP_Unarmed_ValveMinigame.anm2",	0, 0, 30, 1, 0.2)
+
+SeqTrack( "TPP_Unarmed_ValveMinigame_Start",		"M_TPP_Unarmed_ValveMinigame.anm2",	0, 26, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+}
+
+SeqTrack( "TPP_Unarmed_ValveMinigame_Idle",		"M_TPP_Unarmed_ValveMinigame.anm2",	28, 96, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+}
+
+SeqTrack( "TPP_Unarmed_ValveMinigame_Struggle",	"M_TPP_Unarmed_ValveMinigame.anm2",	98, 173, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+}
+
+SeqTrack( "TPP_Unarmed_ValveMinigame_Success",	"M_TPP_Unarmed_ValveMinigame.anm2",	175, 424, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	Event(0, INTERACTION_TRIGGER_USE, -1)
+	Event(235, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Garage shutter
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_GarageShutter_Open_MoveTo",	"M_TPP_GarageShutter_Open.anm2",			0, 0, 30, 1, 0.2)
+
+SeqTrack( "TPP_GarageShutter_Open",			"M_TPP_GarageShutter_Open.anm2",			0, 176, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(1, 0, 0)
+    //{
+    	//PlaySound2D(GameVolumeSource_LoudSound, "door_garage_shutter_opening.wav", 1, 0)
+    //}
+}
+
+SeqTrack( "TPP_GarageShutter_Open_UseAtStart",			"M_TPP_GarageShutter_Open.anm2",			0, 176, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(1, 0, 0)
+    //{
+    	//PlaySound2D(GameVolumeSource_LoudSound, "door_garage_shutter_opening.wav", 1, 0)
+    //}
+}
+
+SeqTrack( "TPP_GarageShutter_Open_UseAtMiddle",			"M_TPP_GarageShutter_Open.anm2",			0, 176, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(1, 0, 0)
+    //{
+    	//PlaySound2D(GameVolumeSource_LoudSound, "door_garage_shutter_opening.wav", 1, 0)
+    //}
+}
+
+SeqTrack( "TPP_GarageShutter_Inside_Open_MoveTo",	"M_TPP_GarageShutter_Open_Mirror.anm2",			0, 0, 30, 1, 0.2)
+
+SeqTrack( "TPP_GarageShutter_Inside_Open",		"M_TPP_GarageShutter_Open_Mirror.anm2",			0, 176, 30, 1, 0.1)
+{
+    //Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(1, 0, 0)
+    //{
+    	//PlaySound2D(GameVolumeSource_LoudSound, "door_garage_shutter_opening.wav", 1, 0)
+    //}
+}
+
+SeqTrack( "TPP_GarageShutter_Inside_Open_UseAtStart",		"M_TPP_GarageShutter_Open_Mirror.anm2",			0, 176, 30, 1, 0.1)
+{
+    //Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(1, 0, 0)
+    //{
+    	//PlaySound2D(GameVolumeSource_LoudSound, "door_garage_shutter_opening.wav", 1, 0)
+    //}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Wardrobe (encounter version)
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_Unarmed_Wardrobe_Encounter_MoveTo", 	"M_TPP_Unarmed_Wardrobe_Encounter.anm2",			0,  0, 30, 1, 0.2)
+
+SeqTrack( "TPP_Unarmed_Wardrobe_Encounter",			"M_TPP_Unarmed_Wardrobe_Encounter.anm2",			0, 50, 30, 1, 0.2)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(10, 0, 0)
+    //{
+    	//PlaySound2D(GameVolumeSource_SpecialSound, "enc_in_wardrobe_player_opening.wav", 1, 0)
+   // }
+    Event(45, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+SeqTrack( "TPP_Unarmed_Wardrobe_Loot",			"M_TPP_Unarmed_Wardrobe_Encounter.anm2",			0, 50, 30, 1, 0.2)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+    Event(1, INTERACTION_TRIGGER_USE, -1)
+	//Event(10, 0, 0)
+    //{
+    	//PlaySound2D(GameVolumeSource_SpecialSound, "enc_in_wardrobe_player_opening.wav", 1, 0)
+   // }
+    Event(45, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Struggling with locked door
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_Unarmed_Doors_OpenTry_MoveTo",	"M_TPP_Unarmed_Doors_OpenTry.anm2",			0, 0, 30, 1, 0.1)
+
+SeqTrack( "TPP_Unarmed_Doors_OpenTry",		"M_TPP_Unarmed_Doors_OpenTry.anm2",			0, 79, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(8, 0, 0)
+    //{
+    	//PlaySound2D(GameVolumeSource_LoudSound, "door_metal_try_opening.wav", 1, 1)
+    //}
+    Event(70, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+SeqTrack( "TPP_Unarmed_Doors_Wooden_OpenTry",		"M_TPP_Unarmed_Doors_OpenTry.anm2",			0, 79, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(8, 0, 0)
+    //{
+    	//PlaySound2D(GameVolumeSource_LoudSound, "door_metal_try_opening.wav", 1, 1)
+    //}
+    Event(70, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Knocking (the door)
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_Unarmed_Door_Knock_MoveTo",	"M_TPP_Unarmed_Door_Knock_01.anm2",	0, 0, 30, 1, 0.2)
+
+SeqTrack( "TPP_Unarmed_Door_Knock_Metal",	"M_TPP_Unarmed_Door_Knock_01.anm2",	0, 42, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(14, 0, 0)
+    //{
+    	//PlaySound2D(GameVolumeSource_SoundPlayer, "door_metal_knocking.wav", 1, 0)
+    //}
+}
+
+SeqTrack( "TPP_Unarmed_Door_Knock_Wood",	"M_TPP_Unarmed_Door_Knock_01.anm2",	0, 42, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(14, 0, 0)
+    //{
+    	//PlaySound2D(GameVolumeSource_SoundPlayer, "door_metal_knocking.wav", 1, 0)
+    //}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Turning NPC body
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_Body_Inspection",		"M_TPP_Body_Inspection_Player.anm2",	0, 152, 30, 1, 0.5)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(23, 0, 0)
+	//  {
+	// 	PlaySound2D(GameVolumeSource_SpecialSound, "player_inspection.wav", 1, 1)
+	//  }
+    Event(120, INTERACTION_TRIGGER_USE, -1)
+	Event(125, INTERACTION_TRIGGER_RELEASE_POSE, -1)	
+}
+
+SeqTrack( "TPP_Body_Inspection_MoveTo",	"M_TPP_Body_Inspection_Player.anm2",	0, 1, 30, 1, 0.2)
+
+///////////////////////////////////////////////////////////////////////////////
+// Military cargo box
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_MilitaryCargo_Trigger",		"M_TPP_MilitaryCargo_Short.anm2",	0, 125, 30, 1, 0.2)
+{
+	//Event(44, 0, 0)
+    //{
+    //	PlaySound2D(GameVolumeSource_LoudSound, "box_military_opening.wav", 1, 0)
+    //}
+	Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+    Event(11, INTERACTION_TRIGGER_USE, -1)
+	Event(120, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+SeqTrack( "TPP_MilitaryCargo_Trigger_MoveTo",		"M_TPP_MilitaryCargo_Trigger.anm2",	0, 1, 30, 1, 0.2)
+
+
+SeqTrack( "TPP_MilitaryCargo_UnderwaterTriggerFast_MoveTo",	"M_TPP_Unarmed_MilitaryCargoBox_Trigger.anm2",	0, 0, 30, 1, 0.2)
+
+SeqTrack( "TPP_MilitaryCargo_UnderwaterTriggerFast",		"M_TPP_Unarmed_MilitaryCargoBox_Trigger.anm2",	0, 180, 30, 1, 0.2)
+{
+	Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Wardrobe
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_Unarmed_Wardrobe_Opening_MoveTo",	"M_TPP_Unarmed_Wardrobe_Opening.anm2",			0, 1, 30, 1, 0.2)
+
+SeqTrack( "TPP_Unarmed_Wardrobe_Opening",			"M_TPP_Unarmed_Wardrobe_Opening.anm2",			0, 213, 30, 1, 0.2)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+	//Event(25, 0, 0)
+   // {
+   // 	PlaySound2D(GameVolumeSource_SpecialSound, "wardrobe_opening.wav", 1, 0)
+   // }
+    Event(190, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Furniture J
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_FurnitureJ_Open",		"M_TTP_Furniture_J_Open.anm2",			0, 40, 34, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+    Event(35, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Furniture A
+///////////////////////////////////////////////////////////////////////////////
+
+SeqTrack( "TPP_Furniture_A_Open",		"M_TTP_Furniture_A_Open.anm2",			0, 50, 30, 1, 0.1)
+{
+    Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+    Event(45, INTERACTION_TRIGGER_RELEASE_POSE, -1)
+}
+
+//////////////////////////////////////////////////////////////////////
+//Project Mayhem Kitchen Trigger
+//////////////////////////////////////////////////////////////////////
+
+SeqTrack("PMayhem_KitchenTrigger_TPP",					"M_FPP_Unarmed_PMayhem_KitchenTrigger.anm2", 0 , 131 , 30 , 1, 0.25 )
+
+//////////////////////////////////////////////////////////////////////
+//TPP_Grating_Slums_Pipe_Entrance
+//////////////////////////////////////////////////////////////////////
+
+SeqTrack("TPP_Grating_MoveTo",					"M_FPP_Unarmed_Grating_Trigger.anm2", 0 , 0 , 30 , 1, 0.25 )
+SeqTrack("TPP_Grating_Open",					"M_FPP_Unarmed_Grating_Trigger.anm2", 0 , 46 , 30 , 1, 0.25 )
+{
+   Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+   Event(34, INTERACTION_TRIGGER_RELEASE_POSE, -1)   
+}
+
+//////////////////////////////////////////////////////////////////////
+//TPP_BusDoors
+//////////////////////////////////////////////////////////////////////
+
+SeqTrack("TPP_BusDoors_MoveTo",					"M_FPP_Unarmed_BusDoors_Trigger.anm2", 0 , 0 , 30 , 1, 0.25 )
+SeqTrack("TPP_BusDoors_Open",					"M_FPP_Unarmed_BusDoors_Trigger.anm2", 0 , 43 , 30 , 1, 0.25 )
+{
+   Event(0, INTERACTION_TRIGGER_ANIMATE_ITEM, -1)
+   Event(31, INTERACTION_TRIGGER_RELEASE_POSE, -1)   
+}

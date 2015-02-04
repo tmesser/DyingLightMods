@@ -1,0 +1,4 @@
+!QuestStage( s, s, s )
+
+QuestStage( "00x01  &main_01_Name& (main_01/main start)", "main_01", "main start" )
+QuestStage( "00x05  &main_05_Name& (main_05/main end)", "main_05", "main end" )

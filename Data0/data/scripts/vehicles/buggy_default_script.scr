@@ -1,0 +1,3 @@
+!include ("buggy_vehicle.def")
+
+Seat(0,"DDriver","DDriver", 1)

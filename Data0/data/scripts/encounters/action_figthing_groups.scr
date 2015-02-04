@@ -1,0 +1,162 @@
+sub main()
+{
+	VolumeSettings()
+	{
+		ChatterSpeechType("ENCOUNTER_CHATTER");
+	}
+	
+	
+	Preset("Default")
+	{
+		Variation()
+		{
+			Group("Fight")
+			{
+				Random()
+				{
+				}
+			}
+			Group("Thank")
+			{
+				Random()
+				{
+					Chatter("Survivor01", "EncSurvivorFightingGroup_Survivor01_CHT01.ogg", "EncSurvivorFightingGroup_Survivor01_CHT01", "survivor01");
+					Chatter("Survivor01", "EncSurvivorFightingGroup_Survivor01_CHT02.ogg", "EncSurvivorFightingGroup_Survivor01_CHT02", "survivor01");
+                    Chatter("Survivor01", "Survivor01_FightingGroup_01CHT01.ogg",          "Survivor01_FightingGroup_01CHT01",          "survivor01");
+					Chatter("Survivor02", "EncSurvivorFightingGroup_Survivor02_CHT01.ogg", "EncSurvivorFightingGroup_Survivor02_CHT01", "survivor02");
+					Chatter("Survivor02", "EncSurvivorFightingGroup_Survivor02_CHT02.ogg", "EncSurvivorFightingGroup_Survivor02_CHT02", "survivor02");
+                    Chatter("Survivor02", "Survivor02_FightingGroup_02CHT01.ogg",           "Survivor02_FightingGroup_02CHT01",         "survivor02");
+					Chatter("Survivor03", "EncSurvivorFightingGroup_Survivor03_CHT01.ogg", "EncSurvivorFightingGroup_Survivor03_CHT01", "survivor03");
+					Chatter("Survivor03", "EncSurvivorFightingGroup_Survivor03_CHT02.ogg", "EncSurvivorFightingGroup_Survivor03_CHT02", "survivor03");
+                    Chatter("Survivor03", "Survivor03_FightingGroup_03CHT01.ogg",           "Survivor03_FightingGroup_03CHT01",         "survivor03");
+
+				}
+			}
+		}
+        Variation()
+		{
+			Group("Fight")
+			{
+				Random()
+				{
+
+				}
+			}
+			Group("Thank")
+			{
+				Random()
+				{
+					Chatter("Survivor02", "EncSurvivorFightingGroup_Survivor02_CHT01.ogg", "EncSurvivorFightingGroup_Survivor02_CHT01", "survivor01");
+					Chatter("Survivor02", "EncSurvivorFightingGroup_Survivor02_CHT02.ogg", "EncSurvivorFightingGroup_Survivor02_CHT02", "survivor01");
+                    Chatter("Survivor02", "Survivor02_FightingGroup_02CHT01.ogg",          "Survivor02_FightingGroup_02CHT01",          "survivor01");
+					Chatter("Survivor03", "EncSurvivorFightingGroup_Survivor03_CHT01.ogg", "EncSurvivorFightingGroup_Survivor03_CHT01", "survivor02");
+					Chatter("Survivor03", "EncSurvivorFightingGroup_Survivor03_CHT02.ogg", "EncSurvivorFightingGroup_Survivor03_CHT02", "survivor02");
+                    Chatter("Survivor03", "Survivor03_FightingGroup_03CHT01.ogg",          "Survivor03_FightingGroup_03CHT01",          "survivor02");
+					Chatter("Survivor04", "EncSurvivorFightingGroup_Survivor04_CHT01.ogg", "EncSurvivorFightingGroup_Survivor04_CHT01", "survivor03");
+					Chatter("Survivor04", "EncSurvivorFightingGroup_Survivor04_CHT02.ogg", "EncSurvivorFightingGroup_Survivor04_CHT02", "survivor03");
+                    Chatter("Survivor04", "Survivor04_FightingGroup_04CHT01.ogg",          "Survivor04_FightingGroup_04CHT01",          "survivor03");
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Fight")
+			{
+				Random()
+				{
+				}
+			}
+			Group("Thank")
+			{
+				Random()
+				{
+                    Chatter("Survivor03", "EncSurvivorFightingGroup_Survivor03_CHT01.ogg", "EncSurvivorFightingGroup_Survivor03_CHT01", "survivor01");
+					Chatter("Survivor03", "EncSurvivorFightingGroup_Survivor03_CHT02.ogg", "EncSurvivorFightingGroup_Survivor03_CHT02", "survivor01");
+                    Chatter("Survivor03", "Survivor03_FightingGroup_03CHT01.ogg",          "Survivor03_FightingGroup_03CHT01",          "survivor01");
+					Chatter("Survivor04", "EncSurvivorFightingGroup_Survivor04_CHT01.ogg", "EncSurvivorFightingGroup_Survivor04_CHT01", "survivor02");
+					Chatter("Survivor04", "EncSurvivorFightingGroup_Survivor04_CHT02.ogg", "EncSurvivorFightingGroup_Survivor04_CHT02", "survivor02");
+                    Chatter("Survivor04", "Survivor04_FightingGroup_04CHT01.ogg",          "Survivor04_FightingGroup_04CHT01",          "survivor02");
+					Chatter("Survivor05", "EncSurvivorFightingGroup_Survivor05_CHT01.ogg", "EncSurvivorFightingGroup_Survivor05_CHT01", "survivor03");
+					Chatter("Survivor05", "EncSurvivorFightingGroup_Survivor05_CHT02.ogg", "EncSurvivorFightingGroup_Survivor05_CHT02", "survivor03");
+					Chatter("Survivor05", "Survivor05_FightingGroup_05CHT01.ogg",          "Survivor05_FightingGroup_05CHT01",          "survivor03");
+				}
+			}
+			Group("NextWave")
+			{
+				Ranges(10, 30, 1);
+			}
+		}
+		Variation()
+		{
+			Group("Fight")
+			{
+				Random()
+				{
+
+				}
+			}
+			Group("Thank")
+			{
+				Random()
+				{
+					
+					Chatter("Survivor04", "EncSurvivorFightingGroup_Survivor04_CHT01.ogg", "EncSurvivorFightingGroup_Survivor04_CHT01", "survivor01");
+					Chatter("Survivor04", "EncSurvivorFightingGroup_Survivor04_CHT02.ogg", "EncSurvivorFightingGroup_Survivor04_CHT02", "survivor01");
+                    Chatter("Survivor04", "Survivor04_FightingGroup_04CHT01.ogg",          "Survivor04_FightingGroup_04CHT01",          "survivor01");
+					Chatter("Survivor05", "EncSurvivorFightingGroup_Survivor05_CHT01.ogg", "EncSurvivorFightingGroup_Survivor05_CHT01", "survivor02");
+					Chatter("Survivor05", "EncSurvivorFightingGroup_Survivor05_CHT02.ogg", "EncSurvivorFightingGroup_Survivor05_CHT02", "survivor02");
+					Chatter("Survivor05", "Survivor05_FightingGroup_05CHT01.ogg",          "Survivor05_FightingGroup_05CHT01",          "survivor02");
+                    Chatter("Survivor01", "EncSurvivorFightingGroup_Survivor01_CHT01.ogg", "EncSurvivorFightingGroup_Survivor01_CHT01", "survivor03");
+					Chatter("Survivor01", "EncSurvivorFightingGroup_Survivor01_CHT02.ogg", "EncSurvivorFightingGroup_Survivor01_CHT02", "survivor03");
+                    Chatter("Survivor01", "Survivor01_FightingGroup_01CHT01.ogg",          "Survivor01_FightingGroup_01CHT01",          "survivor03");
+				}
+			}
+		}
+		Variation()
+		{
+        	Group("Fight")
+			{
+				Random()
+				{
+				}
+			}
+			Group("Thank")
+			{
+				Random()
+				{
+                    Chatter("Survivor05", "EncSurvivorFightingGroup_Survivor05_CHT01.ogg", "EncSurvivorFightingGroup_Survivor05_CHT01", "survivor01");
+					Chatter("Survivor05", "EncSurvivorFightingGroup_Survivor05_CHT02.ogg", "EncSurvivorFightingGroup_Survivor05_CHT02", "survivor01");
+					Chatter("Survivor05", "Survivor05_FightingGroup_05CHT01.ogg",          "Survivor05_FightingGroup_05CHT01",          "survivor01");
+                    Chatter("Survivor01", "EncSurvivorFightingGroup_Survivor01_CHT01.ogg", "EncSurvivorFightingGroup_Survivor01_CHT01", "survivor02");
+					Chatter("Survivor01", "EncSurvivorFightingGroup_Survivor01_CHT02.ogg", "EncSurvivorFightingGroup_Survivor01_CHT02", "survivor02");
+                    Chatter("Survivor01", "Survivor01_FightingGroup_01CHT01.ogg",          "Survivor01_FightingGroup_01CHT01",          "survivor02");
+                    Chatter("Survivor02", "EncSurvivorFightingGroup_Survivor02_CHT01.ogg", "EncSurvivorFightingGroup_Survivor02_CHT01", "survivor03");
+					Chatter("Survivor02", "EncSurvivorFightingGroup_Survivor02_CHT02.ogg", "EncSurvivorFightingGroup_Survivor02_CHT02", "survivor03");
+                    Chatter("Survivor02", "Survivor02_FightingGroup_02CHT01.ogg",          "Survivor02_FightingGroup_02CHT01",          "survivor03");
+				}
+			}
+		}
+    
+    }
+
+	Preset("EncSurvivorFight")
+	{
+		Variation()
+		{
+			Group("Fight")
+			{
+				Random()
+				{
+				}
+			}
+			Group("NextWave")
+			{
+				Ranges(10, 30, 1);
+				Random()
+				{
+				}
+			}
+		}
+	}
+
+}

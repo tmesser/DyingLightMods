@@ -1,0 +1,39 @@
+
+// This will reset all rankings back to default at start-up. 
+// TODO: remove once we have the capability to reset all rankings on server
+VarInt("i_matchmaking_reset_ranking", 1) 
+
+VarFloat("f_matchmaking_ranking_disparity", 400.0)
+
+//First search near
+VarFloat("f_matchmaking_min_expected_score_initial_search", 0.4)
+VarFloat("f_matchmaking_max_expected_score_initial_search", 0.6)
+//then search above
+VarFloat("f_matchmaking_min_expected_score_second_search", 0.0)
+VarFloat("f_matchmaking_max_expected_score_second_search", 0.5)
+//and finally search below
+VarFloat("f_matchmaking_min_expected_score_third_search", 0.5)
+VarFloat("f_matchmaking_max_expected_score_third_search", 1.0)
+
+VarInt("i_matchmaking_history_expiration_time", 432000)   //in seconds so 432000 seconds = 5 days
+VarFloat("f_matchmaking_ranking_multiplier_team_of_2", 1.1)
+VarFloat("f_matchmaking_ranking_multiplier_team_of_3", 1.2)
+VarInt("i_matchmaking_num_placement_matches", 10)
+
+//these should probably always match but were kept seperate for flexibiblity
+VarInt("i_matchmaking_desired_num_matches_initial_search", 20)
+VarInt("i_matchmaking_desired_num_matches_second_search", 20)
+VarInt("i_matchmaking_desired_num_matches_third_search", 20)
+
+VarFloat("f_matchmaking_zombie_invasion_abort_grace_time", 0.0)  //In seconds
+VarFloat("f_matchmaking_zombie_invasion_success_grace_time", 0.0)  
+VarFloat("f_matchmaking_zombie_invasion_fail_grace_time", 0.0) 
+
+VarFloat("f_matchmaking_wait_time_for_zombie_invasion_deny", 20.0) 
+
+VarFloat("f_matchmaking_durango_ranking_scaler", 0.05) 
+
+VarInt("i_matchmaking_num_wins_per_display_rank", 3)    // How many wins it takes to jump up/down a ranking
+VarInt("i_matchmaking_total_num_display_rank", 11)      // How many display rankings there are
+ 
+

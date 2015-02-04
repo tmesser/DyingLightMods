@@ -1,0 +1,45 @@
+export int ScanAllGames                 = 0;
+export int ScanFriendsGames             = 1;
+
+// Task(area, tracked_progress, progress_min, progress_max, game_type)
+
+sub main()
+{
+	Params()
+	{
+		ScanInterval(60);
+		RefreshInterval(20);
+		MaxResults(25);
+	}
+
+	Tasks()
+	{
+		Task    (DlcRange_Current, DlcRange_Current, ProgressVal_Undefined          , ProgressVal_Undefined)
+		{
+			Task(DlcRange_Inherit, DlcRange_Inherit, ProgressVal_TrackedMyExact     , ProgressVal_TrackedMyExact     , ScanAllGames, "&SearchInfo_MatchExact&");
+			Task(DlcRange_Inherit, DlcRange_Inherit, ProgressVal_TrackedMyChapterMin, ProgressVal_TrackedMyExact     , ScanAllGames, "&SearchInfo_MatchGood&");
+			Task(DlcRange_Inherit, DlcRange_Inherit, ProgressVal_TrackedMin         , ProgressVal_TrackedMyChapterMin, ScanAllGames, "&SearchInfo_MatchOther&");
+		}
+
+		Task    (DlcRange_Current, DlcRange_All    , ProgressVal_Undefined          , ProgressVal_Undefined)
+		{
+			Task(DlcRange_Inherit, DlcRange_Inherit, ProgressVal_TrackedMyExact     , ProgressVal_TrackedMyExact     , ScanAllGames, "&SearchInfo_MatchOther&");
+			Task(DlcRange_Inherit, DlcRange_Inherit, ProgressVal_TrackedMyChapterMin, ProgressVal_TrackedMyExact     , ScanAllGames, "&SearchInfo_MatchOther&");
+			Task(DlcRange_Inherit, DlcRange_Inherit, ProgressVal_TrackedMin         , ProgressVal_TrackedMyChapterMin, ScanAllGames, "&SearchInfo_MatchOther&");
+		}
+
+		// Commented out these conditions are very unlikely to find results (they cover border cases).
+		//Task    (DlcRange_All    , DlcRange_Current, ProgressVal_Undefined          , ProgressVal_Undefined)
+		//{
+		//	Task(DlcRange_Inherit, DlcRange_Inherit, ProgressVal_TrackedMyExact     , ProgressVal_TrackedMyExact     , ScanAllGames, "&SearchInfo_MatchOther&");
+		//	Task(DlcRange_Inherit, DlcRange_Inherit, ProgressVal_TrackedMyChapterMin, ProgressVal_TrackedMyExact     , ScanAllGames, "&SearchInfo_MatchOther&");
+		//	Task(DlcRange_Inherit, DlcRange_Inherit, ProgressVal_TrackedMin         , ProgressVal_TrackedMyChapterMin, ScanAllGames, "&SearchInfo_MatchOther&");
+		//}
+		
+		Task(DlcRange_All, DlcRange_Area, ProgressVal_TrackedMyExact     , ProgressVal_TrackedMyExact     , ScanAllGames    , "&SearchInfo_MatchExact&");
+		Task(DlcRange_All, DlcRange_Area, ProgressVal_TrackedMyChapterMin, ProgressVal_TrackedMyExact     , ScanAllGames    , "&SearchInfo_MatchGood&");
+		Task(DlcRange_All, DlcRange_Area, ProgressVal_TrackedMin         , ProgressVal_TrackedMyChapterMin, ScanAllGames    , "&SearchInfo_MatchOther&");
+		
+		Task(DlcRange_All, DlcRange_Area, ProgressVal_TrackedMin         , ProgressVal_TrackedMyExact     , ScanFriendsGames, "&SearchInfo_MatchFriends&");
+	}
+}

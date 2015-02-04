@@ -1,0 +1,133 @@
+
+sub Items_Common(){
+    Item("Melee_MacheteCGen", 4);
+    Item("Flashlight_Superlight", 1);
+    Item("Throwable_Btz_Flare", 5);
+    Item("Throwable_Btz_Flare", 5);
+}
+
+sub Skills(){
+    Skill("Tackle");
+    Skill("Slide");
+    Skill("SafeLanding");
+    Skill("Tackle2");
+    Skill("DropKick");
+    Skill("WallRun");
+    Skill("GrapplingHook");
+    Skill("Awarness");
+    Skill("Awarness2");
+}
+
+sub main() 
+{
+    Chapter(0)        //--- Prologue ---
+    {
+        Level(1);
+        use Items_Common();
+        use Skills();
+    }
+
+    Chapter(1)         //--- The Tower ---
+    {
+        Level(1);
+        use Items_Common();
+        use Skills();
+        
+    }
+
+    Chapter(2)         //--- Vendetta ---
+    {
+        Level(3);
+        use Items_Common();
+        use Skills();
+    }
+
+    Chapter(3)         //--- Predator ---
+    {
+        Level(6);
+        use Items_Common();
+        use Skills();
+    }
+
+    Chapter(4)         //--- Prisoner ---
+    {
+        Level(9);
+        use Items_Common();
+        use Skills();        
+    }
+
+    Chapter(5)         //--- Vaccine ---
+    {
+        Level(13);
+        use Items_Common();
+        use Skills();
+    }
+    
+    Chapter(6)         //--- Zumans ---
+    {
+        Level(16);
+        use Items_Common();
+        use Skills();
+    }
+
+    Chapter(7)         //--- Scavengers ---
+    {
+        Level(19);
+        use Items_Common();
+        use Skills();
+    }
+
+    Chapter(8)         //--- Burrow ---
+    {
+        Level(22);
+        use Items_Common();
+        use Skills();
+    }
+
+
+    Chapter(9)         //--- The Siege ---
+    {
+        Level(24);
+        use Items_Common();
+        use Skills();
+        
+    }
+
+    Chapter(10)     //--- Forever Young ---
+    {
+        Level(26);
+        use Items_Common();
+        use Skills();
+        
+    }
+
+    Chapter(11)     //--- Evil is Back ---
+    {
+        Level(28);
+        use Items_Common();
+        use Skills();
+        
+    }
+
+    Chapter(12)     //--- Research ---
+    {
+        Level(30);
+        use Items_Common();
+        use Skills();
+        
+    }
+
+    Chapter(13)     //--- Over the Rainbow ---
+    {
+        Level(31);
+        use Items_Common();
+        use Skills();
+        
+    }
+
+    Chapter(14)     //--- NIGHT DEMO ---
+    {
+        use Items_Common();
+        use Skills();
+    }
+}

@@ -1,0 +1,10 @@
+export int i_screen_size_x_x360 = 1280;
+export int i_screen_size_y_x360 = 672;
+export int i_screen_size_x2_x360 = i_screen_size_x_x360 / 2;
+export int i_screen_size_y2_x360 = i_screen_size_y_x360 / 2;
+export int i_screen_size_x4_x360 = i_screen_size_x_x360 / 4;
+export int i_screen_size_y4_x360 = i_screen_size_y_x360 / 4;
+export int i_screen_size_x8_x360 = i_screen_size_x_x360 / 8;
+export int i_screen_size_y8_x360 = i_screen_size_y_x360 / 8;
+export int i_screen_size_x16_x360 = i_screen_size_x_x360 / 16;
+export int i_screen_size_y16_x360 = i_screen_size_y_x360 / 16;

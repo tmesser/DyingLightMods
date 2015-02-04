@@ -1,0 +1,1340 @@
+sub main() 
+{
+
+    ItemSet("Quatermaster_Level_1_healing")                //ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Medkit_HealthPackLarge");
+    }
+
+    ItemSet("Quatermaster_Level_1_crafting")                //ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craft_MetalScrap");        
+    }      
+
+    ItemSet("Quatermaster_Level_2_crafting")                //ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craft_MetalScrap");
+		Item("Craft_PlasticTube");
+		Item("Craft_Sugar");
+		Item("Craft_Nails");
+		Item("Craft_String");
+		Item("Craft_DuctTape");
+		Item("Craft_Alcohol");
+        Item("Craft_Gauze");
+    }
+
+    ItemSet("Quatermaster_Level_3_crafting")                //ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craft_MetalScrap");
+		Item("Craft_PlasticTube");
+		Item("Craft_Sugar");
+		Item("Craft_Nails");
+		Item("Craft_String");
+		Item("Craft_DuctTape");
+		Item("Craft_Alcohol");
+		Item("Craft_Gauze");
+		Item("Craft_Batteries");
+        Item("Craft_Insecticide");
+		Item("Craft_Bleach");
+        Item("Craft_RazorBlade");
+        Item("Craft_TinCan");
+	}
+    
+    ItemSet("Quatermaster_Level_1_other")                   //ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("LockpickItem");   		
+    }
+    
+    ItemSet("Quatermaster_Level_2_other")                   //ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("LockpickItem");   
+    }
+
+    ItemSet("Quatermaster_Level_3_other")                   //ItemID, Weight. Default WEIGHT is 1.
+    {
+        //Item("Flashlight_Battery");
+        Item("Throwable_Decoy");
+        Item("LockpickItem");
+		Item("Throwable_Water"); 
+    }
+
+	ItemSet("Quatermaster_Level_8_other")                   //ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Special_Hook");	
+    }
+	
+	ItemSet("Quartermaster_GrapplingHook")                   //ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Special_Hook");
+    }
+	ItemSet("Quartermaster_UVFlashlight")                   //ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Flashlight_Superlight");
+    }
+	ItemSet("Quartermaster_Shield")                   //ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Shield_Pro");
+    }
+	
+    ItemSet("Melee_Level_1")
+    {
+        Item("Melee_WrenchARusty");
+        Item("Melee_WrenchBRusty");
+        Item("Melee_WrenchCRusty");
+        Item("Melee_PipeAGen");
+        Item("Melee_PipeBGen");
+        Item("Melee_PipeCGen");
+    }
+
+    
+    ItemSet("Melee_Level_2")
+    {
+        Item("Melee_WrenchAGen");
+        Item("Melee_WrenchCGen");
+        Item("Melee_PipeANew");
+        Item("Melee_PipeBNew");
+        Item("Melee_PipeCNew");
+    }
+
+    
+    ItemSet("Melee_Level_3")
+    {
+        Item("Melee_WrenchBGen");
+        Item("Melee_ShortKnifeBGen");
+        Item("Melee_HammerDGen");
+    }
+
+    
+    ItemSet("Melee_Level_4")
+    {
+        Item("Melee_BaseballBatBGen");
+        Item("Melee_HammerCGen");
+        Item("Melee_ShortKnifeEGen");
+    }
+
+    
+    ItemSet("Melee_Level_5")
+    {
+        Item("Melee_BaseballBatCGen");
+        Item("Melee_MilitaryShovelAGen");
+        Item("Melee_ShortKnifeCGen");
+        Item("Melee_HammerAGen");
+    }
+
+    
+    ItemSet("Melee_Level_6")
+    {
+        Item("Melee_BatonAGen");
+		Item("Melee_PickDGen");
+        Item("Melee_ReedKnifeAGen");
+        Item("Melee_ShortKnifeAGen");
+    }
+
+    
+    ItemSet("Melee_Level_7")
+    {
+        Item("Melee_BaseballBatAGen");
+		Item("Melee_CrowbarBGen");
+        Item("Melee_ShortKnifeDGen");
+        Item("Melee_HammerEGen");
+    }
+
+    
+    ItemSet("Melee_Level_8")
+    {
+        Item("Melee_SickleEGen");
+		Item("Melee_CleaverAGen");
+        Item("Melee_ShortAxeAGen");
+        Item("Melee_KnifeAGen");
+        Item("Melee_BaseballBatB2");
+    }
+
+    
+    ItemSet("Melee_Level_9")
+    {
+        Item("Melee_CleaverBGen");
+        Item("Melee_ShortAxeBGen");
+        Item("Melee_KnifeBGen");
+        Item("Melee_CrowbarAGen");
+        Item("Melee_BaseballBatA2");
+        Item("Melee_HammerBGen");
+    }
+
+    
+    ItemSet("Melee_Level_10")
+    {
+        Item("Melee_CleaverCGen");
+        Item("Melee_SickleCGen");
+        Item("Melee_ReedKnifeBGen");
+        Item("Melee_KnifeEGen");
+        Item("Melee_PickAGen");
+        Item("Melee_BaseballBatC2");
+    }
+
+    
+    ItemSet("Melee_Level_11")
+    {
+        Item("Melee_SickleAGen");
+        Item("Melee_ReedKnifeCGen");
+        Item("Melee_CrowbarCGen");
+        Item("Melee_ShortAxeCGen");
+        Item("Melee_MacheteBGen");
+        Item("Melee_KnifeDGen");
+    }
+
+    
+    ItemSet("Melee_Level_12")
+    {
+        Item("Melee_KnifeCGen");
+        Item("Melee_CleaverDGen");
+        Item("Melee_SickleBGen");
+        Item("Melee_ShortSwordAGen");
+        Item("Melee_PickCGen");
+        Item("Melee_PickBGen");
+    }
+
+    
+    ItemSet("Melee_Level_13")
+    {
+        Item("Melee_CleaverEGen");
+        Item("Melee_MacheteDGen");
+        Item("Melee_PickEGen");
+        Item("Melee_ShortAxeDGen");
+        Item("Melee_MacheteCGen");
+    }
+
+    
+    ItemSet("Melee_Level_14")
+    {
+        Item("Melee_SickleDGen");
+        Item("Melee_ShortAxeEGen");
+        Item("Melee_MacheteAGen");
+        Item("Melee_CleaverC2");
+    }
+
+    
+    ItemSet("Melee_Level_15")
+    {
+        Item("Melee_ShortAxeB2");
+        Item("Melee_MacheteEGen");
+        Item("Melee_ShortSwordBGen");
+    }
+
+    
+    ItemSet("Melee_Level_16")
+    {
+        Item("Melee_ShortAxeE2");
+        Item("Melee_ShortSwordA2");
+        Item("Melee_ShortSwordCGen");
+    }
+
+    
+    ItemSet("Melee_Level_17")
+    {
+        Item("Melee_MacheteB2");
+        Item("Melee_PickD2");
+        Item("Melee_KhopeshAGen");
+    }
+	
+	ItemSet("Melee_Level_17_ornated")     // REQUIRED FOR THE ORNATED BOXES ON OLD TOWN WHERE LONG WEAPONS DON'T FIT
+    {
+        Item("Melee_MacheteB2");
+        Item("Melee_PickD2");
+    }
+
+    
+    ItemSet("Melee_Level_18")
+    {
+        Item("Melee_LongSwordAGen");
+        Item("Melee_MacheteD2");
+        Item("Melee_PickE2");
+    }
+	ItemSet("Melee_Level_18_ornated")     // REQUIRED FOR THE ORNATED BOXES ON OLD TOWN WHERE LONG WEAPONS DON'T FIT
+    {
+        Item("Melee_MacheteD2");
+        Item("Melee_PickE2");
+    }
+
+    
+    ItemSet("Melee_Level_19")
+    {
+        Item("Melee_PickC2");
+        Item("Melee_MacheteC2");
+        Item("Melee_KhopeshA2");
+    }
+	
+	ItemSet("Melee_Level_19_ornated")     // REQUIRED FOR THE ORNATED BOXES ON OLD TOWN WHERE LONG WEAPONS DON'T FIT
+    {
+        Item("Melee_PickC2");
+        Item("Melee_MacheteC2");
+    }
+
+    
+    ItemSet("Melee_Level_20")
+    {
+        Item("Melee_LongSwordBGen");
+        Item("Melee_PickB2");
+    }
+
+	ItemSet("Melee_Level_20_ornated")     // REQUIRED FOR THE ORNATED BOXES ON OLD TOWN WHERE LONG WEAPONS DON'T FIT
+    {
+        Item("Melee_PickB2");
+    }
+    
+    ItemSet("Melee_Level_21")
+    {
+        Item("Melee_KhopeshBGen");
+        Item("Melee_MacheteA2");
+    }
+	ItemSet("Melee_Level_21_ornated")     // REQUIRED FOR THE ORNATED BOXES ON OLD TOWN WHERE LONG WEAPONS DON'T FIT
+    {
+        Item("Melee_MacheteA2");
+    }
+
+    
+    ItemSet("Melee_Level_22")
+    {
+        Item("Melee_LongSwordB2");
+        Item("Melee_MacheteE2");
+    }
+	
+	ItemSet("Melee_Level_22_ornated")     // REQUIRED FOR THE ORNATED BOXES ON OLD TOWN WHERE LONG WEAPONS DON'T FIT
+    {
+        Item("Melee_MacheteE2");
+    }
+
+    
+    ItemSet("Melee_Level_23")
+    {
+        Item("Melee_LongSwordA2");
+        Item("Melee_KhopeshB2");
+    }
+
+    
+    ItemSet("Melee_Level_24")
+    {
+        Item("Melee_ShortSwordB2");
+    }
+
+    
+    ItemSet("Melee_Level_25")
+    {
+        Item("Melee_ShortSwordC2");
+    }
+
+	//2H MELEE WEAPONS  
+    ItemSet("Melee_2H_Level_2")
+    {
+        Item("Melee_PaddleAGen");
+    }
+
+    
+    ItemSet("Melee_2H_Level_3")
+    {
+        Item("Melee_ShovelAGen");
+    }
+
+    
+    ItemSet("Melee_2H_Level_4")
+    {
+        Item("Melee_ShovelBGen");
+    }
+
+    
+    ItemSet("Melee_2H_Level_5")
+    {
+        Item("Melee_StandAGen");
+    }
+
+    
+    ItemSet("Melee_2H_Level_6")
+    {
+        Item("Melee_BigHammerEGen");
+        Item("Melee_AxeBigDGen");
+    }
+
+    
+    ItemSet("Melee_2H_Level_7")
+    {
+        Item("Melee_BigHammerDGen");
+        Item("Melee_AxeBigAGen");
+    }
+
+    
+    ItemSet("Melee_2H_Level_8")
+    {
+        Item("Melee_AxeBigD2");
+        Item("Melee_BigHammerE2");
+    }
+
+    
+    ItemSet("Melee_2H_Level_9")
+    {
+        Item("Melee_BigHammerBGen");
+        Item("Melee_AxeBigEGen");
+    }
+
+    
+    ItemSet("Melee_2H_Level_10")
+    {
+        Item("Melee_PickaxeBGen");
+    }
+
+    
+    ItemSet("Melee_2H_Level_11")
+    {
+        Item("Melee_AxeBigCGen");
+    }
+
+    
+    ItemSet("Melee_2H_Level_12")
+    {
+        Item("Melee_PickaxeAGen");
+    }
+
+    
+    ItemSet("Melee_2H_Level_13")
+    {
+        Item("Melee_BigHammerAGen");
+    }
+
+    
+    ItemSet("Melee_2H_Level_14")
+    {
+        Item("Melee_BigHammerCGen");
+    }
+
+    
+    ItemSet("Melee_2H_Level_15")
+    {
+        Item("Melee_AxeBigA2");
+    }
+
+    
+    ItemSet("Melee_2H_Level_16")
+    {
+        Item("Melee_BigHammerA2");
+    }
+
+    
+    ItemSet("Melee_2H_Level_17")
+    {
+        Item("Melee_AxeBigBGen");
+    }
+
+    
+    ItemSet("Melee_2H_Level_18")
+    {
+        Item("Melee_BigHammerC2");
+    }
+
+    
+    ItemSet("Melee_2H_Level_19")
+    {
+        Item("Melee_AxeBigC2");
+    }
+
+    
+    ItemSet("Melee_2H_Level_20")
+    {
+        Item("Melee_BigHammerB2");
+    }
+
+    
+    ItemSet("Melee_2H_Level_21")
+    {
+        Item("Melee_AxeBigE2");
+    }
+
+    
+    ItemSet("Melee_2H_Level_22")
+    {
+        Item("Melee_BigHammerD2");
+    }
+
+    
+    ItemSet("Melee_2H_Level_23")
+    {
+        Item("Melee_AxeBigB2");
+    }
+    
+	
+    ItemSet("Firearms_Level_9")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Firearm_PistolAGen");
+		Item("Firearm_PistolBGen");
+	}    
+	
+	ItemSet("Firearms_Level_10")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+		Item("Firearm_PistolAGen");
+		Item("Firearm_PistolBGen");
+        Item("Firearm_ShotgunAGen");
+	}    
+	
+	ItemSet("Firearms_Level_12")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+		Item("Firearm_PistolAGen");
+		Item("Firearm_PistolBGen");
+		Item("Firearm_RifleAGen");
+		Item("Firearm_RifleAGenOlive");
+		Item("Firearm_RifleAGenSand");
+        Item("Firearm_RifleBGen");
+		Item("Firearm_RifleBGenOlive");
+		Item("Firearm_RifleBGenSand");
+        Item("Firearm_ShotgunAGen");
+	}    
+    
+	ItemSet("Jewels_Bundle")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Bndl_Jewels");
+	}
+	
+    ItemSet("Common_Craftparts")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craft_Alcohol");
+        Item("Craft_Gauze");
+        Item("Craft_Nails");
+        Item("Craft_Bleach");
+        Item("Craft_Insecticide");
+        Item("Craft_RazorBlade");
+        Item("Craft_PowerCable");
+        Item("Craft_TinCan");
+        Item("Craft_DuctTape");
+        Item("Craft_Sugar");
+        Item("Craft_String");
+        Item("Craft_PlasticTube");
+        Item("Craft_MetalScrap");
+        Item("Craft_Batteries");
+		Item("Craft_Electronics");
+    }     
+	
+	ItemSet("Blueprint_BleedMelee")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craftplan_BleedMelee");
+	}
+	ItemSet("Blueprint_PoisonMelee")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craftplan_BleedMelee");
+		Item("Craftplan_PoisonMelee");		
+	}
+	ItemSet("Blueprint_ElectricMelee")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craftplan_BleedMelee");
+		Item("Craftplan_PoisonMelee");		
+		Item("Craftplan_ElectricMelee");
+	}
+	ItemSet("Blueprint_BlastMelee")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+		Item("Craftplan_BleedMelee");
+		Item("Craftplan_PoisonMelee");		
+		Item("Craftplan_ElectricMelee");
+		Item("Craftplan_BurnMelee");
+		Item("Craftplan_BlastMelee");
+	}
+	ItemSet("Blueprint_ThrowingKnives")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+		Item("Craftplan_BleedMelee");
+		Item("Craftplan_PoisonMelee");		
+		Item("Craftplan_ElectricMelee");
+		Item("Craftplan_BurnMelee");
+		Item("Craftplan_BlastMelee");
+		Item("Craftplan_ThrowingKnives");
+	}
+	ItemSet("Basic_Blueprints")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+		Item("Craftplan_BleedMelee");
+		Item("Craftplan_PoisonMelee");
+		Item("Craftplan_ElectricMelee");
+		Item("Craftplan_BurnMelee");
+		Item("Craftplan_BlastMelee");
+		Item("Craftplan_ThrowingKnives");
+	}
+	ItemSet("ElementalBoost_Blueprints")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+		Item("Craftplan_ThrowableWater");
+		Item("Craftplan_ThrowableFuel");
+	}
+
+	ItemSet("SalesPromotion_Start")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+		Item("Craft_Shroom");
+		Item("Craft_Lichen");
+		Item("Craft_UnderwaterAlgae");
+	}
+	
+	ItemSet("SalesPromotion_Bolter")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+		Item("Craft_Shroom");
+		Item("Craft_Lichen");
+		Item("Craft_UnderwaterAlgae");
+		Item("Craft_PrimeTissue");
+	}
+	
+	//Item SETS REQUIRED FOR ESCORT REWARDS
+	ItemSet("Escort_ToTheTower")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craftplan_BadAss");
+	}
+	ItemSet("Escort_FishingSpot")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craftplan_GTFO20");
+	}
+	ItemSet("Escort_Stash")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+		Item("Craftplan_PuffPuffPass");
+	}
+	ItemSet("Escort_Werewolf")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+		Item("Craftplan_HolyGhost");
+	}
+	ItemSet("Escort_Salesman")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craftplan_FireLauncher");
+	}
+	
+	ItemSet("Throwing_weapons_L3")
+    {
+        Item("Throwable_ShurikenAGen");
+    }
+    
+    ItemSet("Throwing_weapons_L10")
+    {
+        Item("Throwable_ThrowingKnifeAGen");
+    }
+    
+    ItemSet("Throwing_weapons_L15")
+    {
+        Item("Throwable_ThrowingAxeBGen");
+        Item("Throwable_ThrowingAxeAGen");
+    }
+    
+    ItemSet("Throwing_weapons_L20")
+    {
+        Item("Throwable_ThrowingAxeCGen");
+    }
+
+    ItemSet("Crafting_Materials")
+    {
+		Item("Craft_Alcohol");
+        Item("Craft_Gauze");
+        Item("Craft_Nails");
+        Item("Craft_Bleach");
+        Item("Craft_Insecticide");
+        Item("Craft_RazorBlade");
+        Item("Craft_PowerCable");
+        Item("Craft_TinCan");
+        Item("Craft_DuctTape");
+        Item("Craft_Sugar");
+        Item("Craft_String");
+        Item("Craft_PlasticTube");
+        Item("Craft_MetalScrap");
+        Item("Craft_Batteries");
+		Item("Craft_Electronics");
+    }
+	ItemSet("Pistol_Ammo")
+    {
+		Item("Ammo_PistolSmall");
+ 	}
+	ItemSet("Rifle_Ammo")
+    {
+		Item("Ammo_RifleSmall");
+ 	}
+	ItemSet("Shotgun_Ammo")
+    {
+		Item("Ammo_ShotgunSmall");
+ 	}
+	
+	/////////////////////////////////////////////////////////////USED FOR COMPANION APP
+	
+	ItemSet("Ammo_PistolSmall")
+    {
+		Item("Ammo_PistolSmall");
+ 	}
+	ItemSet("Ammo_RifleSmall")
+    {
+		Item("Ammo_RifleSmall");
+ 	}
+	ItemSet("Ammo_ShotgunSmall")
+    {
+		Item("Ammo_ShotgunSmall");
+ 	}
+	
+	ItemSet("Craft_Alcohol")
+    {
+		Item("Craft_Alcohol");
+ 	}
+	ItemSet("Craft_Batteries")
+    {
+		Item("Craft_Batteries");
+ 	}
+	ItemSet("Craft_Bleach")
+    {
+		Item("Craft_Bleach");
+ 	}
+	ItemSet("Craft_DuctTape")
+    {
+		Item("Craft_DuctTape");
+ 	}
+	ItemSet("Craft_Electronics")
+    {
+		Item("Craft_Electronics");
+ 	}
+	ItemSet("Craft_Gauze")
+    {
+		Item("Craft_Gauze");
+ 	}
+	ItemSet("Craft_Insecticide")
+    {
+		Item("Craft_Insecticide");
+ 	}
+	ItemSet("Craft_Lichen")
+    {
+		Item("Craft_Lichen");
+ 	}
+	ItemSet("Craft_MetalScrap")
+    {
+		Item("Craft_MetalScrap");
+ 	}
+	ItemSet("Craft_Nails")
+    {
+		Item("Craft_Nails");
+ 	}
+	ItemSet("Craft_PlasticTube")
+    {
+		Item("Craft_PlasticTube");
+ 	}
+	ItemSet("Craft_PowerCable")
+    {
+		Item("Craft_PowerCable");
+ 	}
+	ItemSet("Craft_PrimeTissue")
+    {
+		Item("Craft_PrimeTissue");
+ 	}
+	ItemSet("Craft_RazorBlade")
+    {
+		Item("Craft_RazorBlade");
+ 	}
+	ItemSet("Craft_Shroom")
+    {
+		Item("Craft_Shroom");
+ 	}
+	ItemSet("Craft_String")
+    {
+		Item("Craft_String");
+ 	}
+	ItemSet("Craft_Sugar")
+    {
+		Item("Craft_Sugar");
+ 	}
+	ItemSet("Craft_TinCan")
+    {
+		Item("Craft_TinCan");
+ 	}
+	ItemSet("Craft_ToxicPlant")
+    {
+		Item("Craft_ToxicPlant");
+ 	}
+	ItemSet("Craft_UnderwaterAlgae")
+    {
+		Item("Craft_UnderwaterAlgae");
+ 	}
+	ItemSet("Craft_VenomGland")
+    {
+		Item("Craft_VenomGland");
+ 	}
+	
+	ItemSet("Craft_Upgrade_Bal")
+    {
+		Item("Craft_Upgrade_Bal");
+ 	}
+	ItemSet("Craft_Upgrade_BalL2")
+    {
+		Item("Craft_Upgrade_BalL2");
+ 	}
+	ItemSet("Craft_Upgrade_BalL2Dam")
+    {
+		Item("Craft_Upgrade_BalL2Dam");
+ 	}
+	ItemSet("Craft_Upgrade_BalL2Dur")
+    {
+		Item("Craft_Upgrade_BalL2Dur");
+ 	}
+	ItemSet("Craft_Upgrade_Dam")
+    {
+		Item("Craft_Upgrade_Dam");
+ 	}
+	ItemSet("Craft_Upgrade_DamBal")
+    {
+		Item("Craft_Upgrade_DamBal");
+ 	}
+	ItemSet("Craft_Upgrade_DamDur")
+    {
+		Item("Craft_Upgrade_DamDur");
+ 	}
+	ItemSet("Craft_Upgrade_DamDurBal")
+    {
+		Item("Craft_Upgrade_DamDurBal");
+ 	}
+	ItemSet("Craft_Upgrade_DamL2")
+    {
+		Item("Craft_Upgrade_DamL2");
+ 	}
+	ItemSet("Craft_Upgrade_DamL2Bal")
+    {
+		Item("Craft_Upgrade_DamL2Bal");
+ 	}
+	ItemSet("Craft_Upgrade_DamL2BalL2")
+    {
+		Item("Craft_Upgrade_DamL2BalL2");
+ 	}
+	ItemSet("Craft_Upgrade_DamL2Dur")
+    {
+		Item("Craft_Upgrade_DamL2Dur");
+ 	}
+	ItemSet("Craft_Upgrade_DamL2DurL2")
+    {
+		Item("Craft_Upgrade_DamL2DurL2");
+ 	}
+	ItemSet("Craft_Upgrade_DamL2DurL2BalL2")
+    {
+		Item("Craft_Upgrade_DamL2DurL2BalL2");
+ 	}
+	ItemSet("Craft_Upgrade_Dur")
+    {
+		Item("Craft_Upgrade_Dur");
+ 	}
+	ItemSet("Craft_Upgrade_DurBal")
+    {
+		Item("Craft_Upgrade_DurBal");
+ 	}
+	ItemSet("Craft_Upgrade_DurL2")
+    {
+		Item("Craft_Upgrade_DurL2");
+ 	}
+	ItemSet("Craft_Upgrade_DurL2Bal")
+    {
+		Item("Craft_Upgrade_DurL2Bal");
+ 	}
+	ItemSet("Craft_Upgrade_DurL2BalL2")
+    {
+		Item("Craft_Upgrade_DurL2BalL2");
+ 	}
+	ItemSet("Craft_Upgrade_DurL2Dam")
+    {
+		Item("Craft_Upgrade_DurL2Dam");
+ 	}
+	
+	ItemSet("Firearm_PistolAGen")
+    {
+		Item("Firearm_PistolAGen");
+ 	}
+	ItemSet("Firearm_PistolBGen")
+    {
+		Item("Firearm_PistolBGen");
+ 	}
+	ItemSet("Firearm_RifleAGen")
+    {
+		Item("Firearm_RifleAGen");
+		Item("Firearm_RifleAGenOlive");
+		Item("Firearm_RifleAGenSand");
+ 	}
+	ItemSet("Firearm_RifleBGen")
+    {
+		Item("Firearm_RifleBGen");
+		Item("Firearm_RifleBGenOlive");
+		Item("Firearm_RifleBGenSand");
+ 	}
+	ItemSet("Firearm_ShotgunAGen")
+    {
+		Item("Firearm_ShotgunAGen");
+ 	}
+	
+	ItemSet("Medkit_HealthPackLarge")
+    {
+		Item("Medkit_HealthPackLarge");
+ 	}
+	
+	ItemSet("misc_cigarettes")
+    {
+		Item("misc_cigarettes");
+ 	}
+	ItemSet("misc_coffee")
+    {
+		Item("misc_coffee");
+ 	}
+	ItemSet("misc_cosmetics")
+    {
+		Item("misc_cosmetics");
+ 	}
+	ItemSet("misc_jewels")
+    {
+		Item("misc_jewels");
+ 	}
+	ItemSet("misc_pouch")
+    {
+		Item("misc_pouch");
+ 	}
+	
+	ItemSet("Throwable_Molotov")
+    {
+		Item("Throwable_Molotov");
+ 	}
+	ItemSet("Throwable_ShurikenAGen")
+    {
+		Item("Throwable_ShurikenAGen");
+ 	}
+	ItemSet("Throwable_ShurikenBGen")
+    {
+		Item("Throwable_ShurikenBGen");
+ 	}
+	ItemSet("Throwable_ThrowingAxeAGen")
+    {
+		Item("Throwable_ThrowingAxeAGen");
+ 	}
+	ItemSet("Throwable_ThrowingAxeBGen")
+    {
+		Item("Throwable_ThrowingAxeBGen");
+ 	}
+	ItemSet("Throwable_ThrowingAxeCGen")
+    {
+		Item("Throwable_ThrowingAxeCGen");
+ 	}
+	ItemSet("Throwable_ThrowingKnifeAGen")
+    {
+		Item("Throwable_ThrowingKnifeAGen");
+ 	}
+	ItemSet("Throwable_ThrowingKnifeBGen")
+    {
+		Item("Throwable_ThrowingKnifeBGen");
+ 	}
+	
+	/////////////////////////////////////////////////////////////EXTRA FOR COMPANION APP
+	
+	ItemSet("Crafting_Materials_Potions")
+    {
+		Item("Craft_ToxicPlant");
+		Item("Craft_Shroom");
+		Item("Craft_Lichen");
+		Item("Craft_UnderwaterAlgae");
+    }
+	
+	ItemSet("Crafting_Materials_Electric")
+	{
+        Item("Craft_PlasticTube");
+		Item("Craft_Batteries");
+		Item("Craft_PowerCable");
+    }
+	
+	ItemSet("Crafting_Materials_Burn")
+	{
+        Item("Craft_Sugar");
+		Item("Craft_Insecticide");
+		Item("Craft_Gauze");
+    }
+	ItemSet("Crafting_Materials_Bleed")
+	{
+        Item("Craft_Nails");
+		Item("Craft_RazorBlade");
+		Item("Craft_Gauze");
+    }
+	ItemSet("Crafting_Materials_Blast")
+	{
+        Item("Craft_PlasticTube");
+		Item("Craft_Bleach");
+		Item("Craft_PowerCable");
+    }
+	
+	ItemSet("LockpickItem")
+	{
+        Item("LockpickItem");
+    }
+	
+	ItemSet("Weapon_Upgrades_CA")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craft_Upgrade_Dam");
+        Item("Craft_Upgrade_Dur");
+        Item("Craft_Upgrade_Bal");
+        Item("Craft_Upgrade_DamDur");
+        Item("Craft_Upgrade_DamBal");
+        Item("Craft_Upgrade_DurBal");
+        Item("Craft_Upgrade_DamDurBal");
+        Item("Craft_Upgrade_DamL2");
+        Item("Craft_Upgrade_DurL2");
+        Item("Craft_Upgrade_BalL2");
+        Item("Craft_Upgrade_DamL2DurL2");
+        Item("Craft_Upgrade_DamL2BalL2");
+        Item("Craft_Upgrade_DurL2BalL2");
+        Item("Craft_Upgrade_DamL2DurL2BalL2");
+        Item("Craft_Upgrade_DamL2Dur");
+        Item("Craft_Upgrade_DamL2Bal");
+		Item("Craft_Upgrade_DurL2Bal");
+        Item("Craft_Upgrade_DurL2Dam");
+        Item("Craft_Upgrade_BalL2Dam");
+        Item("Craft_Upgrade_BalL2Dur");
+    } 
+	
+	ItemSet("Weapon_Upgrades_Damage_CA")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craft_Upgrade_Dam");
+        Item("Craft_Upgrade_DamDur");
+        Item("Craft_Upgrade_DamBal");
+        Item("Craft_Upgrade_DamDurBal");
+        Item("Craft_Upgrade_DamL2");
+        Item("Craft_Upgrade_DamL2DurL2");
+        Item("Craft_Upgrade_DamL2BalL2");
+        Item("Craft_Upgrade_DamL2DurL2BalL2");
+        Item("Craft_Upgrade_DamL2Dur");
+        Item("Craft_Upgrade_DamL2Bal");
+		Item("Craft_Upgrade_DurL2Dam");
+        Item("Craft_Upgrade_BalL2Dam");
+    } 
+	ItemSet("Weapon_Upgrades_Durability_CA")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craft_Upgrade_Dur");
+		Item("Craft_Upgrade_DamDur");
+        Item("Craft_Upgrade_DurBal");
+        Item("Craft_Upgrade_DamDurBal");
+        Item("Craft_Upgrade_DurL2");
+        Item("Craft_Upgrade_DamL2DurL2");
+        Item("Craft_Upgrade_DurL2BalL2");
+        Item("Craft_Upgrade_DamL2DurL2BalL2");
+        Item("Craft_Upgrade_DamL2Dur");
+        Item("Craft_Upgrade_DurL2Bal");
+        Item("Craft_Upgrade_DurL2Dam");
+        Item("Craft_Upgrade_BalL2Dur");
+    }
+	ItemSet("Weapon_Upgrades_Balance_CA")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craft_Upgrade_Bal");
+        Item("Craft_Upgrade_DamBal");
+        Item("Craft_Upgrade_DurBal");
+        Item("Craft_Upgrade_DamDurBal");
+        Item("Craft_Upgrade_BalL2");
+        Item("Craft_Upgrade_DamL2BalL2");
+        Item("Craft_Upgrade_DurL2BalL2");
+        Item("Craft_Upgrade_DamL2DurL2BalL2");
+        Item("Craft_Upgrade_DurL2Bal");
+        Item("Craft_Upgrade_BalL2Dam");
+        Item("Craft_Upgrade_BalL2Dur");
+    } 	
+	
+	ItemSet("Potions_CA")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Potion_AntPotion");
+        Item("Potion_HyenaPotion");
+        Item("Potion_WolfPotion");
+        Item("Potion_TarantulaPotion");
+    } 	
+	
+	ItemSet("Potion_AntPotion")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Potion_AntPotion");
+    } 
+	ItemSet("Potion_HyenaPotion")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Potion_HyenaPotion");
+    } 
+	ItemSet("Potion_WolfPotion")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Potion_WolfPotion");
+    } 
+	ItemSet("Potion_TarantulaPotion")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Potion_TarantulaPotion");
+    } 
+	
+	/////////////////////////////////////////////////////////////PROPABLY UNUSED
+	
+    ItemSet("Melee_Improvised")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Melee_PaddleAGen");
+		Item("Melee_PipeAGen");
+		Item("Melee_PipeBGen");
+		Item("Melee_PipeCGen");
+		Item("Melee_LogAGen");
+    	Item("Melee_LogBGen");
+		Item("Melee_LogCGen");
+        Item("Melee_LogDGen");
+		Item("Melee_BranchAGen");
+		Item("Melee_ShovelAGen");
+		Item("Melee_ShovelBGen");
+		Item("Mel_WrenchA_R");
+		Item("Mel_WrenchB_R");
+		Item("Mel_WrenchC_R");
+	}
+	
+	ItemSet("Melee_Shop_Slums")
+    {
+		Item("Melee_WrenchAGen");
+		Item("Melee_WrenchBGen");
+		Item("Melee_WrenchCGen");
+		Item("Melee_MilitaryShovelAGen");
+    	Item("Melee_ReedKnifeAGen");
+		Item("Melee_ReedKnifeBGen");
+		Item("Melee_ReedKnifeCGen");
+		Item("Melee_BatonAGen");
+		Item("Melee_HammerAGen");
+		Item("Melee_HammerBGen");
+		Item("Melee_HammerCGen");
+		Item("Melee_HammerDGen");
+		Item("Melee_HammerEGen");
+	}
+	
+	ItemSet("Melee_Shop_Oldtown")
+    {
+        Item("Melee_BaseballBatAGen");
+		Item("Melee_BaseballBatBGen");
+		Item("Melee_BaseballBatCGen");
+		Item("Melee_CrowbarAGen");
+		Item("Melee_HammerAGen");
+		Item("Melee_HammerBGen");
+		Item("Melee_HammerCGen");
+		Item("Melee_HammerDGen");
+		Item("Melee_HammerEGen");
+		Item("Melee_KnifeAGen");
+		Item("Melee_KnifeBGen");
+		Item("Melee_KnifeCGen");
+		Item("Melee_KnifeDGen");
+		Item("Melee_KnifeEGen");
+		Item("Melee_MacheteAGen");
+		Item("Melee_MacheteBGen");
+		Item("Melee_MacheteCGen");
+		Item("Melee_MacheteDGen");
+		Item("Melee_MacheteEGen");
+		Item("Melee_PickAGen");
+		Item("Melee_PickBGen");
+		Item("Melee_PickCGen");
+		Item("Melee_PickDGen");
+		Item("Melee_PickEGen");
+		Item("Melee_ShortSwordAGen");
+		Item("Melee_ShortSwordBGen");
+		Item("Melee_ShortSwordCGen");
+		Item("Melee_SickleAGen");
+		Item("Melee_SickleBGen");
+		Item("Melee_SickleCGen");
+		Item("Melee_SickleDGen");
+		Item("Melee_SickleEGen");
+		Item("Melee_PickaxeAGen");
+		Item("Melee_PickaxeBGen");
+		Item("Melee_ReedKnifeAGen");
+		Item("Melee_ReedKnifeBGen");
+		Item("Melee_ReedKnifeCGen");
+		Item("Melee_ShortAxeAGen");
+		Item("Melee_ShortAxeBGen");
+		Item("Melee_ShortAxeCGen");
+		Item("Melee_ShortAxeDGen");
+		Item("Melee_ShortAxeEGen");
+		Item("Melee_AxeBigAGen");
+		Item("Melee_AxeBigBGen");
+		Item("Melee_AxeBigCGen");
+		Item("Melee_AxeBigDGen");
+		Item("Melee_AxeBigEGen");
+		Item("Melee_HammerBigAGen");
+		Item("Melee_HammerBigBGen");
+		Item("Melee_HammerBigCGen");
+		Item("Melee_HammerBigDGen");
+		Item("Melee_HammerBigEGen");
+		Item("Melee_KopeshAGen");
+		Item("Melee_KopeshAGen");
+		Item("Melee_LongSwordAGen");
+		Item("Melee_LongSwordBGen");		
+	}
+	
+	ItemSet("Melee_HIGH")
+    {
+        Item("Melee_KopeshAGen");
+		Item("Melee_LongSwordAGen");
+		Item("Melee_ShortSwordAGen");
+		Item("Melee_HammerBigAGen");
+	}
+	
+	ItemSet("Medkit_MEDIUM")
+	{
+		Item("Medkit_HealthPackLarge");
+	}
+    
+    ItemSet("Medkits")
+	{
+		Item("Medkit_HealthPackLarge");
+	}
+	
+    ItemSet("Throwable_Decoy")
+	{
+		Item("Throwable_Decoy");
+	}
+    
+    ItemSet("Flashlight")
+    {
+        Item("Flashlight_Basic");
+    }
+
+    
+    
+    ItemSet("Mechetes")
+	{
+		Item("Melee_MacheteAGen");
+	}
+    
+    ItemSet("Hammers")
+	{
+		Item("Melee_HammerBigAGen");
+	}
+    
+    ItemSet("Firearms")
+	{
+		Item("Firearm_PistolAGen");
+        Item("Firearm_RifleAGen");
+		Item("Firearm_RifleAGenOlive");
+		Item("Firearm_RifleAGenSand");
+	}
+
+	ItemSet("Melees")
+    {
+        Item("Melee_BatonAGen");
+		Item("Melee_CleaverAGen");
+		Item("Melee_KnucklesAGen");
+		Item("Melee_ShortKnifeAGen");
+		Item("Melee_SickleAGen");
+    	Item("Melee_WrenchAGen");
+        Item("Melee_BaseballBatAGen");
+		Item("Melee_ClawAGen");
+		Item("Melee_CrowbarAGen");
+		Item("Melee_BaseballBatAGen");
+		Item("Melee_HammerAGen");
+		Item("Melee_KnifeAGen");
+		Item("Melee_MacheteAGen");
+		Item("Melee_PickAGen");
+		Item("Melee_PickaxeAGen");
+		Item("Melee_ReedKnifeAGen");
+		Item("Melee_ShortAxeAGen");
+		Item("Melee_AxeBigAGen");
+        Item("Melee_KopeshAGen");
+		Item("Melee_LongSwordAGen");
+		Item("Melee_ShortSwordAGen");
+		Item("Melee_HammerBigAGen");
+	}
+	
+	ItemSet("Ammo")
+    {
+        Item("Ammo_PistolSmall");
+		Item("Ammo_PistolBig");
+		Item("Ammo_PistolCraftBurning");
+		Item("Ammo_PistolCraftImpact");
+
+	}
+    
+    ItemSet("Small_Elemental_Craftplans")
+    {
+        Item("Craftplan_SmallFireElemental");
+		Item("Craftplan_SmallElecticityElemental");
+        Item("Craftplan_SmallBleedingElemental");
+        Item("Craftplan_SmallExplosiveElemental");
+        Item("Craftplan_SmallAcidElemental");
+        Item("Craftplan_SmallPoisonElemental");
+        Item("Craftplan_SmallFrostElemental");
+ 	}
+    
+    ItemSet("Ammo_Rifle")
+    {
+        Item("Ammo_RifleSmall");
+        Item("Ammo_RifleBig");
+    }
+    
+    ItemSet("Ammo_Small_All")
+    {
+        Item("Ammo_PistolSmall");
+        Item("Ammo_ShotgunSmall");
+        Item("Ammo_RifleSmall");
+    }
+	
+	ItemSet("Craftplans_Slums_Breckens")
+    {
+		Item("Craftplan_PoisonGrenade");
+		Item("Craftplan_BleedingGrenade");	
+		Item("Craftplan_ExplosiveGrenade");
+		Item("Craftplan_BleedingThrowable");
+		Item("Craftplan_Bolt");		
+ 	}
+	
+	ItemSet("Craftplans_Slums_Breckens_Floor")
+    {
+		Item("Craftplan_SmallImpactElemental");
+		Item("Craftplan_SmallAcidElemental");
+		Item("Craftplan_SmallBleedingElemental");
+		Item("Craftplan_ImpactThrowable");
+		Item("Craftplan_FireCrackers");
+ 	}
+	
+	ItemSet("Craftplans_Slums_Fishermans_Village")
+    {
+  		Item("Craftplan_BoltImpact");
+		Item("Craftplan_BoltPoison");
+		Item("Craftplan_PistolAmmo");
+		Item("Craftplan_PistolAmmoShock");
+		Item("Craftplan_PistolAmmoBurning");
+ 	}
+	
+	ItemSet("Craftplans_Oldtown")
+    {
+        Item("Craftplan_PistolAmmoShock");
+		Item("Craftplan_BoltImpact");
+		Item("Craftplan_SmallAcidElemental");
+		Item("Craftplan_PoisonGrenade");
+		Item("Craftplan_ImpactThrowable");
+ 	}
+	
+	ItemSet("Craftplans_Wasteland")
+    {
+		Item("Craftplan_RifleAmmoBurning");
+		Item("Craftplan_LargeBleedingElemental");
+		Item("Craftplan_LargeImpactElemental");
+		Item("Craftplan_ShockGrenade");
+		Item("Craftplan_GreenFlare");
+ 	}
+    
+	ItemSet("Lockpicks")
+    {
+        Item("LockpickItem");
+ 	}
+	
+	ItemSet("Shields")
+    {
+		Item("Shield_Pro");
+ 	}
+	
+	ItemSet("UVEmitter")                   //ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Flashlight_Superlight");
+	}
+	
+	    ItemSet("Grappling_Hook")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Special_Hook");
+	}
+
+	ItemSet("Weapon_Upgrades")				//ItemID, Weight. Default WEIGHT is 1.
+    {
+        Item("Craft_Upgrade_Dam");
+        Item("Craft_Upgrade_Dur");
+        Item("Craft_Upgrade_Bal");
+        Item("Craft_Upgrade_DamDur");
+        Item("Craft_Upgrade_DamBal");
+        Item("Craft_Upgrade_DurBal");
+        Item("Craft_Upgrade_DamDurBal");
+        Item("Craft_Upgrade_DamL2");
+        Item("Craft_Upgrade_DurL2");
+        Item("Craft_Upgrade_BalL2");
+        Item("Craft_Upgrade_DamL2DurL2");
+        Item("Craft_Upgrade_DamL2BalL2");
+        Item("Craft_Upgrade_DurL2BalL2");
+        Item("Craft_Upgrade_DamL2DurL2BalL2");
+        Item("Craft_Upgrade_DamL2Dur");
+        Item("Craft_Upgrade_DamL2Bal");
+		Item("Craft_Upgrade_DurL2Bal");
+        Item("Craft_Upgrade_DurL2Dam");
+        Item("Craft_Upgrade_BalL2Dam");
+        Item("Craft_Upgrade_BalL2Dur");
+    } 
+}

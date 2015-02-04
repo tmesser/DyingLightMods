@@ -1,0 +1,18 @@
+sub main()
+{
+	// --- zombie
+    msh("zombie_a.msh", "man_zombie_chr.scr");
+    msh("zombie_fan.msh", "man_zombie_chr.scr");
+    msh("zombie_man_a.msh", "man_zombie_chr.scr");	
+	
+    msh("zombie_woman.msh", "woman_zombie_chr.scr");		
+    msh("zombie_woman_b.msh", "woman_zombie_chr.scr");		
+
+	// --- human
+	msh("survivor_a.msh", "man_chr.scr");
+	msh("npc_man_a.msh", "man_chr.scr");
+	msh("npc_man_b.msh", "man_chr.scr");
+
+	msh("survivor_woman_a.msh", "woman_chr.scr");
+	msh("npc_woman_a.msh", "woman_chr.scr");
+}

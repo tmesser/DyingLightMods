@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<speakers>
+	<speaker name="Sinamoi">
+		<group name="TestGroupDialog01">
+			<state type="near" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="OLD_Sinamoi_QF03_MiddleToNear"/>
+				</dialog>
+			</state>
+			<state type="near_to_middle" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="OLD_Sinamoi_QF03_NearToMiddle"/>
+				</dialog>
+			</state>
+			<state type="middle_to_near" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="OLD_Sinamoi_QF03_MiddleToNear"/>
+				</dialog>
+			</state>
+			<state type="use" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="OLD_Sinamoi_QF03_Use_A"/>
+					<decision>
+						<choice>
+							<speech>&amp;DialogSystem_Yes&amp;</speech>
+							<audiofile/>
+							<line id="OLD_Sinamoi_QF03_Agree"/>
+						</choice>
+						<main-choice>
+							<speech>&amp;DialogSystem_No&amp;</speech>
+							<audiofile/>
+						</main-choice>
+					</decision>
+					<line id="OLD_Sinamoi_QF03_Disagree"/>
+				</dialog>
+			</state>
+			<state type="ignore" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="OLD_Sinamoi_QF03_NearToMiddle"/>
+				</dialog>
+			</state>
+		</group>
+		<group name="TestDialogInProgress01">
+			<state type="near" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="OLD_Sinamoi_QF03_InProgress_01"/>
+				</dialog>
+				<dialog>
+					<line id="OLD_Sinamoi_QF03_InProgress_02"/>
+				</dialog>
+			</state>
+			<state type="middle_to_near" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="OLD_Sinamoi_QF03_InProgress_01"/>
+				</dialog>
+				<dialog>
+					<line id="OLD_Sinamoi_QF03_InProgress_02"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="voice2d">
+		<group name="dialogi2d" near_radius="500.000000">
+			<state type="near" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Sinamoi_QF05_NearToMiddle"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+</speakers>
+

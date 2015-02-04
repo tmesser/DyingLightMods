@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<QuestsDefinitions
+     level="mykorian_city"
+     pxsl_line="3">
+    <Quest
+         name="Q_InnerCity"
+         parent="Fuel03"
+         quest_giver="taylan"
+         difficulty="medium"
+         reward_set="InnerCity_reward"
+         pxsl_line="5">
+        <Phase
+             type="AND"
+             name="_"
+             objective="&amp;InnerCity_OBJ_TalkToTaylan&amp;"
+             pxsl_line="6">
+            <Path
+                 pxsl_line="6">
+                <Phase
+                     type="talk"
+                     name="Talk to Taylan"
+                     speaker="taylan"
+                     group="Taylan_Q_InnerCity_USA"
+                     following_group="Taylan_Q_InnerCity_INP"
+                     pxsl_line="7">
+                    <DebugPlayerPosition
+                         pxsl_line="8">
+                        <QuestObject
+                             class="SpawnPoint"
+                             name="Taylan_sp"
+                             pxsl_line="8" />
+                    </DebugPlayerPosition>
+                </Phase>
+                <Phase
+                     type="enable"
+                     name="_"
+                     pxsl_line="9">
+                    <Object
+                         pxsl_line="9">
+                        <QuestObject
+                             class="DoorDI"
+                             name="InnerCity_container_door"
+                             pxsl_line="9" />
+                    </Object>
+                </Phase>
+            </Path>
+        </Phase>
+    </Quest>
+    <Quest
+         name="Q_InnerCity02"
+         parent="Q_InnerCity"
+         glued="true"
+         pxsl_line="11">
+        <Phase
+             type="AND"
+             name="_"
+             objective="&amp;Q_WayToMykorians01_OBJ_EnterContainer&amp;"
+             pxsl_line="12">
+            <Path
+                 pxsl_line="12">
+                <Phase
+                     type="use"
+                     name="_"
+                     desired_state="opened"
+                     pxsl_line="13">
+                    <Trigger
+                         pxsl_line="13">
+                        <QuestObject
+                             class="DoorDI"
+                             name="InnerCity_container_door"
+                             pxsl_line="13" />
+                    </Trigger>
+                </Phase>
+                <Phase
+                     type="have item guard"
+                     name="_"
+                     item_name="AA_Test_OxygenCylinder"
+                     pxsl_line="14">
+                    <SpecificLocation
+                         pxsl_line="15">
+                        <QuestObject
+                             class="ZoneBox"
+                             name="InnerCity_area"
+                             pxsl_line="15" />
+                    </SpecificLocation>
+                </Phase>
+            </Path>
+        </Phase>
+        <Phase
+             type="AND"
+             name="_"
+             objective="&amp;Q_WayToMykorians01_OBJ_FindEntrance&amp;"
+             pxsl_line="18">
+            <Path
+                 pxsl_line="18">
+                <Phase
+                     type="go to"
+                     name="Find underwater caves to mykoria"
+                     distance="6"
+                     show_locations="true"
+                     pxsl_line="19">
+                    <Destination
+                         pxsl_line="19">
+                        <QuestObject
+                             class="Marker"
+                             name="Q_WayToMykorians02_entrance"
+                             pxsl_line="19" />
+                    </Destination>
+                    <DebugPlayerPosition
+                         pxsl_line="20">
+                        <QuestObject
+                             class="SpawnPoint"
+                             name="Q_WayToMykorians02_underwatercave"
+                             pxsl_line="20" />
+                    </DebugPlayerPosition>
+                </Phase>
+                <Phase
+                     type="enable"
+                     name="_"
+                     pxsl_line="21">
+                    <Object
+                         pxsl_line="21">
+                        <QuestObject
+                             class="LocalPortal"
+                             name="waytomykorians_portal"
+                             pxsl_line="21" />
+                    </Object>
+                </Phase>
+                <!-- ,area ZoneBox Q_WayToMykorians02_entrance -->
+            </Path>
+        </Phase>
+        <Phase
+             type="AND"
+             name="_"
+             objective="&amp;Q_WayToMykorians01_OBJ_GoToMykoria&amp;"
+             pxsl_line="24">
+            <Path
+                 pxsl_line="24">
+                <Phase
+                     type="go to"
+                     name="Entrance to inner mykoria"
+                     distance="0"
+                     show_locations="false"
+                     pxsl_line="25">
+                    <Destination
+                         pxsl_line="25">
+                        <QuestObject
+                             class="SensorGoTo"
+                             name="Q_InnerCity__01"
+                             pxsl_line="25" />
+                    </Destination>
+                    <DebugPlayerPosition
+                         pxsl_line="26">
+                        <QuestObject
+                             class="SpawnPoint"
+                             name="Q_WayToMykorians02_nm"
+                             pxsl_line="26" />
+                    </DebugPlayerPosition>
+                </Phase>
+                <Phase
+                     type="checkpoint"
+                     name="_"
+                     pxsl_line="27">
+                    <Destination
+                         pxsl_line="27">
+                        <QuestObject
+                             class="SpawnPoint"
+                             name="Q_WayToMykorians02_nm"
+                             pxsl_line="27" />
+                    </Destination>
+                </Phase>
+            </Path>
+        </Phase>
+        <Phase
+             type="AND"
+             name="_"
+             objective="&amp;InnerCity_OBJ_FindTheUrn&amp;"
+             pxsl_line="29">
+            <Path
+                 pxsl_line="29">
+                <Phase
+                     type="take item"
+                     name="_"
+                     show_locations="false"
+                     pxsl_line="30">
+                    <Item
+                         pxsl_line="30">
+                        <QuestObject
+                             class="QuestInventoryItemDI"
+                             name="WayToMykorians_urn"
+                             pxsl_line="30" />
+                    </Item>
+                    <SpecificLocation
+                         pxsl_line="31">
+                        <QuestObject
+                             class="ZoneBox"
+                             name="WayToMykorians_zone"
+                             pxsl_line="31" />
+                    </SpecificLocation>
+                </Phase>
+                <Phase
+                     type="wait guard"
+                     name="_"
+                     time="1"
+                     pxsl_line="33" />
+                <Phase
+                     type="set reward"
+                     name="_"
+                     pxsl_line="34" />
+                <Phase
+                     type="checkpoint"
+                     name="_"
+                     pxsl_line="35">
+                    <Destination
+                         pxsl_line="35">
+                        <QuestObject
+                             class="SpawnPoint"
+                             name="Q_WayToMykorians02_nm"
+                             pxsl_line="35" />
+                    </Destination>
+                </Phase>
+            </Path>
+        </Phase>
+    </Quest>
+</QuestsDefinitions>

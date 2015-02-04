@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<speakers>
+	<speaker name="mc_scout01">
+		<group name="mc_scout01_mc_start_NEA01">
+			<state type="near" range="25.000000" volume="1.000000" subtitles="false">
+				<dialog>
+					<line id="mc_scout01_mc_start_NEA01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_scout01_mc_start_NEA02" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_scout01_mc_start_NEA03" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="mc_shopkeeper01">
+		<group name="mc_shopkeeper01_mc_start_NEA01">
+			<state type="near" range="25.000000" volume="1.000000" subtitles="false">
+				<dialog>
+					<line id="mc_shopkeeper01_mc_start_NEA01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_shopkeeper01_mc_start_NEA02" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_shopkeeper01_mc_start_NEA03" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="mc_survivor01">
+		<group name="mc_survivor01_mc_start_NEA01">
+			<state type="near" range="25.000000" volume="1.000000" subtitles="false">
+				<dialog>
+					<line id="mc_survivor01_mc_start_NEA01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor01_mc_start_NEA02" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor01_mc_start_NEA03" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="mc_survivor02">
+		<group name="mc_survivor02_mc_start_NEA01">
+			<state type="near" range="25.000000" volume="1.000000" subtitles="false">
+				<dialog>
+					<line id="mc_survivor02_mc_start_NEA01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor02_mc_start_NEA02" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor02_mc_start_NEA03" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="mc_survivor03">
+		<group name="mc_survivor03_mc_start_NEA01">
+			<state type="near" range="25.000000" volume="1.000000" subtitles="false">
+				<dialog>
+					<line id="mc_survivor03_mc_start_NEA01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor03_mc_start_NEA02" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor03_mc_start_NEA03" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="mc_survivor04">
+		<group name="mc_survivor04_mc_start_NEA01">
+			<state type="near" range="25.000000" volume="1.000000" subtitles="false">
+				<dialog>
+					<line id="mc_survivor04_mc_start_NEA01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor04_mc_start_NEA02" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor04_mc_start_NEA03" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="mc_survivor05">
+		<group name="mc_survivor05_mc_start_NEA01">
+			<state type="near" range="25.000000" volume="1.000000" subtitles="false">
+				<dialog>
+					<line id="mc_survivor05_mc_start_NEA01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor05_mc_start_NEA02" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor05_mc_start_NEA03" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="mc_survivor06">
+		<group name="mc_survivor06_mc_start_NEA01">
+			<state type="near" range="25.000000" volume="1.000000" subtitles="false">
+				<dialog>
+					<line id="mc_survivor06_mc_start_NEA01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor06_mc_start_NEA02" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor06_mc_start_NEA03" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="mc_survivor07">
+		<group name="mc_survivor07_mc_start_NEA01">
+			<state type="near" range="25.000000" volume="1.000000" subtitles="false">
+				<dialog>
+					<line id="mc_survivor07_mc_start_NEA01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor07_mc_start_NEA02" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor07_mc_start_NEA03" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="mc_survivor08">
+		<group name="mc_survivor08_mc_start_NEA01">
+			<state type="near" range="25.000000" volume="1.000000" subtitles="false">
+				<dialog>
+					<line id="mc_survivor08_mc_start_NEA01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor08_mc_start_NEA02" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="mc_survivor08_mc_start_NEA03" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="abram">
+		<group name="abram_q_collectingherbs_USA">
+			<state type="unknown" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Abram_CollectingHerbs_MTN01" pause="0.100000"/>
+				</dialog>
+			</state>
+			<state type="near" range="25.000000" volume="1.000000" subtitles="false">
+				<dialog>
+					<line id="Abram_CollectingHerbs_NEA01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="Abram_CollectingHerbs_MTN01" pause="0.100000"/>
+				</dialog>
+			</state>
+			<state type="use" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Player_CollectingHerbs_USA01" pause="0.100000"/>
+					<line id="Abram_CollectingHerbs_USA02" pause="0.100000"/>
+					<line id="Abram_CollectingHerbs_USA03" pause="0.100000"/>
+					<decision type="quest_brief">
+						<choice id="Player_CollectingHerbs_YES" pause="0.100000">
+							<line id="Player_CollectingHerbs_YES" pause="0.100000"/>
+							<line id="Abram_CollectingHerbs_AGR01" pause="0.100000"/>
+							<line id="Abram_CollectingHerbs_AGR02" pause="0.100000"/>
+						</choice>
+						<main-choice id="Player_CollectingHerbs_NO" pause="0.100000"/>
+					</decision>
+					<line id="Player_CollectingHerbs_NO" pause="0.100000"/>
+					<line id="Abram_CollectingHerbs_DIS01" pause="0.100000"/>
+				</dialog>
+			</state>
+			<state type="use_second" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Abram_CollectingHerbs_USB01" pause="0.100000"/>
+					<decision type="quest_brief">
+						<choice id="Player_CollectingHerbs_YES" pause="0.100000">
+							<line id="Player_CollectingHerbs_YES" pause="0.100000"/>
+							<line id="Abram_CollectingHerbs_AGR01" pause="0.100000"/>
+							<line id="Abram_CollectingHerbs_AGR02" pause="0.100000"/>
+						</choice>
+						<main-choice id="Player_CollectingHerbs_NO" pause="0.100000"/>
+					</decision>
+					<line id="Player_CollectingHerbs_NO" pause="0.100000"/>
+					<line id="Abram_CollectingHerbs_DIS01" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+		<group name="abram_q_collectingherbs_INP">
+			<state type="use" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Abram_CollectingHerbs_INP01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="Abram_CollectingHerbs_INP02" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+		<group name="abram_q_collectingherbs_END">
+			<state type="use" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Abram_CollectingHerbs_END01" pause="0.100000"/>
+					<line id="Abram_CollectingHerbs_END02" pause="0.100000"/>
+					<line id="Abram_CollectingHerbs_END03" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="taylan">
+		<group name="Taylan_Fuel_INP">
+			<state type="use" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Taylan_Fuel_INP01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="Taylan_Fuel_INP02" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+		<group name="Taylan_Q_InnerCity_USA">
+			<state type="unknown" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Taylan_InnerCity_NTM01" pause="0.100000"/>
+				</dialog>
+			</state>
+			<state type="unknown" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Taylan_InnerCity_MTN01" pause="0.100000"/>
+				</dialog>
+			</state>
+			<state type="near" range="25.000000" volume="1.000000" subtitles="false">
+				<dialog>
+					<line id="Taylan_InnerCity_NEA01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="Taylan_InnerCity_MTN01" pause="0.100000"/>
+				</dialog>
+			</state>
+			<state type="use" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Taylan_InnerCity_USA01" pause="0.100000"/>
+					<line id="Taylan_InnerCity_USA02" pause="0.100000"/>
+					<line id="Taylan_InnerCity_QST" pause="0.100000"/>
+					<decision type="quest_brief">
+						<choice id="Player_InnerCity_YES" pause="0.100000">
+							<line id="Player_InnerCity_YES" pause="0.100000"/>
+							<line id="Taylan_InnerCity_AGR01" pause="0.100000"/>
+							<line id="Taylan_InnerCity_AGR02" pause="0.100000"/>
+						</choice>
+						<main-choice id="Player_InnerCity_NO" pause="0.100000"/>
+					</decision>
+					<line id="Player_InnerCity_NO" pause="0.100000"/>
+					<line id="Taylan_InnerCity_DIS01" pause="0.100000"/>
+				</dialog>
+			</state>
+			<state type="use_second" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Taylan_InnerCity_USB01" pause="0.100000"/>
+					<decision type="quest_brief">
+						<choice id="DialogSystem_Yes" pause="0.100000">
+							<line id="Player_InnerCity_YES" pause="0.100000"/>
+							<line id="Taylan_InnerCity_AGR01" pause="0.100000"/>
+							<line id="Taylan_InnerCity_AGR02" pause="0.100000"/>
+						</choice>
+						<main-choice id="DialogSystem_No" pause="0.100000"/>
+					</decision>
+					<line id="Player_InnerCity_NO" pause="0.100000"/>
+					<line id="Taylan_InnerCity_DIS01" pause="0.100000"/>
+				</dialog>
+			</state>
+			<state type="ignore" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Taylan_InnerCity_NTM01" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+		<group name="Taylan_Q_InnerCity_INP">
+			<state type="use" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Taylan_InnerCity_INP01" pause="0.100000"/>
+				</dialog>
+				<dialog>
+					<line id="Taylan_InnerCity_INP02" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+		<group name="Taylan_Fuel_USE">
+			<state type="use" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Taylan_Fuel_USA01" pause="0.100000"/>
+					<line id="Taylan_Fuel_USA02" pause="0.100000"/>
+					<line id="Taylan_Fuel_USA03" pause="0.100000"/>
+					<line id="Taylan_Fuel_USA04" pause="0.100000"/>
+					<line id="Taylan_Fuel_USA05" pause="0.100000"/>
+					<line id="Taylan_Fuel_USA06" pause="0.100000"/>
+					<line id="Taylan_Fuel_USA07" pause="0.100000"/>
+					<line id="Player_Fuel_USA08" pause="0.100000"/>
+					<line id="Taylan_Fuel_QST" pause="0.100000"/>
+					<decision type="quest_brief">
+						<choice id="DialogSystem_Yes" pause="0.100000">
+							<line id="Player_Fuel_YES" pause="0.100000"/>
+							<line id="Taylan_Fuel_AGR01" pause="0.100000"/>
+							<line id="Taylan_Fuel_AGR02" pause="0.100000"/>
+						</choice>
+						<main-choice id="DialogSystem_No" pause="0.100000"/>
+					</decision>
+					<line id="Player_Fuel_NO" pause="0.100000"/>
+					<line id="Taylan_Fuel_DIS01" pause="0.100000"/>
+				</dialog>
+			</state>
+			<state type="use_second" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Taylan_Fuel_USB01" pause="0.100000"/>
+					<decision type="quest_brief">
+						<choice id="DialogSystem_Yes" pause="0.100000">
+							<line id="Player_Fuel_YES" pause="0.100000"/>
+							<line id="Taylan_Fuel_AGR01" pause="0.100000"/>
+							<line id="Taylan_Fuel_AGR02" pause="0.100000"/>
+						</choice>
+						<main-choice id="DialogSystem_No" pause="0.100000"/>
+					</decision>
+					<line id="Player_Fuel_NO" pause="0.100000"/>
+					<line id="Taylan_Fuel_DIS01" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+		<group name="Taylan_Fuel_END">
+			<state type="use" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Taylan_Fuel_END01" pause="0.100000"/>
+					<line id="Taylan_Fuel_END02" pause="0.100000"/>
+					<line id="Taylan_Fuel_END03" pause="0.100000"/>
+					<line id="Player_Fuel_END04" pause="0.100000"/>
+					<line id="Taylan_Fuel_END05" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="Zahid">
+		<group name="Zahid_Q_WayToMykorians_04DLG01">
+			<state type="use" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="MykorianGuard02_WayToMykorians_04DLG01" pause="0.100000"/>
+					<line id="MykorianGuard02_WayToMykorians_04DLG02" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="MykorianGuard01">
+		<group name="MykorianGuard01_WayToMykorians_01DLG01">
+			<state type="use" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Player_WayToMykorians_01DLG01" pause="0.100000"/>
+					<line id="MykorianGuard01_WayToMykorians_02DLG01" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+		<group name="MykorianGuard01_WayToMykorians_02DLG01">
+			<state type="use" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="MykorianGuard01_WayToMykorians_03DLG01" pause="0.100000"/>
+					<line id="Player_WayToMykorians_03DLG02" pause="0.100000"/>
+					<line id="MykorianGuard01_WayToMykorians_03DLG03" pause="0.100000"/>
+					<line id="Player_WayToMykorians_03DLG04" pause="0.100000"/>
+					<line id="MykorianGuard01_WayToMykorians_03DLG05" pause="0.100000"/>
+					<line id="MykorianGuard01_WayToMykorians_03DLG06" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="Hanif">
+		<group name="Hanif_bringHanif_USE" voice_2d="true" without_anims="true">
+			<state type="use" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Hanif_bringHanif_USA01" pause="0.100000"/>
+					<line id="Hanif_bringHanif_USA02" pause="0.100000"/>
+					<decision type="quest_brief">
+						<choice id="DialogSystem_Yes" pause="0.100000">
+							<line id="Player_bringHanif_YES" pause="0.100000"/>
+						</choice>
+						<main-choice id="DialogSystem_No" pause="0.100000"/>
+					</decision>
+					<line id="Player_bringHanif_NO" pause="0.100000"/>
+				</dialog>
+			</state>
+			<state type="use_second" range="25.000000" volume="1.000000" subtitles="true">
+				<dialog>
+					<line id="Hanif_bringHanif_USB01" pause="0.100000"/>
+					<decision type="quest_brief">
+						<choice id="DialogSystem_Yes" pause="0.100000">
+							<line id="Player_bringHanif_YES" pause="0.100000"/>
+						</choice>
+						<main-choice id="DialogSystem_No" pause="0.100000"/>
+					</decision>
+					<line id="Player_bringHanif_NO" pause="0.100000"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+</speakers>
+

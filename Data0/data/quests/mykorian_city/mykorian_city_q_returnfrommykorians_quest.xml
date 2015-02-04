@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<QuestsDefinitions
+     level="mykorian_city"
+     pxsl_line="3">
+    <!-- quest TEST -parent=Q_InnerCity02 -->
+        <!-- ,goto <<TEST TEST>> SpawnPoint testps -distance=5 -show=false -->
+            <!-- ,debugpos SpawnPoint testps -->
+    <Quest
+         name="Q_ReturnFromMykorians01"
+         parent="Q_InnerCity02"
+         reward_set="ReturnFromMykorians_reward"
+         difficulty="easy"
+         pxsl_line="10">
+        <Phase
+             type="wait guard"
+             name="Go to Antio"
+             time="1"
+             pxsl_line="11">
+            <DebugPlayerPosition
+                 pxsl_line="12">
+                <QuestObject
+                     class="SpawnPoint"
+                     name="portal_MykorianCity_to_wasteland_sp"
+                     pxsl_line="12" />
+            </DebugPlayerPosition>
+        </Phase>
+    </Quest>
+</QuestsDefinitions>

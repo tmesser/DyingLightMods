@@ -1,0 +1,17 @@
+sub main()
+{
+	Preset("Default")
+	{
+		Variation()
+		{
+			Group("Init")
+			{
+				RandomLoop()
+				{
+					
+				}
+			}
+		}
+	}
+
+}

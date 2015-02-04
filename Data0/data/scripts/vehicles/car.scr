@@ -1,0 +1,1939 @@
+import "CarStuff.scr" 
+//  Tworzenie polaczen
+// 		  AddConnection(z_kad, przez_co, dokad, waga);
+//
+// UWAGA: nie nalezy deklarowac stanu o nazwie START, gdyz jest to nazwa zarezerwowana
+// 		  i nie bedzie on dodany, nie nalezy nazywac dwuch stanow tak samo ktore moga zostac wrzucone do tych samych grafow
+//        ogolnie Manager, ktory je laduje sra asercjami wiec mozna po nich wywnioskowac co jest nie ta
+// Spis wszystkich pol jakie moga byc ustawione w Stanie 
+// AddState("Nazwa_stanu") {
+//		  AnimName(string)            
+//        MorphTime(float)            
+//        VehicleAnimName(string)            
+//        VehicleBoneToAnim(string)            
+//        IsStartPosFromPlayer(bool)            
+//        IsLookContrVehContr(bool)            
+//        CanShoot(bool)            
+//        IsState(bool)            
+//        LookAnglesMax(float, float)            
+//        LookAnglesMin(float, float)            
+//        StartOffset(vec3)             // WARNING!!! value in cm conversion to m applied in code
+//        StartElementName(string)
+//        DestOffset(vec3)              // WARNING!!! value in cm conversion to m applied in code
+//        DestElementName(string)
+//        LookSpringTime(float)           
+//        BodyRotStart(float)           
+//        BodyRotEnd(float)           
+//        IsEndState(bool)           
+//        Action(VehicleAction::TYPE)
+//        Type(VehiclePlaceState::TYPE)
+//        PassangerRole(EPassengerRole::TYPE) }
+
+sub Buggy()
+{
+	AddState("WALK")
+    {  
+		Type(VehiclePlaceState_Outside);
+		IsState(false);
+		IsStartPosFromPlayer(true);
+		LookSpringTime(1.0);
+    }
+	
+	AddState("OUTSIDE_DRIVER_END")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("ddriver");
+		StartOffset([132.64,-85.99,-43.79]);
+		DestElementName("ddriver");
+		DestOffset([132.64,-85.99,-43.79]);
+		BodyRotStart(80.9);
+		BodyRotEnd(80.90);
+		IsEndState(true);
+    }
+	
+	AddState("DRIVER")
+    {
+		IsState(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_DrivingBuggy");
+		PassangerRole(PassengerRole_VEHICLE_DRIVER);	
+		LookAnglesMin(-115.0, -20.0);
+		LookAnglesMax( 100.0,  80.0);
+		StartElementName("ddriver");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("ddriver");
+		DestOffset([0.0,0.0,0.0]);
+		IsLookContrVehContr(true);	
+		MorphTime(0.1);
+		IsDriver(true);
+    }
+	
+	
+	AddState("DRIVER_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);		
+		PassangerRole(PassengerRole_VEHICLE_NONE);		
+		VehicleBoneToAnim("");
+		Action(VehicleAction_GetOut);	
+    }
+	
+	Graph()
+    {
+		AddConnection("START", "WALK", "DRIVER", 1.0);	
+		
+		AddConnection("DRIVER", "DRIVER_TO_OUTSIDE", "OUTSIDE_DRIVER_END", 1.0); 
+    }
+}
+
+
+sub BuggyBack()
+{
+	AddState("OUTSIDE_PASS")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassenger");
+		StartOffset([-133.86, -85.99, -43.78]);
+		DestElementName("DPassenger");
+		DestOffset([-133.86, -85.99, -43.78]);
+		BodyRotStart(-80.0);
+		BodyRotEnd(-80.0);	
+    }
+	
+	AddState("OUTSIDE_PASS_END")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassenger");
+		StartOffset([-133.86, -85.99, -43.78]);
+		DestElementName("DPassenger");
+		DestOffset([-133.86, -85.99, -43.78]);
+		BodyRotStart(-85.0);
+		BodyRotEnd(-85.0);	
+		IsEndState(true);
+    }
+	
+	
+    AddState("PASS")
+    { 
+		IsState(true);	
+		CanShoot(true);
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerBuggy");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);	
+		LookAnglesMin(-100.0, -20.0);
+		LookAnglesMax( 115.0,  80.0);
+		StartElementName("DPassenger");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassenger");
+		DestOffset([0.0,0.0,0.0]);	
+		MorphTime(0.1);
+    }
+	
+    AddState("PASS_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleBoneToAnim("");
+		Action(VehicleAction_GetOut);	
+    }
+	
+	Graph()
+    {
+		AddConnection("START", "WALK", "DRIVER", 1.0);	
+		AddConnection("START", "WALK", "OUTSIDE_PASS", 1.0);
+		
+		AddConnection("DRIVER", "DRIVER_TO_OUTSIDE", "OUTSIDE_DRIVER_END", 1.0); 
+		AddConnection("PASS", "OUTSIDE_PASS", "OUTSIDE_PASS_END", 1.0); 
+    }
+}
+
+sub Pickup()
+{
+	AddState("WALK")
+    {  
+		Type(VehiclePlaceState_Outside);
+		IsState(false);
+		IsStartPosFromPlayer(true);
+		LookSpringTime(1.0);
+    }
+
+	AddState("OUTSIDE_DRIVER")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DDriver");
+		StartOffset([132.64,-85.99,-43.79]);
+		DestElementName("DDriver");
+		DestOffset([132.64,-85.99,-43.79]);
+		BodyRotStart(85.0);
+		BodyRotEnd(85.0);
+    }
+	
+	AddState("OUTSIDE_DRIVER_END")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DDriver");
+		StartOffset([132.64,-85.99,-43.79]);
+		DestElementName("DDriver");
+		DestOffset([132.64,-85.99,-43.79]);
+		BodyRotStart(80.9);
+		BodyRotEnd(80.90);
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_PASS")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassenger");
+		StartOffset([-133.86, -85.99, -43.78]);
+		DestElementName("DPassenger");
+		DestOffset([-133.86, -85.99, -43.78]);
+		BodyRotStart(-80.0);
+		BodyRotEnd(-80.0);	
+    }
+	
+	AddState("OUTSIDE_PASS_END")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassenger");
+		StartOffset([-133.86, -85.99, -43.78]);
+		DestElementName("DPassenger");
+		DestOffset([-133.86, -85.99, -43.78]);
+		BodyRotStart(-85.0);
+		BodyRotEnd(-85.0);	
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_DRIVER_TO_DRIVER")
+    {
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringLeft");
+		PassangerRole(PassengerRole_VEHICLE_DRIVER);
+		VehicleAnimName("FrontLeft_Door_Open");
+		VehicleBoneToAnim("ddoorfl");
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	
+	AddState("OUTSIDE_PASS_TO_PASS")
+    {        
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);
+		VehicleAnimName("FrontRight_Door_Open");
+		VehicleBoneToAnim("ddoorfr");	
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	
+    AddState("DRIVER")
+    {
+		IsState(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_DrivingVehicle");
+		PassangerRole(PassengerRole_VEHICLE_DRIVER);	
+		LookAnglesMin(-115.0, -20.0);
+		LookAnglesMax( 100.0,  80.0);
+		StartElementName("DDriver");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DDriver");
+		DestOffset([0.0,0.0,0.0]);
+		IsLookContrVehContr(true);	
+		MorphTime(0.1);
+		IsDriver(true);
+    }
+    
+	AddState("DRIVER_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutLeft");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleAnimName("FrontLeft_Door_OpenGetOut");
+		VehicleBoneToAnim("ddoorfl");
+		Action(VehicleAction_GetOut);	
+    }
+	
+    AddState("PASS")
+    { 
+		IsState(true);	
+		CanShoot(true);
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);	
+		LookAnglesMin(-100.0, -20.0);
+		LookAnglesMax( 115.0,  80.0);
+		StartElementName("DPassenger");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassenger");
+		DestOffset([0.0,0.0,0.0]);	
+		MorphTime(0.1);
+    }
+	
+    AddState("PASS_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutRight");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleAnimName("FrontRight_Door_OpenGetOut");
+		VehicleBoneToAnim("ddoorfr");
+		Action(VehicleAction_GetOut);	
+    }
+	
+    AddState("DRIVER_TO_PASS")
+    {
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchRightToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Right);
+    }
+	
+	AddState("PASS_TO_DRIVER")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchLeftToRight");
+		PassangerRole(PassengerRole_VEHICLE_DRIVER);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Left);		
+    }
+	
+	/*AddState("PASS_TO_LEAN")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_PassengerLeftToLean");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);	
+		LookSpringTime(0.5);
+		Action(VehicleAction_Left);
+    }
+	
+	AddState("PASSLEAN")
+    { 
+		IsState(true);	
+		CanShoot(true);
+		Type(VehiclePlaceState_Leaning);			
+		AnimName("Vehicle_PassengerLeftLean");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);	
+		LookAnglesMin(-170.0, -20.0);
+		LookAnglesMax( 170.0,  80.0);
+		StartElementName("DPassenger");
+		StartOffset([52.72, 61.44, 17.36]);
+		DestElementName("DPassenger");
+		DestOffset([52.72, 61.44, 17.36]);		
+    }
+	
+    AddState("LEAN_TO_PASS")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_PassengerLeanToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);	
+		MorphTime(0.4);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Right);	
+    }*/
+	
+    Graph()
+    {
+		AddConnection("START", "WALK", "OUTSIDE_PASS", 1.0);
+		AddConnection("START", "WALK", "OUTSIDE_DRIVER", 1.0);
+				
+		AddConnection("OUTSIDE_DRIVER", "OUTSIDE_DRIVER_TO_DRIVER", "DRIVER", 1.0);
+		AddConnection("OUTSIDE_PASS", "OUTSIDE_PASS_TO_PASS", "PASS", 1.0);
+		
+		AddConnection("PASS", "PASS_TO_DRIVER", "DRIVER", 1.0);   
+        AddConnection("DRIVER", "DRIVER_TO_PASS", "PASS", 1.0); 
+
+		//AddConnection("PASS", "PASS_TO_LEAN", "PASSLEAN", 1.0);   
+		//AddConnection("PASSLEAN", "LEAN_TO_PASS", "PASS", 1.0);   
+		
+		AddConnection("DRIVER", "DRIVER_TO_OUTSIDE", "OUTSIDE_DRIVER_END", 1.0); 
+		AddConnection("PASS", "PASS_TO_OUTSIDE", "OUTSIDE_PASS_END", 1.0); 
+    }
+}
+
+sub FrontArmored()
+{
+	AddState("WALK")
+    {  
+		Type(VehiclePlaceState_Outside);
+		IsState(false);
+		IsStartPosFromPlayer(true);
+		LookSpringTime(1.0);
+    }
+
+	AddState("OUTSIDE_DRIVER")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DDriver");
+		StartOffset([-132.64,-119.6,-43.79]);
+		DestElementName("DDriver");
+		DestOffset([-132.64,-119.6,-43.79]);
+		BodyRotStart(-85.0);
+		BodyRotEnd(-85.0);
+    }
+	
+	AddState("OUTSIDE_DRIVER_END")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DDriver");
+		StartOffset([-132.64,-119.6,-43.79]);
+		DestElementName("DDriver");
+		DestOffset([-132.64,-119.6,-43.79]);
+		BodyRotStart(-80.9);
+		BodyRotEnd(-80.90);
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_PASS")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassenger");
+		StartOffset([133.86, -119.6, -43.78]);
+		DestElementName("DPassenger");
+		DestOffset([133.86, -119.6, -43.78]);
+		BodyRotStart(80.0);
+		BodyRotEnd(80.0);	
+    }
+	
+	AddState("OUTSIDE_PASS_END")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassenger");
+		StartOffset([133.86, -119.6, -43.78]);
+		DestElementName("DPassenger");
+		DestOffset([133.86, -119.6, -43.78]);
+		BodyRotStart(85.0);
+		BodyRotEnd(85.0);	
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_DRIVER_TO_DRIVER")
+    {
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringRight");
+		PassangerRole(PassengerRole_VEHICLE_DRIVER);
+		VehicleAnimName("FrontRight_Door_Open");
+		VehicleBoneToAnim("ddoorfr");
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	
+	AddState("OUTSIDE_PASS_TO_PASS")
+    {        
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);
+		VehicleAnimName("FrontLeft_Door_Open");
+		VehicleBoneToAnim("ddoorfl");	
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	
+    AddState("DRIVER")
+    {
+		IsState(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_DrivingVehicle");
+		PassangerRole(PassengerRole_VEHICLE_DRIVER);	
+		LookAnglesMin(-115.0, -20.0);
+		LookAnglesMax( 100.0,  80.0);
+		StartElementName("DDriver");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DDriver");
+		DestOffset([0.0,0.0,0.0]);
+		IsLookContrVehContr(true);	
+		MorphTime(0.1);
+		IsDriver(true);
+    }
+    
+	AddState("DRIVER_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutRight");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleAnimName("FrontRight_Door_OpenGetOut");
+		VehicleBoneToAnim("ddoorfr");
+		Action(VehicleAction_GetOut);	
+    }
+	
+    AddState("PASS")
+    { 
+		IsState(true);	
+		CanShoot(true);
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);	
+		LookAnglesMin(-100.0, -20.0);
+		LookAnglesMax( 115.0,  80.0);
+		StartElementName("DPassenger");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassenger");
+		DestOffset([0.0,0.0,0.0]);	
+		MorphTime(0.1);
+    }
+	
+    AddState("PASS_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutLeft");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleAnimName("FrontLeft_Door_OpenGetOut");
+		VehicleBoneToAnim("ddoorfl");
+		Action(VehicleAction_GetOut);	
+    }
+	
+    AddState("DRIVER_TO_PASS")
+    {
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchRightToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Left);
+    }
+	
+	AddState("PASS_TO_DRIVER")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchLeftToRight");
+		PassangerRole(PassengerRole_VEHICLE_DRIVER);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Right);		
+    }
+	
+    Graph()
+    {
+		AddConnection("START", "WALK", "OUTSIDE_PASS", 1.0);
+		AddConnection("START", "WALK", "OUTSIDE_DRIVER", 1.0);
+				
+		AddConnection("OUTSIDE_DRIVER", "OUTSIDE_DRIVER_TO_DRIVER", "DRIVER", 1.0);
+		AddConnection("OUTSIDE_PASS", "OUTSIDE_PASS_TO_PASS", "PASS", 1.0);
+		
+		AddConnection("PASS", "PASS_TO_DRIVER", "DRIVER", 1.0);   
+        AddConnection("DRIVER", "DRIVER_TO_PASS", "PASS", 1.0); 
+
+		//AddConnection("PASS", "PASS_TO_LEAN", "PASSLEAN", 1.0);   
+		//AddConnection("PASSLEAN", "LEAN_TO_PASS", "PASS", 1.0);   
+		
+		AddConnection("DRIVER", "DRIVER_TO_OUTSIDE", "OUTSIDE_DRIVER_END", 1.0); 
+		AddConnection("PASS", "PASS_TO_OUTSIDE", "OUTSIDE_PASS_END", 1.0); 
+    }
+}
+
+// ************************************************************************************************************************
+// back seats *************************************************************************************************************
+sub BackVehicle4Seats()
+{
+    AddState("OUTSIDE_PASSBL")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackL");
+		StartOffset([133.86,-85.99,-43.79]);
+		DestElementName("DPassengerBackL");
+		DestOffset([133.86,-85.99,-43.79]);
+		BodyRotStart(80.0);
+		BodyRotEnd(80.0);
+    }
+	
+	AddState("OUTSIDE_PASSBL_END")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackL");
+		StartOffset([132.64,-85.99,-43.79]);
+		DestElementName("DPassengerBackL");
+		DestOffset([132.64,-85.99,-43.79]);
+		BodyRotStart(85.0);
+		BodyRotEnd(85.0);
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_PASSBR")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackR");
+		StartOffset([-132.64, -85.99, -43.78]);
+		DestElementName("DPassengerBackR");
+		DestOffset([-132.64, -85.99, -43.78]);
+		BodyRotStart(-85.0);
+		BodyRotEnd(-85.0);	
+    }
+	
+	AddState("OUTSIDE_PASSBR_END")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackR");
+		StartOffset([-133.86, -85.99, -43.78]);
+		DestElementName("DPassengerBackR");
+		DestOffset([-133.86, -85.99, -43.78]);
+		BodyRotStart(-80.90);
+		BodyRotEnd(-80.90);	
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_PASSBL_TO_PASSBL")
+    {
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);
+		VehicleAnimName("FrontRight_Door_Open");
+		VehicleBoneToAnim("ddoorrl");
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	
+	AddState("OUTSIDE_PASSBR_TO_PASSBR")
+    {        
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);
+		VehicleAnimName("FrontRight_Door_Open");
+		VehicleBoneToAnim("ddoorrr");	
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	
+    AddState("PASSBL")
+    {
+		IsState(true);
+		CanShoot(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);	
+		LookAnglesMin(-170.0, -20.0);
+		LookAnglesMax( 170.0,  80.0);
+		StartElementName("DPassengerBackL");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassengerBackL");
+		DestOffset([0.0,0.0,0.0]);		
+		MorphTime(0.1);
+    }
+    
+    AddState("PASSBM")
+    {
+		IsState(true);
+		CanShoot(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_M);	
+		LookAnglesMin(-170.0, -20.0);
+		LookAnglesMax( 170.0,  80.0);
+		StartElementName("DPassengerBackL");
+		StartOffset([-35.0,0.0,0.0]);
+		DestElementName("DPassengerBackL");
+		DestOffset([-35.0,0.0,0.0]);		
+		MorphTime(0.1);
+    }
+    
+	AddState("PASSBL_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutLeft");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleAnimName("FrontLeft_Door_OpenGetOut");
+		VehicleBoneToAnim("ddoorrl");
+		Action(VehicleAction_GetOut);	
+    }
+	
+    AddState("PASSBR")
+    { 
+		IsState(true);	
+		CanShoot(true);
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);	
+		LookAnglesMin(-170.0, -20.0);
+		LookAnglesMax( 170.0,  80.0);
+		StartElementName("DPassengerBackR");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassengerBackR");
+		DestOffset([0.0,0.0,0.0]);	
+		MorphTime(0.1);
+    }
+	
+    AddState("PASSBR_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutRight");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleAnimName("FrontRight_Door_OpenGetOut");
+		VehicleBoneToAnim("ddoorrr");
+		Action(VehicleAction_GetOut);	
+    }
+    
+    AddState("PASSBL_TO_PASSBR")
+    {
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchLeftToRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Right);
+    }
+	
+	AddState("PASSBR_TO_PASSBL")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchRightToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Left);		
+    }
+    
+    Graph()
+    {
+		AddConnection("START", "WALK", "OUTSIDE_PASSBR", 1.0);
+		AddConnection("START", "WALK", "OUTSIDE_PASSBL", 1.0);
+				
+		AddConnection("OUTSIDE_PASSBL", "OUTSIDE_PASSBL_TO_PASSBL", "PASSBL", 1.0);
+		AddConnection("OUTSIDE_PASSBR", "OUTSIDE_PASSBR_TO_PASSBR", "PASSBR", 1.0);
+		
+		AddConnection("PASSBR", "PASSBR_TO_PASSBL", "PASSBL", 1.0);   
+        AddConnection("PASSBL", "PASSBL_TO_PASSBR", "PASSBR", 1.0); 
+        
+		AddConnection("PASSBL", "PASSBL_TO_OUTSIDE", "OUTSIDE_PASSBL_END", 1.0); 
+		AddConnection("PASSBR", "PASSBR_TO_OUTSIDE", "OUTSIDE_PASSBR_END", 1.0); 
+    }
+}
+
+// ************************************************************************************************************************
+// back pickup *************************************************************************************************************
+sub BackPickup4Seats()
+{
+    AddState("OUTSIDE_PASSBL")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackL");
+		StartOffset([133.86,-85.99,-43.79]);
+		DestElementName("DPassengerBackL");
+		DestOffset([133.86,-85.99,-43.79]);
+		BodyRotStart(0.0);		
+		BodyRotEnd(0.0);
+		IsLookContrVehContr(true);
+		LookSpringTime(0.0);
+    }
+	
+	AddState("OUTSIDE_PASSBL_END")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackL");
+		StartOffset([132.64,-85.99,-43.79]);
+		DestElementName("DPassengerBackL");
+		DestOffset([132.64,-85.99,-43.79]);
+		BodyRotStart(0.0);
+		BodyRotEnd(0.0);
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_PASSBR")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackR");
+		StartOffset([-132.64, -85.99, -43.78]);
+		DestElementName("DPassengerBackR");
+		DestOffset([-132.64, -85.99, -43.78]);
+		BodyRotStart(0.0);
+		BodyRotEnd(0.0);
+		IsLookContrVehContr(true);		
+		LookSpringTime(0.0);
+    }
+	
+	AddState("OUTSIDE_PASSBR_END")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackR");
+		StartOffset([-133.86, -85.99, -43.78]);
+		DestElementName("DPassengerBackR");
+		DestOffset([-133.86, -85.99, -43.78]);
+		BodyRotStart(0.0);
+		BodyRotEnd(0.0);	
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_PASSBL_TO_PASSBL")
+    {
+		Type(VehiclePlaceState_Outside);					
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);	
+		LookSpringTime(0.0);	
+		IsLookContrVehContr(true);		
+    }
+	
+	AddState("OUTSIDE_PASSBR_TO_PASSBR")
+    {        
+		Type(VehiclePlaceState_Outside);					
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);						
+		LookSpringTime(0.0);
+		IsLookContrVehContr(true);
+    }
+	
+    AddState("PASSBL")
+    {
+		IsState(true);
+		CanShoot(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);	
+		LookAnglesMin(-150.0, -20.0);
+		LookAnglesMax( 150.0,  80.0);
+		StartElementName("DPassengerBackL");
+		StartOffset([0.0,0.0,-3.0]);
+		DestElementName("DPassengerBackL");
+		DestOffset([0.0,0.0,-3.0]);		
+		MorphTime(0.0);
+    }  
+    
+	AddState("PASSBL_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);					
+		PassangerRole(PassengerRole_VEHICLE_NONE);		
+		Action(VehicleAction_GetOut);	
+    }
+	
+    AddState("PASSBR")
+    { 
+		IsState(true);	
+		CanShoot(true);
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);	
+		LookAnglesMin(-150.0, -20.0);
+		LookAnglesMax( 150.0,  80.0);
+		StartElementName("DPassengerBackR");
+		StartOffset([0.0,0.0,-3.0]);
+		DestElementName("DPassengerBackR");
+		DestOffset([0.0,0.0,-3.0]);	
+		MorphTime(0.0);
+    }
+	
+    AddState("PASSBR_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);					
+		PassangerRole(PassengerRole_VEHICLE_NONE);		
+		Action(VehicleAction_GetOut);	
+    }
+    
+    AddState("PASSBL_TO_PASSBR")
+    {
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchLeftToRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Right);
+    }
+	
+	AddState("PASSBR_TO_PASSBL")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchRightToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Left);		
+    }
+    
+    Graph()
+    {
+		AddConnection("START", "WALK", "OUTSIDE_PASSBR", 1.0);
+		AddConnection("START", "WALK", "OUTSIDE_PASSBL", 1.0);
+				
+		AddConnection("OUTSIDE_PASSBL", "OUTSIDE_PASSBL_TO_PASSBL", "PASSBL", 1.0);
+		AddConnection("OUTSIDE_PASSBR", "OUTSIDE_PASSBR_TO_PASSBR", "PASSBR", 1.0);
+		
+		AddConnection("PASSBR", "PASSBR_TO_PASSBL", "PASSBL", 1.0);   
+        AddConnection("PASSBL", "PASSBL_TO_PASSBR", "PASSBR", 1.0); 
+        
+		AddConnection("PASSBL", "PASSBL_TO_OUTSIDE", "OUTSIDE_PASSBL_END", 1.0); 
+		AddConnection("PASSBR", "PASSBR_TO_OUTSIDE", "OUTSIDE_PASSBR_END", 1.0); 
+    }
+}
+// ************************************************************************************************************************
+sub BackVehicle5Seats()
+{
+    AddState("OUTSIDE_PASSBL")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackL");
+		StartOffset([133.86,-85.99,-43.79]);
+		DestElementName("DPassengerBackL");
+		DestOffset([133.86,-85.99,-43.79]);
+		BodyRotStart(80.0);
+		BodyRotEnd(80.0);
+    }
+	
+	AddState("OUTSIDE_PASSBL_END")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackL");
+		StartOffset([132.64,-85.99,-43.79]);
+		DestElementName("DPassengerBackL");
+		DestOffset([132.64,-85.99,-43.79]);
+		BodyRotStart(85.0);
+		BodyRotEnd(85.0);
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_PASSBR")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackR");
+		StartOffset([-132.64, -85.99, -43.78]);
+		DestElementName("DPassengerBackR");
+		DestOffset([-132.64, -85.99, -43.78]);
+		BodyRotStart(-85.0);
+		BodyRotEnd(-85.0);	
+    }
+	
+	AddState("OUTSIDE_PASSBR_END")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackR");
+		StartOffset([-133.86, -85.99, -43.78]);
+		DestElementName("DPassengerBackR");
+		DestOffset([-133.86, -85.99, -43.78]);
+		BodyRotStart(-80.90);
+		BodyRotEnd(-80.90);	
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_PASSBL_TO_PASSBL")
+    {
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);
+		VehicleAnimName("FrontRight_Door_Open");
+		VehicleBoneToAnim("ddoorrl");
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	
+	AddState("OUTSIDE_PASSBR_TO_PASSBR")
+    {        
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);
+		VehicleAnimName("FrontRight_Door_Open");
+		VehicleBoneToAnim("ddoorrr");	
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	
+    AddState("PASSBL")
+    {
+		IsState(true);
+		CanShoot(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);	
+        LookAnglesMin(-110.0, -20.0);
+		LookAnglesMax( 110.0,  80.0);
+		StartElementName("DPassengerBackL");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassengerBackL");
+		DestOffset([0.0,0.0,0.0]);		
+		MorphTime(0.1);
+    }
+    
+    AddState("PASSBM")
+    {
+		IsState(true);
+		CanShoot(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_M);	
+		LookAnglesMin(-110.0, -20.0);
+		LookAnglesMax( 110.0,  80.0);
+		StartElementName("DPassengerBackM");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassengerBackM");
+		DestOffset([0.0,0.0,0.0]);		
+		MorphTime(0.1);
+    }
+    
+	AddState("PASSBL_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutLeft");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleAnimName("FrontLeft_Door_OpenGetOut");
+		VehicleBoneToAnim("ddoorrl");
+		Action(VehicleAction_GetOut);	
+    }
+	
+    AddState("PASSBR")
+    { 
+		IsState(true);	
+		CanShoot(true);
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);	
+		LookAnglesMin(-110.0, -20.0);
+		LookAnglesMax( 110.0,  80.0);
+		StartElementName("DPassengerBackR");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassengerBackR");
+		DestOffset([0.0,0.0,0.0]);	
+		MorphTime(0.1);
+    }
+	
+    AddState("PASSBR_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutRight");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleAnimName("FrontRight_Door_OpenGetOut");
+		VehicleBoneToAnim("ddoorrr");
+		Action(VehicleAction_GetOut);	
+    }
+	
+    ///////////////////////////////////////////////////////////
+    AddState("PASSBL_TO_PASSBM")
+    {
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchLeftToRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_M);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Right);
+    }
+	
+    AddState("PASSBM_TO_PASSBL")
+    {
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchRightToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Left);
+    }
+	
+	AddState("PASSBM_TO_PASSBR")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchLeftToRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Right);		
+    }
+    
+    AddState("PASSBR_TO_PASSBM")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchRightToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_M);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Left);		
+    }
+    //////////////////////////////////////////////////////////
+    
+    Graph()
+    {
+		AddConnection("START", "WALK", "OUTSIDE_PASSBR", 1.0);
+		AddConnection("START", "WALK", "OUTSIDE_PASSBL", 1.0);
+				
+		AddConnection("OUTSIDE_PASSBL", "OUTSIDE_PASSBL_TO_PASSBL", "PASSBL", 1.0);
+		AddConnection("OUTSIDE_PASSBR", "OUTSIDE_PASSBR_TO_PASSBR", "PASSBR", 1.0);
+		
+        AddConnection("PASSBR", "PASSBR_TO_PASSBM", "PASSBM", 1.0);
+        AddConnection("PASSBM", "PASSBM_TO_PASSBR", "PASSBR", 1.0);
+        AddConnection("PASSBL", "PASSBL_TO_PASSBM", "PASSBM", 1.0);
+        AddConnection("PASSBM", "PASSBM_TO_PASSBL", "PASSBL", 1.0);
+        
+		AddConnection("PASSBL", "PASSBL_TO_OUTSIDE", "OUTSIDE_PASSBL_END", 1.0); 
+		AddConnection("PASSBR", "PASSBR_TO_OUTSIDE", "OUTSIDE_PASSBR_END", 1.0); 
+    }
+}
+// ************************************************************************************************************************
+sub BackVehicle6Seats()
+{
+    AddState("OUTSIDE_PASSBL")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackL");
+		StartOffset([132.64,-119.6,-53.79]);
+		DestElementName("DPassengerBackL");
+		DestOffset([132.64,-119.6,-53.79]);
+		BodyRotStart(85.0);
+		BodyRotEnd(85.0);
+    }
+	
+	AddState("OUTSIDE_PASSBL_END")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackL");
+		StartOffset([132.64,-119.6,-43.79]);
+		DestElementName("DPassengerBackL");
+		DestOffset([132.64,-119.6,-43.79]);
+		BodyRotStart(85.0);
+		BodyRotEnd(85.0);
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_PASSBR")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackR");
+		StartElementName("DPassengerBackR");
+		StartOffset([-133.86, -119.6, -53.78]);
+		DestElementName("DPassengerBackR");
+		DestOffset([-133.86, -119.6, -53.78]);
+		BodyRotStart(-80.90);
+		BodyRotEnd(-80.90);	
+    }
+	
+	AddState("OUTSIDE_PASSBR_END")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackR");
+		StartOffset([-133.86, -119.6, -43.78]);
+		DestElementName("DPassengerBackR");
+		DestOffset([-133.86, -119.6, -43.78]);
+		BodyRotStart(-80.90);
+		BodyRotEnd(-80.90);	
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_PASSBL_TO_PASSBL")
+    {
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);
+		VehicleAnimName("FrontRight_Door_Open");
+		VehicleBoneToAnim("ddoorrl");
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	
+	AddState("OUTSIDE_PASSBR_TO_PASSBR")
+    {        
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);
+		VehicleAnimName("FrontRight_Door_Open");
+		VehicleBoneToAnim("ddoorrr");	
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	
+    AddState("PASSBL")
+    {
+		IsState(true);
+		CanShoot(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);	
+		LookAnglesMin(-110.0, -20.0);
+		LookAnglesMax( 110.0,  80.0);
+		StartElementName("DPassengerBackL");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassengerBackL");
+		DestOffset([0.0,0.0,0.0]);		
+		MorphTime(0.1);
+    }
+    
+	AddState("PASSBL_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutLeft");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleAnimName("FrontLeft_Door_OpenGetOut");
+		VehicleBoneToAnim("ddoorrl");
+		Action(VehicleAction_GetOut);	
+    }
+	
+    AddState("PASSBR")
+    { 
+		IsState(true);	
+		CanShoot(true);
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);	
+		LookAnglesMin(-110.0, -20.0);
+		LookAnglesMax( 110.0,  80.0);
+		StartElementName("DPassengerBackR");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassengerBackR");
+		DestOffset([0.0,0.0,0.0]);	
+		MorphTime(0.1);
+    }
+	
+    AddState("PASSBR_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutRight");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleAnimName("FrontRight_Door_OpenGetOut");
+		VehicleBoneToAnim("ddoorrr");
+		Action(VehicleAction_GetOut);	
+    }
+    
+    AddState("PASSBL_TO_PASSBR")
+    {
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchLeftToRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Right);
+    }
+	
+	AddState("PASSBR_TO_PASSBL")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchRightToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Left);		
+    }     
+    
+    AddState("PASSRL")
+    {
+		IsState(true);
+		CanShoot(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_L);	
+		LookAnglesMin(-110.0, -20.0);
+		LookAnglesMax( 110.0,  80.0);
+		StartElementName("DPassengerRearL");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassengerRearL");
+		DestOffset([0.0,0.0,0.0]);		
+		MorphTime(0.1);
+    }
+
+    AddState("PASSRR")
+    { 
+		IsState(true);	
+		CanShoot(true);
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_R);	
+		LookAnglesMin(-110.0, -20.0);
+		LookAnglesMax( 110.0,  80.0);
+		StartElementName("DPassengerRearR");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassengerRearR");
+		DestOffset([0.0,0.0,0.0]);	
+		MorphTime(0.1);
+    }
+
+	AddState("PASSBR_TO_PASSRR")
+    { 
+		Type(VehiclePlaceState_Seat);
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_R);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Back);
+		AnimName("Vehicle_NoAnimSwitch");
+
+    }
+    
+	AddState("PASSBL_TO_PASSRL")
+    { 
+		Type(VehiclePlaceState_Seat);
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_L);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Back);
+		AnimName("Vehicle_NoAnimSwitch");
+    }
+
+	AddState("PASSRR_TO_PASSBR")
+    { 
+		Type(VehiclePlaceState_Seat);
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Forward);
+		AnimName("Vehicle_NoAnimSwitch");
+
+    }
+    
+	AddState("PASSRL_TO_PASSBL")
+    { 
+		Type(VehiclePlaceState_Seat);
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Forward);
+		AnimName("Vehicle_NoAnimSwitch");
+    }
+
+    // back/rear seats -> cross seats switch
+    /*AddState("PASSBR_TO_PASSRL")
+    { 
+		Type(VehiclePlaceState_Seat);
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_L);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Back);
+		AnimName("Vehicle_NoAnimSwitch");
+
+    }
+    
+	AddState("PASSBL_TO_PASSRR")
+    { 
+		Type(VehiclePlaceState_Seat);
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_R);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Back);
+		AnimName("Vehicle_NoAnimSwitch");
+    }
+
+	AddState("PASSRL_TO_PASSBR")
+    { 
+		Type(VehiclePlaceState_Seat);
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Forward);
+		AnimName("Vehicle_NoAnimSwitch");
+
+    }
+    
+	AddState("PASSRR_TO_PASSBL")
+    { 
+		Type(VehiclePlaceState_Seat);
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Forward);
+		AnimName("Vehicle_NoAnimSwitch");
+    }*/
+    ////////////////////////////////////////
+
+    AddState("PASSRL_TO_PASSRR")
+    {
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchLeftToRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_R);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Right);
+    }
+	
+	AddState("PASSRR_TO_PASSRL")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchRightToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_L);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Left);		
+    }
+
+    
+    Graph()
+    {
+		AddConnection("START", "WALK", "OUTSIDE_PASSBR", 1.0);
+		AddConnection("START", "WALK", "OUTSIDE_PASSBL", 1.0);
+				
+		AddConnection("OUTSIDE_PASSBL", "OUTSIDE_PASSBL_TO_PASSBL", "PASSBL", 1.0);
+		AddConnection("OUTSIDE_PASSBR", "OUTSIDE_PASSBR_TO_PASSBR", "PASSBR", 1.0);
+		
+		AddConnection("PASSBR", "PASSBR_TO_PASSBL", "PASSBL", 1.0);   
+        AddConnection("PASSBL", "PASSBL_TO_PASSBR", "PASSBR", 1.0); 
+        
+		AddConnection("PASSBL", "PASSBL_TO_OUTSIDE", "OUTSIDE_PASSBL_END", 1.0); 
+		AddConnection("PASSBR", "PASSBR_TO_OUTSIDE", "OUTSIDE_PASSBR_END", 1.0); 
+		
+		AddConnection("PASSBR", "PASSBR_TO_PASSRR", "PASSRR", 1.0);   
+        AddConnection("PASSBL", "PASSBL_TO_PASSRL", "PASSRL", 1.0); 
+
+		AddConnection("PASSRR", "PASSRR_TO_PASSBR", "PASSBR", 1.0);   
+        AddConnection("PASSRL", "PASSRL_TO_PASSBL", "PASSBL", 1.0); 
+
+		AddConnection("PASSRR", "PASSRR_TO_PASSRL", "PASSRL", 1.0);   
+        AddConnection("PASSRL", "PASSRL_TO_PASSRR", "PASSRR", 1.0); 
+        
+        
+        //AddConnection("PASSRR", "PASSRR_TO_PASSBL", "PASSBL", 1.0);   
+        //AddConnection("PASSRL", "PASSRL_TO_PASSBR", "PASSBR", 1.0); 
+
+		//AddConnection("PASSBR", "PASSBR_TO_PASSRL", "PASSRL", 1.0);   
+        //AddConnection("PASSBL", "PASSBL_TO_PASSRR", "PASSRR", 1.0); 
+    }
+}
+
+// ************************************************************************************************************************
+sub BackPickup()
+{
+
+	AddState("OUTSIDE_PASSBL")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackL");
+		StartOffset([133.86,-85.99,-43.79]);
+		DestElementName("DPassengerBackL");
+		DestOffset([133.86,-85.99,-43.79]);
+		BodyRotStart(80.0);
+		BodyRotEnd(80.0);
+    }
+	
+	AddState("OUTSIDE_PASSBL_END")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackL");
+		StartOffset([132.64,-85.99,-43.79]);
+		DestElementName("DPassengerBackL");
+		DestOffset([132.64,-85.99,-43.79]);
+		BodyRotStart(85.0);
+		BodyRotEnd(85.0);
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_PASSBR")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackR");
+		StartOffset([-132.64, -85.99, -43.78]);
+		DestElementName("DPassengerBackR");
+		DestOffset([-132.64, -85.99, -43.78]);
+		BodyRotStart(-85.0);
+		BodyRotEnd(-85.0);	
+    }
+	
+	AddState("OUTSIDE_PASSBR_END")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassengerBackR");
+		StartOffset([-133.86, -85.99, -43.78]);
+		DestElementName("DPassengerBackR");
+		DestOffset([-133.86, -85.99, -43.78]);
+		BodyRotStart(-80.90);
+		BodyRotEnd(-80.90);	
+		IsEndState(true);
+    }
+	
+	AddState("OUTSIDE_PASSBL_TO_PASSBL")
+    {
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);
+		VehicleAnimName("FrontRight_Door_Open");
+		VehicleBoneToAnim("ddoorrl");
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	
+	AddState("OUTSIDE_PASSBR_TO_PASSBR")
+    {        
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);
+		VehicleAnimName("FrontRight_Door_Open");
+		VehicleBoneToAnim("ddoorrr");	
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	
+    AddState("PASSBL")
+    {
+		IsState(true);
+		CanShoot(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);	
+		LookAnglesMin(-170.0, -20.0);
+		LookAnglesMax( 170.0,  80.0);
+		StartElementName("DPassengerBackL");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassengerBackL");
+		DestOffset([0.0,0.0,0.0]);		
+		MorphTime(0.1);
+    }
+    
+    AddState("PASSBM")
+    {
+		IsState(true);
+		CanShoot(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_M);	
+		LookAnglesMin(-170.0, -20.0);
+		LookAnglesMax( 170.0,  80.0);
+		StartElementName("DPassengerBackL");
+		StartOffset([-35.0,0.0,0.0]);
+		DestElementName("DPassengerBackL");
+		DestOffset([-35.0,0.0,0.0]);		
+		MorphTime(0.1);
+    }
+    
+	AddState("PASSBL_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutLeft");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleAnimName("FrontLeft_Door_OpenGetOut");
+		VehicleBoneToAnim("ddoorrl");
+		Action(VehicleAction_GetOut);	
+    }
+	
+    AddState("PASSBR")
+    { 
+		IsState(true);	
+		CanShoot(true);
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);	
+		LookAnglesMin(-170.0, -20.0);
+		LookAnglesMax( 170.0,  80.0);
+		StartElementName("DPassengerBackR");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassengerBackR");
+		DestOffset([0.0,0.0,0.0]);	
+		MorphTime(0.1);
+    }
+	
+    AddState("PASSBR_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutRight");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleAnimName("FrontRight_Door_OpenGetOut");
+		VehicleBoneToAnim("ddoorrr");
+		Action(VehicleAction_GetOut);	
+    }
+	
+    ///////////////////////////////////////////////////////////
+    AddState("PASSBL_TO_PASSBM")
+    {
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchLeftToRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_M);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Right);
+    }
+	
+    AddState("PASSBM_TO_PASSBL")
+    {
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchRightToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Left);
+    }
+	
+	AddState("PASSBM_TO_PASSBR")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchLeftToRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Right);		
+    }
+    
+    AddState("PASSBR_TO_PASSBM")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchRightToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_M);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Left);		
+    }
+    //////////////////////////////////////////////////////////
+    
+    AddState("PASSRL")
+    {
+		IsState(true);
+		CanShoot(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_L);	
+		LookAnglesMin(-170.0, -20.0);
+		LookAnglesMax( 170.0,  80.0);
+		StartElementName("DPassengerRearL");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassengerRearL");
+		DestOffset([0.0,0.0,0.0]);		
+		MorphTime(0.1);
+    }
+
+    AddState("PASSRR")
+    { 
+		IsState(true);	
+		CanShoot(true);
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_R);	
+		LookAnglesMin(-170.0, -20.0);
+		LookAnglesMax( 170.0,  80.0);
+		StartElementName("DPassengerRearR");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassengerRearR");
+		DestOffset([0.0,0.0,0.0]);	
+		MorphTime(0.1);
+    }
+
+	AddState("PASSBR_TO_PASSRR")
+    { 
+		Type(VehiclePlaceState_Seat);
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_R);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Back);
+		AnimName("Vehicle_SwitchLeftToRight");
+
+    }
+    
+	AddState("PASSBL_TO_PASSRL")
+    { 
+		Type(VehiclePlaceState_Seat);
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_L);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Back);
+		AnimName("Vehicle_SwitchRightToLeft");
+    }
+
+	AddState("PASSRR_TO_PASSBR")
+    { 
+		Type(VehiclePlaceState_Seat);
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_R);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Forward);
+		AnimName("Vehicle_SwitchLeftToRight");
+
+    }
+    
+	AddState("PASSRL_TO_PASSBL")
+    { 
+		Type(VehiclePlaceState_Seat);
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_BACK_L);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Forward);
+		AnimName("Vehicle_SwitchRightToLeft");
+    }
+
+
+
+    AddState("PASSRL_TO_PASSRR")
+    {
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchLeftToRight");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_R);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Right);
+    }
+	
+	AddState("PASSRR_TO_PASSRL")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchRightToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER_REAR_L);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Left);		
+    }
+
+    
+    Graph()
+    {
+		AddConnection("START", "WALK", "OUTSIDE_PASSBR", 1.0);
+		AddConnection("START", "WALK", "OUTSIDE_PASSBL", 1.0);
+				
+		AddConnection("OUTSIDE_PASSBL", "OUTSIDE_PASSBL_TO_PASSBL", "PASSBL", 1.0);
+		AddConnection("OUTSIDE_PASSBR", "OUTSIDE_PASSBR_TO_PASSBR", "PASSBR", 1.0);
+		
+		//AddConnection("PASSBR", "PASSBR_TO_PASSBL", "PASSBL", 1.0);   
+        //AddConnection("PASSBL", "PASSBL_TO_PASSBR", "PASSBR", 1.0); 
+		
+        AddConnection("PASSBR", "PASSBR_TO_PASSBM", "PASSBM", 1.0);
+        AddConnection("PASSBM", "PASSBM_TO_PASSBR", "PASSBR", 1.0);
+        AddConnection("PASSBM", "PASSBM_TO_PASSBL", "PASSBL", 1.0);
+        AddConnection("PASSBL", "PASSBL_TO_PASSBM", "PASSBM", 1.0);
+        
+		AddConnection("PASSBL", "PASSBL_TO_OUTSIDE", "OUTSIDE_PASSBL_END", 1.0); 
+		AddConnection("PASSBR", "PASSBR_TO_OUTSIDE", "OUTSIDE_PASSBR_END", 1.0); 
+		
+		AddConnection("PASSBR", "PASSBR_TO_PASSRR", "PASSRR", 1.0);   
+        AddConnection("PASSBL", "PASSBL_TO_PASSRL", "PASSRL", 1.0); 
+
+		AddConnection("PASSRR", "PASSRR_TO_PASSBR", "PASSBR", 1.0);   
+        AddConnection("PASSRL", "PASSRL_TO_PASSBL", "PASSBL", 1.0); 
+
+		AddConnection("PASSRR", "PASSRR_TO_PASSRL", "PASSRL", 1.0);   
+        AddConnection("PASSRL", "PASSRL_TO_PASSRR", "PASSRR", 1.0); 
+    }
+}
+
+
+	
+sub Quad()
+{
+	AddState("WALK")
+    {  
+		Type(VehiclePlaceState_Outside);
+		IsState(false);
+		IsStartPosFromPlayer(true);
+		LookSpringTime(1.0);
+    }
+
+	AddState("OUTSIDE_DRIVER")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DDriver");
+		StartOffset([-132.64,-85.99,-43.79]);
+		DestElementName("DDriver");
+		DestOffset([-132.64,-85.99,-43.79]);
+		BodyRotStart(-85.0);
+		BodyRotEnd(-85.0);
+    }
+	
+	AddState("OUTSIDE_DRIVER_END")
+    {        
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DDriver");
+		StartOffset([-132.64,-85.99,-43.79]);
+		DestElementName("DDriver");
+		DestOffset([-132.64,-85.99,-43.79]);
+		BodyRotStart(-80.9);
+		BodyRotEnd(-80.90);
+		IsEndState(true);
+    }
+	/*
+	AddState("OUTSIDE_PASS")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassenger");
+		StartOffset([133.86, -85.99, -43.78]);
+		DestElementName("DPassenger");
+		DestOffset([133.86, -85.99, -43.78]);
+		BodyRotStart(80.0);
+		BodyRotEnd(80.0);	
+    }
+	
+	AddState("OUTSIDE_PASS_END")
+    {
+		Type(VehiclePlaceState_Outside);
+		IsState(true);		
+		StartElementName("DPassenger");
+		StartOffset([133.86, -85.99, -43.78]);
+		DestElementName("DPassenger");
+		DestOffset([133.86, -85.99, -43.78]);
+		BodyRotStart(85.0);
+		BodyRotEnd(85.0);	
+		IsEndState(true);
+    }
+	*/
+	AddState("OUTSIDE_DRIVER_TO_DRIVER")
+    {
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringRight");
+		PassangerRole(PassengerRole_VEHICLE_DRIVER);
+		VehicleAnimName("FrontRight_Door_Open");
+		VehicleBoneToAnim("ddoorfr");
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	/*
+	AddState("OUTSIDE_PASS_TO_PASS")
+    {        
+		Type(VehiclePlaceState_Outside);			
+		AnimName("Vehicle_EnteringLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);
+		VehicleAnimName("FrontLeft_Door_Open");
+		VehicleBoneToAnim("ddoorfl");	
+		MorphTime(0.4);
+		LookSpringTime(0.3);
+    }
+	*/
+    AddState("DRIVER")
+    {
+		IsState(true);		
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_DrivingVehicle");
+		PassangerRole(PassengerRole_VEHICLE_DRIVER);	
+		LookAnglesMin(-115.0, -20.0);
+		LookAnglesMax( 100.0,  80.0);
+		StartElementName("DDriver");
+		StartOffset([0.0,-20.0,0.0]);
+		DestElementName("DDriver");
+		DestOffset([0.0,-20.0,0.0]);
+		IsLookContrVehContr(true);	
+		MorphTime(0.1);
+		IsDriver(true);
+    }
+    
+	AddState("DRIVER_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutRight");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		//VehicleAnimName("FrontRight_Door_OpenGetOut");
+		//VehicleBoneToAnim("ddoorfr");
+		Action(VehicleAction_GetOut);	
+    }
+	/*
+    AddState("PASS")
+    { 
+		IsState(true);	
+		CanShoot(true);
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_PassengerVehicle");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);	
+		LookAnglesMin(-100.0, -20.0);
+		LookAnglesMax( 115.0,  80.0);
+		StartElementName("DPassenger");
+		StartOffset([0.0,0.0,0.0]);
+		DestElementName("DPassenger");
+		DestOffset([0.0,0.0,0.0]);	
+		MorphTime(0.1);
+    }
+	
+    AddState("PASS_TO_OUTSIDE")
+    {
+		Type(VehiclePlaceState_Seat);			
+		AnimName("Vehicle_GetOutLeft");
+		PassangerRole(PassengerRole_VEHICLE_NONE);
+		VehicleAnimName("FrontLeft_Door_OpenGetOut");
+		VehicleBoneToAnim("ddoorfl");
+		Action(VehicleAction_GetOut);	
+    }
+	
+    AddState("DRIVER_TO_PASS")
+    {
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchRightToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Left);
+    }
+	
+	AddState("PASS_TO_DRIVER")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_SwitchLeftToRight");
+		PassangerRole(PassengerRole_VEHICLE_DRIVER);
+		LookSpringTime(1.0);
+		Action(VehicleAction_Right);		
+    }
+	*/
+	/*AddState("PASS_TO_LEAN")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_PassengerLeftToLean");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);	
+		LookSpringTime(0.5);
+		Action(VehicleAction_Left);
+    }
+	
+	AddState("PASSLEAN")
+    { 
+		IsState(true);	
+		CanShoot(true);
+		Type(VehiclePlaceState_Leaning);			
+		AnimName("Vehicle_PassengerLeftLean");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);	
+		LookAnglesMin(-170.0, -20.0);
+		LookAnglesMax( 170.0,  80.0);
+		StartElementName("DPassenger");
+		StartOffset([52.72, 61.44, 17.36]);
+		DestElementName("DPassenger");
+		DestOffset([52.72, 61.44, 17.36]);		
+    }
+	
+    AddState("LEAN_TO_PASS")
+    { 
+		Type(VehiclePlaceState_Seat);
+		AnimName("Vehicle_PassengerLeanToLeft");
+		PassangerRole(PassengerRole_VEHICLE_PASSENGER);	
+		MorphTime(0.4);
+		LookSpringTime(0.5);
+		Action(VehicleAction_Right);	
+    }*/
+	
+    Graph()
+    {
+		//AddConnection("START", "WALK", "OUTSIDE_PASS", 1.0);
+		AddConnection("START", "WALK", "OUTSIDE_DRIVER", 1.0);
+				
+		AddConnection("OUTSIDE_DRIVER", "OUTSIDE_DRIVER_TO_DRIVER", "DRIVER", 1.0);
+		// AddConnection("OUTSIDE_PASS", "OUTSIDE_PASS_TO_PASS", "PASS", 1.0);
+		
+		// AddConnection("PASS", "PASS_TO_DRIVER", "DRIVER", 1.0);   
+        //AddConnection("DRIVER", "DRIVER_TO_PASS", "PASS", 1.0); 
+
+		//AddConnection("PASS", "PASS_TO_LEAN", "PASSLEAN", 1.0);   
+		//AddConnection("PASSLEAN", "LEAN_TO_PASS", "PASS", 1.0);   
+		
+		AddConnection("DRIVER", "DRIVER_TO_OUTSIDE", "OUTSIDE_DRIVER_END", 1.0); 
+		// AddConnection("PASS", "PASS_TO_OUTSIDE", "OUTSIDE_PASS_END", 1.0); 
+    }
+}
+	
+	
+
+sub main()
+{
+	Car("Default")
+    {
+        use Pickup();
+    }	
+	
+    //CarAlias("vehicle_suv.msh", "4Seater");         // 4 seats
+	CarAlias("vehicle_offroad_pickup.msh", "PickupWithBack");// 4 seats
+	CarAlias("vehicle_pickup.msh", "PickupWithBack");// 4 seats
+    //CarAlias("vehicle_mack_a.msh", "4Seater");      // does it exist ??
+    
+	//CarAlias("vehicle_sedan.msh", "5Seater");       // 5 seats
+	CarAlias("vehicle_exp_pickup.msh", "5Seater");  // 5 seats
+	//CarAlias("vehicle_combi.msh", "5Seater");       // 5 seats
+	//CarAlias("vehicle_armored_a.msh", "6Seater");   // 6 seats
+	//CarAlias("vehicle_armored_b.msh", "6Seater");   // 6 seats
+	//CarAlias("quad_a.msh", "1Seater");              // 1 seat
+    CarAlias("ve_defender_a.msh", "5Seater");       // 4 seats
+	CarAlias("test_buggy.msh", "Buggy");       // 1 seat
+	CarAlias("ve_buggy_a.msh", "Buggy");       // 1 seat
+	CarAlias("ve_buggy.msh", "Buggy");       // 2 seat
+	
+	Car("PickupWithBack")
+    {
+        use Pickup();
+		use BackPickup4Seats();
+    }
+	
+    Car("4Seater")
+    {
+        use Pickup();
+		use BackVehicle4Seats();
+    }   
+	
+    Car("5Seater")
+    {
+        use Pickup();
+        use BackVehicle5Seats();
+    } 
+    
+    Car("6Seater")
+    {
+        use FrontArmored();
+		use BackVehicle6Seats();
+    } 
+	
+	Car("1Seater")
+    {
+        use Quad();		
+    } 
+	
+	Car("Buggy")
+    {
+        use Buggy();
+		use BuggyBack();
+    }
+}
+	
+	
+	

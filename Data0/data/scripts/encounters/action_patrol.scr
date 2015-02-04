@@ -1,0 +1,875 @@
+sub main()
+{
+	VolumeSettings()
+	{
+		ChatterSpeechType("ENCOUNTER_CHATTER");
+	}
+	
+	Preset("Default")
+	{
+		Variation()
+		{
+			Group("Talk")
+			{
+				Sequence()
+				{
+					Chatter("MaskedBandit05", "EncBarrelA_DLG07_MaskedBandit05.ogg", "EncBarrelA_DLG07_Bandit05", "alarming");
+					Pause(0.5);
+					Chatter("MaskedBandit05", "EncBarrelA_DLG08_MaskedBandit05.ogg", "EncBarrelA_DLG08_Bandit05", "alarming");
+					Pause(0.5);
+					Chatter("MaskedBandit01", "EncBarrelA_DLG09_MaskedBandit01.ogg", "EncBarrelA_DLG09_Bandit01", "patrol1");
+					Pause(5.0);
+				}
+			}
+		}
+	}
+
+	Preset("EncOpeningDoors")
+	{
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("Bandit03", "EncOpeningDoorsA_CHT01_Bandit03.ogg", "EncOpeningDoorsA_CHT01_Bandit03", "Bandit03");
+					Pause(3.0);
+					Chatter("Bandit02", "EncOpeningDoorsA_CHT02_Bandit02.ogg", "EncOpeningDoorsA_CHT02_Bandit02", "Bandit02_opening");
+					Pause(3.0);
+					Chatter("Bandit01", "EncOpeningDoorsA_CHT03_Bandit01.ogg", "EncOpeningDoorsA_CHT03_Bandit01", "Bandit01");
+					Pause(3.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("Bandit01", "EncOpeningDoorsA_DLG01_Bandit01.ogg", "EncOpeningDoorsA_DLG01_Bandit01", "Bandit01");
+					Pause(0.5);
+					Chatter("Bandit02", "EncOpeningDoorsA_DLG02_Bandit02.ogg", "EncOpeningDoorsA_DLG02_Bandit02", "Bandit02_opening");
+					Pause(0.5);
+					Chatter("Bandit03", "EncOpeningDoorsA_DLG03_Bandit03.ogg", "EncOpeningDoorsA_DLG03_Bandit03", "Bandit01");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("Bandit03", "EncOpeningDoorsA_CHT01_Bandit03.ogg", "EncOpeningDoorsA_CHT01_Bandit03", "Bandit03");
+						Pause(3.0);
+						Chatter("Bandit02", "EncOpeningDoorsA_CHT02_Bandit02.ogg", "EncOpeningDoorsA_CHT02_Bandit02", "Bandit02_opening");
+						Pause(3.0);
+						Chatter("Bandit01", "EncOpeningDoorsA_CHT03_Bandit01.ogg", "EncOpeningDoorsA_CHT03_Bandit01", "Bandit01");
+						Pause(3.0);
+					}
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("Bandit03", "EncOpeningDoorsB_CHT01_Bandit03.ogg", "EncOpeningDoorsB_CHT01_Bandit03", "Bandit03");
+					Pause(3.0);
+					Chatter("Bandit02", "EncOpeningDoorsB_CHT02_Bandit02.ogg", "EncOpeningDoorsB_CHT02_Bandit02", "Bandit02_opening");
+					Pause(3.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("Bandit01", "EncOpeningDoorsB_DLG01_Bandit01.ogg", "EncOpeningDoorsB_DLG01_Bandit01", "Bandit01");
+					Pause(0.5);
+					Chatter("Bandit02", "EncOpeningDoorsB_DLG02_Bandit02.ogg", "EncOpeningDoorsB_DLG02_Bandit02", "Bandit02_opening");
+					Pause(0.5);
+					Chatter("Bandit03", "EncOpeningDoorsB_DLG03_Bandit03.ogg", "EncOpeningDoorsB_DLG03_Bandit03", "Bandit01");
+					Pause(3.0);
+				}
+			}
+		}
+	}
+
+	Preset("EncOpeningDoors_Masked")
+	{
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("MaskedBandit03", "EncOpeningDoorsA_CHT01_MaskedBandit03.ogg", "EncOpeningDoorsA_CHT01_Bandit03", "Bandit03");
+					Pause(3.0);
+					Chatter("MaskedBandit02", "EncOpeningDoorsA_CHT02_MaskedBandit02.ogg", "EncOpeningDoorsA_CHT02_Bandit02", "Bandit02_opening");
+					Pause(3.0);
+					Chatter("MaskedBandit01", "EncOpeningDoorsA_CHT03_MaskedBandit01.ogg", "EncOpeningDoorsA_CHT03_Bandit01", "Bandit01");
+					Pause(3.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("MaskedBandit01", "EncOpeningDoorsA_DLG01_MaskedBandit01.ogg", "EncOpeningDoorsA_DLG01_Bandit01", "Bandit01");
+					Pause(0.5);
+					Chatter("MaskedBandit02", "EncOpeningDoorsA_DLG02_MaskedBandit02.ogg", "EncOpeningDoorsA_DLG02_Bandit02", "Bandit02_opening");
+					Pause(0.5);
+					Chatter("MaskedBandit03", "EncOpeningDoorsA_DLG03_MaskedBandit03.ogg", "EncOpeningDoorsA_DLG03_Bandit03", "Bandit01");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("MaskedBandit03", "EncOpeningDoorsA_CHT01_MaskedBandit03.ogg", "EncOpeningDoorsA_CHT01_Bandit03", "Bandit03");
+						Pause(3.0);
+						Chatter("MaskedBandit02", "EncOpeningDoorsA_CHT02_MaskedBandit02.ogg", "EncOpeningDoorsA_CHT02_Bandit02", "Bandit02_opening");
+						Pause(3.0);
+						Chatter("MaskedBandit01", "EncOpeningDoorsA_CHT03_MaskedBandit01.ogg", "EncOpeningDoorsA_CHT03_Bandit01", "Bandit01");
+						Pause(3.0);
+					}
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("MaskedBandit03", "EncOpeningDoorsB_CHT01_MaskedBandit03.ogg", "EncOpeningDoorsB_CHT01_Bandit03", "Bandit03");
+					Pause(3.0);
+					Chatter("MaskedBandit02", "EncOpeningDoorsB_CHT02_MaskedBandit02.ogg", "EncOpeningDoorsB_CHT02_Bandit02", "Bandit02_opening");
+					Pause(3.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("MaskedBandit01", "EncOpeningDoorsB_DLG01_MaskedBandit01.ogg", "EncOpeningDoorsB_DLG01_Bandit01", "Bandit01");
+					Pause(0.5);
+					Chatter("MaskedBandit02", "EncOpeningDoorsB_DLG02_MaskedBandit02.ogg", "EncOpeningDoorsB_DLG02_Bandit02", "Bandit02_opening");
+					Pause(0.5);
+					Chatter("MaskedBandit03", "EncOpeningDoorsB_DLG03_MaskedBandit03.ogg", "EncOpeningDoorsB_DLG03_Bandit03", "Bandit01");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("MaskedBandit03", "EncOpeningDoorsB_CHT01_MaskedBandit03.ogg", "EncOpeningDoorsB_CHT01_Bandit03", "Bandit03");
+						Pause(3.0);
+						Chatter("MaskedBandit02", "EncOpeningDoorsB_CHT02_MaskedBandit02.ogg", "EncOpeningDoorsB_CHT02_Bandit02", "Bandit02_opening");
+						Pause(3.0);
+					}
+				}
+			}
+		}
+	}
+
+	Preset("EncDoors")
+	{
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("Bandit01", "EncDoorsA_CHT01_Bandit01.ogg", "EncDoorsA_CHT01_Bandit01", "Bandit01");
+					Pause(3.0);
+					Chatter("Bandit04", "EncDoorsA_CHT02_Bandit04.ogg", "EncDoorsA_CHT02_Bandit04", "Bandit04");
+					Pause(3.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("Bandit05", "EncDoorsA_DLG02_Bandit05.ogg", "EncDoorsA_DLG02_Bandit05", "Bandit05_opening");
+					Pause(0.5);
+					Chatter("Bandit04", "EncDoorsA_DLG03_Bandit04.ogg", "EncDoorsA_DLG03_Bandit04", "Bandit04");
+					Pause(0.5);
+					Chatter("Bandit05", "EncDoorsA_DLG04_Bandit05.ogg", "EncDoorsA_DLG04_Bandit05", "Bandit05_opening");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("Bandit01", "EncDoorsA_CHT01_Bandit01.ogg", "EncDoorsA_CHT01_Bandit01", "Bandit01");
+						Pause(3.0);
+						Chatter("Bandit04", "EncDoorsA_CHT02_Bandit04.ogg", "EncDoorsA_CHT02_Bandit04", "Bandit04");
+						Pause(3.0);
+					}
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("Bandit05", "EncDoorsB_CHT01_Bandit05.ogg", "EncDoorsB_CHT01_Bandit05", "Bandit05_opening");
+					Pause(3.0);
+					Chatter("Bandit04", "EncDoorsB_CHT02_Bandit04.ogg", "EncDoorsB_CHT02_Bandit04", "Bandit04");
+					Pause(3.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("Bandit05", "EncDoorsB_DLG01_Bandit05.ogg", "EncDoorsB_DLG01_Bandit05", "Bandit05_opening");
+					Pause(0.5);
+					Chatter("Bandit04", "EncDoorsB_DLG02_Bandit04.ogg", "EncDoorsB_DLG02_Bandit04", "Bandit04");
+					Pause(0.5);
+					Chatter("Bandit05", "EncDoorsB_DLG03_Bandit05.ogg", "EncDoorsB_DLG03_Bandit05", "Bandit05_opening");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("Bandit05", "EncDoorsB_CHT01_Bandit05.ogg", "EncDoorsB_CHT01_Bandit05", "Bandit05_opening");
+						Pause(3.0);
+						Chatter("Bandit04", "EncDoorsB_CHT02_Bandit04.ogg", "EncDoorsB_CHT02_Bandit04", "Bandit04");
+						Pause(3.0);
+					}
+				}
+			}
+		}
+	}
+
+	Preset("EncDoors_Masked")
+	{
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("MaskedBandit01", "EncDoorsA_CHT01_MaskedBandit01.ogg", "EncDoorsA_CHT01_Bandit01", "Bandit01");
+					Pause(3.0);
+					Chatter("MaskedBandit04", "EncDoorsA_CHT02_MaskedBandit04.ogg", "EncDoorsA_CHT02_Bandit04", "Bandit04");
+					Pause(3.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("MaskedBandit05", "EncDoorsA_DLG02_MaskedBandit05.ogg", "EncDoorsA_DLG02_Bandit05", "Bandit05_opening");
+					Pause(0.5);
+					Chatter("MaskedBandit04", "EncDoorsA_DLG03_MaskedBandit04.ogg", "EncDoorsA_DLG03_Bandit04", "Bandit04");
+					Pause(0.5);
+					Chatter("MaskedBandit05", "EncDoorsA_DLG04_MaskedBandit05.ogg", "EncDoorsA_DLG04_Bandit05", "Bandit05_opening");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("MaskedBandit01", "EncDoorsA_CHT01_MaskedBandit01.ogg", "EncDoorsA_CHT01_Bandit01", "Bandit01");
+						Pause(3.0);
+						Chatter("MaskedBandit04", "EncDoorsA_CHT02_MaskedBandit04.ogg", "EncDoorsA_CHT02_Bandit04", "Bandit04");
+						Pause(3.0);
+					}
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("MaskedBandit05", "EncDoorsB_CHT01_MaskedBandit05.ogg", "EncDoorsB_CHT01_Bandit05", "Bandit05_opening");
+					Pause(3.0);
+					Chatter("MaskedBandit04", "EncDoorsB_CHT02_MaskedBandit04.ogg", "EncDoorsB_CHT02_Bandit04", "Bandit04");
+					Pause(3.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("MaskedBandit05", "EncDoorsB_DLG01_MaskedBandit05.ogg", "EncDoorsB_DLG01_Bandit05", "Bandit05_opening");
+					Pause(0.5);
+					Chatter("MaskedBandit04", "EncDoorsB_DLG02_MaskedBandit04.ogg", "EncDoorsB_DLG02_Bandit04", "Bandit04");
+					Pause(0.5);
+					Chatter("MaskedBandit05", "EncDoorsB_DLG03_MaskedBandit05.ogg", "EncDoorsB_DLG03_Bandit05", "Bandit05_opening");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("MaskedBandit05", "EncDoorsB_CHT01_MaskedBandit05.ogg", "EncDoorsB_CHT01_Bandit05", "Bandit05_opening");
+						Pause(3.0);
+						Chatter("MaskedBandit04", "EncDoorsB_CHT02_MaskedBandit04.ogg", "EncDoorsB_CHT02_Bandit04", "Bandit04");
+						Pause(3.0);
+					}
+				}
+			}
+		}
+	}
+
+	Preset("EncCar")
+	{
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("MaskedBandit02", "EncCarA_CHT01_MaskedBandit02.ogg", "EncCarA_CHT01_Bandit02", "patrol2");
+					Pause(5.0);
+					Chatter("MaskedBandit01", "EncCarA_CHT02_MaskedBandit01.ogg", "EncCarA_CHT02_Bandit01", "alarming");
+					Pause(5.0);
+					Chatter("MaskedBandit02", "EncCarA_CHT03_MaskedBandit02.ogg", "EncCarA_CHT03_Bandit02", "patrol2");
+					Pause(5.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("MaskedBandit01", "EncCarA_DLG01_MaskedBandit01.ogg", "EncCarA_DLG01_Bandit01", "alarming");
+					Pause(0.5);
+					Chatter("MaskedBandit02", "EncCarA_DLG02_MaskedBandit02.ogg", "EncCarA_DLG02_Bandit02", "patrol2");
+					Pause(0.5);
+					Chatter("MaskedBandit01", "EncCarA_DLG03_MaskedBandit01.ogg", "EncCarA_DLG03_Bandit01", "alarming");
+					Pause(5.0);
+					SequenceLoop()
+					{
+						Chatter("MaskedBandit02", "EncCarA_CHT01_MaskedBandit02.ogg", "EncCarA_CHT01_Bandit02", "patrol2");
+						Pause(5.0);
+						Chatter("MaskedBandit01", "EncCarA_CHT02_MaskedBandit01.ogg", "EncCarA_CHT02_Bandit01", "alarming");
+						Pause(5.0);
+						Chatter("MaskedBandit02", "EncCarA_CHT03_MaskedBandit02.ogg", "EncCarA_CHT03_Bandit02", "patrol2");
+						Pause(5.0);
+					}
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("MaskedBandit02", "EncCarB_CHT01_MaskedBandit02.ogg", "EncCarB_CHT01_Bandit02", "patrol2");
+					Pause(5.0);
+					Chatter("MaskedBandit01", "EncCarB_CHT02_MaskedBandit01.ogg", "EncCarB_CHT02_Bandit01", "patrol1");
+					Pause(5.0);
+					Chatter("MaskedBandit02", "EncCarB_CHT03_MaskedBandit02.ogg", "EncCarB_CHT03_Bandit02", "patrol2");
+					Pause(5.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("MaskedBandit01", "EncCarB_DLG01_MaskedBandit01.ogg", "EncCarB_DLG01_Bandit01", "patrol1");
+					Pause(0.5);
+					Chatter("MaskedBandit02", "EncCarB_DLG02_MaskedBandit02.ogg", "EncCarB_DLG02_Bandit02", "patrol2");
+					Pause(0.5);
+					Chatter("MaskedBandit01", "EncCarB_DLG03_MaskedBandit01.ogg", "EncCarB_DLG03_Bandit01", "patrol1");
+					Pause(5.0);
+					SequenceLoop()
+					{
+						Chatter("MaskedBandit02", "EncCarB_CHT01_MaskedBandit02.ogg", "EncCarB_CHT01_Bandit02", "patrol2");
+						Pause(5.0);
+						Chatter("MaskedBandit01", "EncCarB_CHT02_MaskedBandit01.ogg", "EncCarB_CHT02_Bandit01", "patrol1");
+						Pause(5.0);
+						Chatter("MaskedBandit02", "EncCarB_CHT03_MaskedBandit02.ogg", "EncCarB_CHT03_Bandit02", "patrol2");
+						Pause(5.0);
+					}
+				}
+			}
+		}
+	}
+
+	Preset("EncBarrel")
+	{
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("MaskedBandit04", "EncBarrelA_CHT01_MaskedBandit04.ogg", "EncBarrelA_CHT01_Bandit04", "alarming");
+					Pause(6.0);
+					Chatter("MaskedBandit03", "EncBarrelA_CHT02_MaskedBandit03.ogg", "EncBarrelA_CHT02_Bandit03", "patrol3");
+					Pause(6.0);
+					Chatter("MaskedBandit03", "EncBarrelA_DLG01_MaskedBandit03.ogg", "EncBarrelA_DLG01_Bandit03", "patrol3");
+					Pause(0.5);
+					Chatter("MaskedBandit04", "EncBarrelA_DLG02_MaskedBandit04.ogg", "EncBarrelA_DLG02_Bandit04", "alarming");
+					Pause(0.5);
+					Chatter("MaskedBandit03", "EncBarrelA_DLG03_MaskedBandit03.ogg", "EncBarrelA_DLG03_Bandit03", "patrol3");
+					Pause(3.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("MaskedBandit03", "EncBarrelA_DLG04_MaskedBandit03.ogg", "EncBarrelA_DLG04_Bandit03", "patrol3");
+					Pause(0.5);
+					Chatter("MaskedBandit04", "EncBarrelA_DLG05_MaskedBandit04.ogg", "EncBarrelA_DLG05_Bandit04", "alarming");
+					Pause(0.5);
+					Chatter("MaskedBandit03", "EncBarrelA_DLG06_MaskedBandit03.ogg", "EncBarrelA_DLG06_Bandit03", "patrol3");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Pause(6.0);
+						Chatter("MaskedBandit04", "EncBarrelB_CHT01_MaskedBandit04.ogg", "EncBarrelB_CHT01_Bandit04", "alarming");
+						Pause(6.0);
+						Chatter("MaskedBandit03", "EncBarrelB_CHT02_MaskedBandit03.ogg", "EncBarrelB_CHT02_Bandit03", "patrol3");
+						Pause(6.0);
+						Chatter("MaskedBandit03", "EncBarrelB_DLG01_MaskedBandit03.ogg", "EncBarrelB_DLG01_Bandit03", "patrol3");
+						Pause(0.5);
+						Chatter("MaskedBandit04", "EncBarrelB_DLG02_MaskedBandit04.ogg", "EncBarrelB_DLG02_Bandit04", "alarming");
+						Pause(0.5);
+						Chatter("MaskedBandit03", "EncBarrelB_DLG03_MaskedBandit03.ogg", "EncBarrelB_DLG03_Bandit03", "patrol3");
+						Pause(0.5);
+						Chatter("MaskedBandit04", "EncBarrelB_DLG04_MaskedBandit04.ogg", "EncBarrelB_DLG04_Bandit04", "alarming");
+						Pause(3.0);
+					}
+				}
+			}
+		}
+	}
+
+	Preset("EncCorpse")
+	{
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("MaskedBandit02", "EncCorpseA_CHT01_MaskedBandit02.ogg", "EncCorpseA_CHT01_Bandit02", "patrol1");
+					Pause(5.0);
+					Chatter("MaskedBandit05", "EncCorpseA_CHT02_MaskedBandit05.ogg", "EncCorpseA_CHT02_Bandit05", "alarming");
+					Pause(5.0);
+					Chatter("MaskedBandit02", "EncCorpseA_CHT03_MaskedBandit02.ogg", "EncCorpseA_CHT03_Bandit02", "patrol1");
+					Pause(5.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("MaskedBandit02", "EncCorpseA_DLG01_MaskedBandit02.ogg", "EncCorpseA_DLG01_Bandit02", "patrol1");
+					Pause(0.5);
+					Chatter("MaskedBandit05", "EncCorpseA_DLG02_MaskedBandit05.ogg", "EncCorpseA_DLG02_Bandit05", "alarming");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("MaskedBandit02", "EncCorpseA_CHT01_MaskedBandit02.ogg", "EncCorpseA_CHT01_Bandit02", "patrol1");
+						Pause(5.0);
+						Chatter("MaskedBandit05", "EncCorpseA_CHT02_MaskedBandit05.ogg", "EncCorpseA_CHT02_Bandit05", "alarming");
+						Pause(5.0);
+						Chatter("MaskedBandit02", "EncCorpseA_CHT03_MaskedBandit02.ogg", "EncCorpseA_CHT03_Bandit02", "patrol1");
+						Pause(5.0);
+					}
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("MaskedBandit02", "EncCorpseB_CHT01_MaskedBandit02.ogg", "EncCorpseB_CHT01_Bandit02", "patrol1");
+					Pause(5.0);
+					Chatter("MaskedBandit05", "EncCorpseB_CHT02_MaskedBandit05.ogg", "EncCorpseB_CHT02_Bandit05", "alarming");
+					Pause(5.0);
+					Chatter("MaskedBandit02", "EncCorpseB_CHT03_MaskedBandit02.ogg", "EncCorpseB_CHT03_Bandit02", "patrol1");
+					Pause(5.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("MaskedBandit02", "EncCorpseB_DLG01_MaskedBandit02.ogg", "EncCorpseB_DLG01_Bandit02", "patrol1");
+					Pause(0.5);
+					Chatter("MaskedBandit05", "EncCorpseB_DLG02_MaskedBandit05.ogg", "EncCorpseB_DLG02_Bandit05", "alarming");
+					Pause(0.5);
+					SequenceLoop()
+					{
+						Chatter("MaskedBandit02", "EncCorpseB_CHT01_MaskedBandit02.ogg", "EncCorpseB_CHT01_Bandit02", "patrol1");
+						Pause(5.0);
+						Chatter("MaskedBandit05", "EncCorpseB_CHT02_MaskedBandit05.ogg", "EncCorpseB_CHT02_Bandit05", "alarming");
+						Pause(5.0);
+						Chatter("MaskedBandit02", "EncCorpseB_CHT03_MaskedBandit02.ogg", "EncCorpseB_CHT03_Bandit02", "patrol1");
+						Pause(5.0);
+					}
+					Chatter("MaskedBandit02", "EncCorpseB_DLG03_MaskedBandit02.ogg", "EncCorpseB_DLG03_Bandit02", "patrol1");
+					Pause(5.0);
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("MaskedBandit02", "EncCorpseB_CHT01_MaskedBandit02.ogg", "EncCorpseB_CHT01_Bandit02", "patrol1");
+					Pause(5.0);
+					Chatter("MaskedBandit05", "EncCorpseB_CHT02_MaskedBandit05.ogg", "EncCorpseB_CHT02_Bandit05", "alarming");
+					Pause(5.0);
+					Chatter("MaskedBandit02", "EncCorpseB_CHT03_MaskedBandit02.ogg", "EncCorpseB_CHT03_Bandit02", "patrol1");
+					Pause(5.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("MaskedBandit02", "EncCorpseC_DLG01_MaskedBandit02.ogg", "EncCorpseC_DLG01_Bandit02", "patrol1");
+					Pause(0.5);
+					Chatter("MaskedBandit05", "EncCorpseC_DLG02_MaskedBandit05.ogg", "EncCorpseC_DLG02_Bandit05", "alarming");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("MaskedBandit02", "EncCorpseB_CHT01_MaskedBandit02.ogg", "EncCorpseB_CHT01_Bandit02", "patrol1");
+						Pause(5.0);
+						Chatter("MaskedBandit05", "EncCorpseB_CHT02_MaskedBandit05.ogg", "EncCorpseB_CHT02_Bandit05", "alarming");
+						Pause(5.0);
+						Chatter("MaskedBandit02", "EncCorpseB_CHT03_MaskedBandit02.ogg", "EncCorpseB_CHT03_Bandit02", "patrol1");
+						Pause(5.0);
+					}
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("MaskedBandit02", "EncCorpseB_CHT01_MaskedBandit02.ogg", "EncCorpseB_CHT01_Bandit02", "patrol1");
+					Pause(5.0);
+					Chatter("MaskedBandit05", "EncCorpseB_CHT02_MaskedBandit05.ogg", "EncCorpseB_CHT02_Bandit05", "alarming");
+					Pause(5.0);
+					Chatter("MaskedBandit02", "EncCorpseB_CHT03_MaskedBandit02.ogg", "EncCorpseB_CHT03_Bandit02", "patrol1");
+					Pause(5.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("MaskedBandit05", "EncCorpseD_DLG01_MaskedBandit05.ogg", "EncCorpseD_DLG01_Bandit05", "patrol1");
+					Pause(0.5);
+					Chatter("MaskedBandit02", "EncCorpseD_DLG01_MaskedBandit02.ogg", "EncCorpseD_DLG01_Bandit02", "alarming");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("MaskedBandit02", "EncCorpseB_CHT01_MaskedBandit02.ogg", "EncCorpseB_CHT01_Bandit02", "patrol1");
+						Pause(5.0);
+						Chatter("MaskedBandit05", "EncCorpseB_CHT02_MaskedBandit05.ogg", "EncCorpseB_CHT02_Bandit05", "alarming");
+						Pause(5.0);
+						Chatter("MaskedBandit02", "EncCorpseB_CHT03_MaskedBandit02.ogg", "EncCorpseB_CHT03_Bandit02", "patrol1");
+						Pause(5.0);
+					}
+				}
+			}
+		}
+	}
+
+	Preset("EncCorpse_OldTown")
+	{
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("Bandit02", "EncCorpseA_CHT01_Bandit02.ogg", "EncCorpseA_CHT01_Bandit02", "patrol1");
+					Pause(5.0);
+					Chatter("Bandit05", "EncCorpseA_CHT02_Bandit05.ogg", "EncCorpseA_CHT02_Bandit05", "alarming");
+					Pause(5.0);
+					Chatter("Bandit02", "EncCorpseA_CHT03_Bandit02.ogg", "EncCorpseA_CHT03_Bandit02", "patrol1");
+					Pause(5.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("Bandit02", "EncCorpseA_DLG01_Bandit02.ogg", "EncCorpseA_DLG01_Bandit02", "patrol1");
+					Pause(0.5);
+					Chatter("Bandit05", "EncCorpseA_DLG02_Bandit05.ogg", "EncCorpseA_DLG02_Bandit05", "alarming");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("Bandit02", "EncCorpseA_CHT01_Bandit02.ogg", "EncCorpseA_CHT01_Bandit02", "patrol1");
+						Pause(5.0);
+						Chatter("Bandit05", "EncCorpseA_CHT02_Bandit05.ogg", "EncCorpseA_CHT02_Bandit05", "alarming");
+						Pause(5.0);
+						Chatter("Bandit02", "EncCorpseA_CHT03_Bandit02.ogg", "EncCorpseA_CHT03_Bandit02", "patrol1");
+						Pause(5.0);
+					}
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("Bandit02", "EncCorpseB_CHT01_Bandit02.ogg", "EncCorpseB_CHT01_Bandit02", "patrol1");
+					Pause(5.0);
+					Chatter("Bandit05", "EncCorpseB_CHT02_Bandit05.ogg", "EncCorpseB_CHT02_Bandit05", "alarming");
+					Pause(5.0);
+					Chatter("Bandit02", "EncCorpseB_CHT03_Bandit02.ogg", "EncCorpseB_CHT03_Bandit02", "patrol1");
+					Pause(5.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("Bandit02", "EncCorpseB_DLG01_Bandit02.ogg", "EncCorpseB_DLG01_Bandit02", "patrol1");
+					Pause(0.5);
+					Chatter("Bandit05", "EncCorpseB_DLG02_Bandit05.ogg", "EncCorpseB_DLG02_Bandit05", "alarming");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("Bandit02", "EncCorpseB_CHT01_Bandit02.ogg", "EncCorpseB_CHT01_Bandit02", "patrol1");
+						Pause(5.0);
+						Chatter("Bandit05", "EncCorpseB_CHT02_Bandit05.ogg", "EncCorpseB_CHT02_Bandit05", "alarming");
+						Pause(5.0);
+						Chatter("Bandit02", "EncCorpseB_CHT03_Bandit02.ogg", "EncCorpseB_CHT03_Bandit02", "patrol1");
+						Pause(5.0);
+					}
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("Bandit02", "EncCorpseB_CHT01_Bandit02.ogg", "EncCorpseB_CHT01_Bandit02", "patrol1");
+					Pause(5.0);
+					Chatter("Bandit05", "EncCorpseB_CHT02_Bandit05.ogg", "EncCorpseB_CHT02_Bandit05", "alarming");
+					Pause(5.0);
+					Chatter("Bandit02", "EncCorpseB_CHT03_Bandit02.ogg", "EncCorpseB_CHT03_Bandit02", "patrol1");
+					Pause(5.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("Bandit02", "EncCorpseC_DLG01_Bandit02.ogg", "EncCorpseC_DLG01_Bandit02", "patrol1");
+					Pause(0.5);
+					Chatter("Bandit05", "EncCorpseC_DLG02_Bandit05.ogg", "EncCorpseC_DLG02_Bandit05", "alarming");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("Bandit02", "EncCorpseB_CHT01_Bandit02.ogg", "EncCorpseB_CHT01_Bandit02", "patrol1");
+						Pause(5.0);
+						Chatter("Bandit05", "EncCorpseB_CHT02_Bandit05.ogg", "EncCorpseB_CHT02_Bandit05", "alarming");
+						Pause(5.0);
+						Chatter("Bandit02", "EncCorpseB_CHT03_Bandit02.ogg", "EncCorpseB_CHT03_Bandit02", "patrol1");
+						Pause(5.0);
+					}
+				}
+			}
+		}
+	}
+
+	Preset("EncFireplace")
+	{
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("MaskedBandit04", "EncFireplaceB_CHT01_MaskedBandit04.ogg", "EncFireplaceB_CHT01_Bandit04", "patrol4");
+					Pause(3.0);
+					Chatter("MaskedBandit03", "EncFireplaceB_CHT02_MaskedBandit03.ogg", "EncFireplaceB_CHT02_Bandit03", "patrol3");
+					Pause(3.0);
+					Chatter("MaskedBandit04", "EncFireplaceA_CHT01_MaskedBandit04.ogg", "EncFireplaceA_CHT01_Bandit04", "patrol4");
+					Pause(3.0);
+					Chatter("MaskedBandit03", "EncFireplaceA_CHT02_MaskedBandit03.ogg", "EncFireplaceA_CHT02_Bandit03", "patrol3");
+					Pause(3.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					RandomLoop()
+					{
+						Chatter("MaskedBandit04", "EncFireplaceB_CHT01_MaskedBandit04.ogg", "EncFireplaceB_CHT01_Bandit04", "patrol4");
+						Pause(3.0);
+						Chatter("MaskedBandit03", "EncFireplaceB_CHT02_MaskedBandit03.ogg", "EncFireplaceB_CHT02_Bandit03", "patrol3");
+						Pause(3.0);
+						Chatter("MaskedBandit04", "EncFireplaceA_CHT01_MaskedBandit04.ogg", "EncFireplaceA_CHT01_Bandit04", "patrol4");
+						Pause(3.0);
+						Chatter("MaskedBandit03", "EncFireplaceA_CHT02_MaskedBandit03.ogg", "EncFireplaceA_CHT02_Bandit03", "patrol3");
+						Pause(3.0);
+					}
+					Chatter("MaskedBandit04", "EncFireplaceA_DLG01_MaskedBandit04.ogg", "EncFireplaceA_DLG01_Bandit04", "patrol");
+					Pause(0.5);
+					Chatter("MaskedBandit03", "EncFireplaceA_DLG02_MaskedBandit03.ogg", "EncFireplaceA_DLG02_Bandit03", "patrol");
+					Pause(0.5);
+					Chatter("MaskedBandit04", "EncFireplaceA_DLG03_MaskedBandit04.ogg", "EncFireplaceA_DLG03_Bandit04", "patrol");
+					Pause(0.5);
+					Chatter("MaskedBandit03", "EncFireplaceA_DLG04_MaskedBandit03.ogg", "EncFireplaceA_DLG04_Bandit03", "patrol");
+					Pause(3.0);
+				}
+			}
+			Group("PlayerSpotted")
+			{
+				RandomLoop()
+				{
+					Delays(1.0, 3.0);
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("MaskedBandit04", "EncFireplaceB_CHT01_MaskedBandit04.ogg", "EncFireplaceB_CHT01_Bandit04", "patrol4");
+					Pause(6.0);
+					Chatter("MaskedBandit03", "EncFireplaceB_CHT02_MaskedBandit03.ogg", "EncFireplaceB_CHT02_Bandit03", "patrol3");
+					Pause(6.0);
+					Chatter("MaskedBandit04", "EncFireplaceA_CHT01_MaskedBandit04.ogg", "EncFireplaceA_CHT01_Bandit04", "patrol4");
+					Pause(6.0);
+					Chatter("MaskedBandit03", "EncFireplaceA_CHT02_MaskedBandit03.ogg", "EncFireplaceA_CHT02_Bandit03", "patrol3");
+					Pause(6.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("MaskedBandit04", "EncFireplaceB_DLG01_MaskedBandit04.ogg", "EncFireplaceB_DLG01_Bandit04", "patrol4");
+					Pause(0.5);
+					Chatter("MaskedBandit03", "EncFireplaceB_DLG02_MaskedBandit03.ogg", "EncFireplaceB_DLG02_Bandit03", "patrol3");
+					Pause(0.5);
+					Chatter("MaskedBandit04", "EncFireplaceB_DLG03_MaskedBandit04.ogg", "EncFireplaceB_DLG03_Bandit04", "patrol4");
+					Pause(3.0);
+					SequenceLoop()
+					{
+						Chatter("MaskedBandit04", "EncFireplaceB_CHT01_MaskedBandit04.ogg", "EncFireplaceB_CHT01_Bandit04", "patrol4");
+						Pause(6.0);
+						Chatter("MaskedBandit03", "EncFireplaceB_CHT02_MaskedBandit03.ogg", "EncFireplaceB_CHT02_Bandit03", "patrol3");
+						Pause(6.0);
+						Chatter("MaskedBandit04", "EncFireplaceA_CHT01_MaskedBandit04.ogg", "EncFireplaceA_CHT01_Bandit04", "patrol4");
+						Pause(6.0);
+						Chatter("MaskedBandit03", "EncFireplaceA_CHT02_MaskedBandit03.ogg", "EncFireplaceA_CHT02_Bandit03", "patrol3");
+						Pause(6.0);
+					}
+				}
+			}
+			Group("PlayerSpotted")
+			{
+				RandomLoop()
+				{
+					Delays(1.0, 3.0);
+				}
+			}
+		}
+	}
+
+	Preset("EncCar_Unmasked")
+	{
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("Bandit02", "EncCarA_CHT01_Bandit02.ogg", "EncCarA_CHT01_Bandit02", "patrol2");
+					Pause(5.0);
+					Chatter("Bandit01", "EncCarA_CHT02_Bandit01.ogg", "EncCarA_CHT02_Bandit01", "alarming");
+					Pause(5.0);
+					Chatter("Bandit02", "EncCarA_CHT03_Bandit02.ogg", "EncCarA_CHT03_Bandit02", "patrol2");
+					Pause(5.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("Bandit01", "EncCarA_DLG01_Bandit01.ogg", "EncCarA_DLG01_Bandit01", "alarming");
+					Pause(0.5);
+					Chatter("Bandit02", "EncCarA_DLG02_Bandit02.ogg", "EncCarA_DLG02_Bandit02", "patrol2");
+					Pause(0.5);
+					Chatter("Bandit01", "EncCarA_DLG03_Bandit01.ogg", "EncCarA_DLG03_Bandit01", "alarming");
+					Pause(5.0);
+					SequenceLoop()
+					{
+						Chatter("Bandit02", "EncCarA_CHT01_Bandit02.ogg", "EncCarA_CHT01_Bandit02", "patrol2");
+						Pause(5.0);
+						Chatter("Bandit01", "EncCarA_CHT02_Bandit01.ogg", "EncCarA_CHT02_Bandit01", "alarming");
+						Pause(5.0);
+						Chatter("Bandit02", "EncCarA_CHT03_Bandit02.ogg", "EncCarA_CHT03_Bandit02", "patrol2");
+						Pause(5.0);
+					}
+				}
+			}
+			Group("PlayerSpotted")
+			{
+				RandomLoop()
+				{
+					Delays(3.0, 6.0);
+					Chatter("Bandit02", "ChatterMeleeFighterA_02_Bandit02.ogg", "ChatterMeleeFighterA_02_Bandit02", "alarming");
+					Chatter("Bandit02", "ChatterMeleeFighterA_01_Bandit02.ogg", "ChatterMeleeFighterA_01_Bandit02", "alarming");
+					Chatter("Bandit02", "ChatterMeleeFighterA_03_Bandit02.ogg", "ChatterMeleeFighterA_03_Bandit02", "alarming");
+					Chatter("Bandit02", "ChatterMeleeFighterA_04_Bandit02.ogg", "ChatterMeleeFighterA_04_Bandit02", "alarming");
+					Chatter("Bandit02", "ChatterMeleeFighterA_05_Bandit02.ogg", "ChatterMeleeFighterA_05_Bandit02", "alarming");
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Talk")
+			{
+				SequenceLoop()
+				{
+					Chatter("Bandit02", "EncCarB_CHT01_Bandit02.ogg", "EncCarB_CHT01_Bandit02", "patrol2");
+					Pause(5.0);
+					Chatter("Bandit01", "EncCarB_CHT02_Bandit01.ogg", "EncCarB_CHT02_Bandit01", "patrol1");
+					Pause(5.0);
+					Chatter("Bandit02", "EncCarB_CHT03_Bandit02.ogg", "EncCarB_CHT03_Bandit02", "patrol2");
+					Pause(5.0);
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Sequence()
+				{
+					Chatter("Bandit01", "EncCarB_DLG01_Bandit01.ogg", "EncCarB_DLG01_Bandit01", "patrol1");
+					Pause(0.5);
+					Chatter("Bandit02", "EncCarB_DLG02_Bandit02.ogg", "EncCarB_DLG02_Bandit02", "patrol2");
+					Pause(0.5);
+					Chatter("Bandit01", "EncCarB_DLG03_Bandit01.ogg", "EncCarB_DLG03_Bandit01", "patrol1");
+					Pause(5.0);
+					SequenceLoop()
+					{
+						Chatter("Bandit02", "EncCarB_CHT01_Bandit02.ogg", "EncCarB_CHT01_Bandit02", "patrol2");
+						Pause(5.0);
+						Chatter("Bandit01", "EncCarB_CHT02_Bandit01.ogg", "EncCarB_CHT02_Bandit01", "patrol1");
+						Pause(5.0);
+						Chatter("Bandit02", "EncCarB_CHT03_Bandit02.ogg", "EncCarB_CHT03_Bandit02", "patrol2");
+						Pause(5.0);
+					}
+				}
+			}
+			Group("PlayerSpotted")
+			{
+				RandomLoop()
+				{
+					Delays(1.0, 3.0);
+					Chatter("Bandit02", "ChatterMeleeFighterA_02_Bandit02.ogg", "ChatterMeleeFighterA_02_Bandit02", "alarming");
+					Chatter("Bandit02", "ChatterMeleeFighterA_01_Bandit02.ogg", "ChatterMeleeFighterA_01_Bandit02", "alarming");
+					Chatter("Bandit02", "ChatterMeleeFighterA_03_Bandit02.ogg", "ChatterMeleeFighterA_03_Bandit02", "alarming");
+					Chatter("Bandit02", "ChatterMeleeFighterA_04_Bandit02.ogg", "ChatterMeleeFighterA_04_Bandit02", "alarming");
+					Chatter("Bandit02", "ChatterMeleeFighterA_05_Bandit02.ogg", "ChatterMeleeFighterA_05_Bandit02", "alarming");
+				}
+			}
+		}
+	}
+
+}

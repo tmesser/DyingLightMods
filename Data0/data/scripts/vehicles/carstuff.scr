@@ -1,0 +1,27 @@
+export int VehicleAction_NONE          = -1;
+export int VehicleAction_Left          = 0;
+export int VehicleAction_Right         = 1;
+export int VehicleAction_Forward       = 2;
+export int VehicleAction_Back          = 3;
+export int VehicleAction_GetOut        = 4;
+
+export int VehiclePlaceState_Outside		= 0;
+export int VehiclePlaceState_Seat			= 1;
+export int VehiclePlaceState_ZombieGrab		= 2;
+export int VehiclePlaceState_Leaning		= 3;
+export int VehiclePlaceState_FallOut        = 4;
+
+export int PassengerRole_VEHICLE_NONE					= -1;
+//export int PassengerRole_VEHICLE_FIRST_SEAT				= 0;
+export int PassengerRole_VEHICLE_DRIVER					= 0;
+export int PassengerRole_VEHICLE_PASSENGER				= 1;
+//export int PassengerRole_VEHICLE_FIRST_PASSENGER_SEAT	= 1;
+export int PassengerRole_VEHICLE_PASSENGER_BACK_L		= 2;
+export int PassengerRole_VEHICLE_PASSENGER_BACK_R		= 3;
+export int PassengerRole_VEHICLE_PASSENGER_BACK_M		= 4;
+export int PassengerRole_VEHICLE_PASSENGER_REAR_L		= 4;
+export int PassengerRole_VEHICLE_PASSENGER_REAR_R		= 5;
+//export int PassengerRole_VEHICLE_LAST_PASSENGER_SEAT	= 4;
+//export int PassengerRole_VEHICLE_LAST_SEAT				= 5;
+//export int PassengerRole_VEHICLE_ANY					= 6;
+//export int PassengerRole_VEHICLE_PASSENGER_ANY			= 7;

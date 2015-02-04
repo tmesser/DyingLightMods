@@ -1,0 +1,51 @@
+import "init_game_effects_31.scr"
+
+sub Buffers()
+{
+	int e_path = SM31;
+	use BuffersCommon(e_path = e_path);	
+	use RenderTargetsViewCommon(e_path = e_path);
+	
+	use Buffer2(s_name = "VFB", e_path = e_path, s_format = "A16B16G16R16");
+	
+	RenderTargetsView("_2_VFB", "o:ZBUFFER VFB");
+	RenderTargetsView( "_4_BLUR_CAMERA_MOTION_MASK", "o:ZBUFFER o:4_RGBA16F_A 4_RGBA16F_B");	
+	RenderTargetsView("_CLR__STD_RENDER", "z:ZBUFFER 1_RGBA16F_A");    
+	RenderTargetsView("_4_SSAO_TEMP", "o:ZBUFFER 4_RGBA16F_C");
+	RenderTargetsView("_4_BLUR_TEMP", "o:ZBUFFER 4_RGBA16F_B");
+	RenderTargetsView("_4_GLOW_TEMP", "o:ZBUFFER o:4_RGBA16F_C 4_RGBA16F_C");
+	RenderTargetsView("_4_SUN_RAYS_BLUR", "o:ZBUFFER o:4_RGBA16F_C 4_RGBA16F_C"); 
+	RenderTargetsView("_16_BLUR_TEMP", "o:ZBUFFER o:1_RGBA16F_A 16_RGBA16F_B");
+	RenderTargetsView("_4_WTR_CLR_TEMP", "o:ZBUFFER o:1_RGBA16F_A 4_RGBA16F_B");
+	
+    RenderTargetsView("_LUM_16x16", "o:ZBUFFER LUM_16x16_A");
+    
+	RenderTargetsView("_FONTS", "o:backbuffer NRM");  
+	RenderTargetsView("_HUD_SMALL", "o:backbuffer 4_RGBA16F_A");
+	
+	RenderTargetsView("_RGBA8_A_SRGB", "o:ZBUFFER 1_RGBA8_A");
+	RenderTargetsView("_RGBA8_A_SRGB_Z", "z:ZBUFFER 1_RGBA8_A");
+	RenderTargetsView("_4_MENU_BLUR_TEMP", "o:ZBUFFER o:1_RGBA8_A 4_RGBA8_B");
+	RenderTargetsView("_4_SHADOWS_TEMP", "o:ZBUFFER o:1_RGBA16F_A 4_RGBA16F_A");
+	
+    use GameBuffers(e_path = e_path);
+}
+
+sub Postprocess()
+{ 
+	int e_path = SM31;
+
+    Effect("normal", "normal31.ppfx", true);
+
+    Effect("null", "null.ppfx", true);
+    Effect("simple", "simple31.ppfx", true);
+    Effect("top", "top31.ppfx", true);
+	Effect("indoor", "indoor31.ppfx", true);
+    Effect("sprite", "sprite31.ppfx", false);
+	Effect("logo_0", "logo_0_31.ppfx", true);
+	Effect("logo_1", "logo_1_31.ppfx", true);
+	Effect("logo_2", "logo_2_31.ppfx", true);
+	Effect("logo_3", "logo_3_31.ppfx", true);
+
+	use GameEffects(e_path = e_path);
+}

@@ -1,0 +1,57 @@
+import "init_game_effects_32.scr"
+
+sub Buffers()
+{
+	int e_path = SM32;
+	use BuffersCommon(e_path = e_path);
+	use RenderTargetsViewCommon(e_path = e_path);
+	
+    BufferFormat("LUM_16x16_B", 16, 16, "R32F", "temp rt");
+
+	//render target views
+	RenderTargetsView("_4_UFB", "4_RGBA16F_A");	
+	RenderTargetsView("_4_FND", "4_RGBA16F_A");
+	RenderTargetsView("_4_FND_CURVE", "4_RGBA16F_B");
+	RenderTargetsView("_4_SUN_RAYS_BLUR", "4_RGBA8_A");
+	RenderTargetsView("_4_BLUR_CAMERA_MOTION_MASK", "4_RGBA16F_A");
+	RenderTargetsView("_4_GLOW_TEMP", "4_RGBA16F_B");
+	RenderTargetsView("_4_BLUR_TEMP", "4_RGBA16F_A");
+	RenderTargetsView("_4_RAIN_TEMP", "4_RGBA16F_B");
+	RenderTargetsView("_4_SSAO_TEMP", "4_RGBA16F_A");
+	RenderTargetsView("_4_WTR_CLR_TEMP", "4_RGBA16F_B");
+	
+	RenderTargetsView("_16_BLUR_TEMP", "16_RGBA16F_C");
+	RenderTargetsView("_4_MENU_BLUR_TEMP", "4_RGBA8_A f:srgb"); 	
+    
+    RenderTargetsView("_LUM_16x16_A", "LUM_16x16_A");
+    RenderTargetsView("_LUM_16x16_B", "LUM_16x16_B");
+    
+	RenderTargetsView("_CLR__STD_RENDER", "z:ZBUFFER CLR f:srgb");
+	RenderTargetsView("_OUT__STD_RENDER", "backbuffer f:srgb");
+	
+	RenderTargetsView("_RGBA8_A_SRGB", "1_RGBA8_A f:srgb");
+	RenderTargetsView("_RGBA8_A_SRGB_Z", "z:ZBUFFER 1_RGBA8_A f:srgb");	
+	
+
+    use GameBuffers(e_path = e_path);
+}
+
+
+sub Postprocess()
+{ 
+	int e_path = SM32;
+
+    Effect("normal", "normal32.ppfx", true);
+
+    Effect("null", "null.ppfx", true);
+    Effect("simple", "simple32.ppfx", true);
+    Effect("top", "top32.ppfx", true);
+	Effect("indoor", "indoor32.ppfx", true);
+    Effect("sprite", "sprite32.ppfx", false); 
+	Effect("logo_0", "logo_0_32.ppfx", true);
+	Effect("logo_1", "logo_1_32.ppfx", true);
+	Effect("logo_2", "logo_2_32.ppfx", true);
+	Effect("logo_3", "logo_3_32.ppfx", true);
+
+	use GameEffects(e_path = e_path);
+}

@@ -1,0 +1,6 @@
+!LoadParams(s)
+
+!Seat(i,s,s,i)	//seat ID, helper name, AI enter helper name, teleport
+!DropZone(i,fX,fY,fZ) // drop zone ID and local pos for drop zone
+
+!AttachPart(s,s,s)

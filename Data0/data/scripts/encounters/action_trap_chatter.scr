@@ -1,0 +1,67 @@
+sub main()
+{
+	Preset("Default")
+	{
+		Variation()
+		{
+			Group("Attracting")
+			{
+				RandomLoop()
+				{
+					Delays(2.0, 4.0);
+					Chatter("Survivor03", "EncSurvivorTrapA_Survivor03_CHT01.ogg", "EncSurvivorTrapA_Survivor03_CHT01", "");
+					Chatter("Survivor03", "EncSurvivorTrapA_Survivor03_CHT02.ogg", "EncSurvivorTrapA_Survivor03_CHT02", "");
+					Chatter("Survivor03", "EncSurvivorTrapA_Survivor03_CHT02.ogg", "EncSurvivorTrapA_Survivor03_CHT02", "");
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Random()
+				{
+					Chatter("Survivor03", "EncSurvivorTrapA_Survivor03_01DLG01.ogg", "EncSurvivorTrapA_Survivor03_01DLG01", "");
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Attracting")
+			{
+				RandomLoop()
+				{
+					Delays(2.0, 4.0);
+					Chatter("Survivor03", "EncSurvivorTrapB_Survivor03_CHT01.ogg", "EncSurvivorTrapB_Survivor03_CHT01", "");
+					Chatter("Survivor03", "EncSurvivorTrapB_Survivor03_CHT02.ogg", "EncSurvivorTrapB_Survivor03_CHT02", "");
+					Chatter("Survivor03", "EncSurvivorTrapB_Survivor03_CHT02.ogg", "EncSurvivorTrapB_Survivor03_CHT02", "");
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Random()
+				{
+					Chatter("Survivor03", "EncSurvivorTrapB_Survivor03_01DLG01.ogg", "EncSurvivorTrapB_Survivor03_01DLG01", "");
+				}
+			}
+		}
+		Variation()
+		{
+			Group("Attracting")
+			{
+				RandomLoop()
+				{
+					Delays(2.0, 4.0);
+					Chatter("Survivor03", "EncSurvivorTrapC_Survivor03_CHT01.ogg", "EncSurvivorTrapC_Survivor03_CHT01", "");
+					Chatter("Survivor03", "EncSurvivorTrapC_Survivor03_CHT02.ogg", "EncSurvivorTrapC_Survivor03_CHT02", "");
+					Chatter("Survivor03", "EncSurvivorTrapC_Survivor03_CHT02.ogg", "EncSurvivorTrapC_Survivor03_CHT02", "");
+				}
+			}
+			Group("PlayerAttracted")
+			{
+				Random()
+				{
+					Chatter("Survivor03", "EncSurvivorTrapC_Survivor03_01DLG01.ogg", "EncSurvivorTrapC_Survivor03_01DLG01", "");
+				}
+			}
+		}
+	}
+
+}

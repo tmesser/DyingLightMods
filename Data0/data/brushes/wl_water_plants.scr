@@ -1,0 +1,115 @@
+sub main()
+{
+  brush("wl_water_plants")
+  {
+    brush_params()
+    {
+      image("roundsoft.png");
+      image_rotation(0);
+      extent_size(1.0000);
+      extent_min(0.0000);
+      extent_max(100.0000);
+      power(1.0000);
+      power_min(0.0000);
+      power_max(1.0000);
+      fade_distance(0.0000);
+      fade_min(0.0000);
+      fade_max(100.0000);
+      mask("");
+    }
+    functionality("Edit tiny objects")
+    {
+      func_params()
+      {
+        attrib( "m_DensityMapMode[0]", "Clear" );
+        attrib( "m_DensityMapMode[1]", "Clear" );
+        attrib( "m_DensityMapMode[2]", "Clear" );
+        attrib( "m_DensityMapMode[3]", "Clear" );
+        attrib( "m_DensityMapMode[4]", "Clear" );
+        attrib( "m_DensityMapMode[5]", "Clear" );
+        attrib( "m_DensityMapMode[6]", "Clear" );
+        attrib( "m_DensityMapMode[7]", "NoChange" );
+        attrib( "m_DensityMapMode[8]", "Set" );
+      }
+      brush_params()
+      {
+        extent_size(14.0000);
+        extent_min(0.0000);
+        extent_max(100.0000);
+        power(0.3100);
+        power_min(0.0000);
+        power_max(1.0000);
+        fade_min(0.0000);
+        fade_max(100.0000);
+      }
+    }
+    functionality("Add hierarchical selection")
+    {
+      func_params()
+      {
+        num_add_trials( 10 );
+        eds_data()
+        {
+          eds_file( "wl_brush_uwp_a.eds" );
+          seed( 5 );
+          required_tags( "0" );
+          forbidden_tags( "0" );
+          randomize_seed( true );
+          randomize_Y_rotation( true );
+          randomize_Y_rotation_snap( 120.0000 );
+          align_to_terrain_by_normal( false );
+          snap_distance( -1.0000 );
+          scale_min( 0.9000 );
+          scale_max( 1.2000 );
+          distances( 15.0000, 15.0000, 15.0000, -1.0000 );
+          max_slope( 90.0000 );
+          weight( 1 );
+        }
+        eds_data()
+        {
+          eds_file( "mid_rocks_group_b.eds" );
+          seed( 4 );
+          required_tags( "0" );
+          forbidden_tags( "0" );
+          randomize_seed( true );
+          randomize_Y_rotation( true );
+          randomize_Y_rotation_snap( 120.0000 );
+          align_to_terrain_by_normal( true );
+          snap_distance( -1.0000 );
+          scale_min( 1.0000 );
+          scale_max( 1.2000 );
+          distances( 15.0000, 15.0000, 15.0000, -1.0000 );
+          max_slope( 90.0000 );
+          weight( 1 );
+        }
+        eds_data()
+        {
+          eds_file( "mid_rocks_group_a.eds" );
+          seed( 11 );
+          required_tags( "0" );
+          forbidden_tags( "0" );
+          randomize_seed( true );
+          randomize_Y_rotation( true );
+          randomize_Y_rotation_snap( 120.0000 );
+          align_to_terrain_by_normal( true );
+          snap_distance( -1.0000 );
+          scale_min( 1.0000 );
+          scale_max( 1.3000 );
+          distances( 10.0000, 10.0000, 10.0000, -1.0000 );
+          max_slope( 90.0000 );
+          weight( 1 );
+        }
+      }
+      brush_params()
+      {
+        extent_factor(1.0000);
+        extent_min(0.0000);
+        extent_max(100.0000);
+        power_min(0.0000);
+        power_max(1.0000);
+        fade_min(0.0000);
+        fade_max(100.0000);
+      }
+    }
+  }
+}

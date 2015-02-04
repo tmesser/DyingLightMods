@@ -1,0 +1,38 @@
+sub main()
+{
+    Preset("Excellent")
+    {
+        SendRate(512);
+        RecvRate(512);
+        SendBuffer(8192);
+        RecvBuffer(8192);
+        SendLoss(0.2);
+        RecvLoss(0.2);
+        SendDelay(10);
+        RecvDelay(10);
+    } 
+
+    Preset("Good")
+    {
+        SendRate(512);
+        RecvRate(512);
+        SendBuffer(8192);
+        RecvBuffer(8192);
+        SendLoss(1.0);
+        RecvLoss(1.0);
+        SendDelay(50);
+        RecvDelay(50);
+    } 
+
+    Preset("Acceptable")
+    {
+        SendRate(256);
+        RecvRate(256);
+        SendBuffer(4096);
+        RecvBuffer(4096);
+        SendLoss(2);
+        RecvLoss(2);
+        SendDelay(100);
+        RecvDelay(100);
+    }
+} 

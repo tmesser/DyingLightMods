@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<QuestsDefinitions
+     level="mykorian_city"
+     pxsl_line="3">
+    <Quest
+         name="bringHanif"
+         parent="Fuel03"
+         quest_giver="hanif"
+         difficulty="easy"
+         reward_set="bringHanif_reward"
+         pxsl_line="5">
+        <Phase
+             type="talk"
+             name="Bring Hanif - START"
+             speaker="Hanif"
+             group="Hanif_bringHanif_USE"
+             show_locations="false"
+             pxsl_line="6">
+            <DebugPlayerPosition
+                 pxsl_line="7">
+                <QuestObject
+                     class="SpawnPoint"
+                     name="bringHanif_sp_01"
+                     pxsl_line="7" />
+            </DebugPlayerPosition>
+        </Phase>
+        <Phase
+             type="checkpoint"
+             name="_"
+             pxsl_line="8">
+            <Destination
+                 pxsl_line="8">
+                <QuestObject
+                     class="SpawnPoint"
+                     name="bringHanif_sp_01"
+                     pxsl_line="8" />
+            </Destination>
+        </Phase>
+        <Phase
+             type="bring item"
+             name="_"
+             objective="&amp;BringHanif_OBJ_Main&amp;"
+             speaker="Hanif"
+             show_items="true"
+             pxsl_line="9">
+            <Item
+                 item_type="misc_cigarettes"
+                 count="2"
+                 pxsl_line="10" />
+            <Item
+                 item_type="misc_coffee"
+                 count="1"
+                 pxsl_line="11" />
+        </Phase>
+        <Phase
+             type="set reward"
+             name="_"
+             speaker="hanif"
+             pxsl_line="12" />
+        <!-- LD - be sure to insert save points -->
+        <Phase
+             type="checkpoint"
+             name="_"
+             pxsl_line="13">
+            <Destination
+                 pxsl_line="13">
+                <QuestObject
+                     class="SpawnPoint"
+                     name="bringHanif_sp_01"
+                     pxsl_line="13" />
+            </Destination>
+        </Phase>
+    </Quest>
+</QuestsDefinitions>

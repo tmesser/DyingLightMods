@@ -1,0 +1,78 @@
+// nois
+SeqTrack("Fpp_Shotgun_StandNoise",	 "Fpp_Shotgun_StandNoise.anm2",					0, 340, 60, 1, 0.3)
+SeqTrack("Fpp_Shotgun_MoveNoise",	 "M_FPP_Shotgun_Doublebarrel_Walk.anm2",		0, 32, 30, 1, 0.3)
+SeqTrack("Fpp_Shotgun_SprintNoise",	 "Fpp_Shotgun_Sprint.anm2", 					0, 20, 40, 1, 0.3)
+
+// stand 
+SeqTrack("Fpp_Shotgun_Stand", 		"Fpp_Shotgun_Pose.anm2",0, 10, 30, 1, 0.3)
+SeqTrack("Fpp_Shotgun_StandEmpty", 	"Fpp_Shotgun_Pose.anm2",0, 10, 30, 1, 0.3)
+
+
+//Fast
+SeqTrack("Fpp_Shotgun_ReloadBegin", "M_FPP_Shotgun_Doublebarrel_Reload.anm2", 0, 16, 30, 1, 0.0)
+{
+	Event(5, 0, -1)
+    {
+        PlaySound2DExternal(GameVolumeSource_SoundPlayer, "rmngtn_open.wav", 1, 1, 1)
+    }	
+}
+
+SeqTrack("Fpp_Shotgun_ReloadLoop", "M_FPP_Shotgun_Doublebarrel_Reload.anm2", 16, 50, 30, 1, 0.0)
+{
+	Event(17, 0, -1)
+    {
+        PlaySound2DExternal(GameVolumeSource_SoundPlayer, "rmngtn_bullet_load.wav", 1, 1, 1)
+    }
+	    
+	Event(0, EVENT_RELOAD_FORBID_BREAK, -1)
+    Event(20, EVENT_RELOAD_ADD_BULLET, -1)
+}
+
+SeqTrack("Fpp_Shotgun_ReloadFinish", "M_FPP_Shotgun_Doublebarrel_Reload.anm2", 50, 73, 30, 1, 0.0)
+{
+	Event(4, 0, -1)
+    {
+        PlaySound2DExternal(GameVolumeSource_SoundPlayer, "rmngtn_close.wav", 1, 1, 1)
+    }
+	
+	//Event(12, 0, -1)
+    //{
+    //    PlaySound2DExternal(GameVolumeSource_SoundPlayer, "rmngtn_rack.wav", 1, 1, 1)
+    //}			
+}
+
+// shoot
+SeqTrackAlias( "Fpp_Shotgun_ShotRecoil",             "Fpp_Shotgun_Stand")
+SeqTrackAlias( "Fpp_Shotgun_Aim_ShotRecoil",         "Fpp_Shotgun_Stand")
+
+SeqTrack("Fpp_Shotgun_Shot", "FPP_Shotgun_ShotNew.anm2", 0, 40, 60, 1, 0.3)
+{
+
+}
+
+SeqTrack("Fpp_Shotgun_ShotLast", "FPP_Shotgun_ShotNew.anm2", 0, 40, 60, 1, 0.3)
+{
+
+}
+
+SeqTrack("Fpp_Shotgun_ShotEmpty", "Fpp_Shotgun_ShotEmpty.anm2", 0, 40, 60, 1, 0.3)
+{
+
+}
+
+
+// aim
+// stand
+SeqTrack("Fpp_Shotgun_Aim_Stand", "Fpp_Shotgun_Aim_Pose.anm2",0, 10, 60, 1, 0.3) 
+SeqTrack("Fpp_Shotgun_Aim_StandEmpty", "Fpp_Shotgun_Aim_Pose.anm2", 0, 10, 60, 1, 0.3) 
+
+SeqTrack("Fpp_Shotgun_Aim_Shot", "FPP_Shotgun_Aim_Shot_R.anm2",0, 40, 60, 1, 0.3)
+{
+
+}
+SeqTrack("Fpp_Shotgun_Aim_ShotEmpty", "Fpp_Shotgun_Aim_Shot.anm2",0, 40, 60, 1, 0.3)
+{
+
+}
+
+SeqTrack("Fpp_Shotgun_Wall", "Fpp_Shotgun_Wall.anm2", 0, 25, 60, 1, 0.3)

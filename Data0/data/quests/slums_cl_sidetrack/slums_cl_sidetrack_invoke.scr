@@ -1,0 +1,4 @@
+!QuestStage( s, s, s )
+
+QuestStage( "+tree2 00x02s  &Slums_Cleansing_Sidetrack_Name& (Slums_Cleansing_Sidetrack/Slums_Cleansing_sidetrack - Start )", "Slums_Cleansing_Sidetrack", "Slums_Cleansing_sidetrack - Start " )
+QuestStage( "+tree2 00x02s  &Slums_Cleansing_Sidetrack_Name& (Slums_Cleansing_Sidetrack/Slums_Cleansing_sidetrack - End )", "Slums_Cleansing_Sidetrack", "Slums_Cleansing_sidetrack - End " )

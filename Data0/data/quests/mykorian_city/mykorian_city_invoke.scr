@@ -1,0 +1,9 @@
+!QuestStage( s, s, s )
+
+QuestStage( "00x06s  &Q_WayToMykorians03_Name& (Q_WayToMykorians03/Entrance to Mykoria)", "Q_WayToMykorians03", "Entrance to Mykoria" )
+QuestStage( "00x07s  &Fuel_Name& (Fuel/Fuel - START)", "Fuel", "Fuel - START" )
+QuestStage( "00x10s  &bringHanif_Name& (bringHanif/Bring Hanif - START)", "bringHanif", "Bring Hanif - START" )
+QuestStage( "00x10s  &Q_InnerCity_Name& (Q_InnerCity/Talk to Taylan)", "Q_InnerCity", "Talk to Taylan" )
+QuestStage( "00x11s  &Q_InnerCity02_Name& (Q_InnerCity02/Find underwater caves to mykoria)", "Q_InnerCity02", "Find underwater caves to mykoria" )
+QuestStage( "00x11s  &Q_InnerCity02_Name& (Q_InnerCity02/Entrance to inner mykoria)", "Q_InnerCity02", "Entrance to inner mykoria" )
+QuestStage( "00x12s  &Q_ReturnFromMykorians01_Name& (Q_ReturnFromMykorians01/Go to Antio)", "Q_ReturnFromMykorians01", "Go to Antio" )

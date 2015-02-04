@@ -1,0 +1,12 @@
+import "assortment_sets.scr"
+import "item_color.def"
+
+sub main()
+{
+    Docket("default")
+    {
+        use Weapons();
+        use Weapons2H();
+    }
+}
+

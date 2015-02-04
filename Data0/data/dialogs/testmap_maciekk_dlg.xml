@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<speakers>
+	<speaker name="Camden">
+		<group name="Camden_FindAntio_USE">
+			<state type="near" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Camden_FindAntio_NEA01"/>
+				</dialog>
+				<dialog>
+					<line id="Camden_FindAntio_NEA02"/>
+				</dialog>
+				<dialog>
+					<line id="Camden_FindAntio_NEA03"/>
+				</dialog>
+				<dialog>
+					<line id="Camden_FindAntio_MTN01"/>
+				</dialog>
+			</state>
+			<state type="near_to_middle" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Camden_FindAntio_NTM01"/>
+				</dialog>
+			</state>
+			<state type="middle_to_near" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Camden_FindAntio_MTN01"/>
+				</dialog>
+			</state>
+			<state type="use" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Camden_FindAntio_USA01"/>
+					<line id="Camden_FindAntio_USA02"/>
+					<line id="Camden_FindAntio_QST"/>
+					<decision type="quest_brief">
+						<choice>
+							<speech>&amp;DialogSystem_Yes&amp;</speech>
+							<audiofile/>
+							<line id="Player_FindAntio_YES"/>
+							<line id="Camden_FindAntio_AGR01"/>
+							<line id="Camden_FindAntio_AGR02"/>
+						</choice>
+						<main-choice>
+							<speech>&amp;DialogSystem_No&amp;</speech>
+							<audiofile/>
+						</main-choice>
+					</decision>
+					<line id="Player_FindAntio_NO"/>
+					<line id="Camden_FindAntio_DIS01"/>
+				</dialog>
+			</state>
+			<state type="use_second" range="25.000000" volume="1.000000">
+				<dialog attract_player="false">
+					<line id="Camden_FindAntio_USB01"/>
+					<decision type="quest_brief">
+						<choice>
+							<speech>&amp;DialogSystem_Yes&amp;</speech>
+							<audiofile/>
+							<line id="Player_FindAntio_YES"/>
+							<line id="Camden_FindAntio_AGR01"/>
+							<line id="Camden_FindAntio_AGR02"/>
+						</choice>
+						<main-choice>
+							<speech>&amp;DialogSystem_No&amp;</speech>
+							<audiofile/>
+						</main-choice>
+					</decision>
+					<line id="Player_FindAntio_NO"/>
+					<line id="Camden_FindAntio_DIS01"/>
+				</dialog>
+			</state>
+			<state type="ignore" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Camden_FindAntio_NTM01"/>
+				</dialog>
+			</state>
+		</group>
+		<group name="Camden_FindAntio_NEA">
+			<state type="near" range="25.000000" volume="1.000000">
+				<dialog attract_player="false">
+					<line id="Camden_FindAntio_NEA01"/>
+				</dialog>
+				<dialog attract_player="false">
+					<line id="Camden_FindAntio_NEA02"/>
+				</dialog>
+				<dialog attract_player="false">
+					<line id="Camden_FindAntio_NEA03"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="Brecken">
+		<group name="Brecken_Ambush_USE">
+			<state type="near" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Brecken_Ambush_NEA01"/>
+				</dialog>
+				<dialog>
+					<line id="Brecken_Ambush_NEA02"/>
+				</dialog>
+				<dialog>
+					<line id="Brecken_Ambush_NEA03"/>
+				</dialog>
+				<dialog>
+					<line id="Brecken_Ambush_MTN01"/>
+				</dialog>
+			</state>
+			<state type="near_to_middle" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Brecken_Ambush_NTM01"/>
+				</dialog>
+			</state>
+			<state type="middle_to_near" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Brecken_Ambush_MTN01"/>
+				</dialog>
+			</state>
+			<state type="use" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Brecken_Ambush_USA01"/>
+					<line id="Brecken_Ambush_USA02"/>
+					<decision type="quest_brief">
+						<choice>
+							<speech>&amp;DialogSystem_Yes&amp;</speech>
+							<audiofile/>
+							<line id="Brecken_Ambush_AGR01"/>
+							<line id="Brecken_Ambush_AGR03"/>
+						</choice>
+						<main-choice>
+							<speech>&amp;DialogSystem_No&amp;</speech>
+							<audiofile/>
+						</main-choice>
+					</decision>
+					<line id="Player_Ambush_NO"/>
+					<line id="Brecken_Ambush_DIS01"/>
+				</dialog>
+			</state>
+			<state type="use_second" range="25.000000" volume="1.000000">
+				<dialog attract_player="false">
+					<line id="Brecken_Ambush_USB01"/>
+					<decision type="quest_brief">
+						<choice>
+							<speech>&amp;DialogSystem_Yes&amp;</speech>
+							<audiofile/>
+							<line id="Brecken_Ambush_AGR01"/>
+							<line id="Brecken_Ambush_AGR03"/>
+						</choice>
+						<main-choice>
+							<speech>&amp;DialogSystem_No&amp;</speech>
+							<audiofile/>
+						</main-choice>
+					</decision>
+					<line id="Player_Ambush_NO"/>
+					<line id="Brecken_Ambush_DIS01"/>
+				</dialog>
+			</state>
+			<state type="ignore" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Brecken_Ambush_NTM01"/>
+				</dialog>
+			</state>
+		</group>
+		<group name="Brecken_Ambush_NEA">
+			<state type="near" range="25.000000" volume="1.000000">
+				<dialog attract_player="false">
+					<line id="Brecken_Ambush_NEA01"/>
+				</dialog>
+				<dialog attract_player="false">
+					<line id="Brecken_Ambush_NEA02"/>
+				</dialog>
+				<dialog attract_player="false">
+					<line id="Brecken_Ambush_NEA03"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+	<speaker name="Troy">
+		<group name="Troy_Device_USE">
+			<state type="near" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Troy_Device_NEA01"/>
+				</dialog>
+				<dialog>
+					<line id="Troy_Device_NEA02"/>
+				</dialog>
+				<dialog>
+					<line id="Troy_Device_NEA03"/>
+				</dialog>
+				<dialog>
+					<line id="Troy_Device_MTN01"/>
+				</dialog>
+			</state>
+			<state type="near_to_middle" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Troy_Device_NTM01"/>
+				</dialog>
+			</state>
+			<state type="middle_to_near" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Troy_Device_MTN01"/>
+				</dialog>
+			</state>
+			<state type="use" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Troy_Device_USA01"/>
+					<line id="Troy_Device_QST"/>
+					<decision type="quest_brief">
+						<question>__Q_TestMap_Maciekk_Brecken</question>
+						<choice>
+							<speech>&amp;DialogSystem_Yes&amp;</speech>
+							<audiofile/>
+							<line id="Player_Device_YES"/>
+							<line id="Troy_Device_AGR01"/>
+							<line id="Troy_Device_AGR02"/>
+							<line id="Troy_Device_AGR03"/>
+						</choice>
+						<main-choice>
+							<speech>&amp;DialogSystem_No&amp;</speech>
+							<audiofile/>
+						</main-choice>
+					</decision>
+					<line id="Player_Device_NO"/>
+					<line id="Troy_Device_DIS01"/>
+				</dialog>
+			</state>
+			<state type="use_second" range="25.000000" volume="1.000000">
+				<dialog attract_player="false">
+					<line id="Troy_Device_USB01"/>
+					<decision type="quest_brief">
+						<question>__Q_TestMap_Maciekk_Brecken</question>
+						<choice>
+							<speech>&amp;DialogSystem_Yes&amp;</speech>
+							<audiofile/>
+							<line id="Player_Device_YES"/>
+							<line id="Troy_Device_AGR01"/>
+							<line id="Troy_Device_AGR02"/>
+							<line id="Troy_Device_AGR03"/>
+						</choice>
+						<main-choice>
+							<speech>&amp;DialogSystem_No&amp;</speech>
+							<audiofile/>
+						</main-choice>
+					</decision>
+					<line id="Player_Device_NO"/>
+					<line id="Troy_Device_DIS01"/>
+				</dialog>
+			</state>
+			<state type="ignore" range="25.000000" volume="1.000000">
+				<dialog>
+					<line id="Troy_Device_NTM01"/>
+				</dialog>
+			</state>
+		</group>
+		<group name="Troy_Device_NEA">
+			<state type="near" range="25.000000" volume="1.000000">
+				<dialog attract_player="false">
+					<line id="Troy_Device_NEA01"/>
+				</dialog>
+				<dialog attract_player="false">
+					<line id="Troy_Device_NEA02"/>
+				</dialog>
+				<dialog attract_player="false">
+					<line id="Troy_Device_NEA03"/>
+				</dialog>
+			</state>
+		</group>
+	</speaker>
+</speakers>
+

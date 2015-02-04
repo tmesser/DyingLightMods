@@ -1,0 +1,8 @@
+MeshPartClothIfVisible("mpc_survivor_man_a_tie.phx", 1, 1, "tie_npc")
+MeshPartClothIfVisible("mpc_survivor_man_a_shawl.phx", 1, 1, "npc_shawl_detail")
+MeshPartClothIfVisible("mpc_survivor_man_a_shawl_fat.phx", 1, 1, "npc_torso_fat")
+MeshPartClothIfVisible("mpc_head_cut.phx", 1, 1, "head_main_cut_a")
+
+
+
+

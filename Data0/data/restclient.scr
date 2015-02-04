@@ -1,0 +1,23 @@
+!include("restclient.def")
+
+// Server
+DevServer("https://pls.dyinglightgame.com")
+ProdServer("https://pls.dyinglightgame.com")
+
+// Master on/off switch for PLS system.
+EnablePLS(1)
+
+// Enable or disable specific PLS systems.
+EnableMOTDs(1)
+EnablePatches(1)
+EnableEvents(1)
+EnableRewards(1)
+EnableRejectionChecksums(0)
+
+// What release level data to ask for.
+ReleaseLevel(100)
+
+// How much memory to reserve for the PLS memory buffer for downloaded files.
+// You can't download more than this amount of (zipped) data.
+// A trial-and-error value...
+DownloadBufferSize(32768)
