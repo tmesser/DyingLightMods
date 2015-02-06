@@ -1,0 +1,1 @@
+Choose one of the various Weapon Durability options and copy/paste data folder to My Documents/DyingLight

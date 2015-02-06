@@ -1,0 +1,4590 @@
+import "inventorystuff.scr" 
+sub main() 
+{
+    //Skrypt uzywany do emulowania featureow jako item by dzialaly z naszymi systemami: ragdoll, sound, vis, achievment
+    Item("Melee_ATEST_KNIFE", CategoryType_Melee)
+    {
+        Name("&Melee_ATEST_KNIFE_N&");
+        Description("&Melee_ATEST_KNIFE_D&");
+        Visibility(true);
+        ItemType(ItemType_Knife);        
+        Condition(-1);
+        Damage(73.0);
+        CriticalProb(0.1);
+        CriticalDamage(2.0);
+        DamageRange(1.2);
+        DamageToPhysicsObjects(34.0);
+        Force(0.0);
+        PhysicsDamageMul(0);
+        StaminaUsage(0.03);        
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Cut);  
+        Mesh("wn_short_knife_a.msh");
+        AnimPrefix("Knife");
+        HudIcon("handmade_machete");
+        MinDamageAngle(-10.0);
+        MaxDamageAngle(10.0);
+        MinDamageMult(1.0);
+        MaxHitSeverity(HitSeverity_Light);
+        MinHitSeverity(HitSeverity_Light);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(false);
+        HolderElement("r_thigh");
+        HolderOffset([0.0,10.0,10.0] *[0.01, 0.01, 0.01]);
+        HolderAngle([0.0,0.0,-90.0]);    
+        AiHitSound("knife");
+        use HitEffects_Sharp();
+        BloodSplatFactor(1.0);        
+        DamageSize(1.0);
+        StatsType(StatsType_Cut);                
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);        
+        AchType(AchType_Knife);    
+        SwingSpeed(1.0);
+        HorizontalAttackDamageMul(1.0);
+    }
+    
+    Item("AAA_TEST_Grenade", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("&Throwable_Grenade_N&");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        Visibility(true);
+        MaxStackCount(30);
+        Price(600);
+        Mesh("wn_petard_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(5000.0);
+        TakeDamageThreshold(100.0);
+        DamageType(DamageType_Blast);
+        DamageRange(7.5);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(3.0);
+        ThrowEndSound("");
+        ExplosionSound("gas_tank_explosion.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        EquipmentSlot(0);
+        FF_EffectName("Throw_Knife");
+    }
+    
+    
+    Item("AAA_BACK_Grenade", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("&Throwable_Grenade_N&");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        Visibility(true);
+        MaxStackCount(30);
+        Price(600);
+        Mesh("wn_petard_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(5000.0);
+        TakeDamageThreshold(100.0);
+        DamageType(DamageType_Blast);
+        DamageRange(4.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(1.0);
+        ThrowEndSound("");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        EquipmentSlot(0);
+        ExplosionSound("gas_tank_explosion.wav");
+        ExplosionFx("grenade_DI_sequence.fx");
+        FF_EffectName("Throw_Knife");
+    }
+    Item("PoisonGrenade", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("&Throwable_Grenade_N&");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        Visibility(true);
+        MaxStackCount(10);
+        Price(600);
+        Mesh("wn_petard_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(100.0);      
+        TakeDamageThreshold(100.0);        
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_Poison);
+        DamageRange(2.5);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(1.2);
+        ThrowEndSound("zombie_spitter_blob_grenade_throw_00.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        ExplosionSound("zombie_spitter_blob_grenade_esplosion_00.wav");
+        ExplosionFx("spitter_explode_sequence.fx");    
+        EquipmentSlot(0);
+        FF_EffectName("Throw_Knife");
+    }
+    
+    Item("FreezingGrenade", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("&Freezing_Grenade_N&");
+        Description("&Freezing_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        Visibility(true);
+        MaxStackCount(10);
+        Price(600);
+        Mesh("wn_petard_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(100.0);    
+        DamageDuration(10.0);    
+        PhysicsDamageMul(1.0);
+        TakeDamageThreshold(100.0);
+        DamageType(DamageType_Cold);
+        DamageRange(2.5);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(1.2);
+        ThrowEndSound("molotow_throwing.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        ExplosionSound("metal_pipe_air_presure.wav");
+        ExplosionFx("grenade_DI_sequence.fx");
+        EquipmentSlot(0);
+        ElementalPower(1.0);
+        FF_EffectName("Throw_Knife");
+    }
+    
+    Item("BloodGranade", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("&Throwable_Grenade_N&");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        Visibility(true);
+        MaxStackCount(10);
+        Price(600);
+        Mesh("wn_petard_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(100.0);        
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_Blunt);
+        DamageRange(3.0);
+        TakeDamageThreshold(100.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(7.0);
+        ThrowImpulseUp(1.0);
+        ExplodeDelay(0.6);
+        ThrowEndSound("zombie_spitter_blob_grenade_throw_00.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        ExplosionSound("zombie_spitter_blob_grenade_esplosion_00.wav");
+        ExplosionFx("A_Suicider_Explosion_sequence.fx");    
+        EquipmentSlot(0);
+        FF_EffectName("Throw_Knife");
+    }
+
+    Item("Throwable_LightDisable_Spit", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("&Throwable_Grenade_N&");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        DisableRendering(true);
+        Visibility(true);
+        MaxStackCount(10);
+        Price(600);
+        Mesh("wn_petard_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        ShowExplosiveHud(false);
+        ExplosiveHudColor([0.1, 0.2, 0.5]);
+        Damage(0.0);
+        ScheduleExplodeAfterContact(true);        
+        DamageDuration(12);
+        DamagerTakesNoDamage(true);
+        TakeDamageThreshold(100.0);        
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_Disable_Light);
+        ExplosionSound("zombieplayer_spit_explode.wav");
+        ExplosionBuildUpSound("zombieplayer_spit_sizzle.wav");
+        StickToSurfaces(true);
+        ExplosionSoundMin(16.0);
+        ExplosionSoundVol(2.0);
+        ThrowFlySound("zombieplayer_spit_flight.wav");
+        DamageRange(5.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(1.5);       
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        ThrowFlyFx("btz_spit_fly_black_sequence.fx");  
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        AttachmentSplatterFx("disable_flash_light_splash_hit_trace.fx");
+        AttachmentExplosionSplatterFx("disable_flash_light_splash_trace.fx");
+        ExplosionFx("disable_flashlight_explosion_sequence.fx");
+        ExplosionSplatterFx("disable_flash_light_trace.fx");
+        MotionTrailFx("hunter_spit_ld_motion_trail.fx");
+        EquipmentSlot(0);
+        SoundsCauseAggression(false);
+    }
+    
+    Item("Throwable_LightDisable_Spit_Pound", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("&Throwable_Grenade_N&");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        DisableRendering(true);
+        Visibility(true);
+        MaxStackCount(10);
+        Price(600);
+        Mesh("wn_petard_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        ShowExplosiveHud(false);
+        ExplosiveHudColor([0.1, 0.2, 0.5]);
+        Damage(0.0);
+        EnableExplosionDamage(0);
+        ScheduleExplodeAfterContact(false);        
+        DamageDuration(0);
+        DamagerTakesNoDamage(true);
+        TakeDamageThreshold(100.0);        
+        PhysicsDamageMul(0.0);
+        DamageType(DamageType_Disable_Light);
+        ExplosionSound("");
+        ExplosionBuildUpSound("");
+        StickToSurfaces(true);
+        ExplosionSoundMin(0.0);
+        ExplosionSoundVol(0.0);
+        ThrowFlySound("");
+        DamageRange(5.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(0.0);
+        ThrowImpulseUp(0.0);
+        ExplodeDelay(0.0);       
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        ThrowFlyFx("");  
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        AttachmentSplatterFx("disable_flash_light_splash_hit_trace.fx");
+        AttachmentExplosionSplatterFx("disable_flash_light_splash_trace.fx");
+        ExplosionFx("disable_flashlight_explosion_sequence.fx");
+        ExplosionSplatterFx("disable_flash_light_trace.fx");
+        MotionTrailFx("hunter_spit_ld_motion_trail.fx");
+        EquipmentSlot(0);
+        SoundsCauseAggression(false);
+    }
+    
+    Item("Throwable_LightDisableUpgraded_Spit", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("&Throwable_Grenade_N&");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        DisableRendering(true);
+        Visibility(true);
+        MaxStackCount(10);
+        Price(600);
+        Mesh("wn_petard_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        ShowExplosiveHud(false);
+        ExplosiveHudColor([0.1, 0.2, 0.5]);
+        Damage(0.0);
+        ScheduleExplodeAfterContact(true);        
+        DamageDuration(18);
+        DamagerTakesNoDamage(true);
+        TakeDamageThreshold(100.0);        
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_Disable_Light);
+        ExplosionSound("zombieplayer_spit_explode.wav");
+        ExplosionBuildUpSound("zombieplayer_spit_sizzle.wav");
+        StickToSurfaces(true);
+        ExplosionSoundMin(16.0);
+        ExplosionSoundVol(2.0);
+        ThrowFlySound("zombieplayer_spit_flight.wav");
+        DamageRange(5.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(1.5);       
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        ThrowFlyFx("btz_spit_fly_black_sequence.fx");  
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        AttachmentSplatterFx("disable_flash_light_splash_hit_trace.fx");
+        AttachmentExplosionSplatterFx("disable_flash_light_splash_trace.fx");
+        ExplosionFx("disable_flashlight_explosion_sequence.fx");
+        ExplosionSplatterFx("disable_flash_light_trace.fx");
+        MotionTrailFx("hunter_spit_ld_motion_trail.fx");
+        EquipmentSlot(0);
+        SoundsCauseAggression(false);
+    }
+    
+    Item("Throwable_Control_The_Horde", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("&Throwable_Grenade_N&");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        DisableRendering(true);
+        Visibility(true);
+        MaxStackCount(10);
+        ShowExplosiveHud(false);
+        ExplosiveHudColor([0.0, 0.5, 0.0]);
+        Price(600);
+        Mesh("wn_petard_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(0.0);      
+        DamagerTakesNoDamage(true);
+        DamageDuration(15);
+        ThrowFlySound("freeze_loop.wav");
+        TakeDamageThreshold(100.0);     
+        ScheduleExplodeAfterContact(true);        
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_ControlTheHorde);
+        ExplosionSound("zombieplayer_spit_explode.wav");
+        ExplosionBuildUpSound("zombieplayer_spit_sizzle.wav");
+        ThrowFlySound("zombieplayer_spit_flight.wav");
+        ExplosionSoundMin(16.0);
+        ExplosionSoundVol(2.0);
+        DamageRange(5.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(1.5);        
+        ThrowFlyFx("btz_spit_fly_green_sequence.fx");  
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        AttachmentSplatterFx("control_the_horde_splash_hit_trace.fx");
+        AttachmentExplosionSplatterFx("control_the_horde_splash_trace.fx");
+        ExplosionFx("horde_control_explosion_sequence.fx");
+        ExplosionSplatterFx("control_the_horde_trace.fx");
+        MotionTrailFx("hunter_spit_cth_motion_trail.fx");
+        EquipmentSlot(0);
+        StickToSurfaces(true);
+        SoundsCauseAggression(false);
+    }
+    
+    Item("Throwable_Control_The_Horde_Spit_Pound", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("&Throwable_Grenade_N&");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        DisableRendering(true);
+        Visibility(true);
+        MaxStackCount(10);
+        ShowExplosiveHud(false);
+        ExplosiveHudColor([0.0, 0.5, 0.0]);
+        Price(600);
+        Mesh("wn_petard_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(0.0);      
+        DamagerTakesNoDamage(true);
+        DamageDuration(0);
+        ThrowFlySound("freeze_loop.wav");
+        TakeDamageThreshold(100.0);     
+        ScheduleExplodeAfterContact(false);        
+        PhysicsDamageMul(0.0);
+        DamageType(DamageType_ControlTheHorde);
+        ExplosionSound("");
+        ExplosionBuildUpSound("");
+        ThrowFlySound("");
+        ExplosionSoundMin(0);
+        ExplosionSoundVol(0);
+        DamageRange(5.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(0.0);
+        ThrowImpulseUp(0.0);
+        ExplodeDelay(0.0);
+        EnableExplosionDamage(0);
+        ThrowFlyFx("");  
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        AttachmentSplatterFx("control_the_horde_splash_hit_trace.fx");
+        AttachmentExplosionSplatterFx("control_the_horde_splash_trace.fx");
+        ExplosionFx("horde_control_explosion_sequence.fx");
+        ExplosionSplatterFx("control_the_horde_trace.fx");
+        MotionTrailFx("hunter_spit_cth_motion_trail.fx");
+        EquipmentSlot(0);
+        StickToSurfaces(false);
+        SoundsCauseAggression(false);
+    }
+    
+    Item("Throwable_Control_The_Horde_Upgraded", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("&Throwable_Grenade_N&");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        DisableRendering(true);
+        Visibility(true);
+        MaxStackCount(10);
+        ShowExplosiveHud(false);
+        ExplosiveHudColor([0.0, 0.5, 0.0]);
+        Price(600);
+        Mesh("wn_petard_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(0.0);      
+        DamagerTakesNoDamage(true);
+        DamageDuration(25);
+        ThrowFlySound("freeze_loop.wav");
+        TakeDamageThreshold(100.0);     
+        ScheduleExplodeAfterContact(true);        
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_ControlTheHorde);
+        ExplosionSound("zombieplayer_spit_explode.wav");
+        ExplosionBuildUpSound("zombieplayer_spit_sizzle.wav");
+        ThrowFlySound("zombieplayer_spit_flight.wav");
+        ExplosionSoundMin(16.0);
+        ExplosionSoundVol(2.0);
+        DamageRange(5.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(1.5);        
+        ThrowFlyFx("btz_spit_fly_green_sequence.fx");  
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        AttachmentSplatterFx("control_the_horde_splash_hit_trace.fx");
+        AttachmentExplosionSplatterFx("control_the_horde_splash_trace.fx");
+        ExplosionFx("horde_control_explosion_sequence.fx");
+        ExplosionSplatterFx("control_the_horde_trace.fx");
+        MotionTrailFx("hunter_spit_cth_motion_trail.fx");
+        EquipmentSlot(0);
+        StickToSurfaces(true);
+        SoundsCauseAggression(false);
+    }    
+    Item("Throwable_ExplosiveGrenade_AI", CategoryType_Throwable)
+    {
+        ItemType(ItemType_Grenade);
+        Visibility(true);
+        MaxStackCount(4);
+        Price(300);
+        Mesh("wn_grenade_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("weapon_frag_grenade");
+        Damage(100.0);
+        DamageRange(6.0);
+        PhysicsDamageMul(1.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        DamageType(DamageType_Blast);
+        DamageDuration(0.0);
+        ThrowImpulseLook(1300.0 *0.01);
+        ThrowImpulseUp(200.0 *0.01);
+        ExplodeDelay(5.0);
+		ExplosionSound("grenade_explosion_XX.wav");
+        ThrowEndSound("throwing.wav");
+        ThrowFlyFx("grenade_trail_sparks_sequence.fx");
+        ThrowLoopSound("auto_cannon_rocket_loop.wav");
+        StatsType(StatsType_Explosive);
+        NoiseType("EXPLOSION");
+        Color(Color_Blue);
+        EquipmentSlot(0);
+        AchType(AchType_Grenade);
+    }
+    
+    Item("Firearm_ToyGun", CategoryType_Firearm)
+    {
+        CategoryType(CategoryType_Firearm);
+        Visibility(true);
+        ItemType(ItemType_Pistol);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(-1);
+        DamageRangeMelee(110.0 *0.01);
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Flare);
+        Mesh("wn_shisha_gun_hq.msh");
+        AnimPrefix("Beretta");
+        HudIcon("weapon_pistol");
+        ShotTime(1.5);
+        ShotSound("hit_fury_fists_XX.wav");
+        BaseSoundPrefix("glock");
+        DefaultBulletId("Bullet_Pistol");
+        AmmoCount(0);
+        ReloadTime(1.5);
+        EmptySound("hit_wrench_XX.wav");
+        TwoHanded(false);
+        HolderElement("r_thigh");
+        HolderOffset([0.0,10.0,0.0] *[0.01, 0.01, 0.01]);
+        HolderAngle([0.0,90.0,-90.0]);
+        HandOffset(HandModification_Normal, [-0.03,-0.03,0.0]);
+        HandOffset(HandModification_Custom, [-0.03,-0.03,0.0]);
+        use HitEffects_Firearm();
+        use PickupSounds_Default();
+        ClipReload(true);
+        FxNameShell("BerettaGunfireShell");
+        ShootFx("PistolGunfireSingle_sequence.fx");
+        AimBlurStart(0.25);
+        AimBlurEnd(0.35);
+        MoveAcurancyLoseFactor(0.3);
+        DuckInertiaFactor(0.3);
+        ShootMinAngle(0.0127);
+        ShootMaxAngle(0.16);
+        ShootAngleVel(0.104);
+        ShootAngleCooldown(0.24);
+        ShootVertRecoil(0.04);
+        ShootVertRecoilSpread(0.012);
+        ShootHorzRecoil(0.0);
+        ShootHorzRecoilSpread(0.0);
+        ShootRecoilTime(0.09);
+        ShootMode(ShotMode_Single);
+        BulletsPerShot(0);
+        AimFov(1.6);
+        MaxReboundCount(3);
+        DamageSize(1.0);
+        AiHitSound("bullet");
+        StatsType(StatsType_Pistol);
+        Price(735);
+        FF_EffectName("Shot_StrongPistol");
+        FF_Left(0.3);
+        FF_Right(0.4);
+        FF_Duration(0.1);
+        FF_FadeOut(0.0);
+        CriticalProb(0.0);
+        CriticalDamage(1.0);
+        DamageHeadMult(4.3);
+        DamageToPhysicsObjects(10.0);
+        FirePointRange(0,400.0 *0.01);
+        FirePointDamage(0,0.0);
+        ShotTailDelay(0.5);
+        AchType(AchType_Pistol);
+        NameGender(0);
+        PriceMult(1.1);
+    }
+    
+    Item("Melee_StunBlob", CategoryType_Melee)
+    {
+        Name("&Melee_Kunai_N&");
+        Description("&Melee_Kunai_D&");
+        Visibility(true);
+        PhysicsScript("single_dropped_inventory.phx");
+        ItemType(ItemType_ThrowingStar);        
+        Condition(1);
+        Damage(10.0);
+        CriticalProb(0.1);
+        CriticalDamage(2.0);
+        DamageRange(0.01);
+        Force(0.0);        
+        PhysicsDamageMul(1);
+        StaminaUsage(0.0);
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Cut);        
+        Mesh("wn_petard_a.msh");
+        AnimPrefix("Grenade");
+        HudIcon("grenade");
+        MinDamageAngle(1.0);
+        MaxDamageAngle(1.0);
+        MinDamageMult(1.0);        
+        MinHitSeverity(HitSeverity_Light);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(false);
+        HolderElement("bip01 r thigh");
+        HolderOffset([0.0,0.1,0.1]);
+        HolderAngle([0.0,0.0,-90.0]);        
+        AiHitSound("knife");
+        use HitEffects_Default();
+        BloodSplatFactor(0.5);        
+        DamageSize(10.0);
+        StatsType(StatsType_Cut);                
+        FF_Left(1.0);
+        FF_Right(1.0);
+        FF_Duration(0.5);
+        FF_FadeOut(0.1);
+        AchType(AchType_Knife);
+        Reparable(false);    
+        MaxStackCount(30); 
+        ConfusionProb(1.0);
+        DamageDuration(2.5);    
+        EquipmentSlot(0);
+    }
+    Item("AAA_TEST_CONFUSION", CategoryType_Melee)
+    {
+        Name("&Confuse_N&");
+        Description("&base_D&");
+        Visibility(true);
+        ItemType(ItemType_TwoHandedCloseStick);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(150);
+        Damage(1);
+        CriticalProb(0.05);
+        CriticalDamage(2);
+        DamageRange(165.0 *0.01);
+        Force(1);
+        PhysicsDamageMul(1);
+        StaminaUsage(0.0);
+        SwingSpeed(1.1);
+        ConfusionProb(1.0);
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Blunt);
+        Mesh("wn_baseballbat_a.msh");
+        AnimPrefix("Stick2Close");
+        HudIcon("baseballbat_a");
+        MinDamageAngle(-60.0);
+        MaxDamageAngle(45.0);
+        MinDamageMult(1.0);
+        MinHitSeverity(HitSeverity_Medium);
+        MaxHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(true);
+        HolderElement("spine2");
+        HolderOffset([25.0,10.0,15.0] *[0.01, 0.01, 0.01]);
+        HolderAngle([90.0,20.0,90.0]);
+        CausesKnockDown(true);
+        DestroySound("break_wooden_weapon_00.wav");
+        AiHitSound("baseball_metal");
+        use HitEffects_Default();
+        BloodSplatFactor(0.15);
+        use PickupSounds_Default();
+        DamageSize(10.0);
+        StatsType(StatsType_Blunt);
+        LootType(LootType_Blunt);
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        Color(Color_White);
+        AchType(AchType_BaseballBat);
+        NameGender(0);
+        CraftingSlots(3);
+        RestrictionFlags(0);
+    }
+    
+    Item("PursuitBreakerSwitch", CategoryType_Medkit)
+    {
+        Name("&PursuitBreakerSwitch_N&");
+        Description("&PursuitBreakerSwitch_D&");
+        Visibility(true);
+        ItemType(ItemType_StaminaBooster);
+        PhysicsScript("single_dropped_inventory.phx");
+        MaxStackCount(1);
+        Mesh("radio_switch.msh");        
+        Skin("Default");        
+        AnimPrefix("PursuitBreakerSwitch");        
+        UseTime(0.73);
+        UseSound("pursuit_remote_activate.wav");        
+        UseOnPickUp(true);
+        Color(Color_White);
+    }
+    
+    Item("PaperSheet", CategoryType_Medkit)
+    {
+        Name("&PaperSheet_N&");
+        Description("&PaperSheet_D&");
+        Visibility(true);
+        ItemType(ItemType_StaminaBooster);
+        PhysicsScript("single_dropped_inventory.phx");
+        MaxStackCount(1);
+        Mesh("small_sheet_anim.msh");        
+        Skin("Default");        
+        AnimPrefix("PaperSheet");        
+        UseTime(0.73);
+        UseOnPickUp(true);
+        Color(Color_White);
+        TwoHanded(true);
+    }
+    
+    Item("AAA_TEST_PHYSICS_DAMAGE", CategoryType_Melee)
+    {
+        Name("&PhysicsDamage_N&");
+        Description("&base&");
+        Visibility(true);
+        ItemType(ItemType_TwoHandedCloseStick);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(150);
+        Damage(1);
+        CriticalProb(0.05);
+        CriticalDamage(2);
+        DamageRange(165.0 *0.01);
+        Force(1000);
+        PhysicsDamageMul(3);
+        StaminaUsage(0.0);
+        SwingSpeed(1.1);
+        ConfusionProb(0.0);
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Blunt);
+        Mesh("wn_baseballbat_a.msh");
+        AnimPrefix("Stick2Close");
+        HudIcon("baseballbat_a");
+        MinDamageAngle(-60.0);
+        MaxDamageAngle(45.0);
+        MinDamageMult(1.0);
+        MinHitSeverity(HitSeverity_Medium);
+        MaxHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(true);
+        HolderElement("spine2");
+        HolderOffset([25.0,10.0,15.0] *[0.01, 0.01, 0.01]);
+        HolderAngle([90.0,20.0,90.0]);
+        CausesKnockDown(true);
+        DestroySound("break_wooden_weapon_00.wav");
+        AiHitSound("baseball_metal");
+        use HitEffects_Default();
+        BloodSplatFactor(0.15);
+        use PickupSounds_Default();
+        DamageSize(10.0);
+        StatsType(StatsType_Blunt);
+        LootType(LootType_Blunt);
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        Color(Color_White);
+        AchType(AchType_BaseballBat);
+        NameGender(0);
+        CraftingSlots(3);
+        RestrictionFlags(0);
+    }
+    
+    Item("AI_Throwable_Stone", CategoryType_Throwable)
+    {
+        IdNameOld("Item_Stone");
+        Name("&AI_Throwable_Stone_N&");
+        Description("&AI_Throwable_Stone_D&");
+        ItemType(ItemType_ThrowableStone);
+        Visibility(true);
+        MaxStackCount(1);
+        Price(5);
+        Mesh("wn_petard_a.msh");
+        Skin("default");
+        AnimPrefix("Decoy");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("jar");
+        Damage(6.0);
+        ExplodeDelay(10.0);
+        ExplodeOnCollision(true);
+        PhysicsDamageMul(5.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ThrowBeginSound("");
+        StatsType(StatsType_None);
+        NoiseType("NONE");
+        Color(Color_White);
+        FF_EffectName("Throw_Knife");
+    }
+    
+    Item("AI_Throwable_Knife", CategoryType_Throwable)
+    {
+        IdNameOld("Item_Throwable_Knife");
+        Name("&AI_Throwable_Knife_N&");
+        Description("&AI_Throwable_Knife_D&");
+        ItemType(ItemType_ThrowableKnife);
+        Visibility(true);
+        MaxStackCount(1);
+        Price(5);
+        Mesh("wn_throwing_knife_a.msh");
+        Skin("default");
+        AnimPrefix("Decoy");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("jar");
+        Damage(10.0);
+        ExplodeDelay(10.0);
+        ExplodeOnCollision(true);
+        PhysicsDamageMul(5.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ThrowBeginSound("");
+        StatsType(StatsType_None);
+        NoiseType("NONE");
+        Color(Color_White);
+        FF_EffectName("Throw_Knife");
+        ThrowFlySound("ai_knife_throw_fly.wav");
+    }
+
+    Item("AI_Throwable_Knife_L2", CategoryType_Throwable)
+    {
+        IdNameOld("Item_Throwable_Knife");
+        Name("&AI_Throwable_Knife_N&");
+        Description("&AI_Throwable_Knife_D&");
+        ItemType(ItemType_ThrowableKnife);
+        Visibility(true);
+        MaxStackCount(1);
+        Price(5);
+        Mesh("wn_throwing_knife_a.msh");
+        Skin("default");
+        AnimPrefix("Decoy");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("jar");
+        Damage(11.2);
+        ExplodeDelay(10.0);
+        ExplodeOnCollision(true);
+        PhysicsDamageMul(5.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ThrowBeginSound("");
+        StatsType(StatsType_None);
+        NoiseType("NONE");
+        Color(Color_White);
+        FF_EffectName("Throw_Knife");
+        ThrowFlySound("ai_knife_throw_fly.wav");
+    }
+
+    Item("AI_Throwable_Knife_L4", CategoryType_Throwable)
+    {
+        IdNameOld("Item_Throwable_Knife");
+        Name("&AI_Throwable_Knife_N&");
+        Description("&AI_Throwable_Knife_D&");
+        ItemType(ItemType_ThrowableKnife);
+        Visibility(true);
+        MaxStackCount(1);
+        Price(5);
+        Mesh("wn_throwing_knife_a.msh");
+        Skin("default");
+        AnimPrefix("Decoy");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("jar");
+        Damage(15.0);
+        ExplodeDelay(10.0);
+        ExplodeOnCollision(true);
+        PhysicsDamageMul(5.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ThrowBeginSound("");
+        StatsType(StatsType_None);
+        NoiseType("NONE");
+        Color(Color_White);
+        FF_EffectName("Throw_Knife");
+        ThrowFlySound("ai_knife_throw_fly.wav");
+    }
+    
+    Item("AI_Throwable_KnifePoison", CategoryType_Throwable)
+    {
+        IdNameOld("Item_Throwable_Knife");
+        Name("&AI_Throwable_Knife_N&");
+        Description("&AI_Throwable_Knife_D&");
+        ItemType(ItemType_ThrowableKnife);
+        Visibility(true);
+        MaxStackCount(1);
+        Price(5);
+        Mesh("wn_throwing_knife_a.msh");
+        Skin("default");
+        AnimPrefix("Decoy");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("jar");
+        Damage(6.0);
+        ExplodeDelay(10.0);
+        ExplodeOnCollision(true);
+        PhysicsDamageMul(5.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ThrowBeginSound("");
+        StatsType(StatsType_None);
+        NoiseType("NONE");
+        Color(Color_White);
+        FF_EffectName("Throw_Knife");
+        DamageType(DamageType_Poison);
+    }    
+    
+    Item("Throwable_Btz_Flare", CategoryType_ThrowableFlare)
+    {        
+        Name("&Throwable_Flare_N&");
+        Description("&Throwable_Flare_D&");
+        ItemType(ItemType_Flare);
+        Visibility(true);
+        MaxStackCount(999);
+        Price(50);
+        Mesh("flare_a.msh");
+        Skin("default");
+        AnimPrefix("Flare");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("equipment_flare");
+        ShowExplosiveHud(true);
+        ExplosiveHudColor([1.0, 0.5, 0.5]);
+        TakeDamageThreshold(100.0);
+        Damage(0.0);
+        DamageDuration(3.0);
+        PhysicsDamageMul(0);
+        DamageType(DamageType_Blast);
+        DamageRange(4.5);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(10.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(10.0); // burn duration
+        ThrowBeginSound("");
+        ThrowEndSound("");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        NoiseType("NONE");
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        Reparable(false); 
+        Condition(1);
+        EquipmentSlot(0);
+        BurningFx("military_signal_flare_in_hand_sequence.fx");
+        BurningOnGroundFx("military_signal_flare_ground_sequence.fx");
+        BurningTrailFx("military_signal_flare_in_hand_sequence.fx");
+        IgnitionFx("military_signal_flare_ignition_sequence.fx");
+        ObjectHitFx("military_signal_flare_hit_ground_sequence.fx");
+    }
+    
+	Item("Throwable_ZaidFlare", CategoryType_ThrowableFlare)
+    {        
+        Name("&Throwable_ZaidFlare_N&");
+        Description("&Throwable_ZaidFlare_SD&");
+        ItemType(ItemType_Flare);
+        Visibility(true);
+        MaxStackCount(999);
+        Price(50);
+        Mesh("flare_a.msh");
+        Skin("default");
+        AnimPrefix("Flare");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("equipment_flare");
+        ShowExplosiveHud(true);
+        ExplosiveHudColor([1.0, 0.5, 0.5]);
+        TakeDamageThreshold(100.0);
+        Damage(0.0);
+        DamageDuration(3.0);
+        PhysicsDamageMul(0);
+        DamageType(DamageType_Blast);
+        DamageRange(4.5);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(10.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(15.0); // burn duration
+        ThrowBeginSound("");
+        ThrowEndSound("");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        NoiseType("NONE");
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        Reparable(false); 
+        Condition(1);
+        EquipmentSlot(0);
+        BurningFx("military_signal_flare_in_hand_sequence.fx");
+        BurningOnGroundFx("military_signal_flare_ground_sequence.fx");
+        BurningTrailFx("military_signal_flare_in_hand_sequence.fx");
+        IgnitionFx("military_signal_flare_ignition_sequence.fx");
+        ObjectHitFx("military_signal_flare_hit_ground_sequence.fx");
+    }
+	
+    Item("Throwable_Smoke_Flare", CategoryType_ThrowableFlare)
+    {        
+        Name("&Throwable_Military_Flare_N&");
+        Description("&Throwable_Military_Flare_D&");
+        ItemType(ItemType_Flare);
+        Visibility(true);
+        MaxStackCount(30);
+        Price(600);
+        Mesh("flare_a.msh");
+        Skin("default");
+        AnimPrefix("Flare");
+        TakeDamageThreshold(100.0);
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("equipment_flare");
+        Damage(0.0);
+        DamageDuration(3.0);
+        PhysicsDamageMul(0);
+        DamageType(DamageType_Blast);
+        DamageRange(4.5);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(10.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(15.0); // burn duration
+        ThrowBeginSound("");
+        ThrowEndSound("");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        NoiseType("NONE");
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        Reparable(false); 
+        Condition(1);
+        EquipmentSlot(0);
+        BurningFx("smoke_screen_explosion_sequence.fx");
+        BurningOnGroundFx("smoke_screen_explosion_sequence.fx");
+        ObjectHitFx("military_signal_flare_hit_ground_sequence.fx");
+    }
+    
+    Item("Special_CollisionDamage", CategoryType_Melee)
+    {
+        Name("&Special_CollisionDamage&");
+        Description("&Special_CollisionDamage&");
+        Visibility(false);
+        Condition(-1);
+        AiHitSound("special_collision");
+        Damage(1.0);
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_Blunt);
+    }
+    
+    Item("Special_JumpOnHeadDamage", CategoryType_Melee)
+    {
+        Name("&Special_JumpOnHeadDamage&");
+        Description("&Special_JumpOnHeadDamage&");
+        Visibility(false);
+        Condition(-1);
+        AiHitSound("leg");
+        Damage(5.0);
+        DamageRange(2.0);
+        Force(30.0);
+        PhysicsDamageMul(100.0);
+        DamageType(DamageType_Blunt);
+    }
+    
+    Item("Ram_Level0", CategoryType_Melee)
+    {
+        Name("&Ram_Level0&");
+        Description("&Ram_Level0&");
+        Visibility(false);
+        Condition(-1);
+        AiHitSound("None");
+        SwingSpeed(1.0);
+    }
+
+    Item("Ram_Level1", CategoryType_Melee)
+    {
+        Name("&Ram_Level1&");
+        Description("&Ram_Level1&");
+        Visibility(false);
+        Condition(-1); 
+        AiHitSound("Ram");         
+        SwingSpeed(1.0);
+    }
+    
+    Item("Ram_Level2", CategoryType_Melee)
+    {
+        Name("&Ram_Level2&");
+        Description("&Ram_Level2&");
+        Visibility(false);
+        Condition(-1);
+        AiHitSound("Ram"); 
+        SwingSpeed(1.0);
+    }
+    
+    Item("Ram_Level3", CategoryType_Melee)
+    {
+        Name("&Ram_Level3&");
+        Description("&Ram_Level3&");
+        Visibility(false);
+        Condition(-1);
+        AiHitSound("Ram");         
+        SwingSpeed(1.0);
+    }   
+    
+    Item("Melee_GroundPoundLvl1", CategoryType_Melee)
+    {
+        Name("&Melee_GroundPound_N&");
+        Description("&Melee_GroundPound_D&");
+        Visibility(false);
+        Condition(-1);        
+        SwingSpeed(2.0);
+        DamageRange(4.0);
+        Damage(1.0);
+        Force(1000.0);
+        DamageToPhysicsObjects(200.0);
+        PhysicsDamageMul(1.2);
+        DamageType(DamageType_Blunt);
+        StaminaUsage(0.3);
+    }   
+    
+    Item("Melee_GroundPoundLvl2", CategoryType_Melee)
+    {
+        Name("&Melee_GroundPound_N&");
+        Description("&Melee_GroundPound_D&");
+        Visibility(false);
+        Condition(-1);        
+        SwingSpeed(2.0);
+        DamageRange(5.5);
+        Damage(16.0);
+        Force(1000.0);
+        DamageToPhysicsObjects(250.0);
+        PhysicsDamageMul(1.6);
+        DamageType(DamageType_Blunt);
+        StaminaUsage(0.3);
+    }   
+    
+    Item("Melee_FuryRam", CategoryType_Melee)
+    {
+        Name("&Melee_FuryRam_N&");
+        Description("&Melee_FuryRam_D&");
+        Visibility(false);
+        Condition(-1);
+        AiHitSound("fury_fists");  
+        Damage(3.0);
+        Force(1000.0);
+        PhysicsDamageMul(2.55);
+        DamageType(DamageType_Ram);
+    }   
+    
+    Item("Melee_ThrowingStar", CategoryType_Throwable)
+    {
+        Name("&Melee_Kunai_N&");
+        Description("&Melee_Kunai_D&");
+        Visibility(true);
+        PhysicsScript("single_dropped_inventory.phx");
+        ItemType(ItemType_ThrowingStar);        
+        Condition(1);
+        Damage(20.0);
+        CriticalProb(0.1);
+        CriticalDamage(2.0);
+        DamageRange(0.01);
+        Force(10.0);        
+        DamageToPhysicsObjects(20.0);
+        PhysicsDamageMul(0.1);
+        StaminaUsage(0.0);
+        SwingSpeed(0.7);
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Cut);        
+        Mesh("wn_throwing_knife_a.msh");
+        AnimPrefix("Thrower");
+        HudIcon("grenade");
+        MinDamageAngle(1.0);
+        MaxDamageAngle(1.0);
+        MinDamageMult(1.0);
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Light);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(false);
+        HolderElement("bip01 r thigh");
+        HolderOffset([0.0,0.1,0.1]);
+        HolderAngle([0.0,0.0,-90.0]);        
+        AiHitSound("knife");
+        use HitEffects_Default();
+        BloodSplatFactor(0.5);        
+        DamageSize(10.0);
+        StatsType(StatsType_Cut);                
+        AchType(AchType_Knife);
+        Reparable(false);    
+        MaxStackCount(30);   
+        EquipmentSlot(0); 
+    }
+    
+    Item("AAA_Melee_ThrowingStar", CategoryType_Melee)
+    {
+        Name("&Melee_Kunai_N&");
+        Description("&Melee_Kunai_D&");
+        Visibility(true);
+        PhysicsScript("single_dropped_inventory.phx");
+        ItemType(ItemType_ThrowingStar);        
+        Condition(1);
+        Damage(90.0);
+        CriticalProb(0.1);
+        CriticalDamage(2.0);
+        DamageRange(0.01);
+        Force(90.0);        
+        PhysicsDamageMul(1);
+        StaminaUsage(0.0);
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Cut);        
+        Mesh("wn_throwing_knife_a.msh");
+        AnimPrefix("Thrower");
+        HudIcon("grenade");
+        MinDamageAngle(1.0);
+        MaxDamageAngle(1.0);
+        MinDamageMult(1.0);
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Light);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(false);
+        HolderElement("bip01 r thigh");
+        HolderOffset([0.0,0.1,0.1]);
+        HolderAngle([0.0,0.0,-90.0]);        
+        AiHitSound("knife");
+        use HitEffects_Default();
+        BloodSplatFactor(0.5);        
+        DamageSize(10.0);
+        StatsType(StatsType_Cut);                
+        AchType(AchType_Knife);
+        Reparable(false);    
+        MaxStackCount(30);    
+        EquipmentSlot(0);
+    }
+        
+    Item("RepairPart_Tape", CategoryType_RepairPart)
+    {
+        IdNameOld("Tape");
+        Name("&Hud_RepairParts&");
+        Description("&RepairPart_Tape_D&");
+        ItemType(ItemType_RepairPart);
+        Visibility(true);
+        Price(1);
+        Mesh("craft_box_a.msh");
+        Skin("default");
+        PhysicsScript("single_dropped_inventory.phx");
+        Color(Color_White);
+    }
+    
+    Item("RepairPart_Nails", CategoryType_RepairPart)
+    {
+        IdNameOld("Nails");
+        Name("&Hud_RepairParts&");
+        Description("&RepairPart_Nails_D&");
+        ItemType(ItemType_RepairPart);
+        Visibility(true);
+        Price(8);
+        Mesh("craft_box_a.msh");
+        Skin("default");
+        PhysicsScript("single_dropped_inventory.phx");
+        Color(Color_White);
+    }
+    
+    Item("RepairPart_RepairPart", CategoryType_RepairPart)
+    {
+        Name("&RepairPart_RepairPart_N&");
+        Description("&RepairPart_RepairPart_D&");
+        ItemType(ItemType_RepairPart);
+        Visibility(false);
+        Price(5);
+        Mesh("nomesh.msh");
+        Skin("default");
+        PhysicsScript("single_dropped_inventory.phx");
+        Color(Color_White);
+    }   
+    
+    Item("Melee_Leg", CategoryType_Melee)
+    {
+        Name("&Melee_Leg_N&");
+        Description("&Melee_Leg_D&");        
+        ItemType(ItemType_Stick);        
+        Condition(0);
+        Damage(5.0);
+        DamageToPhysicsObjects(34.0);
+        CriticalProb(0.05);
+        CriticalDamage(2.0);
+        DamageRange(2.0);
+        Force(30.0);
+        PhysicsDamageMul(1.3);
+        StaminaUsage(0.0);       
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        AiHitSound("leg");
+        DamageType(DamageType_Kick);                
+        Reparable(false); 
+        MinDamageAngle(-8.0);
+        MaxDamageAngle(8.0);        
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Medium);
+        StaminaUsage(0.0);     
+		use HitEffects_Default();		
+    }
+    
+    Item("Melee_CrowdBump", CategoryType_Melee)
+    {
+        Name("&Melee_Leg_N&");
+        Description("&Melee_Leg_D&");        
+        ItemType(ItemType_Stick);        
+        Condition(0);
+        Damage(0.0);
+        DamageToPhysicsObjects(34.0);
+        CriticalProb(0.0);
+        CriticalDamage(1.0);
+        DamageRange(2.0);
+        Force(0.0);
+        PhysicsDamageMul(1.3);
+        StaminaUsage(0.0);       
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        AiHitSound("leg");
+        DamageType(DamageType_Kick);                
+        Reparable(false); 
+        MinDamageAngle(-8.0);
+        MaxDamageAngle(8.0);        
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Medium);
+        StaminaUsage(0.0);        
+    }
+    Item("Melee_Tackle", CategoryType_Melee)
+    {
+        Name("&Melee_Tackle_N&");
+        Description("&Melee_Tackle_D&");        
+        ItemType(ItemType_Special);        
+        Condition(0);
+        Damage(3.0);
+        DamageToPhysicsObjects(100.0);
+        CriticalProb(0.0);
+        CriticalDamage(2.0);
+        DamageRange(2.0);
+        Force(10.0);
+        PhysicsDamageMul(2.2);
+        StaminaUsage(0.0);       
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        AiHitSound("leg");
+        DamageType(DamageType_Punch1);                
+        Reparable(false); 
+        MinDamageAngle(-8.0);
+        MaxDamageAngle(8.0);        
+        MaxHitSeverity(HitSeverity_Heavy);
+        MinHitSeverity(HitSeverity_Heavy);
+        StaminaUsage(0.0);        
+    }
+	Item("Melee_ZipLine", CategoryType_Melee)
+    {
+        Name("&Melee_ZipLine_N&");
+        Description("&Melee_ZipLine_D&");        
+        ItemType(ItemType_Special);        
+        Condition(0);
+        Damage(250.0);
+        DamageToPhysicsObjects(100.0);
+        CriticalProb(0.0);
+        CriticalDamage(2.0);
+        DamageRange(2.0);
+        Force(400.0);
+        PhysicsDamageMul(3.0);
+        StaminaUsage(0.0);       
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        AiHitSound("leg");
+        DamageType(DamageType_Ram);                
+        Reparable(false); 
+        MinDamageAngle(-8.0);
+        MaxDamageAngle(8.0);        
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Medium);
+        StaminaUsage(0.0);        
+    }
+    
+    Item("Melee_TackleFirstHit", CategoryType_Melee)
+    {
+        Name("&Melee_Tackle_N&");
+        Description("&Melee_Tackle_D&");        
+        ItemType(ItemType_Special);        
+        Condition(0);
+        Damage(25.0);
+        DamageToPhysicsObjects(100.0);
+        CriticalProb(0.0);
+        CriticalDamage(2.0);
+        DamageRange(2.0);
+        Force(400.0);
+        PhysicsDamageMul(1.25);
+        StaminaUsage(0.0);       
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        AiHitSound("leg");
+        DamageType(DamageType_Ram);                
+        Reparable(false); 
+        MinDamageAngle(-8.0);
+        MaxDamageAngle(8.0);        
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Medium);
+        StaminaUsage(0.0);        
+    }
+    
+    Item("Melee_HardCollision", CategoryType_Melee)
+    {
+        Name("&Melee_HardCollision_N&");
+        Description("&Melee_HardCollision_D&");        
+        ItemType(ItemType_Special);        
+        Condition(0);
+        Damage(2.0);
+        DamageToPhysicsObjects(100.0);
+        CriticalProb(0.1);
+        CriticalDamage(2.0);
+        DamageRange(2.0);
+        Force(400.0);
+        PhysicsDamageMul(2.2);
+        StaminaUsage(0.0);       
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        AiHitSound("leg");
+        DamageType(DamageType_Ram);                
+        Reparable(false); 
+        MinDamageAngle(-8.0);
+        MaxDamageAngle(8.0);        
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Medium);
+        StaminaUsage(0.0);        
+    }
+    
+    Item("Melee_Slide", CategoryType_Melee)
+    {
+        Name("&Melee_Slide_N&");
+        Description("&Melee_Slide_D&");        
+        ItemType(ItemType_Special);        
+        Condition(0);
+        Damage(3.0);
+        DamageToPhysicsObjects(34.0);
+        CriticalProb(0.05);
+        CriticalDamage(2.0);
+        DamageRange(2.0);
+        Force(30.0);
+        PhysicsDamageMul(1.3);
+        StaminaUsage(0.0);       
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        AiHitSound("leg");
+        DamageType(DamageType_Slide);                
+        Reparable(false); 
+        MinDamageAngle(-8.0);
+        MaxDamageAngle(8.0);        
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Medium);
+        StaminaUsage(0.0);        
+    }
+    
+    /*Item("AA_A_Bow", CategoryType_Melee)
+    {
+        Name("&Melee_Bow_N&");
+        Description("&Melee_Bow_D&");
+        Visibility(true);
+        ItemType(ItemType_Bow);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(78);
+        Damage(180.0);
+        CriticalProb(0.01);
+        DamageRange(20.0);
+        StaminaUsage(0.1);
+        SwingSpeed(1.3);
+        Mesh("weapon_bow.msh");        
+        AnimPrefix("Bow");
+        HudIcon("bigfireaxe");        
+        TwoHanded(false);        
+        ThrustAngle(30.0);
+        DestroySound("break_wooden_weapon_00.wav");
+        AiHitSound("axe");
+        use HitEffects_Sharp();
+        BloodSplatFactor(0.25);
+        use PickupSounds_Default();
+        DamageSize(15.0);
+        StatsType(StatsType_Cut);
+        LootLevel(8);
+        ReqXpLevel(9);
+        LootType(LootType_Sharp);
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        Color(Color_White);        
+        GenLevelMin(1);
+        AchType(AchType_BigAxe);
+        NameGender(1);
+    }
+    
+    Item("AA_Arrow", CategoryType_Melee)
+    {
+        Name("&Melee_Arrow_N&");
+        Description("&Melee_Arrow_D&");
+        Visibility(true);
+        PhysicsScript("single_dropped_inventory.phx");
+        ItemType(ItemType_Arrow);        
+        Condition(-1);
+        Damage(90.0);
+        CriticalProb(0.1);
+        CriticalDamage(2.0);
+        DamageRange(1.5);
+        Force(90.0);
+        PhysicsDamageMul(2.3);
+        StaminaUsage(0.0);
+        SwingSpeed(0.7);
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Cut);        
+        Mesh("weapon_arrow_a.msh");
+        AnimPrefix("Bow");
+        HudIcon("diving_knife_a");
+        MinDamageAngle(20.0);
+        MaxDamageAngle(20.0);
+        MinDamageMult(1.0);
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Light);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(false);
+        HolderElement("bip01 r thigh");
+        HolderOffset([0.0,0.1,0.1]);
+        HolderAngle([0.0,0.0,-90.0]);        
+        AiHitSound("knife");
+        use HitEffects_Default();
+        BloodSplatFactor(0.5);        
+        DamageSize(10.0);
+        StatsType(StatsType_Cut);                
+        FF_Left(1.0);
+        FF_Right(1.0);
+        FF_Duration(0.5);
+        FF_FadeOut(0.1);
+        AchType(AchType_Knife);
+        Reparable(false);    
+        MaxStackCount(10);    
+        ThrustAngle(2.0);
+    }*/
+        
+    Item("AA_Test_OxygenCylinder", CategoryType_Powerup)
+    {
+        Name("&Melee_OxygenCylinder_N&");
+        Description("&Melee_OxygenCylinder_D&");
+        Visibility(true);
+        PhysicsScript("single_dropped_inventory.phx");
+        ItemType(ItemType_OxygenCylinder);             
+        Mesh("emergency_aqualung.msh");        
+        Reparable(false);
+        OxygenUsageFactor(0.25);
+        Condition(60.0);
+        EquipmentSlot(2);
+    }
+    
+    Item("AA_Test_SprayCan", CategoryType_Powerup)
+    {
+        Name("&Melee_OxygenCylinder_N&");
+        Description("&Melee_OxygenCylinder_D&");
+        Visibility(true);
+        PhysicsScript("single_dropped_inventory.phx");
+        ItemType(ItemType_OxygenCylinder);             
+        Mesh("emergency_aqualung.msh");        
+        Reparable(false);
+        OxygenUsageFactor(0.25);
+        Condition(60.0);
+        EquipmentSlot(2);
+    }
+    
+    
+    Item("Melee_ToxicSpit", CategoryType_Melee)
+    {
+        Name("&Melee_ToxicSpit_N&");
+        Description("&Melee_ToxicSpit_D&");
+        Visibility(false);
+        ItemType(ItemType_ToxicSpit);
+        Condition(-1);
+        Damage(20.0);
+        CriticalProb(0.01);
+        CriticalDamage(5.0);
+        DamageRange(1.15);
+        Force(25.0);
+        PhysicsDamageMul(0.5);
+        StaminaUsage(0.05);
+        SwingSpeed(0.9);
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Punch1);
+        //Price(-1);
+        Mesh("weapon_fists.msh");
+        AnimPrefix("Force");
+        HudIcon("ToxicSpit");
+        MinDamageAngle(-60.0);
+        MaxDamageAngle(45.0);
+        MinDamageMult(1.0);
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Light);
+        HorizontalAttackDamageMul(1.0);
+        RagdollBehavior(RagdollBehavior_Fists);
+        TwoHanded(false);
+        AiHitSound("Fist");
+        use HitEffects_Default();
+        use PickupSounds_Default();
+        DamageSize(5.0);
+        StatsType(StatsType_Fists);
+        LootLevel(1);
+        LootType(LootType_None);
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        Color(Color_White);
+    }
+    
+    Item("Melee_Shockwave", CategoryType_Melee)
+    {
+        Name("&Melee_Shockwave_N&");
+        Description("&Melee_Leg_D&");        
+        ItemType(ItemType_Stick);        
+        Condition(0);
+        Damage(1.0);
+        CriticalProb(0.0);
+        CriticalDamage(1.0);
+        DamageRange(200.0);
+        Force(5.0);
+        PhysicsDamageMul(0.3);
+        StaminaUsage(0.0);       
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        AiHitSound("leg");
+        DamageType(DamageType_Forcewave);                
+        Reparable(false); 
+        MinDamageAngle(-60.0);
+        MaxDamageAngle(60.0);        
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Medium);
+        StaminaUsage(0.1);        
+    }
+    
+    Item("Melee_HeavyLandingShockwave", CategoryType_Melee)
+    {
+        Name("&Melee_HeavyLandingShockwave_N&");
+        Description("&Melee_HeavyLandingShockwave_D&");        
+        ItemType(ItemType_Stick);        
+        Condition(0);
+        Damage(1.0);
+        CriticalProb(0.0);
+        CriticalDamage(1.0);
+        DamageRange(2.0);
+        Force(5.0);
+        PhysicsDamageMul(0.3);
+        StaminaUsage(0.0);       
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        AiHitSound("leg");
+        DamageType(DamageType_Forcewave);                
+        Reparable(false); 
+        MinDamageAngle(-60.0);
+        MaxDamageAngle(60.0);        
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Medium);
+        StaminaUsage(0.1);        
+    }
+    
+    Item("Melee_LightLandingShockwave", CategoryType_Melee)
+    {
+        Name("&Melee_LightLandingShockwave_N&");
+        Description("&Melee_LightLandingShockwave_D&");        
+        ItemType(ItemType_Stick);        
+        Condition(0);
+        Damage(1.0);
+        CriticalProb(0.0);
+        CriticalDamage(1.0);
+        DamageRange(1.25);
+        Force(5.0);
+        PhysicsDamageMul(0.3);
+        StaminaUsage(0.0);       
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        AiHitSound("leg");
+        DamageType(DamageType_Forcewave);                
+        Reparable(false); 
+        MinDamageAngle(-60.0);
+        MaxDamageAngle(60.0);        
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Medium);
+        StaminaUsage(0.1);        
+    }
+
+    Item("Throwable_SpitGrenade", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("&Throwable_Grenade_N&");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_ToxicSpit);
+        Visibility(true);
+        MaxStackCount(10);
+        Price(600);
+        Mesh("spit_grenade_blob.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(5.0);
+        PhysicsDamageMul(2.4);
+        DamageType(DamageType_Poison);
+        DamageRange(6.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        TakeDamageThreshold(100.0);
+        ThrowImpulseLook(2100.0);
+        ThrowImpulseUp(400.0);
+        ExplodeDelay(3.0);
+        ThrowEndSound("zombie_spitter_blob_grenade_throw_00.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        NoiseType("LIGHT_EXPLOSION");
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        ExplosionSound("zombie_spitter_blob_grenade_esplosion_00.wav");
+        ExplosionFx("spitter_explode_sequence.fx");
+        ThrowFlySound("zombie_spitter_blob_grenade_flight.wav");
+    }
+
+    Item("Throwable_SpitGrenadePerfectMurder", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("&Throwable_Grenade_N&");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_ToxicSpit);
+        Visibility(true);
+        MaxStackCount(10);
+        Price(600);
+        Mesh("spit_grenade_blob.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(5.0);
+        PhysicsDamageMul(0.0);
+        DamageType(DamageType_Poison);
+        DamageRange(3.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        TakeDamageThreshold(50.0);
+        ThrowImpulseLook(100.0);
+        ThrowImpulseUp(100.0);
+        ExplodeDelay(3.0);
+        ThrowEndSound("zombie_spitter_blob_grenade_throw_00.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        NoiseType("LIGHT_EXPLOSION");
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        ExplosionSound("zombie_spitter_blob_grenade_esplosion_00.wav");
+        ExplosionFx("spitter_explode_sequence.fx");
+        ThrowFlySound("zombie_spitter_blob_grenade_flight.wav");
+    }
+
+    Item("Throwable_Dynamite", CategoryType_Throwable)
+    {
+        ItemType(ItemType_Grenade);
+        Visibility(true);
+        AmmoCount(3);
+        MaxStackCount(15);
+        Price(300);
+        Mesh("wn_dynamite_a.msh");
+        Skin("default");
+        AnimPrefix("Flare");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("equipment_flare");
+        Damage(500.0);
+        DamageRange(6.0);
+        PhysicsDamageMul(1.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        DamageType(DamageType_Blast);
+        DamageDuration(0.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplosionSound("homemade_bomb_explosion.wav");
+        ExplodeDelay(2.0);
+        ThrowEndSound("throwing.wav");
+        StatsType(StatsType_Explosive);
+        NoiseType("EXPLOSION");
+        Color(Color_Green);
+        EquipmentSlot(0);
+        AchType(AchType_Grenade);
+        BurningFx("smoke_screen_explosion_sequence.fx");
+        BurningOnGroundFx("smoke_screen_explosion_sequence.fx");
+        ObjectHitFx("military_signal_flare_hit_ground_sequence.fx");
+    }
+    Item("Throwable_Blister", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("Blister");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        Visibility(true);
+        MaxStackCount(1);
+        Price(600);
+        Mesh("knar_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(0.5);        
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_Poison);
+        DamageRange(1.5);
+        TakeDamageThreshold(100.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        ThrowImpulseLook(2100.0);
+        ThrowImpulseUp(400.0);
+        ExplodeDelay(2.0);
+        ThrowEndSound("zombie_spitter_blob_grenade_throw_00.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        NoiseType("NONE");
+        ExplosionSound("blister_explosion.wav");
+        ExplosionFx("knar_pop_big_sequence.fx");
+        DestroySound("blister_before_explosion.wav");
+        DestroyFx("knar_bleeding_sequence.fx");
+        DestroyFxLocalPos([0.0,1.0,0.0]);
+        DestroyFxLocalDir([0.0,1.0,0.0]);
+        Condition(1);
+    }
+    Item("Zombie_Blister", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("Blood_Blister");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_BloodBlister);
+        Visibility(true);
+        MaxStackCount(1);
+        Price(600);
+        Mesh("knar_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(0.5);        
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_Cut);
+        DamageRange(1.5);
+        TakeDamageThreshold(100.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        ThrowImpulseLook(2100.0);
+        ThrowImpulseUp(400.0);
+        ExplodeDelay(0.0);
+        ThrowEndSound("zombie_ter_blob_grenade_throw_00.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        NoiseType("NONE");
+        ExplosionSound("blister_explosion.wav");
+        ExplosionFx("red_knar_pop_big_sequence.fx");
+        DestroySound("blister_before_explosion.wav");
+        DestroyFx("knar_bleeding_sequence.fx");
+        DestroyFxLocalPos([0.0,1.0,0.0]);
+        DestroyFxLocalDir([0.0,1.0,0.0]);
+        Condition(1);
+    }
+	
+	Item("Goon_Blister", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("Blood_Blister");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_BloodBlister);
+        Visibility(true);
+        MaxStackCount(1);
+        Price(600);
+        Mesh("knar_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(0.5);        
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_Cut);
+        DamageRange(1.5);
+        TakeDamageThreshold(100.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        ThrowImpulseLook(2100.0);
+        ThrowImpulseUp(400.0);
+        ExplodeDelay(0.0);
+        ThrowEndSound("zombie_spitter_blob_grenade_throw_00.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        NoiseType("NONE");
+        ExplosionSound("blister_explosion.wav");
+        ExplosionFx("red_knar_pop_big_sequence.fx");
+        DestroySound("blister_before_explosion.wav");
+        DestroyFx("knar_bleeding_sequence.fx");
+        DestroyFxLocalPos([0.0,1.0,0.0]);
+        DestroyFxLocalDir([0.0,1.0,0.0]);
+        Condition(1);
+    }
+    
+    Item("Demolisher_Blister_UpperBack", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("Blood_Blister");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_BloodBlister);
+        Visibility(true);
+        MaxStackCount(1);
+        Price(600);
+        Mesh("knar_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(0.5);        
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_Cut);
+        DamageRange(1.5);
+        TakeDamageThreshold(100.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        ThrowImpulseLook(2100.0);
+        ThrowImpulseUp(400.0);
+        ExplodeDelay(0.0);
+        ThrowEndSound("zombie_spitter_blob_grenade_throw_00.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        NoiseType("NONE");
+        ExplosionSound("blister_explosion.wav");
+        ExplosionFx("red_knar_pop_big_sequence.fx");
+        DestroySound("blister_before_explosion.wav");
+        DestroyFx("knar_bleeding_sequence.fx");
+        DestroyFxLocalPos([0.0,1.0,0.0]);
+        DestroyFxLocalDir([0.0,1.0,0.0]);
+        Condition(1);
+    }
+    
+    Item("Demolisher_Blister_LowerBack", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("Blood_Blister");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_BloodBlister);
+        Visibility(true);
+        MaxStackCount(1);
+        Price(600);
+        Mesh("knar_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(0.5);        
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_Cut);
+        DamageRange(1.5);
+        TakeDamageThreshold(100.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        ThrowImpulseLook(2100.0);
+        ThrowImpulseUp(400.0);
+        ExplodeDelay(0.0);
+        ThrowEndSound("zombie_spitter_blob_grenade_throw_00.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        NoiseType("NONE");
+        ExplosionSound("blister_explosion.wav");
+        ExplosionFx("red_knar_pop_big_sequence.fx");
+        DestroySound("blister_before_explosion.wav");
+        DestroyFx("knar_bleeding_sequence.fx");
+        DestroyFxLocalPos([0.0,1.0,0.0]);
+        DestroyFxLocalDir([0.0,1.0,0.0]);
+        Condition(1);
+    }
+    
+    Item("Demolisher_Blister_Front", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("Blood_Blister");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_BloodBlister);
+        Visibility(true);
+        MaxStackCount(1);
+        Price(600);
+        Mesh("knar_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(0.5);        
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_Cut);
+        DamageRange(1.5);
+        TakeDamageThreshold(100.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        ThrowImpulseLook(2100.0);
+        ThrowImpulseUp(400.0);
+        ExplodeDelay(0.0);
+        ThrowEndSound("zombie_spitter_blob_grenade_throw_00.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        NoiseType("NONE");
+        ExplosionSound("blister_explosion.wav");
+        ExplosionFx("red_knar_pop_big_sequence.fx");
+        DestroySound("blister_before_explosion.wav");
+        DestroyFx("knar_bleeding_sequence.fx");
+        DestroyFxLocalPos([0.0,1.0,0.0]);
+        DestroyFxLocalDir([0.0,1.0,0.0]);
+        Condition(1);
+    }
+    
+    Item("Throwable_Rock", CategoryType_Throwable)
+    {
+        IdNameOld("Throwable_Granade");
+        Name("Rock");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_ThrowableRock);
+        Visibility(true);
+        MaxStackCount(1);
+        Price(600);
+        Mesh("armored_rock.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(2.50);
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_Blast);
+        DamageRange(1.5);
+        TakeDamageThreshold(100.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        ThrowImpulseLook(2100.0);
+        ThrowImpulseUp(400.0);
+        ExplodeDelay(5.0);
+        ExplodeOnCollision(true);
+        ThrowEndSound("");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_White);
+        AchType(AchType_Grenade);
+        NoiseType("NONE");
+        ExplosionSound("armored_heavy_stone_explosion.wav");
+        ExplosionFx("armored_stone_hit_sequence.fx");
+        ExplosionDirFx("armored_stone_hit_dir_sequence.fx");
+    }
+    
+    Item("Spikes_Pikes", CategoryType_Melee)
+    {
+        Name("&Spikes_Pikes&");
+        Description("&Spikes_Pikes&");
+        Visibility(true);
+        ItemType(ItemType_Stick);        
+        AiHitSound("spikes");
+    }
+    
+    Item("AAA_Firearm_M9Gen", CategoryType_Firearm)
+    {
+        Name("&Firearm_M9Gen_N&");
+        Description("&Firearm_M9Gen_D&");
+        CategoryType(CategoryType_Firearm);
+        Visibility(true);
+        ItemType(ItemType_Pistol);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(-1);
+        DamageRangeMelee(110.0 *0.01);
+        HeadSmashProb(0.5);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Bullet);
+        Mesh("wn_pistol_a.msh");
+        SkinTag("weapon_standard1");
+        AnimPrefix("Beretta");
+        HudIcon("eagle");
+        ShotTime(0.155);
+        ShotSound("beretta_shoot_XX.wav");
+        BaseSoundPrefix("beretta");
+        DefaultBulletId("Bullet_Pistol");
+        AmmoCount(15);
+        ReloadTime(1.5);
+        EmptySound("Pistol_Empty.wav");
+        RagdollBehavior(RagdollBehavior_None);
+        TwoHanded(false);
+        HolderElement("r_thigh");
+        HolderOffset([0.0,10.0,0.0] *[0.01, 0.01, 0.01]);
+        HolderAngle([0.0,90.0,-90.0]);
+        HandOffset(HandModification_Normal, [-3.0,-3.0,0.0] *[0.01, 0.01, 0.01]);
+        HandOffset(HandModification_Custom, [-3.0,-3.0,0.0] *[0.01, 0.01, 0.01]);
+        use HitEffects_Firearm();
+        use PickupSounds_Default();
+        ClipReload(true);
+        FxNameShell("BerettaGunfireShell");
+        ShootFx("PistolGunfireSingle_sequence.fx");
+        AimBlurStart(0.05);
+        AimBlurEnd(0.1);
+        ShootMinAngle(0.01);
+        ShootMaxAngle(0.04);
+        ShootAngleVel(0.0075);
+        ShootAngleCooldown(0.05);
+        ShootVertRecoil(0.025);
+        ShootVertRecoilSpread(0.005);
+        ShootHorzRecoil(0.0);
+        ShootHorzRecoilSpread(0.01);
+        ShootRecoilTime(0.2);
+        ShootMode(ShotMode_Single);
+        BulletsPerShot(1);
+        AimFov(2.0);
+        MaxReboundCount(3);
+        DamageSize(5.0);
+        AiHitSound("firearm");
+        StatsType(StatsType_Pistol);
+        Price(750);        
+        LootType(LootType_Firearm_Short);
+        FF_EffectName("Shot_M9");
+        CriticalProb(0.05);
+        CriticalDamage(2.0);
+        FirePointRange(0,1000.0 *0.01);
+        FirePointPhysicsDamage(0,1);
+        FirePointDamage(0,100.0);
+        FirePointPhysicsDamage(1, 1);
+        FirePointForce(0,100.0);
+        FirePointRange(1,6000.0 *0.01);
+        FirePointPhysicsDamage(1, 0.5);
+        FirePointDamage(1,20.0);
+        PhysicsDamageMul(0.5,1);
+        FirePointForce(1,20.0);
+        Color(Color_White);
+        GenType(GenType_Firearm);        
+        ShotTailDelay(0.1);
+        AchType(AchType_Pistol);
+        NameGender(0);
+        DamageToPhysicsObjects(30);
+        PriceMult(1.1);
+        ShootAnimFactor(0.4);
+        HandInertiaFactor(0.5);
+        HandInertiaRotFactor([0.3, 1.0, 1.0]);
+        BulletSpeed(350.0);
+    }
+    
+    Item("AAA_Firearm_M9Gen", CategoryType_Firearm)
+    {
+        CategoryType(CategoryType_Firearm);
+        UsageType(UsageType_Aim);
+        UpgradeLevel(0);
+        HandOffset(HandModification_Normal, [0.0,0.0,7.0] *[0.01, 0.01, 0.01]);
+        SwayMaxAngle(0.02);
+        ShootMinAngle(0.0);
+        ShootMaxAngle(0.02);
+        ShootAngleVel(0.004);
+        ShootAngleCooldown(0.1);
+        ShootVertRecoil(0.01);
+        ShootVertRecoilSpread(0.0);
+        ShootHorzRecoil(0.0);
+        ShootHorzRecoilSpread(0.0);
+        HandInertiaFactor(0.5);
+    }    
+    
+    Item("AAA_Firearm_M16", CategoryType_Firearm)
+    {
+        Name("&Firearm_M16Gen_N&");
+        Description("&Firearm_M16Gen_D&");
+        CategoryType(CategoryType_Firearm);
+        Visibility(true);
+        ItemType(ItemType_Rifle);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(-1);
+        DamageRangeMelee(110.0 *0.01);
+        HeadSmashProb(0.5);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Bullet);
+        Mesh("wn_rifle_a.msh");
+        SkinTag("weapon_standard1");
+        AnimPrefix("m16");
+        HudIcon("weapon_rifle");
+        ShotTime(0.09);
+        ShotSound("m16_shot_XX.wav");
+        BaseSoundPrefix("m16");
+        DefaultBulletId("Bullet_Rifle");
+        AmmoCount(30);
+        ReloadTime(1.5);
+        EmptySound("m16_empty.wav");
+        RagdollBehavior(RagdollBehavior_None);
+        TwoHanded(true);
+        HolderElement("r_thigh");
+        HolderOffset([0.0, 0.0,0.0] *[0.01, 0.01, 0.01]);
+        HolderAngle([0.0,90.0,-90.0]);
+        HandOffset(HandModification_Normal, [0.0,0.0,0.0] *[0.01, 0.01, 0.01]);
+        HandOffset(HandModification_Custom, [0.0,0.0,0.0] *[0.01, 0.01, 0.01]);
+        use HitEffects_Firearm();
+        use PickupSounds_Default();
+        ClipReload(true);
+        FxNameShell("BerettaGunfireShell");
+        ShootFx("m16_muzzle_flash_sequence.fx"); 
+        AimBlurStart(500);
+        AimBlurEnd(500);        
+        ShootMinAngle(0.01);
+        ShootMaxAngle(0.01);
+        ShootAngleVel(0.0075);
+        ShootAngleCooldown(0.05);
+        ShootVertRecoil(0.025);
+        ShootVertRecoilSpread(0.005);
+        ShootHorzRecoil(0.0);
+        ShootHorzRecoilSpread(0.01);
+        ShootRecoilTime(0.1);
+        ShootMode(ShotMode_Automatic);
+        BulletsPerShot(1);
+        AimFov(2.0);
+        MaxReboundCount(3);
+        DamageSize(5.0);
+        AiHitSound("bullet");
+        StatsType(StatsType_Pistol);
+        Price(750);        
+        LootType(LootType_Firearm_Short);
+        FF_EffectName("Shot_M16");
+        CriticalProb(0.0);
+        CriticalDamage(1.0);
+        FirePointRange(0,10);
+        FirePointPhysicsDamage(0,1);
+        FirePointDamage(0,9.0);
+        FirePointPhysicsDamage(1, 1);
+        FirePointForce(0,1.0);
+        FirePointRange(1,120.0);
+        FirePointPhysicsDamage(1, 0.5);
+        FirePointDamage(1,6.0);
+        PhysicsDamageMul(0.5,1);
+        FirePointForce(1,20.0);
+        Color(Color_White);
+        GenType(GenType_Firearm);        
+        ShotTailDelay(0.1);
+        AchType(AchType_Pistol);
+        NameGender(0);
+        DamageToPhysicsObjects(30);
+        PriceMult(1.1);
+        ShootAnimFactor(1.0);
+        HandInertiaFactor(0.5);
+        HandInertiaRotFactor([0.3, 1.0, 1.0]);
+        BulletSpeed(350.0);        
+    }
+    
+    Item("AAA_Firearm_M16", CategoryType_Firearm)
+    {
+        CategoryType(CategoryType_Firearm);
+        UsageType(UsageType_Aim);
+        UpgradeLevel(0);
+        HandOffset(HandModification_Normal, [0.55,-0.39,0.0] *[0.01, 0.01, 0.01]);
+        SwayMaxAngle(0.02);
+        ShootMinAngle(0.0);
+        ShootMaxAngle(0.02);
+        ShootAngleVel(0.004);
+        ShootAngleCooldown(0.1);
+        ShootVertRecoil(0.01);
+        ShootVertRecoilSpread(0.0);
+        ShootHorzRecoil(0.0);
+        ShootHorzRecoilSpread(0.0);
+        HandInertiaFactor(0.5);
+    }
+    
+    Item("AAA_Firearm_M16B", CategoryType_Firearm)
+    {
+        Name("&Firearm_M16Gen_N&");
+        Description("&Firearm_M16Gen_D&");
+        CategoryType(CategoryType_Firearm);
+        Visibility(true);
+        ItemType(ItemType_Rifle);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(-1);
+        DamageRangeMelee(110.0 *0.01);
+        HeadSmashProb(0.5);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Bullet);
+        Mesh("wn_rifle_b.msh");
+        SkinTag("weapon_standard1");
+        AnimPrefix("m16");
+        HudIcon("weapon_rifle");
+        ShotTime(0.09);
+        ShotSound("m16_shot_XX.wav");
+        BaseSoundPrefix("m16");
+        DefaultBulletId("Bullet_Rifle");
+        AmmoCount(30);
+        ReloadTime(1.5);
+        EmptySound("m16_empty.wav");
+        RagdollBehavior(RagdollBehavior_None);
+        TwoHanded(true);
+        HolderElement("r_thigh");
+        HolderOffset([0.0, 0.0,0.0] *[0.01, 0.01, 0.01]);
+        HolderAngle([0.0,90.0,-90.0]);
+        HandOffset(HandModification_Normal, [0.0,0.0,0.0] *[0.01, 0.01, 0.01]);
+        HandOffset(HandModification_Custom, [0.0,0.0,0.0] *[0.01, 0.01, 0.01]);
+        use HitEffects_Firearm();
+        use PickupSounds_Default();
+        ClipReload(true);
+        FxNameShell("BerettaGunfireShell");
+        ShootFx("m16_muzzle_flash_sequence.fx"); 
+        AimBlurStart(500);
+        AimBlurEnd(500);        
+        ShootMinAngle(0.01);
+        ShootMaxAngle(0.01);
+        ShootAngleVel(0.0075);
+        ShootAngleCooldown(0.05);
+        ShootVertRecoil(0.025);
+        ShootVertRecoilSpread(0.005);
+        ShootHorzRecoil(0.0);
+        ShootHorzRecoilSpread(0.01);
+        ShootRecoilTime(0.1);
+        ShootMode(ShotMode_Automatic);
+        BulletsPerShot(1);
+        AimFov(2.0);
+        MaxReboundCount(3);
+        DamageSize(5.0);
+        AiHitSound("bullet");
+        StatsType(StatsType_Pistol);
+        Price(750);        
+        LootType(LootType_Firearm_Short);
+        FF_EffectName("Shot_M16");
+        CriticalProb(0.0);
+        CriticalDamage(1.0);
+        FirePointRange(0,10);
+        FirePointPhysicsDamage(0,1);
+        FirePointDamage(0,9.0);
+        FirePointPhysicsDamage(1, 1);
+        FirePointForce(0,1.0);
+        FirePointRange(1,120.0);
+        FirePointPhysicsDamage(1, 0.5);
+        FirePointDamage(1,6.0);
+        PhysicsDamageMul(0.5,1);
+        FirePointForce(1,20.0);
+        Color(Color_White);
+        GenType(GenType_Firearm);        
+        ShotTailDelay(0.1);
+        AchType(AchType_Pistol);
+        NameGender(0);
+        DamageToPhysicsObjects(30);
+        PriceMult(1.1);
+        ShootAnimFactor(1.0);
+        HandInertiaFactor(0.5);
+        HandInertiaRotFactor([0.3, 1.0, 1.0]);
+        BulletSpeed(350.0);        
+    }
+    
+    Item("AAA_Firearm_M16B", CategoryType_Firearm)
+    {
+        CategoryType(CategoryType_Firearm);
+        UsageType(UsageType_Aim);
+        UpgradeLevel(0);
+        HandOffset(HandModification_Normal, [0.57,-0.14,0.0] *[0.01, 0.01, 0.01]);
+        HandRot(HandModification_Normal, [0.47219354,-0.14,0.0]);
+        SwayMaxAngle(0.02);
+        ShootMinAngle(0.0);
+        ShootMaxAngle(0.02);
+        ShootAngleVel(0.004);
+        ShootAngleCooldown(0.1);
+        ShootVertRecoil(0.01);
+        ShootVertRecoilSpread(0.0);
+        ShootHorzRecoil(0.0);
+        ShootHorzRecoilSpread(0.0);
+        HandInertiaFactor(0.5);
+    }   
+        
+    Item("AAAAAATEST_HammerBigAGen", CategoryType_Melee)
+    {
+        Name("&Melee_HammerBigAGen_N&");
+        Description("&Melee_HammerBigAGen_D&");
+        Visibility(true);
+        ItemType(ItemType_TwoHandedHeavyStick);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(150);
+        Damage(157.0);
+        Force(157.0);
+        CriticalProb(0.05);
+        CriticalDamage(1.0);
+        DamageRange(220.0 *0.01);
+        DamageToPhysicsObjects(70.0);
+        PhysicsDamageMul(1.0);
+        StaminaUsage(0.7);
+        ConfusionProb(0.5);
+        HeadSmashProb(1.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Blunt);
+        Mesh("wn_hammer_big_a.msh");
+        AnimPrefix("Stick2Heavy");
+        HudIcon("hammer_big");
+        MinDamageAngle(-60.0);
+        MaxDamageAngle(45.0);
+        MinDamageMult(1.0);
+        MinHitSeverity(HitSeverity_Heavy);
+        MaxHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(3.0);
+        TwoHanded(true);
+        CausesKnockDown(true);
+        DestroySound("break_wooden_weapon_00.wav");
+        AiHitSound("hammer_heavy");
+        use HitEffects_Default();
+        BloodSplatFactor(0.15);
+        use PickupSounds_Default();
+        DamageSize(15.0);
+        StatsType(StatsType_Blunt);
+        LootType(LootType_Blunt);
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        Color(Color_White);
+        AchType(AchType_BigHammer);
+        NameGender(0);
+        CraftingSlots(4);
+        RestrictionFlags(0);
+        HandInertiaFactor(1.8);
+        HandInertiaRotFactor([0.5, 1.0, 4.0]);
+    }
+    Item("AAAAAATEST_AxeBig", CategoryType_Melee)
+    {
+        Name("&Melee_HammerBigAGen_N&");
+        Description("&Melee_HammerBigAGen_D&");
+        Visibility(true);
+        ItemType(ItemType_TwoHandedHeavyStick);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(150);
+        Damage(157.0);
+        Force(157.0);
+        CriticalProb(0.05);
+        CriticalDamage(1.0);
+        DamageRange(220.0 *0.01);
+        DamageToPhysicsObjects(70.0);
+        PhysicsDamageMul(1.0);
+        StaminaUsage(0.7);
+        ConfusionProb(0.5);
+        HeadSmashProb(1.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        DamageType(DamageType_Cut);
+        Mesh("wn_axe_a.msh");
+        SkinTag("Weapon_Craft0");
+        AnimPrefix("Stick2Heavy");
+        HudIcon("hammer_big");
+        MinDamageAngle(-60.0);
+        MaxDamageAngle(45.0);
+        MinDamageMult(1.0);
+        MinHitSeverity(HitSeverity_Heavy);
+        MaxHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(3.0);
+        TwoHanded(true);
+        CausesKnockDown(true);
+        DestroySound("break_wooden_weapon_00.wav");
+        AiHitSound("hammer_heavy");
+        use HitEffects_Default();
+        BloodSplatFactor(0.15);
+        use PickupSounds_Default();
+        DamageSize(15.0);
+        StatsType(StatsType_Blunt);
+        LootType(LootType_Blunt);
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        Color(Color_White);
+        AchType(AchType_BigHammer);
+        NameGender(0);
+        CraftingSlots(4);
+        RestrictionFlags(0);
+        HandInertiaFactor(1.8);
+        HandInertiaRotFactor([0.5, 1.0, 4.0]);
+        CutTypesGroup(CutTypesGroup_All);
+    }
+    
+    Item("AAAAA_AxeBigAGen", CategoryType_Melee)
+    {
+        Name("&Melee_AxeBigAGen_N&");
+        Description("&Melee_AxeBigAGen_D&");
+        Visibility(true);
+        ItemType(ItemType_TwoHandedHeavyStick);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(150);
+        Damage(157.0);
+        Force(157.0);
+        CriticalProb(0.05);
+        CriticalDamage(1.0);
+        DamageRange(220.0 *0.01);
+        DamageToPhysicsObjects(70.0);
+        PhysicsDamageMul(1.0);
+        StaminaUsage(0.0);
+        ConfusionProb(0.5);
+        HeadSmashProb(0.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        DamageType(DamageType_Cut);
+        Mesh("wn_axe_a.msh");
+        AnimPrefix("Stick2Heavy");
+        HudIcon("hammer_big");
+        MinDamageAngle(-60.0);
+        MaxDamageAngle(45.0);
+        MinDamageMult(1.0);
+        MinHitSeverity(HitSeverity_Heavy);
+        MaxHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(3.0);
+        TwoHanded(true);
+        CausesKnockDown(true);
+        DestroySound("break_wooden_weapon_00.wav");
+        AiHitSound("hammer_heavy");
+        use HitEffects_Default();
+        CutTypesGroup(CutTypesGroup_SharpHeavy);
+        BloodSplatFactor(0.15);
+        use PickupSounds_Default();
+        DamageSize(15.0);
+        StatsType(StatsType_Blunt);
+        LootType(LootType_Blunt);
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        Color(Color_White);               
+        AchType(AchType_BigHammer);
+        CraftingSlots(2);        
+        HandInertiaFactor(1.8);
+        HandInertiaRotFactor([0.5, 1.0, 4.0]);
+        Price(100);
+    }
+    Item("AAABASEBALL_TEST", CategoryType_Melee)
+    {
+        Name("&base&");
+        Description("&base&");
+        Visibility(true);
+        ItemType(ItemType_TwoHandedCloseStick);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(-1);
+        Damage(37.0);
+        Force(55.5);
+        CriticalProb(0.05);
+        CriticalDamage(1.0);
+        DamageRange(165.0 *0.01);
+        DamageToPhysicsObjects(35.0);
+        PhysicsDamageMul(1.5);
+        StaminaUsage(0.);
+        ConfusionProb(0.3);
+        HeadSmashProb(1.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Blunt);
+        Mesh("wn_baseballbat_a.msh");
+        AnimPrefix("Stick2Close");
+        HudIcon("baseballbat_a");
+        MinDamageAngle(-60.0);
+        MaxDamageAngle(45.0);
+        MinDamageMult(1.0);
+        MinHitSeverity(HitSeverity_Medium);
+        MaxHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(true);
+        HolderElement("spine2");
+        HolderOffset([25.0,10.0,15.0] *[0.01, 0.01, 0.01]);
+        HolderAngle([90.0,20.0,90.0]);
+        CausesKnockDown(true);
+        DestroySound("break_wooden_weapon_00.wav");
+        AiHitSound("baseball_metal");
+        use HitEffects_Baseball_Metal();        
+        BloodSplatFactor(0.15);
+        use PickupSounds_Default();
+        DamageSize(10.0);
+        StatsType(StatsType_Blunt);
+        LootType(LootType_Blunt);
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        Color(Color_White);        
+        AchType(AchType_BaseballBat);
+        NameGender(0);
+        CraftingSlots(3);
+        RestrictionFlags(0);
+        HandInertiaFactor(1.8);
+    }
+
+    Item("fire_helmet", CategoryType_Throwable)
+    {        
+        ItemType(ItemType_Fists);
+        Visibility(true);        
+        Mesh("zombie_fire_helmet.msh");
+        Skin("default");             
+        DestroySound("blunt_metal_00.wav");        
+        Condition(10);
+        DetachFromParentProb(0.5, 0.2);
+    }
+    	
+    Item("cap_police", CategoryType_Throwable)
+    {        
+        ItemType(ItemType_Fists);
+        Visibility(true);        
+        Mesh("cap_police.msh");
+        Skin("default");             
+        DestroySound("blunt_metal_00.wav");        
+        Condition(1);
+        DetachFromParentProb(0.5, 0.2);
+    }
+
+    Item("miner_helmet", CategoryType_Throwable)
+    {        
+        ItemType(ItemType_Fists);
+        Visibility(true);        
+        Mesh("construction_helmet.msh");
+        Skin("default");             
+        DestroySound("blunt_metal_00.wav");        
+        Condition(100);        
+    }    
+	Item("TraficCone", CategoryType_Throwable)
+    {
+        ItemType(ItemType_Fists);
+        Visibility(true);
+        Mesh("traffic_cone_a.msh");
+        Skin("default");             
+        DestroySound("blunt_metal_00.wav");
+        Condition(10);        
+    }   
+	
+   	Item("Lifebuoy", CategoryType_Throwable)
+    {
+        ItemType(ItemType_Fists);
+        Visibility(true);
+        Mesh("lifering_a.msh");
+        Skin("default");             
+        DestroySound("blunt_metal_00.wav");
+        Condition(1000000);        
+    }
+	Item("Teddy", CategoryType_Throwable)
+    {
+        ItemType(ItemType_Fists);
+        Visibility(true);
+        Mesh("teddy_bear_a.msh");
+        Skin("default");             
+        DestroySound("blunt_metal_00.wav");
+        Condition(10);        
+    }
+	
+	Item("BucketHat", CategoryType_Throwable)
+    {
+        ItemType(ItemType_Fists);
+        Visibility(true);        
+        Mesh("bucket_b.msh");
+        Skin("default");             
+        DestroySound("blunt_metal_00.wav");
+        Condition(10);        
+    }
+
+    Item("WizzardHat", CategoryType_Throwable)
+    {        
+        ItemType(ItemType_Fists);
+        Visibility(true);        
+        Mesh("magic_hat.msh");
+        Skin("default");             
+        DestroySound("blunt_metal_00.wav");
+        Condition(10);        
+    }    
+	Item("ShotgunTPP", CategoryType_Throwable)
+    {        
+        ItemType(ItemType_Fists);
+        Visibility(true);        
+        Mesh("wn_shotgun_a_tpp.msh");
+        Skin("default");             
+        DestroySound("blunt_metal_00.wav");
+        Condition(10);        
+    }    
+	Item("Mashroom", CategoryType_Throwable)
+    {        
+        ItemType(ItemType_Fists);
+        Visibility(true);        
+        Mesh("quazi_mashroom.msh");
+        Skin("default");             
+        DestroySound("blunt_metal_00.wav");
+        Condition(100);        
+    }
+    
+    Item("Skeleton", CategoryType_Throwable)
+    {        
+        ItemType(ItemType_Fists);
+        Visibility(true);        
+        Mesh("skeleton_head.msh");
+        Skin("default");             
+        DestroySound("blunt_metal_00.wav");        
+    }
+    Item("SkeletonKill", CategoryType_Throwable)
+    {        
+        ItemType(ItemType_Fists);
+        Visibility(true);        
+        Mesh("skeleton_head.msh");
+        Skin("default");             
+        DestroySound("blunt_metal_00.wav");
+    }
+    
+    Item("Attachable_Flashlight", CategoryType_Flashlight)
+    {        
+        ItemType(ItemType_Flashlight);
+        Visibility(true);
+        LightFullColor([255.0,255.0,255.0]);        
+        FullLightRange(15.0);
+        FullLightAngle(15.0);
+        LightFullIntensity(1.5);
+        Mesh("flashlight_torso_b.msh");
+        Skin("default"); 
+        InventoryMesh("flashlight_torso_b.msh");
+        InventorySkin("flashlight_torso_b_ON");
+        Condition(-1);
+    }
+    
+    Item("Attachable_Flashlight_Exterior", CategoryType_Flashlight)
+    {        
+        ItemType(ItemType_Flashlight);
+        Visibility(true);
+        LightFullColor([255.0,255.0,255.0]);        
+        FullLightRange(12.0);
+        FullLightAngle(20.0);
+        LightFullIntensity(2);
+        Mesh("flashlight_torso_b.msh");
+        Skin("default"); 
+        InventoryMesh("flashlight_torso_b.msh");
+        InventorySkin("flashlight_torso_b_ON");
+        Condition(-1);
+    }
+
+    Item("Attachable_Flashlight_Rais", CategoryType_Flashlight)
+    {        
+        ItemType(ItemType_Flashlight);
+        Visibility(true);
+        LightFullColor([255.0,255.0,255.0]);        
+        FullLightRange(10.0);
+        FullLightAngle(20.0);
+        LightFullIntensity(1.25);
+        Mesh("flashlight_torso_b.msh");
+        Skin("default"); 
+        InventoryMesh("flashlight_torso_b.msh");
+        InventorySkin("flashlight_torso_b_ON");
+        Condition(-1);
+    }
+
+    Item("FarmerHat", CategoryType_Throwable)
+    {        
+        ItemType(ItemType_Fists);
+        Visibility(true);        
+        Mesh("zombie_farmer_hat.msh");
+        Skin("default");             
+        Condition(10);
+        DetachFromParentProb(0.5, 0.2);
+        PhysicsScript("single_dropped_inventory.phx");
+    }
+
+        Item("SuiciderTank", CategoryType_Throwable)
+    {
+        IdNameOld("SuiciderTank");
+        Name("SuiciderTank");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        Visibility(true);        
+        Price(600);
+        Mesh("gas_cylinder_a.msh");
+        Skin("default");        
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(2.0);
+        PhysicsDamageMul(1.0);
+        Force(5000.0);
+        DamageType(DamageType_Blast);
+        TakeDamageThreshold(100.0);
+        DamageRange(7.5);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(-1.0);        
+        StatsType(StatsType_Explosive);        
+        ExplosionSound("gas_tank_explosion.wav");
+        ExplosionFx("exploding_man_sequence.fx");
+        DestroySound("gas_tank_flying.wav");
+        DestroyFx("dw_gas_steam_sequence.fx");
+        AiHitSound("gas_tank_bottle_cracking.wav"); // this is taken in attachables as ontake damage sound
+        Condition(0);
+    }
+    
+    
+    Item("GasTank", CategoryType_Throwable)
+    {
+        IdNameOld("GasTank");
+        Name("GasTank");
+        Description("&Throwable_Grenade_D&");
+        ItemType(ItemType_Grenade);
+        Visibility(true);        
+        Price(600);
+        Mesh("gas_cylinder_a.msh");
+        Skin("default");        
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("grenade");
+        Damage(1.0);                            //used as multiplier of value taken from curve zombie_explosion_damage
+        PhysicsDamageMul(1.0);
+        Force(5000.0);
+        DamageType(DamageType_Blast);
+        TakeDamageThreshold(100.0);
+        DamageRange(7.5);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(3.0);        
+        StatsType(StatsType_Explosive);        
+        ExplosionSound("gas_tank_explosion.wav");
+        ExplosionFx("exploding_man_sequence.fx");
+        DestroySound("gas_tank_flying.wav");
+        DestroyFx("dw_gas_steam_sequence.fx");
+        AiHitSound("gas_tank_bottle_cracking.wav"); // this is taken in attachables as ontake damage sound
+        Condition(1);
+        ForceFlyOnDestroyAttached(true);
+    }
+    
+    Item("Melee_Fists_Venom", CategoryType_Melee)
+    {
+        Name("&Melee_Fists_N&");
+        Description("&Melee_Fists_D&");
+        Visibility(false);
+        ItemType(ItemType_Fists);
+        Condition(-1);
+        Flags(0);
+        Damage(0.2);
+        CriticalProb(0.01);
+        CriticalDamage(5.0);
+        DamageRange(2.0);
+        Force(25.0);
+        DamageToPhysicsObjects(10.0);
+        StaminaUsage(0.0);
+        SwingSpeed(0.9);
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Punch1);
+        Price(-1);
+        Mesh("weapon_fists.msh");
+        AnimPrefix("fist");
+        HudIcon("weapon_fist");
+        MinDamageAngle(-60.0);
+        MaxDamageAngle(45.0);
+        MinDamageMult(1.0);
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Light);
+        HorizontalAttackDamageMul(1.0);
+        RagdollBehavior(RagdollBehavior_Fists);
+        TwoHanded(false);
+        AiHitSound("fists_zombieplayer");
+        use HitEffects_Default();
+        use PickupSounds_Default();
+        DamageSize(5.0);
+        StatsType(StatsType_Fists);
+        LootType(LootType_None);
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Color(Color_White);
+        HandInertiaFactor(1.8);
+        HandInertiaRotFactor([0.75, 0.5, 0.5]);
+    }
+    
+    Item("FinisherBack_Item", CategoryType_Melee)
+    {
+        Name("&Melee_Fists_N&");
+        Description("&Melee_Fists_D&");
+        Visibility(false);
+        ItemType(ItemType_Fists);
+        Condition(-1);
+        Damage(60.0);
+        CriticalProb(0.0);
+        CriticalDamage(1.0);
+        DamageRange(115.0 *0.01);
+        Force(25.0);
+        PhysicsDamageMul(1.0);        
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Blunt);
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Light);        
+        RagdollBehavior(RagdollBehavior_Fists);
+        TwoHanded(false);
+        AiHitSound("fists");
+        use HitEffects_Default();
+        CutTypesGroup(CutTypesGroup_Holes);
+        BloodSplatFactor(0.15);
+        use PickupSounds_Default();        
+        DamageSize(15.0);
+        StatsType(StatsType_Fists);
+        LootLevel(1);
+        LootType(LootType_None);
+        Color(Color_White);
+    }
+    Item("FinisherFront_Item", CategoryType_Melee)
+    {
+        Name("&Melee_Fists_N&");
+        Description("&Melee_Fists_D&");
+        Visibility(false);
+        ItemType(ItemType_Fists);
+        Condition(-1);
+        Damage(60.0);
+        CriticalProb(0.0);
+        CriticalDamage(1.0);
+        DamageRange(115.0 *0.01);
+        Force(25.0);
+        PhysicsDamageMul(1.0);        
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Blunt);
+        MaxHitSeverity(HitSeverity_Medium);
+        MinHitSeverity(HitSeverity_Light);        
+        RagdollBehavior(RagdollBehavior_Fists);
+        TwoHanded(false);
+        AiHitSound("fists");
+        use HitEffects_Default();
+        CutTypesGroup(CutTypesGroup_Holes);
+        BloodSplatFactor(0.15);
+        use PickupSounds_Default();        
+        DamageSize(15.0);
+        StatsType(StatsType_Fists);
+        LootLevel(1);
+        LootType(LootType_None);
+        Color(Color_White);
+    }
+	Item("JumpAttack_Item", CategoryType_Melee)
+    {
+        Visibility(false);
+        ItemType(ItemType_Stick);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(35);
+        CriticalCondition(11);
+        Damage(200.0);
+        Force(30.0);
+        CriticalProb(0.0);
+        CriticalDamage(2.0);
+        DamageRange(155.0 *0.01);
+        DamageToPhysicsObjects(50.0);
+        PhysicsDamageMul(1.0);
+        StaminaUsage(0.2);
+        ConfusionProb(0.0);
+        HeadSmashProb(0.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        WeaponBuildType(WeaponBuildType_Metal);
+        DamageType(DamageType_Cut);
+        CutTypesGroup(CutTypesGroup_Holes);
+        Flags(3);
+        InventoryMeshHq("wn_machete_a.msh");
+        InventoryMesh("wn_machete_a.msh");
+        Mesh("wn_machete_a.msh");
+        SkinTag("Weapon_Craft0");
+        AnimPrefix("Stick");
+        HudIcon("weapon_machete");
+        MinHitSeverity(HitSeverity_Light);
+        MaxHitSeverity(HitSeverity_Medium);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(false);
+        HolderElement("r_thigh");
+        HolderOffset([0.0,10.0,10.0] *[0.01, 0.01, 0.01]);
+        HolderAngle([0.0,0.0,-90.0]);
+        DestroySound("damaged_sharp_weapon_XX.wav");
+        AiHitSound("machete");
+        use HitEffects_Sharp();
+        use PickupSounds_Default();
+        DamageSize(4.0);
+        StatsType(StatsType_Cut);
+        FF_EffectName("Hit_Sharp");
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        SoundDamagedHit("damaged_sharp_weapon_XX.wav");
+        Color(Color_White);
+        GenLevelMin(1);
+        GenLevelMax(1);
+        AchType(AchType_Machete);
+        DismantleResultItem("Craft_MetalScrap");
+        DismantleResultItemCnt(1);
+        CraftingSlots(1,0);
+        UniqueFxNameBase("machete_a");
+        RestrictionFlags(0);
+        RagdollBehaviorPrefix("StickSharp");
+        HandInertiaFactor(1.8);
+    }
+    // Item("Throwable_Molotov", CategoryType_ThrowableLiquid)
+    // {
+        // IdNameOld("We_MolotovCocktail");
+        // Name("&Throwable_Molotov_N&");
+        // Description("&Throwable_Molotov_D&");
+        // ItemType(ItemType_Molotov);
+        // Visibility(true);
+        // MaxStackCount(30);
+        // Price(450);
+        // Mesh("bottle_e_explosive.msh");
+        // Skin("default");
+        // AnimPrefix("Molotov");
+        // PhysicsScript("single_dropped_inventory.phx");
+        // HudIcon("molotov");
+        // HeadCutProb(0.0);
+        // ArmsCutProb(0.0);
+        // LegsCutProb(0.0);
+        // ThrowImpulseLook(13.0);
+        // ThrowImpulseUp(2.0);
+        // ExplodeDelay(-1.0);
+        // ThrowBeginSound("molotow_start.wav");
+        // ThrowLoopSound("molotow_on_fire_loop.wav");
+        // ThrowEndSound("molotow_throwing.wav");
+        // ExplosionSound("molotow_on_ground.wav");
+        // StatsType(StatsType_Flame);
+        // LootLevel(3);
+        // LootType(LootType_Throwable);
+        // Color(Color_White);
+        // AchType(AchType_Molotov);
+        // SplashRadiusMin(1.0);
+        // SplashRadiusMax(1.5);
+        // SplashNumPositions(6);
+        // SplashSpacingType("EvenAngles");
+        // SplashEmitterLifeTimeMin(7.0);
+        // SplashEmitterLifeTimeMax(15.0);
+        // SplashEmitterFadeInTime(0.01);  
+        // SplashEmitterFadeOutTime(3);
+        // SplashEmitterScale([1.5,1.5,1.5]);
+        // SplashEmitterDamageType(DamageType_Fire);
+        // SplashEmitterDamageDuration(5.0);
+        // SplashEmitterHealthPercentDamagePerSecond(10.0);
+        // SplashEmitterWallFx("fire_after_b_explossion");
+        // SplashEmitterGroundFx("fire_after_b_explossion");
+        // SplashEmitterIsFXSequence(true);
+        // SplashEmitterApplyDamage(true);
+        ////SplashEmitterPlayerLightDamagerBlockHeight(10.0);
+        // ThrowFlyFx("MolotovFireW_sequence.fx");
+        // ThrowFlySound("freeze_loop.wav");
+        // ExplosionFx("gascylinder_explosion_sequence.fx");
+        // ExplosionSoundMin(16.0);
+        // ExplosionSoundVol(100.0);
+        // EquipmentSlot(0);
+    // }
+
+    Item("Throwable_CasterSpit", CategoryType_ThrowableLiquid)
+    {
+        IdNameOld("");
+        ItemType(ItemType_CasterSpit);
+        Visibility(false);
+        MaxStackCount(30);
+        Price(450);
+        Mesh("bottle_e_explosive.msh");
+        Skin("default");
+        AnimPrefix("Molotov");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("molotov");    
+        TakeDamageThreshold(100.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(-1.0);
+        ThrowBeginSound("molotow_start.wav");
+        ThrowLoopSound("molotow_on_fire_loop.wav");
+        ThrowEndSound("molotow_throwing.wav");
+        ExplosionSoundMin(16.0);
+        ExplosionSoundVol(100.0);
+        SplashRadiusMin(0.5);
+        SplashRadiusMax(1.0);
+        SplashNumPositions(6);
+        SplashEmitterLifeTimeMin(5.0);
+        SplashEmitterLifeTimeMax(6.0);
+        SplashEmitterFadeInTime(0.01);  
+        SplashEmitterFadeOutTime(1);
+        SplashEmitterScale([5.0,5.0,5.0]);
+        SplashEmitterDamageType(DamageType_Poison);
+        SplashEmitterDamagedObjectsInheritElementalProperties(true);
+        SplashEmitterDamageDuration(5.0);
+        SplashEmitterHealthPercentDamagePerSecond(0.05);
+        SplashEmitterWallFx("toxic_attack_fog_add");
+        SplashEmitterGroundFx("toxic_attack_fog_add");
+        SplashEmitterIsFXSequence(true);
+        SplashEmitterApplyDamage(true);
+        ExplosionFx("spitter_explode_sequence.fx");
+        ThrowFlyFx("spitter_spit_sequence.fx");        
+        StatsType(StatsType_Flame);
+        LootLevel(3);
+        LootType(LootType_Throwable);
+        NoiseType("NONE");
+        Color(Color_White);
+        AchType(AchType_Molotov);
+    }
+    
+    Item("Venom_Drop", CategoryType_Melee)
+    {
+        Name("&Venom_Drop_N&");
+        Description("&Venom_Drop_D&");
+        Visibility(true);
+        ItemType(ItemType_Knife);        
+        Condition(-1);
+        Damage(73.0);
+        CriticalProb(0.1);
+        CriticalDamage(2.0);
+        DamageRange(1.2);
+        DamageToPhysicsObjects(34.0);
+        Force(0.0);
+        PhysicsDamageMul(0);
+        StaminaUsage(0.03);        
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Cut);  
+        Mesh("wn_short_knife_a.msh");
+        AnimPrefix("Knife");
+        HudIcon("handmade_machete");
+        MinDamageAngle(-10.0);
+        MaxDamageAngle(10.0);
+        MinDamageMult(1.0);
+        MaxHitSeverity(HitSeverity_Light);
+        MinHitSeverity(HitSeverity_Light);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(false);
+        HolderElement("r_thigh");
+        HolderOffset([0.0,10.0,10.0] *[0.01, 0.01, 0.01]);
+        HolderAngle([0.0,0.0,-90.0]);    
+        AiHitSound("knife");
+        use HitEffects_Sharp();
+        BloodSplatFactor(1.0);        
+        DamageSize(1.0);
+        StatsType(StatsType_Cut);                
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);        
+        AchType(AchType_Knife);    
+        SwingSpeed(1.0);
+        HorizontalAttackDamageMul(1.0);
+    }
+
+    Item("ZZ1Patch_Melee_ThugHammerBigVeryEasy", CategoryType_Melee)
+    {
+        Name("&Melee_HammerBigAGen_N&");
+        Description("&Melee_HammerBigAGen_D&");
+        Visibility(true);
+        ItemType(ItemType_TwoHandedHeavyStick);
+        PhysicsScript("single_dropped_inventory_rebar.phx");
+        UpgradeLevel(0);
+        Condition(125);
+        Damage(10.0);
+        Force(1000.0);
+        CriticalProb(0.0);
+        CriticalDamage(2.0);
+        DamageRange(230.0 * 0.01);
+        DamageToPhysicsObjects(70.0);
+        PhysicsDamageMul(1.0);
+        StaminaUsage(0.0);
+        ConfusionProb(0.5);
+        HeadSmashProb(1.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Blunt);
+        Flags(1);
+		InventoryMesh("wn_rebar_01_thug.msh");
+        Mesh("wn_rebar_01_thug.msh");
+        SkinTag("Default");
+        AnimPrefix("Stick2Heavy");
+        HudIcon("hammer_big");
+        MinHitSeverity(HitSeverity_Heavy);
+        MaxHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(3.0);
+        TwoHanded(true);
+        DestroySound("break_wooden_weapon_00.wav");
+        AiHitSound("rebar_goon");
+        use HitEffects_Default();
+        use PickupSounds_Default();
+        DamageSize(15.0);
+        StatsType(StatsType_Blunt);
+        FF_EffectName("Hit_Stick2HeavyBlunt");
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        Color(Color_White);
+        AchType(AchType_BigHammer);
+        CraftingSlots(2);
+        RestrictionFlags(0);
+        RagdollBehaviorPrefix("Stick2HeavyBlunt");
+        HandInertiaFactor(1.8);
+        HandInertiaRotFactor([0.5, 1.0, 4.0]);
+        Price(3894);
+        GenType(GenType_MeleeWeapon);
+        OwnerType(OwnerType_AI);
+        //CanBeUsedByPlayer(false);
+        HitBlastRange(0.5); //m
+        TransformInto("Melee_RebarAGen");
+    }
+    Item("Melee_ThugHammerBigEasy", CategoryType_Melee)
+    {
+        Name("&Melee_HammerBigAGen_N&");
+        Description("&Melee_HammerBigAGen_D&");
+        Visibility(true);
+        ItemType(ItemType_TwoHandedHeavyStick);
+        PhysicsScript("single_dropped_inventory_rebar.phx");
+        UpgradeLevel(0);
+        Condition(125);
+        Damage(15.0);
+        Force(1000.0);
+        CriticalProb(0.0);
+        CriticalDamage(2.0);
+        DamageRange(260.0 * 0.01);
+        DamageToPhysicsObjects(70.0);
+        PhysicsDamageMul(1.0);
+        StaminaUsage(0.0);
+        ConfusionProb(0.5);
+        HeadSmashProb(1.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Blunt);
+        Flags(1);
+		InventoryMesh("wn_rebar_01_thug.msh");
+        Mesh("wn_rebar_01_thug.msh");
+        SkinTag("Default");
+        AnimPrefix("Stick2Heavy");
+        HudIcon("hammer_big");
+        MinHitSeverity(HitSeverity_Heavy);
+        MaxHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(3.0);
+        TwoHanded(true);
+        DestroySound("break_wooden_weapon_00.wav");
+        AiHitSound("rebar_goon");
+        use HitEffects_Default();
+        use PickupSounds_Default();
+        DamageSize(15.0);
+        StatsType(StatsType_Blunt);
+        FF_EffectName("Hit_Stick2HeavyBlunt");
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        Color(Color_White);
+        AchType(AchType_BigHammer);
+        CraftingSlots(2);
+        RestrictionFlags(0);
+        RagdollBehaviorPrefix("Stick2HeavyBlunt");
+        HandInertiaFactor(1.8);
+        HandInertiaRotFactor([0.5, 1.0, 4.0]);
+        Price(3894);
+        GenType(GenType_MeleeWeapon);
+        OwnerType(OwnerType_AI);
+        //CanBeUsedByPlayer(false);
+        HitBlastRange(0.5); //m
+        TransformInto("Melee_RebarAGen");
+    }
+    Item("Melee_ThugHammerBigMedium", CategoryType_Melee)
+    {
+        Name("&Melee_HammerBigAGen_N&");
+        Description("&Melee_HammerBigAGen_D&");
+        Visibility(true);
+        ItemType(ItemType_TwoHandedHeavyStick);
+        PhysicsScript("single_dropped_inventory_rebar.phx");
+        UpgradeLevel(0);
+        Condition(125);
+        Damage(15.0);
+        Force(1000.0);
+        CriticalProb(0.0);
+        CriticalDamage(2.0);
+        DamageRange(280.0 * 0.01);
+        DamageToPhysicsObjects(70.0);
+        PhysicsDamageMul(1.0);
+        StaminaUsage(0.0);
+        ConfusionProb(0.5);
+        HeadSmashProb(1.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Blunt);
+        Flags(1);
+		InventoryMesh("wn_rebar_01_thug.msh");
+        Mesh("wn_rebar_01_thug.msh");
+        SkinTag("Default");
+        AnimPrefix("Stick2Heavy");
+        HudIcon("hammer_big");
+        MinHitSeverity(HitSeverity_Heavy);
+        MaxHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(3.0);
+        TwoHanded(true);
+        DestroySound("break_wooden_weapon_00.wav");
+        AiHitSound("rebar_goon");
+        use HitEffects_Default();
+        use PickupSounds_Default();
+        DamageSize(15.0);
+        StatsType(StatsType_Blunt);
+        FF_EffectName("Hit_Stick2HeavyBlunt");
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        Color(Color_White);
+        AchType(AchType_BigHammer);
+        CraftingSlots(2);
+        RestrictionFlags(0);
+        RagdollBehaviorPrefix("Stick2HeavyBlunt");
+        HandInertiaFactor(1.8);
+        HandInertiaRotFactor([0.5, 1.0, 4.0]);
+        Price(3894);
+        GenType(GenType_MeleeWeapon);
+        OwnerType(OwnerType_AI);
+        //CanBeUsedByPlayer(true);
+        HitBlastRange(2.4);
+        TransformInto("Melee_RebarAGen");
+    }
+
+     Item("Melee_TutorialPlayerBaseball", CategoryType_Melee)
+    {
+        Name("&Melee_TutorialPlayerBaseball&");
+        Description("&Melee_TutorialPlayerBaseball&");
+        Visibility(true);
+        ItemType(ItemType_TwoHandedCloseStick);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(125);
+        CriticalCondition(10);
+        Damage(1.0);
+        Force(8.0);
+        CriticalProb(0.0);
+        CriticalDamage(1.0);
+        DamageRange(165.0 *0.01);
+        DamageToPhysicsObjects(35.0);
+        PhysicsDamageMul(1.0);
+        StaminaUsage(0.16);
+        ConfusionProb(0.3);
+        HeadSmashProb(0.75);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Blunt);
+        Flags(3);
+        InventoryMesh("wn_baseballbat_a.msh");
+        Mesh("wn_baseballbat_a.msh");
+        SkinTag("Weapon_Craft0");
+        AnimPrefix("Stick2Close");
+        HudIcon("weapon_baseball");
+        MinHitSeverity(HitSeverity_Medium);
+        MaxHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(true);
+        HolderElement("spine2");
+        HolderOffset([25.0,10.0,15.0] *[0.01, 0.01, 0.01]);
+        HolderAngle([90.0,20.0,90.0]);
+        DestroySound("break_wooden_weapon_00.wav");
+        AiHitSound("baseball_metal");
+        use HitEffects_Baseball_Metal();
+        use PickupSounds_Default();
+        DamageSize(10.0);
+        StatsType(StatsType_Blunt);
+        FF_EffectName("Hit_Stick2Close");
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        AllowedRepairs(3);
+        SoundDamagedHit("damaged_sharp_weapon_XX.wav");
+        Color(Color_White);
+        AchType(AchType_BaseballBat);
+        CraftingSlots(2);
+        RestrictionFlags(0);
+        RagdollBehaviorPrefix("Stick2Close");
+        HandInertiaFactor(1.8);
+        Price(383);
+        GenType(GenType_MeleeWeapon);
+    }
+
+    Item("Melee_ThugHammerBigHard", CategoryType_Melee)
+    {
+        Name("&Melee_HammerBigAGen_N&");
+        Description("&Melee_HammerBigAGen_D&");
+        Visibility(true);
+        ItemType(ItemType_TwoHandedHeavyStick);
+        PhysicsScript("single_dropped_inventory_rebar.phx");
+        UpgradeLevel(0);
+        Condition(125);
+        Damage(15.0);
+        Force(1000.0);
+        CriticalProb(0.0);
+        CriticalDamage(2.0);
+        DamageRange(300.0 * 0.01);
+        DamageToPhysicsObjects(70.0);
+        PhysicsDamageMul(1.0);
+        StaminaUsage(0.0);
+        ConfusionProb(0.5);
+        HeadSmashProb(1.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Blunt);
+        Flags(1);
+        InventoryMesh("wn_rebar_01_thug.msh");
+        Mesh("wn_rebar_01_thug.msh");
+        SkinTag("Default");
+        AnimPrefix("Stick2Heavy");
+        HudIcon("hammer_big");
+        MinHitSeverity(HitSeverity_Heavy);
+        MaxHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(3.0);
+        TwoHanded(true);
+        DestroySound("break_wooden_weapon_00.wav");
+        AiHitSound("rebar_goon");
+        use HitEffects_Default();
+        use PickupSounds_Default();
+        DamageSize(15.0);
+        StatsType(StatsType_Blunt);
+        FF_EffectName("Hit_Stick2HeavyBlunt");
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        Color(Color_White);
+        AchType(AchType_BigHammer);
+        CraftingSlots(2);
+        RestrictionFlags(0);
+        RagdollBehaviorPrefix("Stick2HeavyBlunt");
+        HandInertiaFactor(1.8);
+        HandInertiaRotFactor([0.5, 1.0, 4.0]);
+        Price(3894);
+        GenType(GenType_MeleeWeapon);
+        OwnerType(OwnerType_AI);
+        //CanBeUsedByPlayer(true);
+        HitBlastRange(2.4);
+        TransformInto("Melee_RebarAGen");
+    }
+
+    // TEMPORARY - fake entry to allow animators to test a cigarette mesh in attractors (life places).
+    Item("ANIM_Cigarette", CategoryType_Melee)
+    {
+        Name("&ANIM_Cigarette&");
+        Description("&ANIM_Cigarette&");
+        Visibility(true);
+        Condition(-1); 
+        Mesh("cigarette_a.msh");
+        Skin("default");
+    }
+
+    // DO NOT REMOVE!!! placeholder item in case definition is not found
+    Item("FakeItem", CategoryType_Melee)
+    {
+        Name("&FakeItem&");
+        Description("&FakeItem&");
+        Visibility(false);
+        Condition(-1);
+        AiHitSound("None");
+        SwingSpeed(1.0);
+    }
+
+    Item("LockpickItem", CategoryType_Lockpick)
+    {
+        ItemType(ItemType_Lockpick);
+        Visibility(true);        
+        Mesh("loot_ok_Lockpicking.msh");
+        Skin("Default");             
+        Condition(10);        
+        PhysicsScript("single_dropped_inventory.phx");
+        Name("&Lockpick_Item_N&");
+        Description("&Lockpick_Item_D&");
+        MaxStackCount(999);
+		Color(Color_White);
+        Price(10);
+        HudIcon("lockpick");
+    }
+   
+    Item("Shield_Pro", CategoryType_Melee)
+    {
+        Condition(100); 
+		Color(Color_White);
+        Mesh("wn_shield_selfmade.msh"); 
+		Skin("Default");
+		SkinTag("Weapon_Craft0");
+        RelevanceRange(50.0);
+        ItemType(ItemType_Shield);
+        Name("&ProShield_Item_N&");
+        Description("&ProShield_Item_D&");
+        StaminaUsage(0.0);
+        Damage(1.0);
+        PhysicsScript("single_dropped_inventory.phx");
+        DamageType(DamageType_Blunt);
+        EquipmentSlot(2);
+        CriticalProb(0.0);
+        CriticalDamage(2.0);
+        DamageRange(1.9);
+        Force(10.0);
+        PhysicsDamageMul(0.5);
+        SwingSpeed(2.7);
+        HeadSmashProb(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        AnimPrefix("Shield");
+        HudIcon("riot_shield");
+        MinDamageAngle(-75.0);
+        MaxDamageAngle(75.0);
+        MinDamageMult(1.0);
+        MaxHitSeverity(HitSeverity_Heavy);
+        MinHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(false);
+        HolderElement("bip01 r thigh");
+        HolderOffset([0.0,0.1,0.1]);
+        HolderAngle([90.0,-15.0,90.0]);  
+        AiHitSound("shield");
+        use HitEffects_Default();
+        BloodSplatFactor(0.5);        
+        DamageSize(10.0);
+        StatsType(StatsType_Cut);
+        FF_Left(1.0);
+        FF_Right(1.0);
+        FF_Duration(0.5);
+        FF_FadeOut(0.1);
+        AchType(AchType_Knife);
+        Reparable(false);        
+        ConfusionProb(1.0);
+        DamageDuration(1.5);
+        RestrictionFlags(0);
+        EquipmentSlot(2);
+        BlockDuration(1.0);
+        JumpAttackDamage(300);
+        ResistanceTreshold(50);
+        DestroyTreshold(150);
+        DamageReductionMul(0.5);
+        ConditionMullFromBullet(0.1);        
+        BlockHitSound("hit_shield_XX.wav");
+        BlockHitFx("MetalHit_Small_sequence.fx");
+        BlockHitFxOffset([-0.13, -0.08, 0.0]);        
+        CraftingSlots(0, 1);
+		UniqueFxNameBase("shield");
+    }
+	
+    Item("FuelBottle", CategoryType_Fuel)
+    {
+        Name("&FuelBottle_N&");
+        Description("&FuelBottle_D&");
+        Visibility(true);
+        ItemType(ItemType_FuelBottle);
+        PhysicsScript("single_dropped_inventory.phx");
+        MaxStackCount(5);
+        Mesh("plastic_bottle_a.msh");        
+        Skin("Default");        
+        //AnimPrefix("PursuitBreakerSwitch");        
+        //UseTime(0.73);
+        UseSound("pursuit_remote_activate.wav");        
+        Color(Color_White);
+    }
+
+    Item("MixtureWQ_Inv", CategoryType_Powerup)
+    {
+        Visibility(true);
+        ItemType(ItemType_Injector);
+        PhysicsScript("single_dropped_inventory.phx");
+        Price(0);
+        MaxStackCount(999);
+        Mesh("kitchen_pot_a.msh");
+		Skin("Clean_null");
+        InventoryMesh("lab_bottle_b.msh");
+        DroppedMesh("lab_bottle_b.msh");
+        ColorPreset("whiskey");
+        AnimPrefix("Bottle");
+        HudIcon("component_chemical");
+        UseTime(0.66);
+        UseSound("drinking.wav");
+        Buff("Mixture_WQ_Invert");
+        Color(Color_White);
+        CanBeUsedInSafeArea(false);
+        EquipmentSlot();
+    }
+
+    Item("MixtureWQ_SloMo", CategoryType_Powerup)
+    {
+        Visibility(true);
+        ItemType(ItemType_Injector);
+        PhysicsScript("single_dropped_inventory.phx");
+        Price(0);
+        MaxStackCount(999);
+        Mesh("kitchen_pot_a.msh");
+		Skin("Clean_null");
+        InventoryMesh("lab_bottle_b.msh");
+        DroppedMesh("lab_bottle_b.msh");
+        ColorPreset("whiskey");
+        AnimPrefix("Bottle");
+        HudIcon("component_chemical");
+        UseTime(0.66);
+        UseSound("drinking.wav");
+        Buff("Mixture_WQ_SloMo");
+        Color(Color_White);
+        CanBeUsedInSafeArea(false);
+        EquipmentSlot();
+    }
+
+    Item("MixtureWQ_Rot", CategoryType_Powerup)
+    {
+        Visibility(true);
+        ItemType(ItemType_Injector); 
+        PhysicsScript("single_dropped_inventory.phx");
+        Price(0);
+        MaxStackCount(999);
+        Mesh("kitchen_pot_a.msh");
+		Skin("Clean_null");
+        InventoryMesh("lab_bottle_b.msh");
+        DroppedMesh("lab_bottle_b.msh");
+        ColorPreset("whiskey");
+        AnimPrefix("Bottle");
+        HudIcon("component_chemical");
+        UseTime(0.66);
+        UseSound("drinking.wav");
+        Buff("Mixture_WQ_Rot");
+        Color(Color_White);
+        CanBeUsedInSafeArea(false);
+        EquipmentSlot();
+    }    
+    Item("Throwable_Water", CategoryType_ThrowableLiquid)
+    {
+        ItemType(ItemType_Grenade);
+        Visibility(true);
+        MaxStackCount(20);
+        Price(10);
+        Mesh("loot_ok_bottle_d.msh");
+		Skin("electricUP");
+        AnimPrefix("Water");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("quest_water");
+        Damage(0.0);
+        DamageRange(2.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Drowning);
+        DamageDuration(8.0);
+        ThrowImpulseLook(1300.0 *0.01);
+        ThrowImpulseUp(200.0 *0.01);
+        ExplosionFx("water_bottle_explo_sequence.fx");
+        ThrowFlyFx("");
+        ExplosionSound("glass_smash_XX.wav");
+        ExplodeOnCollision(true);
+        ExplodeDelay(-1.0);
+        EquipmentSlot(0);
+        AchType(AchType_Grenade);
+        SoundsCauseAggression(false);
+        ExplosionSoundMin(2.0);
+        ExplosionSoundVol(1.0);
+        Color(Color_White);
+    }
+	Item("Throwable_WaterMelon", CategoryType_ThrowableLiquid)
+    {
+        ItemType(ItemType_Grenade);
+        Visibility(true);
+        MaxStackCount(20);
+        Price(10);
+        Mesh("watermelon_a.msh");
+		Skin("default");
+        AnimPrefix("Water");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("quest_water");
+        Damage(20.0);
+        DamageRange(3.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Cold);
+        DamageDuration(8.0);
+        ThrowImpulseLook(1300.0 *0.01);
+        ThrowImpulseUp(200.0 *0.01);
+        ExplosionFx("water_bottle_explo_sequence.fx");
+        ThrowFlyFx("");
+        ExplosionSound("glass_smash_XX.wav");
+        ExplodeOnCollision(true);
+        ExplodeDelay(-1.0);
+        EquipmentSlot(0);
+        AchType(AchType_Grenade);
+        SoundsCauseAggression(false);
+        ExplosionSoundMin(2.0);
+        ExplosionSoundVol(1.0);
+    }
+    Item("Throwable_Fuel", CategoryType_ThrowableLiquid)
+    {
+        ItemType(ItemType_Grenade);
+        Visibility(true);
+        MaxStackCount(20);
+        Price(10);
+        Mesh("loot_ok_bottle_d.msh");
+		Skin("fireUP");
+        AnimPrefix("Water");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("quest_water");
+        Damage(0.0);
+        DamageRange(2.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Fuel);
+        DamageDuration(60.0);
+        ThrowImpulseLook(1300.0 *0.01);
+        ThrowImpulseUp(200.0 *0.01);
+        ExplosionFx("water_bottle_explo_sequence.fx");
+        ThrowFlyFx("");
+        ExplosionSound("glass_smash_XX.wav");
+        ExplodeOnCollision(true);
+        ExplodeDelay(-1.0);        
+        EquipmentSlot(0);
+        AchType(AchType_Grenade);
+        SoundsCauseAggression(false);
+        ExplosionSoundMin(2.0);        
+        ExplosionSoundVol(1.0);   
+        Color(Color_White);		
+	}
+    Item("Cloak", CategoryType_Powerup)
+    {
+		Name("&Craftplan_Cloak_Prime_N&");
+		Visibility(true);
+        ItemType(ItemType_Injector);
+        PhysicsScript("single_dropped_inventory.phx");
+        Price(100);
+        MaxStackCount(10);
+        Mesh("kitchen_pot_a.msh");
+		Skin("Clean_null");
+        InventoryMesh("lab_bottle_b.msh");
+        ColorPreset("whiskey");
+        AnimPrefix("Bottle");
+        HudIcon("component_chemical");
+        UseTime(0.66);
+        UseSound("drinking.wav");
+        Buff("Cloak");
+        Color(Color_White);
+		EquipmentSlot(0);
+    }
+
+    Item("misc_voletilesample", CategoryType_CraftComponent)
+    {
+        ItemType(ItemType_CraftComponent);
+        Visibility(true);
+        Price(100);
+        Mesh("craft_box_a.msh");
+        Skin("default");
+        MaxStackCount(30);
+        PhysicsScript("single_dropped_inventory.phx");
+        Color(Color_Blue);
+    }
+
+    Item("misc_recorder", CategoryType_Medkit)
+    {
+        ItemType(ItemType_StaminaBooster);
+        MaxStackCount(1);
+        Mesh("recorder.msh");        
+        Skin("flashing");        
+        AnimPrefix("PursuitBreakerSwitch");        
+        UseSound("recorder_push_button.wav");        
+        UseOnPickUp(true);
+        Visibility(true);
+        PhysicsScript("single_dropped_inventory.phx");
+        Color(Color_White);
+        UseTime(0.73);
+    }
+
+    Item("misc_walkietalkie", CategoryType_Medkit)
+    {
+        ItemType(ItemType_StaminaBooster);
+        MaxStackCount(1);
+        Mesh("walkie_talkie_a.msh");
+        Skin("ems");
+        AnimPrefix("PursuitBreakerSwitch");
+        HolderAngle([-90.0,0.0,-90.0]);
+        UseSound("recorder_push_button.wav");
+        UseOnPickUp(true);
+        Visibility(true);
+        PhysicsScript("single_dropped_inventory.phx");
+        Color(Color_White);
+        UseTime(0.73);
+    }
+
+    Item("misc_GREDevice", CategoryType_Medkit)
+    {
+        ItemType(ItemType_StaminaBooster);
+        MaxStackCount(1);
+        Mesh("walkie_talkie_a.msh");
+        Skin("Orange_EMS");
+        AnimPrefix("PursuitBreakerSwitch");
+        HolderAngle([-90.0,0.0,-90.0]);
+        UseSound("recorder_push_button.wav");
+        UseOnPickUp(true);
+        Visibility(true);
+        PhysicsScript("single_dropped_inventory.phx");
+        Color(Color_White);
+        UseTime(0.73);
+    }
+
+    Item("ZZ1Patch_misc_GREDevice_AtTheTower", CategoryType_Medkit)
+    {
+        Name("&misc_GREDevice_AtTheTower_N&");
+        Description("&misc_GREDevice_AtTheTower_D&");
+        ItemType(ItemType_StaminaBooster);
+        MaxStackCount(1);
+        Mesh("walkie_talkie_a.msh");
+        Skin("ems");
+        AnimPrefix("PursuitBreakerSwitch");
+        HolderAngle([-90.0,0.0,-90.0]);
+        UseSound("recorder_push_button.wav");
+        UseOnPickUp(true);
+        Visibility(true);
+        PhysicsScript("single_dropped_inventory.phx");
+        Color(Color_White);
+        UseTime(0.73);
+    }
+
+    Item("Throwable_Flashbang", CategoryType_Throwable)
+    {
+        ItemType(ItemType_Grenade);
+        Visibility(true);
+        AmmoCount(3);
+        MaxStackCount(15);
+        Price(300);
+        Mesh("cola_can_use.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("weapon_frag_grenade");
+        Damage(1.0);
+        DamageRange(6.0);
+        PhysicsDamageMul(1.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        DamageType(DamageType_Blast);
+        DamageDuration(0.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplosionSound("grenade_flash_bang_explosion_00.wav");
+        ExplodeDelay(2.0);
+        ThrowEndSound("throwing.wav");
+        StatsType(StatsType_Explosive);
+        NoiseType("EXPLOSION");
+        Color(Color_Green);
+        EquipmentSlot(0);
+        AchType(AchType_Grenade);
+    }
+
+    Item("Throwable_SmokeGrenade", CategoryType_ThrowableFlare)
+    {
+        Name("&Throwable_SmokeGrenade_N&");
+        Description("&Throwable_SmokeGrenade_D&");
+        ItemType(ItemType_Flare);
+        Visibility(true);
+        AmmoCount(1);
+        MaxStackCount(5);
+        Price(250);
+        Mesh("smoke_granade_static.msh");
+        Skin("default");
+        AnimPrefix("Flare");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("weapon_frag_grenade");
+        Condition(1);
+        Damage(0.0);
+        DamageRange(5.0);
+        PhysicsDamageMul(0.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        DamageType(DamageType_Blast);
+        Reparable(false);
+        DamageDuration(3.0);
+        ThrowImpulseLook(10.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(30.0);
+        ThrowEndSound("throwing.wav");
+        StatsType(StatsType_Explosive);
+        NoiseType("NONE");
+        Color(Color_White);
+        EquipmentSlot(0);
+        AchType(AchType_Grenade);
+        BurningFx("smoke_grenade_on_the_floor_sequence.fx");
+        BurningOnGroundFx("smokegranade_steam_sequence.fx");
+    }
+    
+	Item("Throwable_DevCraft1", CategoryType_Throwable)
+    {
+		Name("&Throwable_DevCraft1_N&");
+        Description("&Throwable_DevCraft1_D&");
+		DeveloperEffect("StasisField");
+        ItemType(ItemType_DeveloperGrenade);
+        Visibility(true);
+        AmmoCount(3);
+        MaxStackCount(15);
+        Price(500);
+        Mesh("wn_grenade_b.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("weapon_frag_grenade");
+        Damage(1.0);
+        DamageRange(6.0);
+        PhysicsDamageMul(1.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        DamageType(DamageType_StasisBlast);
+        DamageDuration(5.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplosionBuildUpSound("electricity_trap_exploding.ogg");
+        ExplodeDelay(2.5);
+        ThrowEndSound("throwing.wav");
+        StatsType(StatsType_Explosive);
+        NoiseType("EXPLOSION");
+        Color(Color_Orange);
+        EquipmentSlot(0);
+        AchType(AchType_Grenade);
+		SoundsCauseAggression(false);
+    }
+	
+	Item("Craftplan_Dev1", CategoryType_Collectable)
+    {
+        Name("&Craftplan_Dev1_N&");
+        ItemType(ItemType_CraftPlan);
+        Price(200000);
+        Mesh("blueprint.msh");
+        Skin("default_hl");
+        RequiredItem("Craft_Shroom", 20);
+		RequiredItem("Craft_Alcohol", 1);
+        Color(Color_Orange);
+        CraftedItem("Throwable_DevCraft1", 3, 5);
+        CraftplanType("Throwable");
+        HudIcon("blueprint_b");
+    }
+	
+	Item("DevCraftSiCKBomb", CategoryType_Throwable)
+    {
+		Name("&DevCraftSiCKBomb_N&");        
+		DeveloperEffect("FlyOnDamage");
+        ItemType(ItemType_DeveloperGrenade);
+        Visibility(true);
+        MaxStackCount(10);
+        Price(600);
+        Mesh("wn_petard_a.msh");
+        Skin("default");
+        AnimPrefix("Grenade");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("weapon_frag_grenade");
+        Damage(100.0);      
+        TakeDamageThreshold(100.0);        
+        PhysicsDamageMul(1.0);
+        DamageType(DamageType_Cut);		
+        DamageRange(5);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(1.2);
+        ThrowEndSound("zombie_spitter_blob_grenade_throw_00.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_Orange);
+        AchType(AchType_Grenade);
+        ExplosionSound("gas_tank_bottle_cracking.wav");
+        ExplosionFx("military_signal_flare_ignition_sequence.fx");    
+		DestroyFx("dw_gas_fart_sequence.fx");
+        EquipmentSlot(0);
+        FF_EffectName("Throw_Knife");
+    }
+	
+	Item("Craftplan_SiCKbomb", CategoryType_Collectable)
+    {
+        Name("&Craftplan_SiCKbomb_N&");
+		Description("&Craftplan_SiCKbomb_D&");		
+        ItemType(ItemType_CraftPlan);
+        Price(200000);
+        Mesh("blueprint.msh");
+        Skin("default_hl");
+        RequiredItem("Craft_UnderwaterAlgae", 20);
+		RequiredItem("Craft_Alcohol", 1);
+        Color(Color_Orange);
+        CraftedItem("DevCraftSiCKBomb", 5, 10);
+        CraftplanType("Throwable");
+        HudIcon("blueprint_b");
+    }
+	Item("DevRightHandofgloVA", CategoryType_Throwable)
+    {
+		Name("&DevRightHandofgloVA_N&");
+		DeveloperEffect("LowGravityThrowable");
+        ItemType(ItemType_DeveloperGrenade);
+        Visibility(true);
+        MaxStackCount(10);
+        Price(600);
+        Mesh("spit_grenade_blob.msh");   
+        Skin("default");
+        AnimPrefix("fireball");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("weapon_frag_grenade");
+        Damage(1000.0);      
+        TakeDamageThreshold(100.0);        
+        PhysicsDamageMul(2.0);
+        DamageType(DamageType_Impact);		
+        DamageRange(5.0);
+		HitBlastRange(5.0);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(1.2);
+        ThrowEndSound("zombie_spitter_blob_grenade_throw_00.wav");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_Orange);
+        AchType(AchType_Grenade);
+        ExplosionSound("electricity_arcing_end_00.ogg");
+        ExplosionFx("shock_grenade_explossion_sequence.fx");
+		ThrowFlySound("electricity_arcing_cable_loop_00.ogg");
+		ThrowBeginSound("electricity_arcing_end_01.ogg");
+		ThrowFlyFx("electric_developer_sequence.fx");
+        EquipmentSlot(0);
+		UniqueFxNameBase("developer");
+        FF_EffectName("Throw_Knife");
+    }
+	
+	Item("Craftplan_DevRHofgloVA", CategoryType_Collectable)
+    {
+        Name("&Craftplan_DevRHofgloVA_N&");
+		Description("&Craftplan_DevRHofgloVA_D&");	
+        ItemType(ItemType_CraftPlan);
+        Price(2000);
+        Mesh("blueprint.msh");
+        Skin("default_hl");
+		Elemental(Elemental_ShockElectricity, 2);
+        RequiredItem("Craft_ToxicPlant", 30);		
+		RequiredItem("Craft_Alcohol", 1);
+        Color(Color_Orange);
+        CraftedItem("DevRightHandofgloVA", 5, 10);
+        CraftplanType("Throwable");
+        HudIcon("blueprint_b");
+    }
+	Item("DevCraftSquirrelSuit", CategoryType_Throwable)
+    {
+		Name("&DevCraftSquirrelSuit_N&");
+		DeveloperEffect("SquirrelSuit");
+        ItemType(ItemType_DeveloperGrenade);
+        Visibility(true);
+        MaxStackCount(10);
+        Price(600);
+        Mesh("weapon_fists.msh");   
+        Skin("default");
+        AnimPrefix("SquirrelSuit");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("blueprint_b");
+        Damage(1000.0);      
+        TakeDamageThreshold(100.0);        
+        PhysicsDamageMul(4.0);
+        DamageType(DamageType_Impact);		
+        DamageRange(1.5);
+		HitBlastRange(1.5);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(13.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(1.2);        
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        Color(Color_Orange);
+        AchType(AchType_Grenade);
+        EquipmentSlot(0);
+        FF_EffectName("Throw_Knife");
+    }
+	
+	Item("Craftplan_DevSquirell", CategoryType_Collectable)
+    {
+        Name("&Craftplan_DevSquirell_N&");
+		Description("&Craftplan_DevSquirell_D&");	
+        ItemType(ItemType_CraftPlan);
+        Price(200000);
+        Mesh("blueprint.msh");
+        Skin("default_hl");
+        RequiredItem("Craft_Gauze", 10);
+		RequiredItem("Craft_DuctTape", 10);
+		RequiredItem("Craft_String", 10);
+		RequiredItem("Craft_Alcohol", 10);
+        Color(Color_Orange);
+        CraftedItem("DevCraftSquirrelSuit", 1, 1);
+        CraftplanType("Throwable");
+        HudIcon("blueprint_b");
+    }
+	
+	Item("DevCraftAirStrike", CategoryType_ThrowableFlare)
+    {   
+		Name("&DevCraftAirStrike_N&");
+		DeveloperEffect("AirStrike");
+        ItemType(ItemType_Flare);
+        Visibility(true);
+        MaxStackCount(10);
+        Price(50);
+        Mesh("flare_a.msh");
+        Skin("default");
+        AnimPrefix("Flare");
+        PhysicsScript("single_dropped_inventory.phx");
+        HudIcon("equipment_flare");
+        ShowExplosiveHud(true);
+        ExplosiveHudColor([1.0, 0.5, 0.5]);
+        TakeDamageThreshold(100.0);
+        Damage(1000.0);
+        DamageDuration(3.0);
+        PhysicsDamageMul(4.0);
+        DamageType(DamageType_Blast);
+        DamageRange(10);
+		HitBlastRange(10);
+        HeadCutProb(0.0);
+        ArmsCutProb(0.0);
+        LegsCutProb(0.0);
+        ThrowImpulseLook(10.0);
+        ThrowImpulseUp(2.0);
+        ExplodeDelay(15.0); // burn duration
+        ThrowBeginSound("");
+        ThrowEndSound("");
+        StatsType(StatsType_Explosive);
+        LootLevel(4);
+        LootType(LootType_Throwable);
+        NoiseType("NONE");
+        Color(Color_Orange);
+        AchType(AchType_Grenade);
+        Reparable(false); 
+        Condition(1);
+        EquipmentSlot(0);
+        BurningFx("military_signal_flare_in_hand_sequence.fx");
+        BurningOnGroundFx("military_signal_flare_ground_sequence.fx");
+        BurningTrailFx("military_signal_flare_in_hand_sequence.fx");
+        IgnitionFx("military_signal_flare_ignition_sequence.fx");
+        ObjectHitFx("military_signal_flare_hit_ground_sequence.fx");
+    }
+	
+	Item("Craftplan_DevAirStrike", CategoryType_Collectable)
+    {
+        Name("&Craftplan_DevAirStrike_N&");
+		Description("&Craftplan_DevAirStrike_D&");	
+        ItemType(ItemType_CraftPlan);
+        Price(200000);
+        Mesh("blueprint.msh");
+        Skin("default_hl");
+		RequiredItem("Craft_PowerCable", 10);
+		RequiredItem("Craft_Electronics", 10);
+        RequiredItem("Craft_TinCan", 10);
+		RequiredItem("Craft_Batteries", 10);
+		RequiredItem("Craft_Shroom", 10);
+        Color(Color_Orange);
+        CraftedItem("DevCraftAirStrike", 5, 10);
+        CraftplanType("Throwable");
+        HudIcon("blueprint_b");
+    }
+	
+	Item("DevCraftExcalibour", CategoryType_Melee)
+    {
+		Name("&DevCraftExcalibour_N&");
+		DeveloperEffect("LightningOnStrike");
+        Visibility(true);
+        ItemType(ItemType_TwoHandedCloseStick);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(7);
+        CriticalCondition(3);
+        Damage(321.0);
+        Force(200.0);
+        CriticalProb(0.0);
+        CriticalDamage(2.0);
+        DamageRange(180.0 *0.01);
+        DamageToPhysicsObjects(35.0);
+        PhysicsDamageMul(5.0);
+        StaminaUsage(0.2);
+        ConfusionProb(0.0);
+        HeadSmashProb(0.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        WeaponBuildType(WeaponBuildType_Metal);
+        DamageType(DamageType_Impact);
+        CutTypesGroup(CutTypesGroup_SharpHeavy);
+        Flags(1);
+        InventoryMeshHq("wn_long_sword_a.msh");
+        InventoryMesh("wn_long_sword_a.msh");
+        Mesh("wn_long_sword_a.msh");
+        SkinTag("Weapon_Craft0");
+        AnimPrefix("Stick2Close");
+        HudIcon("weapon_long_sword");
+        MinHitSeverity(HitSeverity_Medium);
+        MaxHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(true);
+        HolderElement("spine2");
+        HolderOffset([25.0,10.0,15.0] *[0.01, 0.01, 0.01]);
+        HolderAngle([90.0,20.0,90.0]);
+        DestroySound("break_wooden_weapon_00.wav");
+        AiHitSound("machete");
+        use HitEffects_Sharp();
+        use PickupSounds_Default();
+        DamageSize(5.0);
+        StatsType(StatsType_Cut);
+        FF_EffectName("Hit_Stick2Close");
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+        Reparable(true);
+        RepairTags("Weapon_Craft4");
+        RepairPart("Craft_MetalScrap", 1);
+        AllowedRepairs(0);
+        SoundDamagedHit("damaged_sharp_weapon_XX.wav");
+        ThrowEndSound("weapon_heavy_throw.wav");
+        Color(Color_Orange);
+        GenLevelMin(1);
+        GenLevelMax(1);
+        AchType(AchType_BaseballBat);
+        DismantleResultItem("Craft_MetalScrap");
+        DismantleResultItemCnt(2);
+        CraftingSlots(1,0);
+        UniqueFxNameBase("long_sword_a");
+        RestrictionFlags(0);
+        RagdollBehaviorPrefix("Stick2Close");
+        HandInertiaFactor(1.8);
+        Price(1);
+    }
+	
+	Item("Craftplan_DevExcalibour", CategoryType_Collectable)
+    {
+        Name("&Craftplan_DevExcalibour_N&");
+		Description("&Craftplan_DevExcalibour_D&");
+        ItemType(ItemType_CraftPlan);
+        Price(200000);
+        Mesh("blueprint.msh");
+        Skin("default_hl");
+		RequiredItem("Craft_Electronics", 5);
+        RequiredItem("Craft_MetalScrap", 10);
+		RequiredItem("Craft_PlasticTube", 10);
+		RequiredItem("Craft_PrimeTissue", 1);
+		RequiredItem("Craft_TinCan", 10);
+		RequiredItem("Craft_Alcohol", 10);
+        Color(Color_Orange);
+        CraftedItem("Melee_Expcalibur", 1);
+        CraftplanType("Weapon");
+        HudIcon("blueprint_b");
+    }
+		
+    Item("MacheteAKorek", CategoryType_Melee)
+    {
+        Name("&DevCraftKorekMachete_N&");
+        Description("&DevCraftKorekMachete_N&");
+        Visibility(true);
+        ItemType(ItemType_Stick);
+        PhysicsScript("single_dropped_inventory.phx");
+        UpgradeLevel(0);
+        Condition(35);
+        Damage(500.0);
+        Force(250.2);
+        CriticalProb(0.05);
+        CriticalDamage(2.0);
+        DamageRange(165.0 *0.01);
+        DamageToPhysicsObjects(50.0);
+        PhysicsDamageMul(1.0);
+        StaminaUsage(0.06);
+        HeadSmashProb(0.0);
+        HeadCutProb(1.0);
+        ArmsCutProb(1.0);
+        LegsCutProb(1.0);
+        DamageType(DamageType_Cut);
+        Mesh("wn_machete_a.msh");
+        SkinTag("Weapon_Craft0");
+        Skin("Korek");
+        AnimPrefix("Stick");
+        HudIcon("weapon_machete");
+        MinDamageAngle(-60.0);
+        MaxDamageAngle(45.0);
+        MinDamageMult(1.0);
+        MinHitSeverity(HitSeverity_Medium);
+        MaxHitSeverity(HitSeverity_Heavy);
+        HorizontalAttackDamageMul(1.0);
+        TwoHanded(false);
+        HolderElement("r_thigh");
+        HolderOffset([0.0,10.0,10.0] *[0.01, 0.01, 0.01]);
+        HolderAngle([0.0,0.0,-90.0]);
+        DestroySound("break_metal_weapon_00.wav");
+        AiHitSound("machete");
+        use HitEffects_Sharp_Heavy();
+        BloodSplatFactor(0.25);
+        use PickupSounds_Default();
+        DamageSize(10.0);
+        StatsType(StatsType_Cut);
+        LootType(LootType_Sharp);
+        FF_Left(0.6);
+        FF_Right(0.6);
+        FF_Duration(0.2);
+        FF_FadeOut(0.0);
+		Reparable(true);
+        RepairTags("Weapon_Craft4");
+        RepairPart("Craft_MetalScrap", 1);
+        AllowedRepairs(3);
+        Color(Color_Orange);
+        GenType(GenType_MeleeWeapon);
+        AchType(AchType_Machete);
+        NameGender(1);
+        CraftingSlots(4);
+        RestrictionFlags(0);
+        RagdollBehaviorPrefix("StickSharp");
+        HandInertiaFactor(1.8);
+        HandInertiaRotFactor([0.5, 1.0, 4.0]);
+        AttackSurface(SRF_Wood);
+    }
+
+	Item("Craftplan_DevKorekMachete", CategoryType_Collectable)
+    {
+        Name("&Craftplan_DevKorekMachete_N&");
+		Description("&Craftplan_DevKorekMachete_D&");
+        ItemType(ItemType_CraftPlan);
+        Price(200000);
+        Mesh("blueprint.msh");
+        Skin("default_hl");
+        RequiredItem("Craft_Alcohol", 10);
+		RequiredItem("Craft_MetalScrap", 20);
+        Color(Color_Orange);
+        CraftedItem("MacheteAKorek", 1);
+		CraftplanType("Weapon");
+        HudIcon("weapon_machete");
+    }
+    
+    Item("ZZ1Patch_Menu_Docket", CategoryType_Voucher)
+    {
+        Name("&Menu_Docket_N&");
+        Description("&Menu_Docket_D&");
+        ItemType(ItemType_Docket);
+        Visibility(false);
+        Price(0);
+        Mesh("collectable_wallet.msh");
+        Skin("default");
+        PhysicsScript("single_dropped_inventory.phx");
+        Color(Color_White);
+        HudIcon("docket_icon");
+    }
+    
+    Item("ZZ1Patch_M_CampanionAppVoucher", CategoryType_Voucher)
+    {
+        Name("&Menu_CampanionAppVoucher_N&");
+        Description("&Menu_CampanionAppVoucher_D&");
+        ItemType(ItemType_CampanionAppVoucher);
+        Visibility(true);
+        Price(0);
+        Mesh("collectable_wallet.msh");
+        Skin("default");
+        PhysicsScript("single_dropped_inventory.phx");
+        Color(Color_White);
+        HudIcon("app_loot_icon");
+    }
+    
+    Item("ZZ1Patch_MQ_CampanionAppVoucher", CategoryType_Voucher)
+    {
+        Name("&MenuQuartermaster_CampanionAppVoucher_N&");
+        Description("&MenuQuartermaster_CampanionAppVoucher_D&");
+        ItemType(ItemType_CampanionAppVoucher);
+        Visibility(true);
+        Price(0);
+        Mesh("collectable_wallet.msh");
+        Skin("default");
+        PhysicsScript("single_dropped_inventory.phx");
+        Color(Color_White);
+        HudIcon("app_loot_icon");
+    }
+    
+    Item("ZZ1Patch_CHEAT_AddDocket", CategoryType_Voucher)
+    {
+        Name("&CHEAT_AddDocket_N&");
+        Description("&CHEAT_AddDocket_D&");
+        ItemType(ItemType_Docket);
+        Visibility(true);
+        Price(0);
+        Mesh("collectable_wallet.msh");
+        Skin("default");
+        PhysicsScript("single_dropped_inventory.phx");
+        Color(Color_White);
+        HudIcon("docket_icon");
+    }
+
+	
+	
+    DamageAndForceSpreadCurve(Color_White, "wpn_melee_damage_spread_white");
+    DamageAndForceSpreadCurve(Color_Green, "wpn_melee_damage_spread_green");
+    DamageAndForceSpreadCurve(Color_Blue, "wpn_melee_damage_spread_blue");
+    DamageAndForceSpreadCurve(Color_Violet, "wpn_melee_damage_spread_violet");
+    DamageAndForceSpreadCurve(Color_Orange, "wpn_melee_damage_spread_orange");
+    
+    CraftSlotsBonus(Color_White,  0, 0);
+    CraftSlotsBonus(Color_Green,  0, 0);
+    CraftSlotsBonus(Color_Blue,   1, 0);
+    CraftSlotsBonus(Color_Violet, 2, 0);
+    CraftSlotsBonus(Color_Orange, 2, 0);
+    
+    RepairSlotsBonus(Color_Green,  0);
+    RepairSlotsBonus(Color_Blue,   0);
+    RepairSlotsBonus(Color_Violet, 1);
+    RepairSlotsBonus(Color_Orange, 2);
+    
+    DurabilityPercentageBonus(Color_Green,  10);
+    DurabilityPercentageBonus(Color_Blue,   25);
+    DurabilityPercentageBonus(Color_Violet, 40);
+    DurabilityPercentageBonus(Color_Orange, 50);
+    
+    DismantleResult(Color_White, "Craft_MetalScrap", 1);
+    DismantleResult(Color_Green, "Craft_MetalScrap", 1);
+    DismantleResult(Color_Blue, "Craft_MetalScrap", 1);
+    DismantleResult(Color_Violet, "Craft_MetalScrap", 2);
+    DismantleResult(Color_Orange, "Craft_MetalScrap", 3);
+    
+    CraftingSlotsValueCurve("crafting_slots_value_mul");
+    ConditionValueCurve("condition_value_mul");
+    RepairsLeftValueCurve("repairs_left_value_mul");
+}
