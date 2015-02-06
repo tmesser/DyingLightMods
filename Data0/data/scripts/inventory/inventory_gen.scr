@@ -1,4 +1,6 @@
 //This script is generated from Inventory.xlsm. Don't modify it!!!
+// tmesser 02/05/2015 - This file handles definition of various weapons and their statistics.  
+// It does not seem to have anything to do with actually generating loot in-game.
 
 import "inventorystuff.scr" 
 sub main() 
