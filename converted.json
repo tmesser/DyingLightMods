@@ -1670,7 +1670,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/Getastore'svariantresponse"
+              "$ref": "#/definitions/Getastoresvariantresponse"
             }
           }
         }
