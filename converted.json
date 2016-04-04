@@ -3812,7 +3812,7 @@
         "listings"
       ]
     },
-    "GetaStore'sProductresponse": {
+    "GetaStoresProductresponse": {
       "title": "Get a Store's Product response",
       "type": "object",
       "properties": {
