@@ -1634,7 +1634,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/GetaStore'sProductresponse"
+              "$ref": "#/definitions/GetaStoresProductresponse"
             }
           }
         }
