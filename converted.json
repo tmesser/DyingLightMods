@@ -3939,7 +3939,7 @@
         "options"
       ]
     },
-    "Getastore'svariantresponse": {
+    "Getastoresvariantresponse": {
       "title": "Get a store's variant response",
       "type": "object",
       "properties": {
